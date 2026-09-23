@@ -1,0 +1,932 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GitHub Trending 每日分析</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --fg: #1b1f24; --muted: #6b7280; --card: #ffffff; --line: #e5e7eb;
+    --accent: #2563eb; --accent-soft: #eff4ff; --warm: #b45309; --warm-soft: #fff7ed;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115; --fg: #e6e8eb; --muted: #9aa3af; --card: #171a21; --line: #262b35;
+      --accent: #7aa2ff; --accent-soft: #16203a; --warm: #f0b775; --warm-soft: #2a1f12;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+    font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 28px 18px 64px; }
+  header.top { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: baseline; justify-content: space-between; }
+  h1 { font-size: 22px; margin: 0 0 6px; letter-spacing: .2px; }
+  .nav { color: var(--muted); font-size: 13px; }
+  .nav a { color: var(--accent); text-decoration: none; }
+  .lead { color: var(--muted); font-size: 13px; margin: 6px 0 22px; }
+  section.day { margin: 34px 0 0; padding-top: 22px; border-top: 1px solid var(--line); }
+  .day-head { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; }
+  h2 { font-size: 19px; margin: 0; }
+  .day-sub { color: var(--muted); font-size: 13px; }
+  h3 { font-size: 15px; margin: 22px 0 12px; }
+  h4 { font-size: 14px; margin: 0 0 8px; }
+  .note, .repo-meta { color: var(--muted); font-weight: 400; font-size: 12px; }
+  details.notes { margin: 12px 0; background: var(--warm-soft); border: 1px solid var(--line);
+    border-radius: 10px; padding: 10px 14px; font-size: 13px; }
+  details.notes summary { cursor: pointer; color: var(--warm); font-weight: 600; }
+  details.notes ul { margin: 8px 0 0 18px; padding: 0; }
+  .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 13px 14px; }
+  .card-head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .rank { color: var(--muted); font-variant-numeric: tabular-nums; font-size: 12px; }
+  .repo { color: var(--accent); text-decoration: none; font-weight: 600; word-break: break-all; }
+  .repo:hover { text-decoration: underline; }
+  .meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 8px 0 6px; font-size: 12px; color: var(--muted); }
+  .chip { border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; font-size: 11px; }
+  .src-daily { color: var(--accent); border-color: var(--accent); background: var(--accent-soft); }
+  .src-weekly { color: var(--warm); border-color: var(--warm); background: var(--warm-soft); }
+  .stars { font-variant-numeric: tabular-nums; }
+  .delta { color: var(--accent); font-variant-numeric: tabular-nums; }
+  .summary { margin: 4px 0; }
+  .highlight { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+  .highlight b { color: var(--fg); }
+  .repo-block { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 13px 15px; margin-bottom: 12px; }
+  ul.commits { margin: 0; padding-left: 18px; }
+  ul.commits li { margin-bottom: 7px; }
+  .commit-title { font-size: 13.5px; }
+  .commit-meta { color: var(--muted); font-size: 12px; }
+  section.obs ul { margin: 0; padding-left: 18px; background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; padding: 14px 16px 14px 32px; }
+  section.obs li { margin-bottom: 8px; font-size: 14px; }
+  .empty { color: var(--muted); }
+  footer { margin-top: 40px; color: var(--muted); font-size: 12px; }
+  code { background: var(--accent-soft); padding: 1px 5px; border-radius: 5px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <h1>GitHub Trending 每日分析</h1>
+      <div class="lead">由 06:00 的定时任务自动生成 · 共 3 天记录 · 最新 2026-09-23</div>
+    </div>
+    <nav class="nav"><a href="#d-2026-09-23">09-23</a> · <a href="#d-2026-09-22">09-22</a> · <a href="#d-2026-09-21">09-21</a></nav>
+  </header>
+
+    <section class="day" id="d-2026-09-23">
+      <div class="day-head">
+        <h2>2026-09-23</h2>
+        <span class="day-sub">GitHub Trending 分析 · 日榜 8 条 + 周榜补位 12 条</span>
+      </div>
+      <details class="notes"><summary>数据说明</summary><ul><li>gh CLI 未登录（gh auth status 未授权），已改用 curl 直连 GitHub 公共 API 与网页，未认证但全部请求成功。</li><li>Trending 全语言「今日榜」页面本次仅返回 8 条，故从「本周榜」补位 12 条凑齐 20 个（条目中已标注来源）。</li></ul></details>
+      <section class="sub">
+        <h3>仓库提交简报 <span class="note">过去 24 小时（已换算为北京时间）</span></h3>
+        
+        <div class="repo-block">
+          <h4>deepseek-ai/deepseek-harness <span class="repo-meta">master · 24h 内 30 条提交 · 非常活跃</span></h4>
+          <ul class="commits">
+          <li><div class="commit-title">release(dsh) 0.1.7-alpha.2（PR #4978）</div>
+        <div class="commit-meta">发布新版 alpha · imccyu · 09-22 23:25</div></li>
+          <li><div class="commit-title">release(vendor)：批量升级 cordis 4.0.4 / cosmokit 1.8.5 / schemastery 3.18.4 等（PR #4975）</div>
+        <div class="commit-meta">内部依赖统一发版 · imccyu · 23:12</div></li>
+          <li><div class="commit-title">fix(chat)：去重已被接纳的本地 steering 指令</div>
+        <div class="commit-meta">修正输入回显与顺序 · imccyu · 22:47</div></li>
+          <li><div class="commit-title">fix(web)：Remote WebSocket 需等应用就绪才连通（PR #4964 fix-reconnect）</div>
+        <div class="commit-meta">修复重连时序 · imccyu · 21:00</div></li>
+          <li><div class="commit-title">模型发现按 display name 展示（PR #4961）+ 插件安装按国家注册表（PR #4907）</div>
+        <div class="commit-meta">web 端可见性与插件市场本地化 · Yichen Jiang · 19:56 / 19:51</div></li>
+          <li><div class="commit-title">崩溃诊断与 fatal 报告修复（PR #4919）</div>
+        <div class="commit-meta">提升稳定性 · winewill · 19:01</div></li>
+          </ul>
+        </div>
+        <div class="repo-block">
+          <h4>earendil-works/pi <span class="repo-meta">main · 24h 内 19 条提交</span></h4>
+          <ul class="commits">
+          <li><div class="commit-title">Release v0.87.1 + 补全 [Unreleased] changelog</div>
+        <div class="commit-meta">版本发布 · Armin Ronacher · 09-23 03:28</div></li>
+          <li><div class="commit-title">feat(ai,coding-agent)：支持 GPT-6 Sol / Luna</div>
+        <div class="commit-meta">接入新模型 · Armin Ronacher · 02:57</div></li>
+          <li><div class="commit-title">fix(ai)：稳定 Claude Opus 5.5 的 effort 级别</div>
+        <div class="commit-meta">修推理档位 · Armin Ronacher · 03:26</div></li>
+          <li><div class="commit-title">feat(ai,coding-agent)：支持 Claude Opus 5.5</div>
+        <div class="commit-meta">新模型接入 · Armin Ronacher · 00:46</div></li>
+          <li><div class="commit-title">feat：新增 durable SQLite 存储后端 + 版本化文档存储</div>
+        <div class="commit-meta">持久化能力 · Mario Zechner · 09-22 23:46 / 19:54</div></li>
+          <li><div class="commit-title">feat(ai,coding-agent)：新增 Grok 4.7 支持</div>
+        <div class="commit-meta">模型矩阵扩充 · Armin Ronacher · 09-22 06:07</div></li>
+          </ul>
+        </div>
+        <div class="repo-block">
+          <h4>anomalyco/opencode <span class="repo-meta">dev · 24h 内 6 条提交</span></h4>
+          <ul class="commits">
+          <li><div class="commit-title">feat(openai)：Codex 支持 GPT-6 Sol 与 Luna（#50704）</div>
+        <div class="commit-meta">opencode-agent[bot] · 09-23 02:36</div></li>
+          <li><div class="commit-title">docs(web)：Zen 文档补充 Claude Opus 5.5 / GPT 6 Sol / GPT 6 Luna（#50708）</div>
+        <div class="commit-meta">Daniel Chen · 02:54</div></li>
+          <li><div class="commit-title">fix(console)：限制 Black 的 legacy 访问（#50716）</div>
+        <div class="commit-meta">vprdev · 03:23</div></li>
+          <li><div class="commit-title">sync release versions for v1.18.32</div>
+        <div class="commit-meta">发版同步（另有 2 条 bot 生成的 chore 提交，属噪音已略） · opencode · 09-22 06:51</div></li>
+          </ul>
+        </div>
+      </section>
+      <section class="sub">
+        <h3>GitHub Trending 分析（20 项）</h3>
+        <div class="grid">
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#1</span>
+          <a class="repo" href="https://github.com/anthropics/financial-services" target="_blank" rel="noreferrer">anthropics/financial-services</a>
+          <span class="chip src src-daily">日榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-python">Python</span><span class="stars">★ 36,289</span><span class="delta">+436</span></div>
+        <p class="summary">Claude 金融服务参考 agent 库，覆盖投行、股票研究、PE、财富管理，含 agent/skill/数据连接器。</p>
+        <p class="highlight"><b>亮点</b> 同一套源码可作 Claude Cowork 插件或经 Managed Agents API 部署，内含 9 个命名 agent（Pitch Agent、GL Reconciler、KYC Screener 等），并强调所有产出需人工签核。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#2</span>
+          <a class="repo" href="https://github.com/agent-substrate/substrate" target="_blank" rel="noreferrer">agent-substrate/substrate</a>
+          <span class="chip src src-daily">日榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-go">Go</span><span class="stars">★ 2,923</span><span class="delta">+301</span></div>
+        <p class="summary">安全默认的 agent 执行运行时，专为百万级沙箱设计。</p>
+        <p class="highlight"><b>亮点</b> 宣称比常规容器密度高 10x，&lt;500ms 恢复、每秒 500+ 次挂起/恢复，支持 microVM 与 gVisor，构建在 K8s 之上；README 明确标注非 Google 官方支持产品，仍处早期。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#3</span>
+          <a class="repo" href="https://github.com/dream-num/univer" target="_blank" rel="noreferrer">dream-num/univer</a>
+          <span class="chip src src-daily">日榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-typescript">TypeScript</span><span class="stars">★ 15,330</span><span class="delta">+202</span></div>
+        <p class="summary">全栈同构 Office SDK，可嵌入表格/文档/演示。</p>
+        <p class="highlight"><b>亮点</b> 描述已更新为「The Office Harness for AI Agents」，Canvas 渲染 + 公式引擎，浏览器与 Node 共用一套 Facade API。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#4</span>
+          <a class="repo" href="https://github.com/davila7/claude-code-templates" target="_blank" rel="noreferrer">davila7/claude-code-templates</a>
+          <span class="chip src src-daily">日榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-python">Python</span><span class="stars">★ 31,082</span><span class="delta">+113</span></div>
+        <p class="summary">配置与监控 Claude Code 的 CLI 工具。</p>
+        <p class="highlight"><b>亮点</b> 由 Bright Data、Z.AI、Neon 等赞助，已进 Vercel/Neon OSS 计划。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#5</span>
+          <a class="repo" href="https://github.com/google/ax" target="_blank" rel="noreferrer">google/ax</a>
+          <span class="chip src src-daily">日榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-go">Go</span><span class="stars">★ 7,481</span><span class="delta">+2,324</span></div>
+        <p class="summary">Google 开源的高吞吐声明式 agent 编排运行时。</p>
+        <p class="highlight"><b>亮点</b> 用 YAML 声明 Task/Workspace/Gateway/Model，支持 ax ssh/apply/suspend/resume，网络出口白名单，跑在 Agent Substrate 之上，目标是每集群跑数十亿任务。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#6</span>
+          <a class="repo" href="https://github.com/mvt-project/mvt" target="_blank" rel="noreferrer">mvt-project/mvt</a>
+          <span class="chip src src-daily">日榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-python">Python</span><span class="stars">★ 14,033</span><span class="delta">+441</span></div>
+        <p class="summary">Amnesty 出品的移动端取证工具，用于排查 iOS/Android 是否被 Pegasus 类间谍软件入侵。</p>
+        <p class="highlight"><b>亮点</b> 近期合并 v3 分支，含破坏性变更（官方已发告示）。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#7</span>
+          <a class="repo" href="https://github.com/superdesigndev/treg" target="_blank" rel="noreferrer">superdesigndev/treg</a>
+          <span class="chip src src-daily">日榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-python">Python</span><span class="stars">★ 2,167</span><span class="delta">+197</span></div>
+        <p class="summary">「agent 工具的 OpenRouter」——一个 base URL + 一个 token 调 3000+ 端点、60+ 供应商（SEO、社媒、抓取、图像/视频生成）。</p>
+        <p class="highlight"><b>亮点</b> 按次计费、服务端注入凭证，团队自有 key 优先且不计费；仓库带 dsh-plugin 话题。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#8</span>
+          <a class="repo" href="https://github.com/browser-use/video-use" target="_blank" rel="noreferrer">browser-use/video-use</a>
+          <span class="chip src src-daily">日榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-python">Python</span><span class="stars">★ 25,789</span><span class="delta">+155</span></div>
+        <p class="summary">用编码 agent 剪视频，丢素材进目录、对话产出 final.mp4。</p>
+        <p class="highlight"><b>亮点</b> 自动去口癖/停顿、调色、烧字幕、并行子 agent 生成动画叠层，并在每个剪切点自评估渲染结果；注意主仓库最近推送停在 08-30。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#9</span>
+          <a class="repo" href="https://github.com/alibaba/open-code-review" target="_blank" rel="noreferrer">alibaba/open-code-review</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-go">Go</span><span class="stars">★ 39,707</span><span class="delta">周 +14,499</span></div>
+        <p class="summary">混合架构代码审查：确定性流水线 + LLM Agent，行级精准评论。</p>
+        <p class="highlight"><b>亮点</b> 阿里大规模实战验证。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#10</span>
+          <a class="repo" href="https://github.com/anthropics/claude-code" target="_blank" rel="noreferrer">anthropics/claude-code</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-typescript">TypeScript</span><span class="stars">★ 147,649</span><span class="delta">周 +2,731</span></div>
+        <p class="summary">终端内运行的 agentic 编码工具，理解整个代码库并执行常规任务。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#11</span>
+          <a class="repo" href="https://github.com/Tencent/WeKnora" target="_blank" rel="noreferrer">Tencent/WeKnora</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-go">Go</span><span class="stars">★ 28,920</span><span class="delta">周 +5,455</span></div>
+        <p class="summary">开源 LLM 知识平台：把原始文档转成可查询 RAG、自主推理 agent 和自维护 Wiki。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#12</span>
+          <a class="repo" href="https://github.com/affaan-m/ECC" target="_blank" rel="noreferrer">affaan-m/ECC</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-javascript">JavaScript</span><span class="stars">★ 265,366</span><span class="delta">周 +6,865</span></div>
+        <p class="summary">自称「agent harness 操作系统 / 性能优化系统」，提供 skills、instincts、memory、安全与研究优先开发流程。</p>
+        <p class="highlight"><b>亮点</b> 兼容 Claude Code、Codex、Opencode、Cursor。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#13</span>
+          <a class="repo" href="https://github.com/anthropics/knowledge-work-plugins" target="_blank" rel="noreferrer">anthropics/knowledge-work-plugins</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-python">Python</span><span class="stars">★ 25,427</span><span class="delta">周 +1,350</span></div>
+        <p class="summary">面向知识工作者的 Cowork 插件集，一次开源 11 个职能插件（产品、销售、法务、财务、数据、企业搜索、生物研究等）。</p>
+        <p class="highlight"><b>亮点</b> 带各系统连接器。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#14</span>
+          <a class="repo" href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noreferrer">addyosmani/agent-skills</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-javascript">JavaScript</span><span class="stars">★ 98,432</span><span class="delta">周 +4,197</span></div>
+        <p class="summary">面向 AI 编码 agent 的生产级工程技能。</p>
+        <p class="highlight"><b>亮点</b> 9 个斜杠命令贯穿 /spec → /plan → /build → /test → /review → /ship。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#15</span>
+          <a class="repo" href="https://github.com/JustVugg/colibri" target="_blank" rel="noreferrer">JustVugg/colibri</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-c">C</span><span class="stars">★ 37,121</span><span class="delta">周 +5,565</span></div>
+        <p class="summary">纯 C、零依赖引擎，把存储/RAM/VRAM 当作统一推理层级，在消费级硬件上跑 744B–2.8T 的 MoE 前沿模型（专家权重从磁盘流式加载）。</p>
+        <p class="highlight"><b>亮点</b> 已支持 GLM-5.x、Kimi K3、DeepSeek V4.x 等 9 个模型族。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#16</span>
+          <a class="repo" href="https://github.com/TencentCloud/Octop" target="_blank" rel="noreferrer">TencentCloud/Octop</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-python">Python</span><span class="stars">★ 4,619</span><span class="delta">周 +2,177</span></div>
+        <p class="summary">更聪明的自托管 AI 助手，主打多用户、多 agent。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#17</span>
+          <a class="repo" href="https://github.com/stablyai/orca" target="_blank" rel="noreferrer">stablyai/orca</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-typescript">TypeScript</span><span class="stars">★ 75,546</span><span class="delta">周 +6,125</span></div>
+        <p class="summary">并行 agent 的 ADE：让 Codex / ClaudeCode / OpenCode / Pi 各跑在独立 worktree 并统一追踪。</p>
+        <p class="highlight"><b>亮点</b> 桌面 + 移动 + 远程运行时，可用自有订阅。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#18</span>
+          <a class="repo" href="https://github.com/danny-avila/LibreChat" target="_blank" rel="noreferrer">danny-avila/LibreChat</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-typescript">TypeScript</span><span class="stars">★ 44,671</span><span class="delta">周 +1,401</span></div>
+        <p class="summary">增强版 ChatGPT 克隆，内置 Agents、MCP、Skills。</p>
+        <p class="highlight"><b>亮点</b> 聚合 DeepSeek/Anthropic/OpenAI/Azure/Groq 等多家模型。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#19</span>
+          <a class="repo" href="https://github.com/home-assistant/core" target="_blank" rel="noreferrer">home-assistant/core</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-python">Python</span><span class="stars">★ 91,059</span><span class="delta">周 +526</span></div>
+        <p class="summary">开源家庭自动化平台，强调本地控制与隐私。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#20</span>
+          <a class="repo" href="https://github.com/cline/cline" target="_blank" rel="noreferrer">cline/cline</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-typescript">TypeScript</span><span class="stars">★ 69,074</span><span class="delta">周 +1,204</span></div>
+        <p class="summary">自主编码 agent，提供 SDK、IDE 扩展与 CLI 三种形态。</p>
+        
+      </article>
+        </div>
+      </section>
+      <section class="sub obs"><h3>趋势观察</h3><ul>
+        <li>「Agent 基础设施」是当前最密集的赛道：Substrate 与 Google AX 在解决沙箱化、状态挂起/恢复与超大规模编排，ECC、agent-skills 则在优化 agent harness 本身的技能与记忆。</li>
+        <li>编码 agent 生态继续分化：claude-code / opencode / cline / pi 争抢终端入口，Orca 这类「并行调度多 agent」的 ADE 开始出现，说明单 agent 已不够用。</li>
+        <li>纵向落地的 agent 明显增多：金融（financial-services）、视频剪辑（video-use）、工具凭证与调用（treg），共同点是「统一凭证 + 按次计费 + 人工签核」。</li>
+        <li>前沿模型（GPT-6 Sol/Luna、Claude Opus 5.5、Grok 4.7、Kimi K3）在 24 小时内密集接入各大工具链，模型发布到工具适配的延迟已被压到几乎为零。</li>
+        <li>硬件侧出现「小引擎跑大模型」的方向（colibri 纯 C 流式加载 MoE），与云端超大规模 agent 运行时形成两极；安全取证类（MVT）也因间谍软件议题重回榜单。</li>
+      </ul></section>
+    </section>
+
+    <section class="day" id="d-2026-09-22">
+      <div class="day-head">
+        <h2>2026-09-22</h2>
+        <span class="day-sub">GitHub Trending 分析 · 日榜 12 条 + 周榜补位 8 条</span>
+      </div>
+      <details class="notes"><summary>数据说明</summary><ul><li>数据来源：GitHub REST API（未登录，60 次/小时限额）+ github.com/trending 抓取；抓取时间 09-22 06:05。</li><li>github.com/trending 日榜本次只返回 12 个仓库（多次刷新一致，未满 20），故在日榜 12 个之外，用周榜中未入围日榜的项目补足到 20 个（第 13–20 条标注为周榜）。</li></ul></details>
+      <section class="sub">
+        <h3>仓库提交简报 <span class="note">09-20 22:00Z → 09-21 22:00Z</span></h3>
+        
+        <div class="repo-block">
+          <h4>deepseek-ai/deepseek-harness <span class="repo-meta">master · 24h 内无新提交</span></h4>
+          <ul class="commits">
+          <li><div class="commit-title">过去 24 小时无新提交</div>
+        <div class="commit-meta">仓库最近一次推送为 09-17 13:30Z，本期无动态 · — · —</div></li>
+          </ul>
+        </div>
+        <div class="repo-block">
+          <h4>earendil-works/pi <span class="repo-meta">main · 24h 内 17 个提交（取 6 条）</span></h4>
+          <ul class="commits">
+          <li><div class="commit-title">feat: add canonical session context boundaries</div>
+        <div class="commit-meta">引入规范化的会话上下文边界模型 · Mario Zechner · 09-21 22:29</div></li>
+          <li><div class="commit-title">feat: add transactional replicated state</div>
+        <div class="commit-meta">新增事务化的可复制状态机制 · Mario Zechner · 09-21 22:07</div></li>
+          <li><div class="commit-title">Release v0.87.0</div>
+        <div class="commit-meta">发布 0.87.0 并开启下一轮 Unreleased 变更日志 · Armin Ronacher · 09-22 00:31</div></li>
+          <li><div class="commit-title">fix(coding-agent): keep prompt and tool state across context handlers (#9846)</div>
+        <div class="commit-meta">修复上下文处理器切换时丢失 prompt 与工具状态 · Armin Ronacher · 09-21 23:14</div></li>
+          <li><div class="commit-title">fix(tui): prevent jump-to-end label from shifting when scrollbar hides (#9842)</div>
+        <div class="commit-meta">修复滚动条隐藏时「跳到末尾」标签错位 · Ramiz Wachtler · 09-21 23:16</div></li>
+          <li><div class="commit-title">fix(ai): omit empty text parts from multimodal user messages</div>
+        <div class="commit-meta">多模态消息中剔除空 text part · David Brailovsky · 09-22 03:48</div></li>
+          </ul>
+        </div>
+        <div class="repo-block">
+          <h4>anomalyco/opencode <span class="repo-meta">dev · 24h 内 11 个提交（取 6 条）</span></h4>
+          <ul class="commits">
+          <li><div class="commit-title">fix(core): break filesystem search import cycle (#50439)</div>
+        <div class="commit-meta">打断文件系统搜索模块的循环依赖 · Aiden Cline · 09-22 05:41</div></li>
+          <li><div class="commit-title">fix(core): resolve npm package entrypoint to a file under Node (#50413)</div>
+        <div class="commit-meta">修正 Node 下 npm 包入口解析到文件 · Aiden Cline · 09-22 03:36</div></li>
+          <li><div class="commit-title">feat: add Grok 4.7 to Zen and Go (#50288)</div>
+        <div class="commit-meta">在 Zen/Go 中接入 Grok 4.7 模型 · Daniel Chen · 09-21 23:32</div></li>
+          <li><div class="commit-title">docs: add MiMo V2.6 models (#50395)</div>
+        <div class="commit-meta">新增 MiMo V2.6 模型文档 · Jack · 09-22 03:55</div></li>
+          <li><div class="commit-title">fix(console): authenticate inference proxy</div>
+        <div class="commit-meta">为推理代理加上鉴权 · Frank · 09-21 16:40</div></li>
+          <li><div class="commit-title">fix(opencode): hoist Bedrock tool images except Claude, Nova, and Llama 4 (#50272)</div>
+        <div class="commit-meta">修复 Bedrock 工具图片处理（Claude/Nova/Llama 4 除外） · Aiden Cline · 09-21 11:31</div></li>
+          </ul>
+        </div>
+      </section>
+      <section class="sub">
+        <h3>GitHub Trending 分析（20 项）</h3>
+        <div class="grid">
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#1</span>
+          <a class="repo" href="https://github.com/BuilderIO/agent-native" target="_blank" rel="noreferrer">BuilderIO/agent-native</a>
+          <span class="chip src src-daily">日榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-typescript">TypeScript</span><span class="stars">★ 5,842</span><span class="delta">+607</span></div>
+        <p class="summary">构建 agentic 应用的框架。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#2</span>
+          <a class="repo" href="https://github.com/trycua/cua" target="_blank" rel="noreferrer">trycua/cua</a>
+          <span class="chip src src-daily">日榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-html">HTML</span><span class="stars">★ 25,659</span><span class="delta">+609</span></div>
+        <p class="summary">面向 computer-use 2.0 的开源驱动、跨系统 fleet 与训练/评测/数据生成基准。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#3</span>
+          <a class="repo" href="https://github.com/Open-Dev-Society/OpenStock" target="_blank" rel="noreferrer">Open-Dev-Society/OpenStock</a>
+          <span class="chip src src-daily">日榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-typescript">TypeScript</span><span class="stars">★ 17,638</span><span class="delta">+843（今日涨幅最高）</span></div>
+        <p class="summary">开源行情平台替代品：实时价格、个性化提醒、公司洞察，永久免费。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#4</span>
+          <a class="repo" href="https://github.com/akitaonrails/ai-memory" target="_blank" rel="noreferrer">akitaonrails/ai-memory</a>
+          <span class="chip src src-daily">日榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-rust">Rust</span><span class="stars">★ 7,630</span><span class="delta">+217</span></div>
+        <p class="summary">为 agent 编码 CLI 提供长期记忆，并支持在不同 agent 厂商之间交接。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#5</span>
+          <a class="repo" href="https://github.com/coder/coder" target="_blank" rel="noreferrer">coder/coder</a>
+          <span class="chip src src-daily">日榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-go">Go</span><span class="stars">★ 16,391</span><span class="delta">+461</span></div>
+        <p class="summary">为开发者及其 agent 提供安全的远程开发环境。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#6</span>
+          <a class="repo" href="https://github.com/anthropics/financial-services" target="_blank" rel="noreferrer">anthropics/financial-services</a>
+          <span class="chip src src-daily">日榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-python">Python</span><span class="stars">★ 35,783</span><span class="delta">+425</span></div>
+        <p class="summary">Claude 金融服务参考 agent 库。</p>
+        <p class="highlight"><b>亮点</b> API 与页面均未提供描述，功能暂无权威说明（不臆测）。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#7</span>
+          <a class="repo" href="https://github.com/cloudflare/quiche" target="_blank" rel="noreferrer">cloudflare/quiche</a>
+          <span class="chip src src-daily">日榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-rust">Rust</span><span class="stars">★ 12,323</span><span class="delta">+69</span></div>
+        <p class="summary">Cloudflare 的 QUIC 传输协议与 HTTP/3 实现。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#8</span>
+          <a class="repo" href="https://github.com/mvt-project/mvt" target="_blank" rel="noreferrer">mvt-project/mvt</a>
+          <span class="chip src src-daily">日榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-python">Python</span><span class="stars">★ 13,545</span><span class="delta">+177</span></div>
+        <p class="summary">移动设备取证工具，用于发现设备被入侵的痕迹。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#9</span>
+          <a class="repo" href="https://github.com/zhouxiaoka/autoclip" target="_blank" rel="noreferrer">zhouxiaoka/autoclip</a>
+          <span class="chip src src-daily">日榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-python">Python</span><span class="stars">★ 8,184</span><span class="delta">+266</span></div>
+        <p class="summary">AI 驱动的视频高光提取与剪辑（二创）工具。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#10</span>
+          <a class="repo" href="https://github.com/ruanyf/weekly" target="_blank" rel="noreferrer">ruanyf/weekly</a>
+          <span class="chip src src-daily">日榜</span>
+        </div>
+        <div class="meta"><span class="stars">★ 103,896</span><span class="delta">+221</span></div>
+        <p class="summary">阮一峰《科技爱好者周刊》，每周五发布。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#11</span>
+          <a class="repo" href="https://github.com/Crosstalk-Solutions/project-nomad" target="_blank" rel="noreferrer">Crosstalk-Solutions/project-nomad</a>
+          <span class="chip src src-daily">日榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-typescript">TypeScript</span><span class="stars">★ 37,817</span><span class="delta">+360</span></div>
+        <p class="summary">离线优先的知识/教育服务器：维基百科、书籍、课程、地图、可选本地 AI，全部跑在自有硬件上。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#12</span>
+          <a class="repo" href="https://github.com/yynxxxxx/Codex-X" target="_blank" rel="noreferrer">yynxxxxx/Codex-X</a>
+          <span class="chip src src-daily">日榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-rust">Rust</span><span class="stars">★ 3,656</span><span class="delta">+79</span></div>
+        <p class="summary">OpenAI Codex 桌面端/CLI 可视化管理工具：Provider/API 切换、会话同步、提示词注入、Skills/MCP 管理、TOML 配置可视化。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#13</span>
+          <a class="repo" href="https://github.com/alibaba/open-code-review" target="_blank" rel="noreferrer">alibaba/open-code-review</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-go">Go</span><span class="stars">★ 39,149</span><span class="delta">周榜</span></div>
+        <p class="summary">混合架构代码评审工具：确定性流水线 + LLM Agent，行级精确评论，内置多语言规则集（NPE、线程安全、XSS、SQL 注入），兼容 OpenAI/Anthropic。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#14</span>
+          <a class="repo" href="https://github.com/JustVugg/colibri" target="_blank" rel="noreferrer">JustVugg/colibri</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-c">C</span><span class="stars">★ 36,843</span><span class="delta">周榜</span></div>
+        <p class="summary">纯 C 零依赖，通过从磁盘流式加载专家权重，在自有硬件上跑前沿 MoE 模型。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#15</span>
+          <a class="repo" href="https://github.com/Tencent/WeKnora" target="_blank" rel="noreferrer">Tencent/WeKnora</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-go">Go</span><span class="stars">★ 28,464</span><span class="delta">周榜</span></div>
+        <p class="summary">开源 LLM 知识平台：把原始文档变成可查询 RAG、自主推理 agent 和自维护 Wiki。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#16</span>
+          <a class="repo" href="https://github.com/affaan-m/ECC" target="_blank" rel="noreferrer">affaan-m/ECC</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-javascript">JavaScript</span><span class="stars">★ 264,708</span><span class="delta">周榜</span></div>
+        <p class="summary">「agent harness 性能优化系统」：技能、本能、记忆、安全与研究优先的开发流，覆盖 Claude Code、Codex、Opencode、Cursor。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#17</span>
+          <a class="repo" href="https://github.com/anthropics/knowledge-work-plugins" target="_blank" rel="noreferrer">anthropics/knowledge-work-plugins</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-python">Python</span><span class="stars">★ 25,347</span><span class="delta">周榜</span></div>
+        <p class="summary">面向知识工作者、供 Claude Cowork 使用的开源插件集合。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#18</span>
+          <a class="repo" href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noreferrer">addyosmani/agent-skills</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-javascript">JavaScript</span><span class="stars">★ 98,116</span><span class="delta">周榜</span></div>
+        <p class="summary">面向 AI 编码 agent 的生产级工程技能库。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#19</span>
+          <a class="repo" href="https://github.com/stablyai/orca" target="_blank" rel="noreferrer">stablyai/orca</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-typescript">TypeScript</span><span class="stars">★ 74,620</span><span class="delta">周榜</span></div>
+        <p class="summary">管理并行 agent 集群的 ADE：可跑任意编码 agent、支持自带订阅，覆盖桌面/移动/远端运行时。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#20</span>
+          <a class="repo" href="https://github.com/mksglu/context-mode" target="_blank" rel="noreferrer">mksglu/context-mode</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-typescript">TypeScript</span><span class="stars">★ 23,877</span><span class="delta">周榜</span></div>
+        <p class="summary">编码 agent 上下文窗口优化：沙箱化工具输出（减少约 98%）、持久化会话记忆、通过 MCP + hooks 在 17 个平台间路由。</p>
+        
+      </article>
+        </div>
+      </section>
+      <section class="sub obs"><h3>趋势观察</h3><ul>
+        <li>今天/本周榜单几乎是「agent 基础设施」专场：agent 框架（agent-native）、agent 记忆（ai-memory）、agent 技能包（agent-skills、ECC）、agent 上下文压缩（context-mode）、并行 agent 编排（orca）、agent 云开发环境（coder）占据大半席位，说明竞争重心已从「对话」转向「让 agent 长期、低成本、可编排地干活」。</li>
+        <li>第二个明显方向是模型侧的能力下沉与本地化：colibri 把前沿 MoE 塞进自有硬件、WeKnora 做自托管 RAG/知识 agent，呼应了「跑在自己机器上」的诉求。</li>
+        <li>垂直落地开始出现爆款，如 AI 视频剪辑（autoclip）、开源行情平台（OpenStock）、行业向的 anthropics/financial-services，今日涨幅榜前列多为此类可直接使用的应用。</li>
+        <li>alibaba/open-code-review 这类「确定性流水线 + LLM」的混合架构，可能成为代码评审落地的主流形态。</li>
+        <li>总体看：热度 = agent 基建 + 本地/自托管 + 垂直应用，三线并行。</li>
+      </ul></section>
+    </section>
+
+    <section class="day" id="d-2026-09-21">
+      <div class="day-head">
+        <h2>2026-09-21</h2>
+        <span class="day-sub">Trending 分析（Search API 替代口径：近 30 天新建按 star 降序） · 日榜 0 条 + 周榜补位 20 条</span>
+      </div>
+      <details class="notes"><summary>数据说明</summary><ul><li>⚠️ 抓取异常：本机到 github.com 的 HTTPS 连接持续超时（TCP 层不可达，60s 仍返回 000；api.github.com 与 raw.githubusercontent.com 正常），无法取当日官方 Trending 榜。</li><li>改用 GitHub 官方 Search API 的等效替代榜单：近 30 天新建、按 star 数量降序的前 20 个仓库（数据为本次实时拉取，README 摘要均来自各仓库真实 README）。</li></ul></details>
+      <section class="sub">
+        <h3>仓库提交简报 <span class="note">过去 24 小时（since 2026-09-19 22:00 UTC）</span></h3>
+        
+        <div class="repo-block">
+          <h4>deepseek-ai/deepseek-harness <span class="repo-meta">master · 24h 内无新提交</span></h4>
+          <ul class="commits">
+          <li><div class="commit-title">过去 24 小时无新提交</div>
+        <div class="commit-meta">— · — · —</div></li>
+          </ul>
+        </div>
+        <div class="repo-block">
+          <h4>earendil-works/pi <span class="repo-meta">main · 24h 内 22 个提交（取 6 条）</span></h4>
+          <ul class="commits">
+          <li><div class="commit-title">feat(ai, coding-agent): 新增图片输入大小限制（关闭 #9631）</div>
+        <div class="commit-meta">为多模态输入加上尺寸/体积上限，防止超限请求打爆上下文 · Armin Ronacher · 09-21 04:59</div></li>
+          <li><div class="commit-title">Release v0.86.1 / v0.86.0 两个版本发布</div>
+        <div class="commit-meta">稳定版连续迭代，并开启下一轮 Unreleased 变更日志 · Armin Ronacher · 09-20 19:04 / 07:00</div></li>
+          <li><div class="commit-title">feat: 新增 Meta provider（Muse 订阅 OAuth，PR #9096）</div>
+        <div class="commit-meta">在统一 LLM API 层接入 Meta/Muse，支持订阅制 OAuth 登录 · Alexey Zaytsev · 09-20 17:13</div></li>
+          <li><div class="commit-title">fix(ai): 识别 z.ai 的 prompt-too-long 报错</div>
+        <div class="commit-meta">正确归类上游长度超限错误，避免误报为未知失败 · Armin Ronacher · 09-20 18:46</div></li>
+          <li><div class="commit-title">feat(coding-agent): 缓存编译后的 Node CLI 模块</div>
+        <div class="commit-meta">启动/调用路径提速 · Armin Ronacher · 09-20 17:44</div></li>
+          <li><div class="commit-title">fix(tui): 技能自动补全按裸名称排序（PR #9120）</div>
+        <div class="commit-meta">补全候选排序修正，体验类修复 · 初心Yearth · 09-20 06:25</div></li>
+          </ul>
+        </div>
+        <div class="repo-block">
+          <h4>anomalyco/opencode <span class="repo-meta">dev · 24h 内 6 个提交（取 4 条）</span></h4>
+          <ul class="commits">
+          <li><div class="commit-title">fix(stats): 瞬时查询失败自动重试（PR #50205）</div>
+        <div class="commit-meta">统计接口韧性增强 · Adam · 09-21 01:43</div></li>
+          <li><div class="commit-title">fix(stats): 分页拉取同步聚合数据（PR #50198）</div>
+        <div class="commit-meta">修复聚合结果不完整问题 · Adam · 09-21 01:00</div></li>
+          <li><div class="commit-title">ci: v2 catalog 每天同步一次（PR #50194）</div>
+        <div class="commit-meta">定时同步模型/能力目录，减少人工维护 · Aiden Cline · 09-21 00:22</div></li>
+          <li><div class="commit-title">docs(web): 补写 Jev 用法文档并统一小节标题</div>
+        <div class="commit-meta">文档补充 · Frank · 09-20 08:41</div></li>
+          </ul>
+        </div>
+      </section>
+      <section class="sub">
+        <h3>Trending 分析（Search API 替代口径：近 30 天新建按 star 降序）（20 项）</h3>
+        <div class="grid">
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#1</span>
+          <a class="repo" href="https://github.com/browser-use/jev-ultrafast" target="_blank" rel="noreferrer">browser-use/jev-ultrafast</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-python">Python</span><span class="stars">★ 11,659</span><span class="delta">2026-09-16 建</span></div>
+        <p class="summary">浏览器智能体项目，主打「动态、可索引的动作空间」。</p>
+        <p class="highlight"><b>亮点</b> README 首屏标注 Browser Use Cloud 等待名单已开放，属官方云端产品线。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#2</span>
+          <a class="repo" href="https://github.com/eternity4719/HowToLiveBetter" target="_blank" rel="noreferrer">eternity4719/HowToLiveBetter</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-html">HTML</span><span class="stars">★ 8,441</span><span class="delta">-</span></div>
+        <p class="summary">中文循证生活指南，552 条建议，每条标注成本、收益、证据等级与原始出处。</p>
+        <p class="highlight"><b>亮点</b> 只引期刊论文与官方文件。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#3</span>
+          <a class="repo" href="https://github.com/lnkiai/m3e-canvas" target="_blank" rel="noreferrer">lnkiai/m3e-canvas</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-typescript">TypeScript</span><span class="stars">★ 7,770</span><span class="delta">-</span></div>
+        <p class="summary">浏览器里拖拽绘制 Material 3 Expressive 界面，再导出为 vibe-coding 提示词。</p>
+        <p class="highlight"><b>亮点</b> 产物可喂给 Claude Code / Codex / Gemini CLI / Cursor。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#4</span>
+          <a class="repo" href="https://github.com/sapientinc/PRAXIST" target="_blank" rel="noreferrer">sapientinc/PRAXIST</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-python">Python</span><span class="stars">★ 6,366</span><span class="delta">-</span></div>
+        <p class="summary">自主科研系统：协调并行研究「同伴」、任务级评测，面向可测量、计算机可执行的研究。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#5</span>
+          <a class="repo" href="https://github.com/rakanki911/DLSS5-Swapper" target="_blank" rel="noreferrer">rakanki911/DLSS5-Swapper</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-javascript">JavaScript</span><span class="stars">★ 6,058</span><span class="delta">-</span></div>
+        <p class="summary">一键为兼容游戏安装/调优/回滚 DLSS 5 神经渲染。</p>
+        <p class="highlight"><b>亮点</b> 另附无 DLSS 游戏的 Feeder 方案与 OptiScaler 系配置。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#6</span>
+          <a class="repo" href="https://github.com/XiaoDuoYa/codex-with-chatgpt" target="_blank" rel="noreferrer">XiaoDuoYa/codex-with-chatgpt</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-typescript">TypeScript</span><span class="stars">★ 5,693</span><span class="delta">-</span></div>
+        <p class="summary">「ChatGPT 负责思考，Codex 负责干活」：用 ChatGPT 做规划大脑，保留 Codex harness 执行。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#7</span>
+          <a class="repo" href="https://github.com/tamaratran/fast-jev-compaction" target="_blank" rel="noreferrer">tamaratran/fast-jev-compaction</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-typescript">TypeScript</span><span class="stars">★ 5,085</span><span class="delta">-</span></div>
+        <p class="summary">Claude Code 插件：用一次快速请求给每次工具调用/结果打分，替换默认的压缩摘要。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#8</span>
+          <a class="repo" href="https://github.com/bojieli/ai-infra-book" target="_blank" rel="noreferrer">bojieli/ai-infra-book</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-python">Python</span><span class="stars">★ 4,695</span><span class="delta">-</span></div>
+        <p class="summary">《深入理解 AI Infra：量化分析与系统设计》开源书稿，含正文、PDF、计算工具与实验。</p>
+        <p class="highlight"><b>亮点</b> 每次更新 main 自动构建发 Release。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#9</span>
+          <a class="repo" href="https://github.com/crmne/spotifast" target="_blank" rel="noreferrer">crmne/spotifast</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-rust">Rust</span><span class="stars">★ 4,465</span><span class="delta">-</span></div>
+        <p class="summary">原生轻量 Spotify 客户端（原名 Fastpotify）。</p>
+        <p class="highlight"><b>亮点</b> 支持整库、本地播放与 Linux 上的 Spotify Connect。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#10</span>
+          <a class="repo" href="https://github.com/HEJustinSun/my-girlfriend-jingtian-latex" target="_blank" rel="noreferrer">HEJustinSun/my-girlfriend-jingtian-latex</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-tex">TeX</span><span class="stars">★ 4,211</span><span class="delta">-</span></div>
+        <p class="summary">5×8 英寸 XeLaTeX 排版工程。</p>
+        <p class="highlight"><b>亮点</b> README 无更多说明，未作臆测。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#11</span>
+          <a class="repo" href="https://github.com/ApodexAI/FrontierAgent" target="_blank" rel="noreferrer">ApodexAI/FrontierAgent</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-python">Python</span><span class="stars">★ 4,202</span><span class="delta">-</span></div>
+        <p class="summary">开源智能体运行时 + 终端产品 + 评测套件，面向长时程研究与文件类工作。</p>
+        <p class="highlight"><b>亮点</b> 自带 TUI 与 ReAct / Agent Team 模式。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#12</span>
+          <a class="repo" href="https://github.com/NandhaKishorM/laya" target="_blank" rel="noreferrer">NandhaKishorM/laya</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-python">Python</span><span class="stars">★ 3,785</span><span class="delta">-</span></div>
+        <p class="summary">多语言、非自回归的「System 1」决策引擎：单次前向 33ms 输出带类型的决策，覆盖 100+ 语言。</p>
+        <p class="highlight"><b>亮点</b> 用 RLCD 严格评分规则训练，带按请求选检查点的路由。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#13</span>
+          <a class="repo" href="https://github.com/Human-Agent-Society/reef" target="_blank" rel="noreferrer">Human-Agent-Society/reef</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-python">Python</span><span class="stars">★ 3,778</span><span class="delta">-</span></div>
+        <p class="summary">面向「持续自我改进智能体」的开源基础设施。</p>
+        <p class="highlight"><b>亮点</b> 打通推理、反馈、学习与版本化交付。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#14</span>
+          <a class="repo" href="https://github.com/ashemag/human-atlas" target="_blank" rel="noreferrer">ashemag/human-atlas</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-typescript">TypeScript</span><span class="stars">★ 3,707</span><span class="delta">-</span></div>
+        <p class="summary">React + Three.js + shadcn/ui 的 3D 人体解剖浏览器。</p>
+        <p class="highlight"><b>亮点</b> 2,234 个可选中网格、15 个系统分层、3,432 个命名概念可搜索。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#15</span>
+          <a class="repo" href="https://github.com/sdli1995/dlssg_for_sm86" target="_blank" rel="noreferrer">sdli1995/dlssg_for_sm86</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="stars">★ 3,636</span><span class="delta">-</span></div>
+        <p class="summary">在 RTX 30/20 系（SM86/SM75）上启用 DLSS 帧生成。</p>
+        <p class="highlight"><b>亮点</b> 新版修复了帧生成特性重建后可能用错推理内核导致的画面破损与随机崩溃。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#16</span>
+          <a class="repo" href="https://github.com/robbietilton/Compositor" target="_blank" rel="noreferrer">robbietilton/Compositor</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-swift">Swift</span><span class="stars">★ 3,603</span><span class="delta">-</span></div>
+        <p class="summary">面向 Mac 的开源图像编辑器。</p>
+        <p class="highlight"><b>亮点</b> 作者直言因 Photoshop 太贵、GIMP 不够顺手而自建。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#17</span>
+          <a class="repo" href="https://github.com/b-nnett/grok-bot-0.18-reconstructed" target="_blank" rel="noreferrer">b-nnett/grok-bot-0.18-reconstructed</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-typescript">TypeScript</span><span class="stars">★ 3,509</span><span class="delta">-</span></div>
+        <p class="summary">对已发布的 Grok Bot 0.18.0 macOS 应用做非官方、面向源码的重建与扩展。</p>
+        
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#18</span>
+          <a class="repo" href="https://github.com/wide-trace/open-higgsfield" target="_blank" rel="noreferrer">wide-trace/open-higgsfield</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-typescript">TypeScript</span><span class="stars">★ 3,437</span><span class="delta">-</span></div>
+        <p class="summary">Higgsfield AI 的开源替代：一个提示条调用 38 个图像/视频模型。</p>
+        <p class="highlight"><b>亮点</b> 附带工作台管理每次生成结果。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#19</span>
+          <a class="repo" href="https://github.com/totec448-spec/chat-on-steroids" target="_blank" rel="noreferrer">totec448-spec/chat-on-steroids</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-typescript">TypeScript</span><span class="stars">★ 3,393</span><span class="delta">-</span></div>
+        <p class="summary">给 ChatGPT 装本地 MCP 能力：读写真实项目文件、跑测试、保持终端、操作桌面。</p>
+        <p class="highlight"><b>亮点</b> 支持多 worker 并行任务。</p>
+      </article>
+
+      <article class="card">
+        <div class="card-head">
+          <span class="rank">#20</span>
+          <a class="repo" href="https://github.com/jub0t/Concat" target="_blank" rel="noreferrer">jub0t/Concat</a>
+          <span class="chip src src-weekly">周榜</span>
+        </div>
+        <div class="meta"><span class="chip lang lang-rust">Rust</span><span class="stars">★ 3,016</span><span class="delta">-</span></div>
+        <p class="summary">开源版 CapCut：无版权水印、无订阅。</p>
+        <p class="highlight"><b>亮点</b> 本地 Rust 引擎、支持 MCP。</p>
+      </article>
+        </div>
+      </section>
+      <section class="sub obs"><h3>趋势观察</h3><ul>
+        <li>AI Agent 仍是绝对主线：榜单里浏览器智能体、agent 运行时、自改进智能体基础设施、以及「给 ChatGPT 装本地能力/多 worker」这类桥接工具占了近三分之一。</li>
+        <li>另一个明显方向是 agent 提效与上下文管理（如 Jev 打分式压缩、ChatGPT 做规划 + Codex 执行），说明社区关注点从「能不能跑」转向「跑得省、跑得稳」。</li>
+        <li>面向创作者的开源替代品集中爆发：Photoshop、CapCut、Higgsfield AI 都有对应开源项目冲进前列，且普遍强调「本地运行、无订阅」。</li>
+        <li>硬件/游戏侧以 DLSS 相关 mod 最热，两条上榜；同时中文内容型仓库（生活指南、AI Infra 书稿）在 star 增速上表现强劲。</li>
+        <li>需要留意：本榜单为 Search API 替代口径（近 30 天新建），与官方 Trending 的「star 增速」口径不完全一致，解读时请以此为参照而非精确复刻。</li>
+      </ul></section>
+    </section>
+  <footer>生成时间：2026-09-23T02:11:43.812Z · 数据源：GitHub Trending 页面 + GitHub REST API · 原始 JSON 存于 <code>reports/github-trending/data/</code></footer>
+</div>
+</body>
+</html>

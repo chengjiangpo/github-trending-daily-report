@@ -1,0 +1,76 @@
+{
+  "date": "2026-09-21",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "⚠️ 抓取异常：本机到 github.com 的 HTTPS 连接持续超时（TCP 层不可达，60s 仍返回 000；api.github.com 与 raw.githubusercontent.com 正常），无法取当日官方 Trending 榜。",
+    "改用 GitHub 官方 Search API 的等效替代榜单：近 30 天新建、按 star 数量降序的前 20 个仓库（数据为本次实时拉取，README 摘要均来自各仓库真实 README）。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-09-19 22:00 UTC）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 24h 内无新提交",
+        "items": [
+          { "title": "过去 24 小时无新提交", "desc": "—", "author": "—", "time": "—" }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 22 个提交（取 6 条）",
+        "items": [
+          { "title": "feat(ai, coding-agent): 新增图片输入大小限制（关闭 #9631）", "desc": "为多模态输入加上尺寸/体积上限，防止超限请求打爆上下文", "author": "Armin Ronacher", "time": "09-21 04:59" },
+          { "title": "Release v0.86.1 / v0.86.0 两个版本发布", "desc": "稳定版连续迭代，并开启下一轮 Unreleased 变更日志", "author": "Armin Ronacher", "time": "09-20 19:04 / 07:00" },
+          { "title": "feat: 新增 Meta provider（Muse 订阅 OAuth，PR #9096）", "desc": "在统一 LLM API 层接入 Meta/Muse，支持订阅制 OAuth 登录", "author": "Alexey Zaytsev", "time": "09-20 17:13" },
+          { "title": "fix(ai): 识别 z.ai 的 prompt-too-long 报错", "desc": "正确归类上游长度超限错误，避免误报为未知失败", "author": "Armin Ronacher", "time": "09-20 18:46" },
+          { "title": "feat(coding-agent): 缓存编译后的 Node CLI 模块", "desc": "启动/调用路径提速", "author": "Armin Ronacher", "time": "09-20 17:44" },
+          { "title": "fix(tui): 技能自动补全按裸名称排序（PR #9120）", "desc": "补全候选排序修正，体验类修复", "author": "初心Yearth", "time": "09-20 06:25" }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 6 个提交（取 4 条）",
+        "items": [
+          { "title": "fix(stats): 瞬时查询失败自动重试（PR #50205）", "desc": "统计接口韧性增强", "author": "Adam", "time": "09-21 01:43" },
+          { "title": "fix(stats): 分页拉取同步聚合数据（PR #50198）", "desc": "修复聚合结果不完整问题", "author": "Adam", "time": "09-21 01:00" },
+          { "title": "ci: v2 catalog 每天同步一次（PR #50194）", "desc": "定时同步模型/能力目录，减少人工维护", "author": "Aiden Cline", "time": "09-21 00:22" },
+          { "title": "docs(web): 补写 Jev 用法文档并统一小节标题", "desc": "文档补充", "author": "Frank", "time": "09-20 08:41" }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "Trending 分析（Search API 替代口径：近 30 天新建按 star 降序）",
+    "sources": { "daily": 0, "weekly": 20 },
+    "items": [
+      { "rank": 1, "repo": "browser-use/jev-ultrafast", "url": "https://github.com/browser-use/jev-ultrafast", "lang": "Python", "stars": "11,659", "delta": "2026-09-16 建", "source": "weekly", "summary": "浏览器智能体项目，主打「动态、可索引的动作空间」。", "highlight": "README 首屏标注 Browser Use Cloud 等待名单已开放，属官方云端产品线。" },
+      { "rank": 2, "repo": "eternity4719/HowToLiveBetter", "url": "https://github.com/eternity4719/HowToLiveBetter", "lang": "HTML", "stars": "8,441", "delta": "-", "source": "weekly", "summary": "中文循证生活指南，552 条建议，每条标注成本、收益、证据等级与原始出处。", "highlight": "只引期刊论文与官方文件。" },
+      { "rank": 3, "repo": "lnkiai/m3e-canvas", "url": "https://github.com/lnkiai/m3e-canvas", "lang": "TypeScript", "stars": "7,770", "delta": "-", "source": "weekly", "summary": "浏览器里拖拽绘制 Material 3 Expressive 界面，再导出为 vibe-coding 提示词。", "highlight": "产物可喂给 Claude Code / Codex / Gemini CLI / Cursor。" },
+      { "rank": 4, "repo": "sapientinc/PRAXIST", "url": "https://github.com/sapientinc/PRAXIST", "lang": "Python", "stars": "6,366", "delta": "-", "source": "weekly", "summary": "自主科研系统：协调并行研究「同伴」、任务级评测，面向可测量、计算机可执行的研究。", "highlight": "" },
+      { "rank": 5, "repo": "rakanki911/DLSS5-Swapper", "url": "https://github.com/rakanki911/DLSS5-Swapper", "lang": "JavaScript", "stars": "6,058", "delta": "-", "source": "weekly", "summary": "一键为兼容游戏安装/调优/回滚 DLSS 5 神经渲染。", "highlight": "另附无 DLSS 游戏的 Feeder 方案与 OptiScaler 系配置。" },
+      { "rank": 6, "repo": "XiaoDuoYa/codex-with-chatgpt", "url": "https://github.com/XiaoDuoYa/codex-with-chatgpt", "lang": "TypeScript", "stars": "5,693", "delta": "-", "source": "weekly", "summary": "「ChatGPT 负责思考，Codex 负责干活」：用 ChatGPT 做规划大脑，保留 Codex harness 执行。", "highlight": "" },
+      { "rank": 7, "repo": "tamaratran/fast-jev-compaction", "url": "https://github.com/tamaratran/fast-jev-compaction", "lang": "TypeScript", "stars": "5,085", "delta": "-", "source": "weekly", "summary": "Claude Code 插件：用一次快速请求给每次工具调用/结果打分，替换默认的压缩摘要。", "highlight": "" },
+      { "rank": 8, "repo": "bojieli/ai-infra-book", "url": "https://github.com/bojieli/ai-infra-book", "lang": "Python", "stars": "4,695", "delta": "-", "source": "weekly", "summary": "《深入理解 AI Infra：量化分析与系统设计》开源书稿，含正文、PDF、计算工具与实验。", "highlight": "每次更新 main 自动构建发 Release。" },
+      { "rank": 9, "repo": "crmne/spotifast", "url": "https://github.com/crmne/spotifast", "lang": "Rust", "stars": "4,465", "delta": "-", "source": "weekly", "summary": "原生轻量 Spotify 客户端（原名 Fastpotify）。", "highlight": "支持整库、本地播放与 Linux 上的 Spotify Connect。" },
+      { "rank": 10, "repo": "HEJustinSun/my-girlfriend-jingtian-latex", "url": "https://github.com/HEJustinSun/my-girlfriend-jingtian-latex", "lang": "TeX", "stars": "4,211", "delta": "-", "source": "weekly", "summary": "5×8 英寸 XeLaTeX 排版工程。", "highlight": "README 无更多说明，未作臆测。" },
+      { "rank": 11, "repo": "ApodexAI/FrontierAgent", "url": "https://github.com/ApodexAI/FrontierAgent", "lang": "Python", "stars": "4,202", "delta": "-", "source": "weekly", "summary": "开源智能体运行时 + 终端产品 + 评测套件，面向长时程研究与文件类工作。", "highlight": "自带 TUI 与 ReAct / Agent Team 模式。" },
+      { "rank": 12, "repo": "NandhaKishorM/laya", "url": "https://github.com/NandhaKishorM/laya", "lang": "Python", "stars": "3,785", "delta": "-", "source": "weekly", "summary": "多语言、非自回归的「System 1」决策引擎：单次前向 33ms 输出带类型的决策，覆盖 100+ 语言。", "highlight": "用 RLCD 严格评分规则训练，带按请求选检查点的路由。" },
+      { "rank": 13, "repo": "Human-Agent-Society/reef", "url": "https://github.com/Human-Agent-Society/reef", "lang": "Python", "stars": "3,778", "delta": "-", "source": "weekly", "summary": "面向「持续自我改进智能体」的开源基础设施。", "highlight": "打通推理、反馈、学习与版本化交付。" },
+      { "rank": 14, "repo": "ashemag/human-atlas", "url": "https://github.com/ashemag/human-atlas", "lang": "TypeScript", "stars": "3,707", "delta": "-", "source": "weekly", "summary": "React + Three.js + shadcn/ui 的 3D 人体解剖浏览器。", "highlight": "2,234 个可选中网格、15 个系统分层、3,432 个命名概念可搜索。" },
+      { "rank": 15, "repo": "sdli1995/dlssg_for_sm86", "url": "https://github.com/sdli1995/dlssg_for_sm86", "lang": "", "stars": "3,636", "delta": "-", "source": "weekly", "summary": "在 RTX 30/20 系（SM86/SM75）上启用 DLSS 帧生成。", "highlight": "新版修复了帧生成特性重建后可能用错推理内核导致的画面破损与随机崩溃。" },
+      { "rank": 16, "repo": "robbietilton/Compositor", "url": "https://github.com/robbietilton/Compositor", "lang": "Swift", "stars": "3,603", "delta": "-", "source": "weekly", "summary": "面向 Mac 的开源图像编辑器。", "highlight": "作者直言因 Photoshop 太贵、GIMP 不够顺手而自建。" },
+      { "rank": 17, "repo": "b-nnett/grok-bot-0.18-reconstructed", "url": "https://github.com/b-nnett/grok-bot-0.18-reconstructed", "lang": "TypeScript", "stars": "3,509", "delta": "-", "source": "weekly", "summary": "对已发布的 Grok Bot 0.18.0 macOS 应用做非官方、面向源码的重建与扩展。", "highlight": "" },
+      { "rank": 18, "repo": "wide-trace/open-higgsfield", "url": "https://github.com/wide-trace/open-higgsfield", "lang": "TypeScript", "stars": "3,437", "delta": "-", "source": "weekly", "summary": "Higgsfield AI 的开源替代：一个提示条调用 38 个图像/视频模型。", "highlight": "附带工作台管理每次生成结果。" },
+      { "rank": 19, "repo": "totec448-spec/chat-on-steroids", "url": "https://github.com/totec448-spec/chat-on-steroids", "lang": "TypeScript", "stars": "3,393", "delta": "-", "source": "weekly", "summary": "给 ChatGPT 装本地 MCP 能力：读写真实项目文件、跑测试、保持终端、操作桌面。", "highlight": "支持多 worker 并行任务。" },
+      { "rank": 20, "repo": "jub0t/Concat", "url": "https://github.com/jub0t/Concat", "lang": "Rust", "stars": "3,016", "delta": "-", "source": "weekly", "summary": "开源版 CapCut：无版权水印、无订阅。", "highlight": "本地 Rust 引擎、支持 MCP。" }
+    ]
+  },
+  "observation": [
+    "AI Agent 仍是绝对主线：榜单里浏览器智能体、agent 运行时、自改进智能体基础设施、以及「给 ChatGPT 装本地能力/多 worker」这类桥接工具占了近三分之一。",
+    "另一个明显方向是 agent 提效与上下文管理（如 Jev 打分式压缩、ChatGPT 做规划 + Codex 执行），说明社区关注点从「能不能跑」转向「跑得省、跑得稳」。",
+    "面向创作者的开源替代品集中爆发：Photoshop、CapCut、Higgsfield AI 都有对应开源项目冲进前列，且普遍强调「本地运行、无订阅」。",
+    "硬件/游戏侧以 DLSS 相关 mod 最热，两条上榜；同时中文内容型仓库（生活指南、AI Infra 书稿）在 star 增速上表现强劲。",
+    "需要留意：本榜单为 Search API 替代口径（近 30 天新建），与官方 Trending 的「star 增速」口径不完全一致，解读时请以此为参照而非精确复刻。"
+  ]
+}

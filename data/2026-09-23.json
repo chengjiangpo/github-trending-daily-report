@@ -1,0 +1,81 @@
+{
+  "date": "2026-09-23",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "gh CLI 未登录（gh auth status 未授权），已改用 curl 直连 GitHub 公共 API 与网页，未认证但全部请求成功。",
+    "Trending 全语言「今日榜」页面本次仅返回 8 条，故从「本周榜」补位 12 条凑齐 20 个（条目中已标注来源）。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 24h 内 30 条提交 · 非常活跃",
+        "items": [
+          { "title": "release(dsh) 0.1.7-alpha.2（PR #4978）", "desc": "发布新版 alpha", "author": "imccyu", "time": "09-22 23:25" },
+          { "title": "release(vendor)：批量升级 cordis 4.0.4 / cosmokit 1.8.5 / schemastery 3.18.4 等（PR #4975）", "desc": "内部依赖统一发版", "author": "imccyu", "time": "23:12" },
+          { "title": "fix(chat)：去重已被接纳的本地 steering 指令", "desc": "修正输入回显与顺序", "author": "imccyu", "time": "22:47" },
+          { "title": "fix(web)：Remote WebSocket 需等应用就绪才连通（PR #4964 fix-reconnect）", "desc": "修复重连时序", "author": "imccyu", "time": "21:00" },
+          { "title": "模型发现按 display name 展示（PR #4961）+ 插件安装按国家注册表（PR #4907）", "desc": "web 端可见性与插件市场本地化", "author": "Yichen Jiang", "time": "19:56 / 19:51" },
+          { "title": "崩溃诊断与 fatal 报告修复（PR #4919）", "desc": "提升稳定性", "author": "winewill", "time": "19:01" }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 19 条提交",
+        "items": [
+          { "title": "Release v0.87.1 + 补全 [Unreleased] changelog", "desc": "版本发布", "author": "Armin Ronacher", "time": "09-23 03:28" },
+          { "title": "feat(ai,coding-agent)：支持 GPT-6 Sol / Luna", "desc": "接入新模型", "author": "Armin Ronacher", "time": "02:57" },
+          { "title": "fix(ai)：稳定 Claude Opus 5.5 的 effort 级别", "desc": "修推理档位", "author": "Armin Ronacher", "time": "03:26" },
+          { "title": "feat(ai,coding-agent)：支持 Claude Opus 5.5", "desc": "新模型接入", "author": "Armin Ronacher", "time": "00:46" },
+          { "title": "feat：新增 durable SQLite 存储后端 + 版本化文档存储", "desc": "持久化能力", "author": "Mario Zechner", "time": "09-22 23:46 / 19:54" },
+          { "title": "feat(ai,coding-agent)：新增 Grok 4.7 支持", "desc": "模型矩阵扩充", "author": "Armin Ronacher", "time": "09-22 06:07" }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 6 条提交",
+        "items": [
+          { "title": "feat(openai)：Codex 支持 GPT-6 Sol 与 Luna（#50704）", "desc": "", "author": "opencode-agent[bot]", "time": "09-23 02:36" },
+          { "title": "docs(web)：Zen 文档补充 Claude Opus 5.5 / GPT 6 Sol / GPT 6 Luna（#50708）", "desc": "", "author": "Daniel Chen", "time": "02:54" },
+          { "title": "fix(console)：限制 Black 的 legacy 访问（#50716）", "desc": "", "author": "vprdev", "time": "03:23" },
+          { "title": "sync release versions for v1.18.32", "desc": "发版同步（另有 2 条 bot 生成的 chore 提交，属噪音已略）", "author": "opencode", "time": "09-22 06:51" }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": { "daily": 8, "weekly": 12 },
+    "items": [
+      { "rank": 1, "repo": "anthropics/financial-services", "url": "https://github.com/anthropics/financial-services", "lang": "Python", "stars": "36,289", "delta": "+436", "source": "daily", "summary": "Claude 金融服务参考 agent 库，覆盖投行、股票研究、PE、财富管理，含 agent/skill/数据连接器。", "highlight": "同一套源码可作 Claude Cowork 插件或经 Managed Agents API 部署，内含 9 个命名 agent（Pitch Agent、GL Reconciler、KYC Screener 等），并强调所有产出需人工签核。" },
+      { "rank": 2, "repo": "agent-substrate/substrate", "url": "https://github.com/agent-substrate/substrate", "lang": "Go", "stars": "2,923", "delta": "+301", "source": "daily", "summary": "安全默认的 agent 执行运行时，专为百万级沙箱设计。", "highlight": "宣称比常规容器密度高 10x，<500ms 恢复、每秒 500+ 次挂起/恢复，支持 microVM 与 gVisor，构建在 K8s 之上；README 明确标注非 Google 官方支持产品，仍处早期。" },
+      { "rank": 3, "repo": "dream-num/univer", "url": "https://github.com/dream-num/univer", "lang": "TypeScript", "stars": "15,330", "delta": "+202", "source": "daily", "summary": "全栈同构 Office SDK，可嵌入表格/文档/演示。", "highlight": "描述已更新为「The Office Harness for AI Agents」，Canvas 渲染 + 公式引擎，浏览器与 Node 共用一套 Facade API。" },
+      { "rank": 4, "repo": "davila7/claude-code-templates", "url": "https://github.com/davila7/claude-code-templates", "lang": "Python", "stars": "31,082", "delta": "+113", "source": "daily", "summary": "配置与监控 Claude Code 的 CLI 工具。", "highlight": "由 Bright Data、Z.AI、Neon 等赞助，已进 Vercel/Neon OSS 计划。" },
+      { "rank": 5, "repo": "google/ax", "url": "https://github.com/google/ax", "lang": "Go", "stars": "7,481", "delta": "+2,324", "source": "daily", "summary": "Google 开源的高吞吐声明式 agent 编排运行时。", "highlight": "用 YAML 声明 Task/Workspace/Gateway/Model，支持 ax ssh/apply/suspend/resume，网络出口白名单，跑在 Agent Substrate 之上，目标是每集群跑数十亿任务。" },
+      { "rank": 6, "repo": "mvt-project/mvt", "url": "https://github.com/mvt-project/mvt", "lang": "Python", "stars": "14,033", "delta": "+441", "source": "daily", "summary": "Amnesty 出品的移动端取证工具，用于排查 iOS/Android 是否被 Pegasus 类间谍软件入侵。", "highlight": "近期合并 v3 分支，含破坏性变更（官方已发告示）。" },
+      { "rank": 7, "repo": "superdesigndev/treg", "url": "https://github.com/superdesigndev/treg", "lang": "Python", "stars": "2,167", "delta": "+197", "source": "daily", "summary": "「agent 工具的 OpenRouter」——一个 base URL + 一个 token 调 3000+ 端点、60+ 供应商（SEO、社媒、抓取、图像/视频生成）。", "highlight": "按次计费、服务端注入凭证，团队自有 key 优先且不计费；仓库带 dsh-plugin 话题。" },
+      { "rank": 8, "repo": "browser-use/video-use", "url": "https://github.com/browser-use/video-use", "lang": "Python", "stars": "25,789", "delta": "+155", "source": "daily", "summary": "用编码 agent 剪视频，丢素材进目录、对话产出 final.mp4。", "highlight": "自动去口癖/停顿、调色、烧字幕、并行子 agent 生成动画叠层，并在每个剪切点自评估渲染结果；注意主仓库最近推送停在 08-30。" },
+      { "rank": 9, "repo": "alibaba/open-code-review", "url": "https://github.com/alibaba/open-code-review", "lang": "Go", "stars": "39,707", "delta": "周 +14,499", "source": "weekly", "summary": "混合架构代码审查：确定性流水线 + LLM Agent，行级精准评论。", "highlight": "阿里大规模实战验证。" },
+      { "rank": 10, "repo": "anthropics/claude-code", "url": "https://github.com/anthropics/claude-code", "lang": "TypeScript", "stars": "147,649", "delta": "周 +2,731", "source": "weekly", "summary": "终端内运行的 agentic 编码工具，理解整个代码库并执行常规任务。", "highlight": "" },
+      { "rank": 11, "repo": "Tencent/WeKnora", "url": "https://github.com/Tencent/WeKnora", "lang": "Go", "stars": "28,920", "delta": "周 +5,455", "source": "weekly", "summary": "开源 LLM 知识平台：把原始文档转成可查询 RAG、自主推理 agent 和自维护 Wiki。", "highlight": "" },
+      { "rank": 12, "repo": "affaan-m/ECC", "url": "https://github.com/affaan-m/ECC", "lang": "JavaScript", "stars": "265,366", "delta": "周 +6,865", "source": "weekly", "summary": "自称「agent harness 操作系统 / 性能优化系统」，提供 skills、instincts、memory、安全与研究优先开发流程。", "highlight": "兼容 Claude Code、Codex、Opencode、Cursor。" },
+      { "rank": 13, "repo": "anthropics/knowledge-work-plugins", "url": "https://github.com/anthropics/knowledge-work-plugins", "lang": "Python", "stars": "25,427", "delta": "周 +1,350", "source": "weekly", "summary": "面向知识工作者的 Cowork 插件集，一次开源 11 个职能插件（产品、销售、法务、财务、数据、企业搜索、生物研究等）。", "highlight": "带各系统连接器。" },
+      { "rank": 14, "repo": "addyosmani/agent-skills", "url": "https://github.com/addyosmani/agent-skills", "lang": "JavaScript", "stars": "98,432", "delta": "周 +4,197", "source": "weekly", "summary": "面向 AI 编码 agent 的生产级工程技能。", "highlight": "9 个斜杠命令贯穿 /spec → /plan → /build → /test → /review → /ship。" },
+      { "rank": 15, "repo": "JustVugg/colibri", "url": "https://github.com/JustVugg/colibri", "lang": "C", "stars": "37,121", "delta": "周 +5,565", "source": "weekly", "summary": "纯 C、零依赖引擎，把存储/RAM/VRAM 当作统一推理层级，在消费级硬件上跑 744B–2.8T 的 MoE 前沿模型（专家权重从磁盘流式加载）。", "highlight": "已支持 GLM-5.x、Kimi K3、DeepSeek V4.x 等 9 个模型族。" },
+      { "rank": 16, "repo": "TencentCloud/Octop", "url": "https://github.com/TencentCloud/Octop", "lang": "Python", "stars": "4,619", "delta": "周 +2,177", "source": "weekly", "summary": "更聪明的自托管 AI 助手，主打多用户、多 agent。", "highlight": "" },
+      { "rank": 17, "repo": "stablyai/orca", "url": "https://github.com/stablyai/orca", "lang": "TypeScript", "stars": "75,546", "delta": "周 +6,125", "source": "weekly", "summary": "并行 agent 的 ADE：让 Codex / ClaudeCode / OpenCode / Pi 各跑在独立 worktree 并统一追踪。", "highlight": "桌面 + 移动 + 远程运行时，可用自有订阅。" },
+      { "rank": 18, "repo": "danny-avila/LibreChat", "url": "https://github.com/danny-avila/LibreChat", "lang": "TypeScript", "stars": "44,671", "delta": "周 +1,401", "source": "weekly", "summary": "增强版 ChatGPT 克隆，内置 Agents、MCP、Skills。", "highlight": "聚合 DeepSeek/Anthropic/OpenAI/Azure/Groq 等多家模型。" },
+      { "rank": 19, "repo": "home-assistant/core", "url": "https://github.com/home-assistant/core", "lang": "Python", "stars": "91,059", "delta": "周 +526", "source": "weekly", "summary": "开源家庭自动化平台，强调本地控制与隐私。", "highlight": "" },
+      { "rank": 20, "repo": "cline/cline", "url": "https://github.com/cline/cline", "lang": "TypeScript", "stars": "69,074", "delta": "周 +1,204", "source": "weekly", "summary": "自主编码 agent，提供 SDK、IDE 扩展与 CLI 三种形态。", "highlight": "" }
+    ]
+  },
+  "observation": [
+    "「Agent 基础设施」是当前最密集的赛道：Substrate 与 Google AX 在解决沙箱化、状态挂起/恢复与超大规模编排，ECC、agent-skills 则在优化 agent harness 本身的技能与记忆。",
+    "编码 agent 生态继续分化：claude-code / opencode / cline / pi 争抢终端入口，Orca 这类「并行调度多 agent」的 ADE 开始出现，说明单 agent 已不够用。",
+    "纵向落地的 agent 明显增多：金融（financial-services）、视频剪辑（video-use）、工具凭证与调用（treg），共同点是「统一凭证 + 按次计费 + 人工签核」。",
+    "前沿模型（GPT-6 Sol/Luna、Claude Opus 5.5、Grok 4.7、Kimi K3）在 24 小时内密集接入各大工具链，模型发布到工具适配的延迟已被压到几乎为零。",
+    "硬件侧出现「小引擎跑大模型」的方向（colibri 纯 C 流式加载 MoE），与云端超大规模 agent 运行时形成两极；安全取证类（MVT）也因间谍软件议题重回榜单。"
+  ]
+}
