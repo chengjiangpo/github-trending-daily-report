@@ -177,9 +177,9 @@
       <p>热门项目榜单 · 重点仓库提交简报 · 趋势观察 —— 数据来自 GitHub Trending 与 GitHub REST API。</p>
     </div>
     <div class="stats">
-      <div class="stat"><b>3</b><span>天记录</span></div>
-      <div class="stat"><b>60</b><span>收录项目</span></div>
-      <div class="stat"><b>2026-09-23</b><span>最新一期</span></div>
+      <div class="stat"><b>4</b><span>天记录</span></div>
+      <div class="stat"><b>80</b><span>收录项目</span></div>
+      <div class="stat"><b>2026-09-24</b><span>最新一期</span></div>
     </div>
   </header>
 
@@ -187,7 +187,7 @@
     <div class="tabs">
       <span class="label">日期</span>
       <button class="arrow" id="prev" type="button" title="上一期">‹</button>
-      <span class="tabs" id="tablist"><button class="pill on" data-target="d-2026-09-23" type="button">09-23<span class="wd">周三</span></button><button class="pill" data-target="d-2026-09-22" type="button">09-22<span class="wd">周二</span></button><button class="pill" data-target="d-2026-09-21" type="button">09-21<span class="wd">周一</span></button></span>
+      <span class="tabs" id="tablist"><button class="pill on" data-target="d-2026-09-24" type="button">09-24<span class="wd">周四</span></button><button class="pill" data-target="d-2026-09-23" type="button">09-23<span class="wd">周三</span></button><button class="pill" data-target="d-2026-09-22" type="button">09-22<span class="wd">周二</span></button><button class="pill" data-target="d-2026-09-21" type="button">09-21<span class="wd">周一</span></button></span>
       <button class="arrow" id="next" type="button" title="下一期">›</button>
       <span class="spacer"></span>
       <span class="label" id="counter"></span>
@@ -202,7 +202,487 @@
       <button class="tbtn" data-f="weekly" type="button">仅周榜</button>
     </div>
 
-      <section class="panel active" id="d-2026-09-23" data-date="2026-09-23">
+      <section class="panel active" id="d-2026-09-24" data-date="2026-09-24">
+        <div class="day-head">
+          <h2>2026-09-24<span class="wd">周四</span></h2>
+          <span class="day-sub">日榜 17 · 周榜 3 · 20 个 Trending 项目</span>
+        </div>
+        <details class="notes"><summary>数据说明</summary><ul><li>仓库提交经 api.github.com 公共 API 获取（未认证，本机 gh 未登录）；since=2026-09-22T22:00:00Z，per_page=30，时间已换算为北京时间。deepseek-harness 单页返回 30 条已达上限，实际提交可能更多。</li><li>Trending 本次 github.com/trending 可直连：今日榜返回 17 条，另取本周榜前 3 条未重复项目补位至 20 条（source 标注 daily/weekly）。</li><li>日榜页面未附带仓库描述文本，summary 与 highlight 均取自各仓库 API 的 description / topics 与 README 原文，未做推测。</li></ul></details>
+        
+          <section class="block">
+            <div class="block-head">
+              <h3><span class="ico">🧩</span>仓库提交简报</h3>
+              <span class="block-sub">过去 24 小时（已换算为北京时间）</span>
+            </div>
+            <div class="repo-grid">
+              <div class="repo-block" style="--c:#5B9BFF">
+                <div class="rb-head">
+                  <h4>deepseek-ai/deepseek-harness</h4>
+                  <span class="rb-meta">master · 24h 内 30 条提交（已达单页上限，仍在持续提交）· 非常活跃</span>
+                </div>
+                <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">release(dsh) 0.1.7-rc.1（PR #5073）</div>
+                    <div class="c-meta">0.1.7 首个 RC 发布 · turtle1999 · 09-23 21:03</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(plugins)：强制校验 DSH peer 兼容性并拒绝不兼容插件包（PR #4980 / #5061）</div>
+                    <div class="c-meta">不兼容时给出类型化拒绝理由 · turtle1999 · 09-23 20:44</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(tool)：文件变更时显示内容准备进度（PR #5053）</div>
+                    <div class="c-meta">长任务过程可见 · imccyu · 09-23 20:28</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(chat)：新增四种 work detail 展示模式</div>
+                    <div class="c-meta">含 legacy 映射，配套快照与订阅测试 · imccyu · 09-23 18:35</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(web)：只读表格双轴触控板平移（PR #5047）/ PDF 缩放稳定后重绘（PR #5052）</div>
+                    <div class="c-meta">web 端交互修复 · yudshj · 09-23 19:26 / 18:12</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(preset)：creator skill 增加插件实践参考（PR #5025）</div>
+                    <div class="c-meta">插件开发文档补强 · turtle1999 · 09-23 18:06</div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+              <div class="repo-block" style="--c:#A06BFF">
+                <div class="rb-head">
+                  <h4>earendil-works/pi</h4>
+                  <span class="rb-meta">main · 24h 内 14 条提交</span>
+                </div>
+                <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(durable)：导出作用域存储一致性测试套件（PR #9977）</div>
+                    <div class="c-meta">持久化后端可被外部验证 · Christian Klotz · 09-24 05:21</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat：与 pi.dev 共享模型目录协议（PR #9763）</div>
+                    <div class="c-meta">模型目录走向标准化 · Armin Ronacher · 09-24 02:08</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(ai,coding-agent)：统一 image 与 classifier 模型基础设施（PR #9948）</div>
+                    <div class="c-meta">模型层收敛 · Armin Ronacher · 09-23 23:41</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat：向扩展暴露 provider stream 事件（PR #9901）</div>
+                    <div class="c-meta">扩展可订阅流式事件 · David Brailovsky · 09-23 22:03</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(coding-agent)：避免扩展运行时重复（关闭 #9863）/ fix(tui)：恢复 skill 前缀补全（#9944）</div>
+                    <div class="c-meta">两处用户可感知修复 · Armin Ronacher · 09-23 21:33 / 20:32</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat：新增 durable JSONL 存储后端、sidecar 回收与 chord 增量引擎原型</div>
+                    <div class="c-meta">持久化与增量计算方向 · Mario Zechner · 09-23 15:54</div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+              <div class="repo-block" style="--c:#2FD6A6">
+                <div class="rb-head">
+                  <h4>anomalyco/opencode</h4>
+                  <span class="rb-meta">dev · 24h 内 6 条提交</span>
+                </div>
+                <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(go)：Go 页面加入 GPT 6 Luna（#50947）</div>
+                    <div class="c-meta">新模型上官网 · MrMushrooooom · 09-24 02:25</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(gemini)：调整 thinking 默认策略（#50841）</div>
+                    <div class="c-meta">修 Gemini 思考档位默认值 · Mark McDonald · 09-24 00:41</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(go)：新增 Space Bunny 推广位（#50572）</div>
+                    <div class="c-meta">另有 3 条 chore / 依赖升级提交（generate、nix node_modules、gitlab-ai-provider 6.16.0），属噪音已略 · MrMushrooooom · 09-23 21:58</div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        <section class="block">
+          <div class="block-head">
+            <h3><span class="ico">🚀</span>GitHub Trending 分析</h3>
+            <span class="block-sub">20 个项目</span>
+          </div>
+          <div class="grid">
+            <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="anthropics/financial-services python claude 金融服务参考 agent 库，覆盖投行、股票研究、pe、财富管理，含 agent / skill / 数据连接器。 同一套源码可作 claude cowork 插件，或经 managed agents api 部署在你自己的 workflow 引擎后面；每个 agent 自包含，readme 强调所有产出都是「待人工签核」的草稿，不做投资建议或交易执行。">
+              <div class="rank rank-top">1</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/anthropics/financial-services" target="_blank" rel="noreferrer">anthropics/financial-services</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta">
+                  <span class="lang"><i style="background:#4B8BBE"></i>Python</span>
+                  <span class="stars">★ 36,896</span>
+                  <span class="delta">+665</span>
+                </div>
+                <p class="summary">Claude 金融服务参考 agent 库，覆盖投行、股票研究、PE、财富管理，含 agent / skill / 数据连接器。</p>
+                <p class="hl">同一套源码可作 Claude Cowork 插件，或经 Managed Agents API 部署在你自己的 workflow 引擎后面；每个 agent 自包含，README 强调所有产出都是「待人工签核」的草稿，不做投资建议或交易执行。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#00ADD8" data-src="daily" data-text="google/ax go google 开源的声明式、高吞吐 agent 编排运行时，目标单集群跑数十亿任务。 用 yaml 声明 task/workspace，ax apply / watch / ssh 管理，可对沙箱做网络围栏；构建在 agent substrate 之上，readme 明确仍在演进、稳定版前会有破坏性变更。">
+              <div class="rank rank-top">2</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/google/ax" target="_blank" rel="noreferrer">google/ax</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta">
+                  <span class="lang"><i style="background:#00ADD8"></i>Go</span>
+                  <span class="stars">★ 8,951</span>
+                  <span class="delta">+1,542</span>
+                </div>
+                <p class="summary">Google 开源的声明式、高吞吐 agent 编排运行时，目标单集群跑数十亿任务。</p>
+                <p class="hl">用 YAML 声明 Task/Workspace，ax apply / watch / ssh 管理，可对沙箱做网络围栏；构建在 Agent Substrate 之上，README 明确仍在演进、稳定版前会有破坏性变更。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="davila7/claude-code-templates python 配置与监控 claude code 的 cli 工具。 以 npm 包 claude-code-templates 分发，readme 显示由 z.ai、neon、claude for open source 等计划赞助。">
+              <div class="rank rank-top">3</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/davila7/claude-code-templates" target="_blank" rel="noreferrer">davila7/claude-code-templates</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta">
+                  <span class="lang"><i style="background:#4B8BBE"></i>Python</span>
+                  <span class="stars">★ 31,460</span>
+                  <span class="delta">+393</span>
+                </div>
+                <p class="summary">配置与监控 Claude Code 的 CLI 工具。</p>
+                <p class="hl">以 npm 包 claude-code-templates 分发，README 显示由 Z.AI、Neon、Claude for Open Source 等计划赞助。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#3178C6" data-src="daily" data-text="builderio/agent-native typescript 构建「带 ui 的 agent 应用」的 typescript 框架，把能力定义为 action，agent 当工具调用、ui 从代码调用。 两条路径共用同一套校验、权限与实现，数据层共享后 agent 的产出会直接出现在 ui 里；npx 一条命令可起项目。">
+              <div class="rank">4</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/BuilderIO/agent-native" target="_blank" rel="noreferrer">BuilderIO/agent-native</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta">
+                  <span class="lang"><i style="background:#3178C6"></i>TypeScript</span>
+                  <span class="stars">★ 6,500</span>
+                  <span class="delta">+135</span>
+                </div>
+                <p class="summary">构建「带 UI 的 agent 应用」的 TypeScript 框架，把能力定义为 action，agent 当工具调用、UI 从代码调用。</p>
+                <p class="hl">两条路径共用同一套校验、权限与实现，数据层共享后 agent 的产出会直接出现在 UI 里；npx 一条命令可起项目。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#89E051" data-src="daily" data-text="obra/superpowers shell 面向编码 agent 的完整软件开发方法论，构建在一组可组合 skills 之上。 readme 列出 18 种客户端安装方式（claude code、codex、cursor、gemini cli、opencode、pi 等）；流程强调先逼出 spec、再出计划，坚持红绿 tdd 与 yagni。">
+              <div class="rank">5</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/obra/superpowers" target="_blank" rel="noreferrer">obra/superpowers</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta">
+                  <span class="lang"><i style="background:#89E051"></i>Shell</span>
+                  <span class="stars">★ 290,648</span>
+                  <span class="delta">+485</span>
+                </div>
+                <p class="summary">面向编码 agent 的完整软件开发方法论，构建在一组可组合 skills 之上。</p>
+                <p class="hl">README 列出 18 种客户端安装方式（Claude Code、Codex、Cursor、Gemini CLI、OpenCode、Pi 等）；流程强调先逼出 spec、再出计划，坚持红绿 TDD 与 YAGNI。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#3178C6" data-src="daily" data-text="dream-num/univer typescript 全栈同构 office sdk，可嵌入表格 / 文档 / 演示 / 多维表格 / 看板。 描述已改为「the office harness for ai agents」，插件架构 + canvas 渲染 + 公式引擎，浏览器与 node.js 共用一套 facade api。">
+              <div class="rank">6</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/dream-num/univer" target="_blank" rel="noreferrer">dream-num/univer</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta">
+                  <span class="lang"><i style="background:#3178C6"></i>TypeScript</span>
+                  <span class="stars">★ 16,272</span>
+                  <span class="delta">+1,140</span>
+                </div>
+                <p class="summary">全栈同构 Office SDK，可嵌入表格 / 文档 / 演示 / 多维表格 / 看板。</p>
+                <p class="hl">描述已改为「The Office Harness for AI Agents」，插件架构 + Canvas 渲染 + 公式引擎，浏览器与 Node.js 共用一套 Facade API。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#3178C6" data-src="daily" data-text="open-dev-society/openstock typescript 开源行情平台替代品：实时报价、个性化提醒、公司洞察，宣称永久免费。 由 open dev society 维护，同组织新项目 kitbash 用于「动手前先查 github 上已有哪些轮子」。">
+              <div class="rank">7</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/Open-Dev-Society/OpenStock" target="_blank" rel="noreferrer">Open-Dev-Society/OpenStock</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta">
+                  <span class="lang"><i style="background:#3178C6"></i>TypeScript</span>
+                  <span class="stars">★ 18,768</span>
+                  <span class="delta">+379</span>
+                </div>
+                <p class="summary">开源行情平台替代品：实时报价、个性化提醒、公司洞察，宣称永久免费。</p>
+                <p class="hl">由 Open Dev Society 维护，同组织新项目 kitbash 用于「动手前先查 GitHub 上已有哪些轮子」。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#00ADD8" data-src="daily" data-text="agent-substrate/substrate go 安全默认的 agent 执行运行时，为百万级沙箱设计。 宣称密度比常规容器运行时高 10x、亚 500ms 恢复、每秒 500+ 次挂起/恢复，支持 microvm 与 gvisor；readme 明确标注非 google 官方支持产品。">
+              <div class="rank">8</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/agent-substrate/substrate" target="_blank" rel="noreferrer">agent-substrate/substrate</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta">
+                  <span class="lang"><i style="background:#00ADD8"></i>Go</span>
+                  <span class="stars">★ 3,450</span>
+                  <span class="delta">+560</span>
+                </div>
+                <p class="summary">安全默认的 agent 执行运行时，为百万级沙箱设计。</p>
+                <p class="hl">宣称密度比常规容器运行时高 10x、亚 500ms 恢复、每秒 500+ 次挂起/恢复，支持 microVM 与 gVisor；README 明确标注非 Google 官方支持产品。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="strands-agents/harness-sdk python 开源的 agent harness sdk（python 与 typescript），在自己的进程里跑完整 agent loop。 create_harness() / createharness() 一行拿到带基准默认值的 agent；内置生命周期控制、tools、mcp、多 agent 模式、memory/session、guardrails、tracing 与 evals，且不依赖托管控制面。">
+              <div class="rank">9</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/strands-agents/harness-sdk" target="_blank" rel="noreferrer">strands-agents/harness-sdk</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta">
+                  <span class="lang"><i style="background:#4B8BBE"></i>Python</span>
+                  <span class="stars">★ 7,807</span>
+                  <span class="delta">+96</span>
+                </div>
+                <p class="summary">开源的 agent harness SDK（Python 与 TypeScript），在自己的进程里跑完整 agent loop。</p>
+                <p class="hl">create_harness() / createHarness() 一行拿到带基准默认值的 agent；内置生命周期控制、tools、MCP、多 agent 模式、memory/session、guardrails、tracing 与 evals，且不依赖托管控制面。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="hkuds/cli-anything python 把任意软件「agent 化」的 cli 工具与公开注册表 cli-hub。 一条命令行即可让软件被 pi / openclaw / cursor / claude code 等调用；社区持续提交新 cli 提案（hermes skill、arcgis pro、obsidian 等），并对 token 文件处理做了路径穿越与符号链接加固。">
+              <div class="rank">10</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/HKUDS/CLI-Anything" target="_blank" rel="noreferrer">HKUDS/CLI-Anything</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta">
+                  <span class="lang"><i style="background:#4B8BBE"></i>Python</span>
+                  <span class="stars">★ 49,881</span>
+                  <span class="delta">+41</span>
+                </div>
+                <p class="summary">把任意软件「agent 化」的 CLI 工具与公开注册表 CLI-Hub。</p>
+                <p class="hl">一条命令行即可让软件被 Pi / OpenClaw / Cursor / Claude Code 等调用；社区持续提交新 CLI 提案（Hermes skill、ArcGIS Pro、Obsidian 等），并对 token 文件处理做了路径穿越与符号链接加固。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="superdesigndev/treg python 「agent 工具的 openrouter」——一个 base url + 一个 token 调 3000+ 端点、60+ 供应商。 按次计费（低至一分钱级别）、凭证在服务端注入，团队自有 key 优先且不离开服务器；可自托管，仓库带 dsh-plugin 话题。">
+              <div class="rank">11</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/superdesigndev/treg" target="_blank" rel="noreferrer">superdesigndev/treg</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta">
+                  <span class="lang"><i style="background:#4B8BBE"></i>Python</span>
+                  <span class="stars">★ 2,667</span>
+                  <span class="delta">+502</span>
+                </div>
+                <p class="summary">「agent 工具的 OpenRouter」——一个 base URL + 一个 token 调 3000+ 端点、60+ 供应商。</p>
+                <p class="hl">按次计费（低至一分钱级别）、凭证在服务端注入，团队自有 key 优先且不离开服务器；可自托管，仓库带 dsh-plugin 话题。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#F1E05A" data-src="daily" data-text="pbakaus/impeccable javascript 让 ai 编码 agent 设计得更好的「设计语言」skill。 1 个 skill + 24 条命令 + 61 条确定性检测规则（cli 与浏览器扩展跑规则时无需 llm 与 api key）；源自 anthropic 的 frontend-design skill，用 product.md 固化产品事实。">
+              <div class="rank">12</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/pbakaus/impeccable" target="_blank" rel="noreferrer">pbakaus/impeccable</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta">
+                  <span class="lang"><i style="background:#F1E05A"></i>JavaScript</span>
+                  <span class="stars">★ 70,284</span>
+                  <span class="delta">+287</span>
+                </div>
+                <p class="summary">让 AI 编码 agent 设计得更好的「设计语言」skill。</p>
+                <p class="hl">1 个 skill + 24 条命令 + 61 条确定性检测规则（CLI 与浏览器扩展跑规则时无需 LLM 与 API key）；源自 Anthropic 的 frontend-design skill，用 PRODUCT.md 固化产品事实。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="mvt-project/mvt python amnesty 出品的移动端取证工具，排查 android / ios 是否被 pegasus 类间谍软件入侵。 readme 提示近期合并 v3 分支引入破坏性变更，依赖旧输出的脚本可能失效。">
+              <div class="rank">13</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/mvt-project/mvt" target="_blank" rel="noreferrer">mvt-project/mvt</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta">
+                  <span class="lang"><i style="background:#4B8BBE"></i>Python</span>
+                  <span class="stars">★ 14,449</span>
+                  <span class="delta">+546</span>
+                </div>
+                <p class="summary">Amnesty 出品的移动端取证工具，排查 Android / iOS 是否被 Pegasus 类间谍软件入侵。</p>
+                <p class="hl">README 提示近期合并 v3 分支引入破坏性变更，依赖旧输出的脚本可能失效。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#8f8f8f" data-src="daily" data-text="deusdata/codebase-memory-mcp c 高性能代码智能 mcp server，把代码库索引成持久知识图谱。 纯 c 单静态二进制、零依赖、无语言运行时；宣称 160+ 语言、平均仓库毫秒级索引、亚毫秒查询、token 消耗降低 99%。">
+              <div class="rank">14</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/DeusData/codebase-memory-mcp" target="_blank" rel="noreferrer">DeusData/codebase-memory-mcp</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta">
+                  <span class="lang"><i style="background:#8f8f8f"></i>C</span>
+                  <span class="stars">★ 44,516</span>
+                  <span class="delta">+266</span>
+                </div>
+                <p class="summary">高性能代码智能 MCP server，把代码库索引成持久知识图谱。</p>
+                <p class="hl">纯 C 单静态二进制、零依赖、无语言运行时；宣称 160+ 语言、平均仓库毫秒级索引、亚毫秒查询、token 消耗降低 99%。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#f34b7d" data-src="daily" data-text="harry7557558/spirula-studio c++ 跨厂商 3d gaussian splatting 训练器：照片/视频 → splat → 带纹理 mesh，一个自包含二进制搞定。 无需 python/pytorch，也不用单独装 colmap；vulkan 计算覆盖 nvidia / amd / intel / apple gpu，8gb 显存可训 10m 全 sh 高斯，原生支持鱼眼与 360° 相机。">
+              <div class="rank">15</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/harry7557558/spirula-studio" target="_blank" rel="noreferrer">harry7557558/spirula-studio</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta">
+                  <span class="lang"><i style="background:#f34b7d"></i>C++</span>
+                  <span class="stars">★ 711</span>
+                  <span class="delta">+99</span>
+                </div>
+                <p class="summary">跨厂商 3D Gaussian Splatting 训练器：照片/视频 → splat → 带纹理 mesh，一个自包含二进制搞定。</p>
+                <p class="hl">无需 Python/PyTorch，也不用单独装 COLMAP；Vulkan 计算覆盖 NVIDIA / AMD / Intel / Apple GPU，8GB 显存可训 10M 全 SH 高斯，原生支持鱼眼与 360° 相机。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="browser-use/video-use python 用编码 agent 剪视频：素材丢进目录，对话产出 final.mp4。 自动去口癖和停顿、逐段调色、每处剪切加 30ms 音频淡入淡出、烧字幕，并用并行子 agent 生成动画叠层，每个剪切点先自评估再给你看。">
+              <div class="rank">16</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/browser-use/video-use" target="_blank" rel="noreferrer">browser-use/video-use</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta">
+                  <span class="lang"><i style="background:#4B8BBE"></i>Python</span>
+                  <span class="stars">★ 26,450</span>
+                  <span class="delta">+745</span>
+                </div>
+                <p class="summary">用编码 agent 剪视频：素材丢进目录，对话产出 final.mp4。</p>
+                <p class="hl">自动去口癖和停顿、逐段调色、每处剪切加 30ms 音频淡入淡出、烧字幕，并用并行子 agent 生成动画叠层，每个剪切点先自评估再给你看。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="tnt-likely/panwatch python 自托管 ai 盯盘助手，集成 tradingagents 多 agent 投资决策，覆盖 a 股/港股/美股实时监控、持仓管理与全渠道推送。 持仓页一键触发 9-agent 投研链路（看多看空辩论 → 风控审查 → pm 决策书，3-5 分钟出完整推理链），支持 pwa 与 docker 部署。">
+              <div class="rank">17</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/TNT-Likely/PanWatch" target="_blank" rel="noreferrer">TNT-Likely/PanWatch</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta">
+                  <span class="lang"><i style="background:#4B8BBE"></i>Python</span>
+                  <span class="stars">★ 1,464</span>
+                  <span class="delta">+142</span>
+                </div>
+                <p class="summary">自托管 AI 盯盘助手，集成 TradingAgents 多 Agent 投资决策，覆盖 A 股/港股/美股实时监控、持仓管理与全渠道推送。</p>
+                <p class="hl">持仓页一键触发 9-Agent 投研链路（看多看空辩论 → 风控审查 → PM 决策书，3-5 分钟出完整推理链），支持 PWA 与 Docker 部署。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#00ADD8" data-src="weekly" data-text="alibaba/open-code-review go 混合架构代码审查工具：确定性流水线 + llm agent，输出行级精准评论。 内建多语言规则集（npe、线程安全、xss、sql 注入），兼容 openai 与 anthropic 接口，宣称在阿里规模下经过实战验证。">
+              <div class="rank">18</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/alibaba/open-code-review" target="_blank" rel="noreferrer">alibaba/open-code-review</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <div class="meta">
+                  <span class="lang"><i style="background:#00ADD8"></i>Go</span>
+                  <span class="stars">★ 40,171</span>
+                  <span class="delta">周 +12,590</span>
+                </div>
+                <p class="summary">混合架构代码审查工具：确定性流水线 + LLM Agent，输出行级精准评论。</p>
+                <p class="hl">内建多语言规则集（NPE、线程安全、XSS、SQL 注入），兼容 OpenAI 与 Anthropic 接口，宣称在阿里规模下经过实战验证。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#3178C6" data-src="weekly" data-text="anthropics/claude-code typescript 活在终端里的 agentic 编码工具，理解整个代码库并执行常规任务。 readme 已标注 npm 安装为 deprecated，推荐 curl 安装脚本或 homebrew / winget 等原生方式。">
+              <div class="rank">19</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/anthropics/claude-code" target="_blank" rel="noreferrer">anthropics/claude-code</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <div class="meta">
+                  <span class="lang"><i style="background:#3178C6"></i>TypeScript</span>
+                  <span class="stars">★ 147,795</span>
+                  <span class="delta">周 +2,754</span>
+                </div>
+                <p class="summary">活在终端里的 agentic 编码工具，理解整个代码库并执行常规任务。</p>
+                <p class="hl">README 已标注 npm 安装为 deprecated，推荐 curl 安装脚本或 Homebrew / WinGet 等原生方式。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#00ADD8" data-src="weekly" data-text="tencent/weknora go 开源 llm 知识平台：把原始文档转成可查询 rag、自主推理 agent 与自维护 wiki。 除主仓库外提供官网、微信对话开放平台、chrome 扩展与 clawhub skill 等多个接入入口。">
+              <div class="rank">20</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/Tencent/WeKnora" target="_blank" rel="noreferrer">Tencent/WeKnora</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <div class="meta">
+                  <span class="lang"><i style="background:#00ADD8"></i>Go</span>
+                  <span class="stars">★ 29,325</span>
+                  <span class="delta">周 +5,303</span>
+                </div>
+                <p class="summary">开源 LLM 知识平台：把原始文档转成可查询 RAG、自主推理 agent 与自维护 Wiki。</p>
+                <p class="hl">除主仓库外提供官网、微信对话开放平台、Chrome 扩展与 ClawHub Skill 等多个接入入口。</p>
+              </div>
+            </article>
+          </div>
+        </section>
+        
+          <section class="block">
+            <div class="block-head"><h3><span class="ico">🔭</span>趋势观察</h3></div>
+            <ul class="obs"><li style="--c:#5B9BFF"><span class="num">1</span><p>「Agent 运行时」双雄继续霸榜：Google AX（今日 +1,542）与 Agent Substrate 同日上榜，前者是可声明式的编排层、后者是沙箱执行层，K8s 式的 agent 基础设施叙事正在成形。</p></li><li style="--c:#A06BFF"><span class="num">2</span><p>补齐 agent「最后一公里」的项目明显增多：superpowers 把开发方法论固化成 skills、impeccable 用 61 条确定性规则约束设计、codebase-memory-mcp 用纯 C 单二进制省 token，共同点是「不换模型也能变强」。</p></li><li style="--c:#2FD6A6"><span class="num">3</span><p>垂直场景更接地气：video-use 剪视频、PanWatch 盯盘侠做 A 股/港股/美股多 agent 投研、OpenStock 做免费行情，说明 agent 正从写代码扩散到日常工具。</p></li><li style="--c:#FFB13B"><span class="num">4</span><p>中文项目在榜上表现稳定：alibaba/open-code-review 周涨 1.26 万 stars 登顶周榜，Tencent/WeKnora 周涨 5,300，HKUDS/CLI-Anything 以 4.99 万 stars 继续在日榜。</p></li><li style="--c:#FF7AB6"><span class="num">5</span><p>提交侧最高频的动作仍是模型与插件适配：pi 统一 image/classifier 模型基础设施并对外共享模型目录协议，opencode 把 GPT 6 Luna 加进官网，deepseek-harness 则集中在插件兼容性校验与聊天/工具进度可见性。</p></li>
+            </ul>
+          </section>
+      </section>
+
+      <section class="panel" id="d-2026-09-23" data-date="2026-09-23">
         <div class="day-head">
           <h2>2026-09-23<span class="wd">周三</span></h2>
           <span class="day-sub">日榜 8 · 周榜 12 · 20 个 Trending 项目</span>
@@ -1609,7 +2089,7 @@
   </main>
 
   <footer>
-    <span>生成时间：2026-09-23T04:01:03.114Z · 原始数据：<code>data/*.json</code></span>
+    <span>生成时间：2026-09-23T22:01:39.503Z · 原始数据：<code>data/*.json</code></span>
     <span>Generated by OpenClaw · <a href="https://github.com/chengjiangpo/github-trending-daily-report">仓库源码</a></span>
   </footer>
 </div>
