@@ -87,14 +87,23 @@
 
   /* cards */
   .grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
-  .card{position:relative;display:flex;gap:14px;padding:16px 18px 16px 14px;border:1px solid var(--line);
-    border-radius:var(--radius);background:linear-gradient(170deg,var(--card),var(--card2));
+  .card{--c:var(--accent);position:relative;overflow:hidden;display:flex;gap:14px;padding:16px 18px 16px 14px;
+    border:1px solid var(--line);border-left:3px solid color-mix(in srgb,var(--c) 70%,transparent);
+    border-radius:var(--radius);
+    background:linear-gradient(150deg,color-mix(in srgb,var(--c) 11%,var(--card)) 0%,var(--card2) 55%,var(--card) 100%);
     transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
-  .card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+  .card::after{content:"";position:absolute;top:-46px;right:-46px;width:140px;height:140px;border-radius:50%;
+    background:radial-gradient(circle,color-mix(in srgb,var(--c) 32%,transparent),transparent 70%);opacity:.55;pointer-events:none}
+  .card:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--c) 55%,var(--line));
+    box-shadow:0 12px 30px color-mix(in srgb,var(--c) 26%,transparent)}
   .card.hide{display:none}
-  .rank{flex:0 0 34px;height:34px;border-radius:11px;display:grid;place-items:center;font-size:14px;font-weight:700;
-    color:var(--fg2);background:var(--card2);border:1px solid var(--line)}
-  .rank-top{color:#0b0e14;border-color:transparent;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+  .rank{position:relative;z-index:1;flex:0 0 34px;height:34px;border-radius:11px;display:grid;place-items:center;
+    font-size:14px;font-weight:700;color:var(--fg);
+    background:color-mix(in srgb,var(--c) 16%,var(--card2));
+    border:1px solid color-mix(in srgb,var(--c) 40%,transparent)}
+  .rank-top{color:#0b0e14;border-color:transparent;
+    background:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 45%,var(--accent2)))}
+  .card-body{position:relative;z-index:1}
   .card-body{min-width:0;flex:1}
   .card-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .repo{font-weight:650;text-decoration:none;word-break:break-all;letter-spacing:-.2px}
@@ -114,23 +123,27 @@
 
   /* commits */
   .repo-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
-  .repo-block{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);padding:16px 18px}
+  .repo-block{--c:var(--accent);border:1px solid var(--line);
+    border-left:3px solid color-mix(in srgb,var(--c) 70%,transparent);border-radius:var(--radius);
+    background:linear-gradient(150deg,color-mix(in srgb,var(--c) 10%,var(--card)),var(--card) 62%);padding:16px 18px}
+  .repo-block h4{color:color-mix(in srgb,var(--c) 72%,var(--fg))}
   .rb-head{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;margin-bottom:12px}
   .rb-head h4{margin:0;font-size:14.5px;word-break:break-all}
   .rb-meta{font-size:11.5px;color:var(--muted)}
   ul.timeline{list-style:none;margin:0;padding:0}
   ul.timeline li{display:flex;gap:11px;padding:7px 0}
   ul.timeline .dot{flex:0 0 7px;width:7px;height:7px;margin-top:8px;border-radius:50%;
-    background:linear-gradient(135deg,var(--accent),var(--accent2))}
+    background:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 40%,var(--accent2)))}
   .c-title{font-size:13.5px;line-height:1.5}
   .c-meta{font-size:12px;color:var(--muted)}
 
   /* observation */
   ul.obs{list-style:none;margin:0;padding:0;display:grid;gap:12px}
-  ul.obs li{display:flex;gap:13px;padding:15px 18px;border:1px solid var(--line);border-radius:var(--radius);
-    background:linear-gradient(170deg,var(--card),var(--card2))}
+  ul.obs li{--c:var(--accent);display:flex;gap:13px;padding:15px 18px;border:1px solid var(--line);
+    border-left:3px solid color-mix(in srgb,var(--c) 70%,transparent);border-radius:var(--radius);
+    background:linear-gradient(150deg,color-mix(in srgb,var(--c) 10%,var(--card)),var(--card) 62%)}
   ul.obs .num{flex:0 0 26px;height:26px;border-radius:9px;display:grid;place-items:center;font-size:13px;font-weight:700;
-    color:#0b0e14;background:linear-gradient(135deg,var(--accent),var(--accent2))}
+    color:#0b0e14;background:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 45%,var(--accent2)))}
   ul.obs p{margin:0;font-size:14.5px}
 
   footer{margin-top:46px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px;
@@ -183,7 +196,7 @@
           <span class="block-sub">过去 24 小时（已换算为北京时间）</span>
         </div>
         <div class="repo-grid">
-          <div class="repo-block">
+          <div class="repo-block" style="--c:#5B9BFF">
             <div class="rb-head">
               <h4>deepseek-ai/deepseek-harness</h4>
               <span class="rb-meta">master · 24h 内 30 条提交 · 非常活跃</span>
@@ -233,7 +246,7 @@
             </li>
             </ul>
           </div>
-          <div class="repo-block">
+          <div class="repo-block" style="--c:#A06BFF">
             <div class="rb-head">
               <h4>earendil-works/pi</h4>
               <span class="rb-meta">main · 24h 内 19 条提交</span>
@@ -283,7 +296,7 @@
             </li>
             </ul>
           </div>
-          <div class="repo-block">
+          <div class="repo-block" style="--c:#2FD6A6">
             <div class="rb-head">
               <h4>anomalyco/opencode</h4>
               <span class="rb-meta">dev · 24h 内 6 条提交</span>
@@ -327,7 +340,7 @@
           <span class="block-sub">20 个项目</span>
         </div>
         <div class="grid">
-        <article class="card" data-src="daily" data-text="anthropics/financial-services python claude 金融服务参考 agent 库，覆盖投行、股票研究、pe、财富管理，含 agent/skill/数据连接器。 同一套源码可作 claude cowork 插件或经 managed agents api 部署，内含 9 个命名 agent（pitch agent、gl reconciler、kyc screener 等），并强调所有产出需人工签核。">
+        <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="anthropics/financial-services python claude 金融服务参考 agent 库，覆盖投行、股票研究、pe、财富管理，含 agent/skill/数据连接器。 同一套源码可作 claude cowork 插件或经 managed agents api 部署，内含 9 个命名 agent（pitch agent、gl reconciler、kyc screener 等），并强调所有产出需人工签核。">
           <div class="rank rank-top">1</div>
           <div class="card-body">
             <div class="card-top">
@@ -343,7 +356,7 @@
             <p class="hl">同一套源码可作 Claude Cowork 插件或经 Managed Agents API 部署，内含 9 个命名 agent（Pitch Agent、GL Reconciler、KYC Screener 等），并强调所有产出需人工签核。</p>
           </div>
         </article>
-        <article class="card" data-src="daily" data-text="agent-substrate/substrate go 安全默认的 agent 执行运行时，专为百万级沙箱设计。 宣称比常规容器密度高 10x，&lt;500ms 恢复、每秒 500+ 次挂起/恢复，支持 microvm 与 gvisor，构建在 k8s 之上；readme 明确标注非 google 官方支持产品，仍处早期。">
+        <article class="card" style="--c:#00ADD8" data-src="daily" data-text="agent-substrate/substrate go 安全默认的 agent 执行运行时，专为百万级沙箱设计。 宣称比常规容器密度高 10x，&lt;500ms 恢复、每秒 500+ 次挂起/恢复，支持 microvm 与 gvisor，构建在 k8s 之上；readme 明确标注非 google 官方支持产品，仍处早期。">
           <div class="rank rank-top">2</div>
           <div class="card-body">
             <div class="card-top">
@@ -359,7 +372,7 @@
             <p class="hl">宣称比常规容器密度高 10x，&lt;500ms 恢复、每秒 500+ 次挂起/恢复，支持 microVM 与 gVisor，构建在 K8s 之上；README 明确标注非 Google 官方支持产品，仍处早期。</p>
           </div>
         </article>
-        <article class="card" data-src="daily" data-text="dream-num/univer typescript 全栈同构 office sdk，可嵌入表格/文档/演示。 描述已更新为「the office harness for ai agents」，canvas 渲染 + 公式引擎，浏览器与 node 共用一套 facade api。">
+        <article class="card" style="--c:#3178C6" data-src="daily" data-text="dream-num/univer typescript 全栈同构 office sdk，可嵌入表格/文档/演示。 描述已更新为「the office harness for ai agents」，canvas 渲染 + 公式引擎，浏览器与 node 共用一套 facade api。">
           <div class="rank rank-top">3</div>
           <div class="card-body">
             <div class="card-top">
@@ -375,7 +388,7 @@
             <p class="hl">描述已更新为「The Office Harness for AI Agents」，Canvas 渲染 + 公式引擎，浏览器与 Node 共用一套 Facade API。</p>
           </div>
         </article>
-        <article class="card" data-src="daily" data-text="davila7/claude-code-templates python 配置与监控 claude code 的 cli 工具。 由 bright data、z.ai、neon 等赞助，已进 vercel/neon oss 计划。">
+        <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="davila7/claude-code-templates python 配置与监控 claude code 的 cli 工具。 由 bright data、z.ai、neon 等赞助，已进 vercel/neon oss 计划。">
           <div class="rank">4</div>
           <div class="card-body">
             <div class="card-top">
@@ -391,7 +404,7 @@
             <p class="hl">由 Bright Data、Z.AI、Neon 等赞助，已进 Vercel/Neon OSS 计划。</p>
           </div>
         </article>
-        <article class="card" data-src="daily" data-text="google/ax go google 开源的高吞吐声明式 agent 编排运行时。 用 yaml 声明 task/workspace/gateway/model，支持 ax ssh/apply/suspend/resume，网络出口白名单，跑在 agent substrate 之上，目标是每集群跑数十亿任务。">
+        <article class="card" style="--c:#00ADD8" data-src="daily" data-text="google/ax go google 开源的高吞吐声明式 agent 编排运行时。 用 yaml 声明 task/workspace/gateway/model，支持 ax ssh/apply/suspend/resume，网络出口白名单，跑在 agent substrate 之上，目标是每集群跑数十亿任务。">
           <div class="rank">5</div>
           <div class="card-body">
             <div class="card-top">
@@ -407,7 +420,7 @@
             <p class="hl">用 YAML 声明 Task/Workspace/Gateway/Model，支持 ax ssh/apply/suspend/resume，网络出口白名单，跑在 Agent Substrate 之上，目标是每集群跑数十亿任务。</p>
           </div>
         </article>
-        <article class="card" data-src="daily" data-text="mvt-project/mvt python amnesty 出品的移动端取证工具，用于排查 ios/android 是否被 pegasus 类间谍软件入侵。 近期合并 v3 分支，含破坏性变更（官方已发告示）。">
+        <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="mvt-project/mvt python amnesty 出品的移动端取证工具，用于排查 ios/android 是否被 pegasus 类间谍软件入侵。 近期合并 v3 分支，含破坏性变更（官方已发告示）。">
           <div class="rank">6</div>
           <div class="card-body">
             <div class="card-top">
@@ -423,7 +436,7 @@
             <p class="hl">近期合并 v3 分支，含破坏性变更（官方已发告示）。</p>
           </div>
         </article>
-        <article class="card" data-src="daily" data-text="superdesigndev/treg python 「agent 工具的 openrouter」——一个 base url + 一个 token 调 3000+ 端点、60+ 供应商（seo、社媒、抓取、图像/视频生成）。 按次计费、服务端注入凭证，团队自有 key 优先且不计费；仓库带 dsh-plugin 话题。">
+        <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="superdesigndev/treg python 「agent 工具的 openrouter」——一个 base url + 一个 token 调 3000+ 端点、60+ 供应商（seo、社媒、抓取、图像/视频生成）。 按次计费、服务端注入凭证，团队自有 key 优先且不计费；仓库带 dsh-plugin 话题。">
           <div class="rank">7</div>
           <div class="card-body">
             <div class="card-top">
@@ -439,7 +452,7 @@
             <p class="hl">按次计费、服务端注入凭证，团队自有 key 优先且不计费；仓库带 dsh-plugin 话题。</p>
           </div>
         </article>
-        <article class="card" data-src="daily" data-text="browser-use/video-use python 用编码 agent 剪视频，丢素材进目录、对话产出 final.mp4。 自动去口癖/停顿、调色、烧字幕、并行子 agent 生成动画叠层，并在每个剪切点自评估渲染结果；注意主仓库最近推送停在 08-30。">
+        <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="browser-use/video-use python 用编码 agent 剪视频，丢素材进目录、对话产出 final.mp4。 自动去口癖/停顿、调色、烧字幕、并行子 agent 生成动画叠层，并在每个剪切点自评估渲染结果；注意主仓库最近推送停在 08-30。">
           <div class="rank">8</div>
           <div class="card-body">
             <div class="card-top">
@@ -455,7 +468,7 @@
             <p class="hl">自动去口癖/停顿、调色、烧字幕、并行子 agent 生成动画叠层，并在每个剪切点自评估渲染结果；注意主仓库最近推送停在 08-30。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="alibaba/open-code-review go 混合架构代码审查：确定性流水线 + llm agent，行级精准评论。 阿里大规模实战验证。">
+        <article class="card" style="--c:#00ADD8" data-src="weekly" data-text="alibaba/open-code-review go 混合架构代码审查：确定性流水线 + llm agent，行级精准评论。 阿里大规模实战验证。">
           <div class="rank">9</div>
           <div class="card-body">
             <div class="card-top">
@@ -471,7 +484,7 @@
             <p class="hl">阿里大规模实战验证。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="anthropics/claude-code typescript 终端内运行的 agentic 编码工具，理解整个代码库并执行常规任务。 ">
+        <article class="card" style="--c:#3178C6" data-src="weekly" data-text="anthropics/claude-code typescript 终端内运行的 agentic 编码工具，理解整个代码库并执行常规任务。 ">
           <div class="rank">10</div>
           <div class="card-body">
             <div class="card-top">
@@ -487,7 +500,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="tencent/weknora go 开源 llm 知识平台：把原始文档转成可查询 rag、自主推理 agent 和自维护 wiki。 ">
+        <article class="card" style="--c:#00ADD8" data-src="weekly" data-text="tencent/weknora go 开源 llm 知识平台：把原始文档转成可查询 rag、自主推理 agent 和自维护 wiki。 ">
           <div class="rank">11</div>
           <div class="card-body">
             <div class="card-top">
@@ -503,7 +516,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="affaan-m/ecc javascript 自称「agent harness 操作系统 / 性能优化系统」，提供 skills、instincts、memory、安全与研究优先开发流程。 兼容 claude code、codex、opencode、cursor。">
+        <article class="card" style="--c:#F1E05A" data-src="weekly" data-text="affaan-m/ecc javascript 自称「agent harness 操作系统 / 性能优化系统」，提供 skills、instincts、memory、安全与研究优先开发流程。 兼容 claude code、codex、opencode、cursor。">
           <div class="rank">12</div>
           <div class="card-body">
             <div class="card-top">
@@ -519,7 +532,7 @@
             <p class="hl">兼容 Claude Code、Codex、Opencode、Cursor。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="anthropics/knowledge-work-plugins python 面向知识工作者的 cowork 插件集，一次开源 11 个职能插件（产品、销售、法务、财务、数据、企业搜索、生物研究等）。 带各系统连接器。">
+        <article class="card" style="--c:#4B8BBE" data-src="weekly" data-text="anthropics/knowledge-work-plugins python 面向知识工作者的 cowork 插件集，一次开源 11 个职能插件（产品、销售、法务、财务、数据、企业搜索、生物研究等）。 带各系统连接器。">
           <div class="rank">13</div>
           <div class="card-body">
             <div class="card-top">
@@ -535,7 +548,7 @@
             <p class="hl">带各系统连接器。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="addyosmani/agent-skills javascript 面向 ai 编码 agent 的生产级工程技能。 9 个斜杠命令贯穿 /spec → /plan → /build → /test → /review → /ship。">
+        <article class="card" style="--c:#F1E05A" data-src="weekly" data-text="addyosmani/agent-skills javascript 面向 ai 编码 agent 的生产级工程技能。 9 个斜杠命令贯穿 /spec → /plan → /build → /test → /review → /ship。">
           <div class="rank">14</div>
           <div class="card-body">
             <div class="card-top">
@@ -551,7 +564,7 @@
             <p class="hl">9 个斜杠命令贯穿 /spec → /plan → /build → /test → /review → /ship。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="justvugg/colibri c 纯 c、零依赖引擎，把存储/ram/vram 当作统一推理层级，在消费级硬件上跑 744b–2.8t 的 moe 前沿模型（专家权重从磁盘流式加载）。 已支持 glm-5.x、kimi k3、deepseek v4.x 等 9 个模型族。">
+        <article class="card" style="--c:#8f8f8f" data-src="weekly" data-text="justvugg/colibri c 纯 c、零依赖引擎，把存储/ram/vram 当作统一推理层级，在消费级硬件上跑 744b–2.8t 的 moe 前沿模型（专家权重从磁盘流式加载）。 已支持 glm-5.x、kimi k3、deepseek v4.x 等 9 个模型族。">
           <div class="rank">15</div>
           <div class="card-body">
             <div class="card-top">
@@ -567,7 +580,7 @@
             <p class="hl">已支持 GLM-5.x、Kimi K3、DeepSeek V4.x 等 9 个模型族。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="tencentcloud/octop python 更聪明的自托管 ai 助手，主打多用户、多 agent。 ">
+        <article class="card" style="--c:#4B8BBE" data-src="weekly" data-text="tencentcloud/octop python 更聪明的自托管 ai 助手，主打多用户、多 agent。 ">
           <div class="rank">16</div>
           <div class="card-body">
             <div class="card-top">
@@ -583,7 +596,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="stablyai/orca typescript 并行 agent 的 ade：让 codex / claudecode / opencode / pi 各跑在独立 worktree 并统一追踪。 桌面 + 移动 + 远程运行时，可用自有订阅。">
+        <article class="card" style="--c:#3178C6" data-src="weekly" data-text="stablyai/orca typescript 并行 agent 的 ade：让 codex / claudecode / opencode / pi 各跑在独立 worktree 并统一追踪。 桌面 + 移动 + 远程运行时，可用自有订阅。">
           <div class="rank">17</div>
           <div class="card-body">
             <div class="card-top">
@@ -599,7 +612,7 @@
             <p class="hl">桌面 + 移动 + 远程运行时，可用自有订阅。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="danny-avila/librechat typescript 增强版 chatgpt 克隆，内置 agents、mcp、skills。 聚合 deepseek/anthropic/openai/azure/groq 等多家模型。">
+        <article class="card" style="--c:#3178C6" data-src="weekly" data-text="danny-avila/librechat typescript 增强版 chatgpt 克隆，内置 agents、mcp、skills。 聚合 deepseek/anthropic/openai/azure/groq 等多家模型。">
           <div class="rank">18</div>
           <div class="card-body">
             <div class="card-top">
@@ -615,7 +628,7 @@
             <p class="hl">聚合 DeepSeek/Anthropic/OpenAI/Azure/Groq 等多家模型。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="home-assistant/core python 开源家庭自动化平台，强调本地控制与隐私。 ">
+        <article class="card" style="--c:#4B8BBE" data-src="weekly" data-text="home-assistant/core python 开源家庭自动化平台，强调本地控制与隐私。 ">
           <div class="rank">19</div>
           <div class="card-body">
             <div class="card-top">
@@ -631,7 +644,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="cline/cline typescript 自主编码 agent，提供 sdk、ide 扩展与 cli 三种形态。 ">
+        <article class="card" style="--c:#3178C6" data-src="weekly" data-text="cline/cline typescript 自主编码 agent，提供 sdk、ide 扩展与 cli 三种形态。 ">
           <div class="rank">20</div>
           <div class="card-body">
             <div class="card-top">
@@ -652,7 +665,7 @@
       
       <section class="block">
         <div class="block-head"><h3><span class="ico">🔭</span>趋势观察</h3></div>
-        <ul class="obs"><li><span class="num">1</span><p>「Agent 基础设施」是当前最密集的赛道：Substrate 与 Google AX 在解决沙箱化、状态挂起/恢复与超大规模编排，ECC、agent-skills 则在优化 agent harness 本身的技能与记忆。</p></li><li><span class="num">2</span><p>编码 agent 生态继续分化：claude-code / opencode / cline / pi 争抢终端入口，Orca 这类「并行调度多 agent」的 ADE 开始出现，说明单 agent 已不够用。</p></li><li><span class="num">3</span><p>纵向落地的 agent 明显增多：金融（financial-services）、视频剪辑（video-use）、工具凭证与调用（treg），共同点是「统一凭证 + 按次计费 + 人工签核」。</p></li><li><span class="num">4</span><p>前沿模型（GPT-6 Sol/Luna、Claude Opus 5.5、Grok 4.7、Kimi K3）在 24 小时内密集接入各大工具链，模型发布到工具适配的延迟已被压到几乎为零。</p></li><li><span class="num">5</span><p>硬件侧出现「小引擎跑大模型」的方向（colibri 纯 C 流式加载 MoE），与云端超大规模 agent 运行时形成两极；安全取证类（MVT）也因间谍软件议题重回榜单。</p></li>
+        <ul class="obs"><li style="--c:#5B9BFF"><span class="num">1</span><p>「Agent 基础设施」是当前最密集的赛道：Substrate 与 Google AX 在解决沙箱化、状态挂起/恢复与超大规模编排，ECC、agent-skills 则在优化 agent harness 本身的技能与记忆。</p></li><li style="--c:#A06BFF"><span class="num">2</span><p>编码 agent 生态继续分化：claude-code / opencode / cline / pi 争抢终端入口，Orca 这类「并行调度多 agent」的 ADE 开始出现，说明单 agent 已不够用。</p></li><li style="--c:#2FD6A6"><span class="num">3</span><p>纵向落地的 agent 明显增多：金融（financial-services）、视频剪辑（video-use）、工具凭证与调用（treg），共同点是「统一凭证 + 按次计费 + 人工签核」。</p></li><li style="--c:#FFB13B"><span class="num">4</span><p>前沿模型（GPT-6 Sol/Luna、Claude Opus 5.5、Grok 4.7、Kimi K3）在 24 小时内密集接入各大工具链，模型发布到工具适配的延迟已被压到几乎为零。</p></li><li style="--c:#FF7AB6"><span class="num">5</span><p>硬件侧出现「小引擎跑大模型」的方向（colibri 纯 C 流式加载 MoE），与云端超大规模 agent 运行时形成两极；安全取证类（MVT）也因间谍软件议题重回榜单。</p></li>
         </ul>
       </section>
     </section>
@@ -670,7 +683,7 @@
           <span class="block-sub">09-20 22:00Z → 09-21 22:00Z</span>
         </div>
         <div class="repo-grid">
-          <div class="repo-block">
+          <div class="repo-block" style="--c:#5B9BFF">
             <div class="rb-head">
               <h4>deepseek-ai/deepseek-harness</h4>
               <span class="rb-meta">master · 24h 内无新提交</span>
@@ -685,7 +698,7 @@
             </li>
             </ul>
           </div>
-          <div class="repo-block">
+          <div class="repo-block" style="--c:#A06BFF">
             <div class="rb-head">
               <h4>earendil-works/pi</h4>
               <span class="rb-meta">main · 24h 内 17 个提交（取 6 条）</span>
@@ -735,7 +748,7 @@
             </li>
             </ul>
           </div>
-          <div class="repo-block">
+          <div class="repo-block" style="--c:#2FD6A6">
             <div class="rb-head">
               <h4>anomalyco/opencode</h4>
               <span class="rb-meta">dev · 24h 内 11 个提交（取 6 条）</span>
@@ -793,7 +806,7 @@
           <span class="block-sub">20 个项目</span>
         </div>
         <div class="grid">
-        <article class="card" data-src="daily" data-text="builderio/agent-native typescript 构建 agentic 应用的框架。 ">
+        <article class="card" style="--c:#3178C6" data-src="daily" data-text="builderio/agent-native typescript 构建 agentic 应用的框架。 ">
           <div class="rank rank-top">1</div>
           <div class="card-body">
             <div class="card-top">
@@ -809,7 +822,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="daily" data-text="trycua/cua html 面向 computer-use 2.0 的开源驱动、跨系统 fleet 与训练/评测/数据生成基准。 ">
+        <article class="card" style="--c:#E34C26" data-src="daily" data-text="trycua/cua html 面向 computer-use 2.0 的开源驱动、跨系统 fleet 与训练/评测/数据生成基准。 ">
           <div class="rank rank-top">2</div>
           <div class="card-body">
             <div class="card-top">
@@ -825,7 +838,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="daily" data-text="open-dev-society/openstock typescript 开源行情平台替代品：实时价格、个性化提醒、公司洞察，永久免费。 ">
+        <article class="card" style="--c:#3178C6" data-src="daily" data-text="open-dev-society/openstock typescript 开源行情平台替代品：实时价格、个性化提醒、公司洞察，永久免费。 ">
           <div class="rank rank-top">3</div>
           <div class="card-body">
             <div class="card-top">
@@ -841,7 +854,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="daily" data-text="akitaonrails/ai-memory rust 为 agent 编码 cli 提供长期记忆，并支持在不同 agent 厂商之间交接。 ">
+        <article class="card" style="--c:#DEA584" data-src="daily" data-text="akitaonrails/ai-memory rust 为 agent 编码 cli 提供长期记忆，并支持在不同 agent 厂商之间交接。 ">
           <div class="rank">4</div>
           <div class="card-body">
             <div class="card-top">
@@ -857,7 +870,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="daily" data-text="coder/coder go 为开发者及其 agent 提供安全的远程开发环境。 ">
+        <article class="card" style="--c:#00ADD8" data-src="daily" data-text="coder/coder go 为开发者及其 agent 提供安全的远程开发环境。 ">
           <div class="rank">5</div>
           <div class="card-body">
             <div class="card-top">
@@ -873,7 +886,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="daily" data-text="anthropics/financial-services python claude 金融服务参考 agent 库。 api 与页面均未提供描述，功能暂无权威说明（不臆测）。">
+        <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="anthropics/financial-services python claude 金融服务参考 agent 库。 api 与页面均未提供描述，功能暂无权威说明（不臆测）。">
           <div class="rank">6</div>
           <div class="card-body">
             <div class="card-top">
@@ -889,7 +902,7 @@
             <p class="hl">API 与页面均未提供描述，功能暂无权威说明（不臆测）。</p>
           </div>
         </article>
-        <article class="card" data-src="daily" data-text="cloudflare/quiche rust cloudflare 的 quic 传输协议与 http/3 实现。 ">
+        <article class="card" style="--c:#DEA584" data-src="daily" data-text="cloudflare/quiche rust cloudflare 的 quic 传输协议与 http/3 实现。 ">
           <div class="rank">7</div>
           <div class="card-body">
             <div class="card-top">
@@ -905,7 +918,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="daily" data-text="mvt-project/mvt python 移动设备取证工具，用于发现设备被入侵的痕迹。 ">
+        <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="mvt-project/mvt python 移动设备取证工具，用于发现设备被入侵的痕迹。 ">
           <div class="rank">8</div>
           <div class="card-body">
             <div class="card-top">
@@ -921,7 +934,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="daily" data-text="zhouxiaoka/autoclip python ai 驱动的视频高光提取与剪辑（二创）工具。 ">
+        <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="zhouxiaoka/autoclip python ai 驱动的视频高光提取与剪辑（二创）工具。 ">
           <div class="rank">9</div>
           <div class="card-body">
             <div class="card-top">
@@ -937,7 +950,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="daily" data-text="ruanyf/weekly  阮一峰《科技爱好者周刊》，每周五发布。 ">
+        <article class="card" style="--c:#8b93a7" data-src="daily" data-text="ruanyf/weekly  阮一峰《科技爱好者周刊》，每周五发布。 ">
           <div class="rank">10</div>
           <div class="card-body">
             <div class="card-top">
@@ -953,7 +966,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="daily" data-text="crosstalk-solutions/project-nomad typescript 离线优先的知识/教育服务器：维基百科、书籍、课程、地图、可选本地 ai，全部跑在自有硬件上。 ">
+        <article class="card" style="--c:#3178C6" data-src="daily" data-text="crosstalk-solutions/project-nomad typescript 离线优先的知识/教育服务器：维基百科、书籍、课程、地图、可选本地 ai，全部跑在自有硬件上。 ">
           <div class="rank">11</div>
           <div class="card-body">
             <div class="card-top">
@@ -969,7 +982,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="daily" data-text="yynxxxxx/codex-x rust openai codex 桌面端/cli 可视化管理工具：provider/api 切换、会话同步、提示词注入、skills/mcp 管理、toml 配置可视化。 ">
+        <article class="card" style="--c:#DEA584" data-src="daily" data-text="yynxxxxx/codex-x rust openai codex 桌面端/cli 可视化管理工具：provider/api 切换、会话同步、提示词注入、skills/mcp 管理、toml 配置可视化。 ">
           <div class="rank">12</div>
           <div class="card-body">
             <div class="card-top">
@@ -985,7 +998,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="alibaba/open-code-review go 混合架构代码评审工具：确定性流水线 + llm agent，行级精确评论，内置多语言规则集（npe、线程安全、xss、sql 注入），兼容 openai/anthropic。 ">
+        <article class="card" style="--c:#00ADD8" data-src="weekly" data-text="alibaba/open-code-review go 混合架构代码评审工具：确定性流水线 + llm agent，行级精确评论，内置多语言规则集（npe、线程安全、xss、sql 注入），兼容 openai/anthropic。 ">
           <div class="rank">13</div>
           <div class="card-body">
             <div class="card-top">
@@ -1001,7 +1014,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="justvugg/colibri c 纯 c 零依赖，通过从磁盘流式加载专家权重，在自有硬件上跑前沿 moe 模型。 ">
+        <article class="card" style="--c:#8f8f8f" data-src="weekly" data-text="justvugg/colibri c 纯 c 零依赖，通过从磁盘流式加载专家权重，在自有硬件上跑前沿 moe 模型。 ">
           <div class="rank">14</div>
           <div class="card-body">
             <div class="card-top">
@@ -1017,7 +1030,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="tencent/weknora go 开源 llm 知识平台：把原始文档变成可查询 rag、自主推理 agent 和自维护 wiki。 ">
+        <article class="card" style="--c:#00ADD8" data-src="weekly" data-text="tencent/weknora go 开源 llm 知识平台：把原始文档变成可查询 rag、自主推理 agent 和自维护 wiki。 ">
           <div class="rank">15</div>
           <div class="card-body">
             <div class="card-top">
@@ -1033,7 +1046,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="affaan-m/ecc javascript 「agent harness 性能优化系统」：技能、本能、记忆、安全与研究优先的开发流，覆盖 claude code、codex、opencode、cursor。 ">
+        <article class="card" style="--c:#F1E05A" data-src="weekly" data-text="affaan-m/ecc javascript 「agent harness 性能优化系统」：技能、本能、记忆、安全与研究优先的开发流，覆盖 claude code、codex、opencode、cursor。 ">
           <div class="rank">16</div>
           <div class="card-body">
             <div class="card-top">
@@ -1049,7 +1062,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="anthropics/knowledge-work-plugins python 面向知识工作者、供 claude cowork 使用的开源插件集合。 ">
+        <article class="card" style="--c:#4B8BBE" data-src="weekly" data-text="anthropics/knowledge-work-plugins python 面向知识工作者、供 claude cowork 使用的开源插件集合。 ">
           <div class="rank">17</div>
           <div class="card-body">
             <div class="card-top">
@@ -1065,7 +1078,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="addyosmani/agent-skills javascript 面向 ai 编码 agent 的生产级工程技能库。 ">
+        <article class="card" style="--c:#F1E05A" data-src="weekly" data-text="addyosmani/agent-skills javascript 面向 ai 编码 agent 的生产级工程技能库。 ">
           <div class="rank">18</div>
           <div class="card-body">
             <div class="card-top">
@@ -1081,7 +1094,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="stablyai/orca typescript 管理并行 agent 集群的 ade：可跑任意编码 agent、支持自带订阅，覆盖桌面/移动/远端运行时。 ">
+        <article class="card" style="--c:#3178C6" data-src="weekly" data-text="stablyai/orca typescript 管理并行 agent 集群的 ade：可跑任意编码 agent、支持自带订阅，覆盖桌面/移动/远端运行时。 ">
           <div class="rank">19</div>
           <div class="card-body">
             <div class="card-top">
@@ -1097,7 +1110,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="mksglu/context-mode typescript 编码 agent 上下文窗口优化：沙箱化工具输出（减少约 98%）、持久化会话记忆、通过 mcp + hooks 在 17 个平台间路由。 ">
+        <article class="card" style="--c:#3178C6" data-src="weekly" data-text="mksglu/context-mode typescript 编码 agent 上下文窗口优化：沙箱化工具输出（减少约 98%）、持久化会话记忆、通过 mcp + hooks 在 17 个平台间路由。 ">
           <div class="rank">20</div>
           <div class="card-body">
             <div class="card-top">
@@ -1118,7 +1131,7 @@
       
       <section class="block">
         <div class="block-head"><h3><span class="ico">🔭</span>趋势观察</h3></div>
-        <ul class="obs"><li><span class="num">1</span><p>今天/本周榜单几乎是「agent 基础设施」专场：agent 框架（agent-native）、agent 记忆（ai-memory）、agent 技能包（agent-skills、ECC）、agent 上下文压缩（context-mode）、并行 agent 编排（orca）、agent 云开发环境（coder）占据大半席位，说明竞争重心已从「对话」转向「让 agent 长期、低成本、可编排地干活」。</p></li><li><span class="num">2</span><p>第二个明显方向是模型侧的能力下沉与本地化：colibri 把前沿 MoE 塞进自有硬件、WeKnora 做自托管 RAG/知识 agent，呼应了「跑在自己机器上」的诉求。</p></li><li><span class="num">3</span><p>垂直落地开始出现爆款，如 AI 视频剪辑（autoclip）、开源行情平台（OpenStock）、行业向的 anthropics/financial-services，今日涨幅榜前列多为此类可直接使用的应用。</p></li><li><span class="num">4</span><p>alibaba/open-code-review 这类「确定性流水线 + LLM」的混合架构，可能成为代码评审落地的主流形态。</p></li><li><span class="num">5</span><p>总体看：热度 = agent 基建 + 本地/自托管 + 垂直应用，三线并行。</p></li>
+        <ul class="obs"><li style="--c:#5B9BFF"><span class="num">1</span><p>今天/本周榜单几乎是「agent 基础设施」专场：agent 框架（agent-native）、agent 记忆（ai-memory）、agent 技能包（agent-skills、ECC）、agent 上下文压缩（context-mode）、并行 agent 编排（orca）、agent 云开发环境（coder）占据大半席位，说明竞争重心已从「对话」转向「让 agent 长期、低成本、可编排地干活」。</p></li><li style="--c:#A06BFF"><span class="num">2</span><p>第二个明显方向是模型侧的能力下沉与本地化：colibri 把前沿 MoE 塞进自有硬件、WeKnora 做自托管 RAG/知识 agent，呼应了「跑在自己机器上」的诉求。</p></li><li style="--c:#2FD6A6"><span class="num">3</span><p>垂直落地开始出现爆款，如 AI 视频剪辑（autoclip）、开源行情平台（OpenStock）、行业向的 anthropics/financial-services，今日涨幅榜前列多为此类可直接使用的应用。</p></li><li style="--c:#FFB13B"><span class="num">4</span><p>alibaba/open-code-review 这类「确定性流水线 + LLM」的混合架构，可能成为代码评审落地的主流形态。</p></li><li style="--c:#FF7AB6"><span class="num">5</span><p>总体看：热度 = agent 基建 + 本地/自托管 + 垂直应用，三线并行。</p></li>
         </ul>
       </section>
     </section>
@@ -1136,7 +1149,7 @@
           <span class="block-sub">过去 24 小时（since 2026-09-19 22:00 UTC）</span>
         </div>
         <div class="repo-grid">
-          <div class="repo-block">
+          <div class="repo-block" style="--c:#5B9BFF">
             <div class="rb-head">
               <h4>deepseek-ai/deepseek-harness</h4>
               <span class="rb-meta">master · 24h 内无新提交</span>
@@ -1151,7 +1164,7 @@
             </li>
             </ul>
           </div>
-          <div class="repo-block">
+          <div class="repo-block" style="--c:#A06BFF">
             <div class="rb-head">
               <h4>earendil-works/pi</h4>
               <span class="rb-meta">main · 24h 内 22 个提交（取 6 条）</span>
@@ -1201,7 +1214,7 @@
             </li>
             </ul>
           </div>
-          <div class="repo-block">
+          <div class="repo-block" style="--c:#2FD6A6">
             <div class="rb-head">
               <h4>anomalyco/opencode</h4>
               <span class="rb-meta">dev · 24h 内 6 个提交（取 4 条）</span>
@@ -1245,7 +1258,7 @@
           <span class="block-sub">20 个项目</span>
         </div>
         <div class="grid">
-        <article class="card" data-src="weekly" data-text="browser-use/jev-ultrafast python 浏览器智能体项目，主打「动态、可索引的动作空间」。 readme 首屏标注 browser use cloud 等待名单已开放，属官方云端产品线。">
+        <article class="card" style="--c:#4B8BBE" data-src="weekly" data-text="browser-use/jev-ultrafast python 浏览器智能体项目，主打「动态、可索引的动作空间」。 readme 首屏标注 browser use cloud 等待名单已开放，属官方云端产品线。">
           <div class="rank rank-top">1</div>
           <div class="card-body">
             <div class="card-top">
@@ -1261,7 +1274,7 @@
             <p class="hl">README 首屏标注 Browser Use Cloud 等待名单已开放，属官方云端产品线。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="eternity4719/howtolivebetter html 中文循证生活指南，552 条建议，每条标注成本、收益、证据等级与原始出处。 只引期刊论文与官方文件。">
+        <article class="card" style="--c:#E34C26" data-src="weekly" data-text="eternity4719/howtolivebetter html 中文循证生活指南，552 条建议，每条标注成本、收益、证据等级与原始出处。 只引期刊论文与官方文件。">
           <div class="rank rank-top">2</div>
           <div class="card-body">
             <div class="card-top">
@@ -1277,7 +1290,7 @@
             <p class="hl">只引期刊论文与官方文件。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="lnkiai/m3e-canvas typescript 浏览器里拖拽绘制 material 3 expressive 界面，再导出为 vibe-coding 提示词。 产物可喂给 claude code / codex / gemini cli / cursor。">
+        <article class="card" style="--c:#3178C6" data-src="weekly" data-text="lnkiai/m3e-canvas typescript 浏览器里拖拽绘制 material 3 expressive 界面，再导出为 vibe-coding 提示词。 产物可喂给 claude code / codex / gemini cli / cursor。">
           <div class="rank rank-top">3</div>
           <div class="card-body">
             <div class="card-top">
@@ -1293,7 +1306,7 @@
             <p class="hl">产物可喂给 Claude Code / Codex / Gemini CLI / Cursor。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="sapientinc/praxist python 自主科研系统：协调并行研究「同伴」、任务级评测，面向可测量、计算机可执行的研究。 ">
+        <article class="card" style="--c:#4B8BBE" data-src="weekly" data-text="sapientinc/praxist python 自主科研系统：协调并行研究「同伴」、任务级评测，面向可测量、计算机可执行的研究。 ">
           <div class="rank">4</div>
           <div class="card-body">
             <div class="card-top">
@@ -1309,7 +1322,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="rakanki911/dlss5-swapper javascript 一键为兼容游戏安装/调优/回滚 dlss 5 神经渲染。 另附无 dlss 游戏的 feeder 方案与 optiscaler 系配置。">
+        <article class="card" style="--c:#F1E05A" data-src="weekly" data-text="rakanki911/dlss5-swapper javascript 一键为兼容游戏安装/调优/回滚 dlss 5 神经渲染。 另附无 dlss 游戏的 feeder 方案与 optiscaler 系配置。">
           <div class="rank">5</div>
           <div class="card-body">
             <div class="card-top">
@@ -1325,7 +1338,7 @@
             <p class="hl">另附无 DLSS 游戏的 Feeder 方案与 OptiScaler 系配置。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="xiaoduoya/codex-with-chatgpt typescript 「chatgpt 负责思考，codex 负责干活」：用 chatgpt 做规划大脑，保留 codex harness 执行。 ">
+        <article class="card" style="--c:#3178C6" data-src="weekly" data-text="xiaoduoya/codex-with-chatgpt typescript 「chatgpt 负责思考，codex 负责干活」：用 chatgpt 做规划大脑，保留 codex harness 执行。 ">
           <div class="rank">6</div>
           <div class="card-body">
             <div class="card-top">
@@ -1341,7 +1354,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="tamaratran/fast-jev-compaction typescript claude code 插件：用一次快速请求给每次工具调用/结果打分，替换默认的压缩摘要。 ">
+        <article class="card" style="--c:#3178C6" data-src="weekly" data-text="tamaratran/fast-jev-compaction typescript claude code 插件：用一次快速请求给每次工具调用/结果打分，替换默认的压缩摘要。 ">
           <div class="rank">7</div>
           <div class="card-body">
             <div class="card-top">
@@ -1357,7 +1370,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="bojieli/ai-infra-book python 《深入理解 ai infra：量化分析与系统设计》开源书稿，含正文、pdf、计算工具与实验。 每次更新 main 自动构建发 release。">
+        <article class="card" style="--c:#4B8BBE" data-src="weekly" data-text="bojieli/ai-infra-book python 《深入理解 ai infra：量化分析与系统设计》开源书稿，含正文、pdf、计算工具与实验。 每次更新 main 自动构建发 release。">
           <div class="rank">8</div>
           <div class="card-body">
             <div class="card-top">
@@ -1373,7 +1386,7 @@
             <p class="hl">每次更新 main 自动构建发 Release。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="crmne/spotifast rust 原生轻量 spotify 客户端（原名 fastpotify）。 支持整库、本地播放与 linux 上的 spotify connect。">
+        <article class="card" style="--c:#DEA584" data-src="weekly" data-text="crmne/spotifast rust 原生轻量 spotify 客户端（原名 fastpotify）。 支持整库、本地播放与 linux 上的 spotify connect。">
           <div class="rank">9</div>
           <div class="card-body">
             <div class="card-top">
@@ -1389,7 +1402,7 @@
             <p class="hl">支持整库、本地播放与 Linux 上的 Spotify Connect。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="hejustinsun/my-girlfriend-jingtian-latex tex 5×8 英寸 xelatex 排版工程。 readme 无更多说明，未作臆测。">
+        <article class="card" style="--c:#3D6117" data-src="weekly" data-text="hejustinsun/my-girlfriend-jingtian-latex tex 5×8 英寸 xelatex 排版工程。 readme 无更多说明，未作臆测。">
           <div class="rank">10</div>
           <div class="card-body">
             <div class="card-top">
@@ -1405,7 +1418,7 @@
             <p class="hl">README 无更多说明，未作臆测。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="apodexai/frontieragent python 开源智能体运行时 + 终端产品 + 评测套件，面向长时程研究与文件类工作。 自带 tui 与 react / agent team 模式。">
+        <article class="card" style="--c:#4B8BBE" data-src="weekly" data-text="apodexai/frontieragent python 开源智能体运行时 + 终端产品 + 评测套件，面向长时程研究与文件类工作。 自带 tui 与 react / agent team 模式。">
           <div class="rank">11</div>
           <div class="card-body">
             <div class="card-top">
@@ -1421,7 +1434,7 @@
             <p class="hl">自带 TUI 与 ReAct / Agent Team 模式。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="nandhakishorm/laya python 多语言、非自回归的「system 1」决策引擎：单次前向 33ms 输出带类型的决策，覆盖 100+ 语言。 用 rlcd 严格评分规则训练，带按请求选检查点的路由。">
+        <article class="card" style="--c:#4B8BBE" data-src="weekly" data-text="nandhakishorm/laya python 多语言、非自回归的「system 1」决策引擎：单次前向 33ms 输出带类型的决策，覆盖 100+ 语言。 用 rlcd 严格评分规则训练，带按请求选检查点的路由。">
           <div class="rank">12</div>
           <div class="card-body">
             <div class="card-top">
@@ -1437,7 +1450,7 @@
             <p class="hl">用 RLCD 严格评分规则训练，带按请求选检查点的路由。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="human-agent-society/reef python 面向「持续自我改进智能体」的开源基础设施。 打通推理、反馈、学习与版本化交付。">
+        <article class="card" style="--c:#4B8BBE" data-src="weekly" data-text="human-agent-society/reef python 面向「持续自我改进智能体」的开源基础设施。 打通推理、反馈、学习与版本化交付。">
           <div class="rank">13</div>
           <div class="card-body">
             <div class="card-top">
@@ -1453,7 +1466,7 @@
             <p class="hl">打通推理、反馈、学习与版本化交付。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="ashemag/human-atlas typescript react + three.js + shadcn/ui 的 3d 人体解剖浏览器。 2,234 个可选中网格、15 个系统分层、3,432 个命名概念可搜索。">
+        <article class="card" style="--c:#3178C6" data-src="weekly" data-text="ashemag/human-atlas typescript react + three.js + shadcn/ui 的 3d 人体解剖浏览器。 2,234 个可选中网格、15 个系统分层、3,432 个命名概念可搜索。">
           <div class="rank">14</div>
           <div class="card-body">
             <div class="card-top">
@@ -1469,7 +1482,7 @@
             <p class="hl">2,234 个可选中网格、15 个系统分层、3,432 个命名概念可搜索。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="sdli1995/dlssg_for_sm86  在 rtx 30/20 系（sm86/sm75）上启用 dlss 帧生成。 新版修复了帧生成特性重建后可能用错推理内核导致的画面破损与随机崩溃。">
+        <article class="card" style="--c:#8b93a7" data-src="weekly" data-text="sdli1995/dlssg_for_sm86  在 rtx 30/20 系（sm86/sm75）上启用 dlss 帧生成。 新版修复了帧生成特性重建后可能用错推理内核导致的画面破损与随机崩溃。">
           <div class="rank">15</div>
           <div class="card-body">
             <div class="card-top">
@@ -1485,7 +1498,7 @@
             <p class="hl">新版修复了帧生成特性重建后可能用错推理内核导致的画面破损与随机崩溃。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="robbietilton/compositor swift 面向 mac 的开源图像编辑器。 作者直言因 photoshop 太贵、gimp 不够顺手而自建。">
+        <article class="card" style="--c:#F05138" data-src="weekly" data-text="robbietilton/compositor swift 面向 mac 的开源图像编辑器。 作者直言因 photoshop 太贵、gimp 不够顺手而自建。">
           <div class="rank">16</div>
           <div class="card-body">
             <div class="card-top">
@@ -1501,7 +1514,7 @@
             <p class="hl">作者直言因 Photoshop 太贵、GIMP 不够顺手而自建。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="b-nnett/grok-bot-0.18-reconstructed typescript 对已发布的 grok bot 0.18.0 macos 应用做非官方、面向源码的重建与扩展。 ">
+        <article class="card" style="--c:#3178C6" data-src="weekly" data-text="b-nnett/grok-bot-0.18-reconstructed typescript 对已发布的 grok bot 0.18.0 macos 应用做非官方、面向源码的重建与扩展。 ">
           <div class="rank">17</div>
           <div class="card-body">
             <div class="card-top">
@@ -1517,7 +1530,7 @@
             
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="wide-trace/open-higgsfield typescript higgsfield ai 的开源替代：一个提示条调用 38 个图像/视频模型。 附带工作台管理每次生成结果。">
+        <article class="card" style="--c:#3178C6" data-src="weekly" data-text="wide-trace/open-higgsfield typescript higgsfield ai 的开源替代：一个提示条调用 38 个图像/视频模型。 附带工作台管理每次生成结果。">
           <div class="rank">18</div>
           <div class="card-body">
             <div class="card-top">
@@ -1533,7 +1546,7 @@
             <p class="hl">附带工作台管理每次生成结果。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="totec448-spec/chat-on-steroids typescript 给 chatgpt 装本地 mcp 能力：读写真实项目文件、跑测试、保持终端、操作桌面。 支持多 worker 并行任务。">
+        <article class="card" style="--c:#3178C6" data-src="weekly" data-text="totec448-spec/chat-on-steroids typescript 给 chatgpt 装本地 mcp 能力：读写真实项目文件、跑测试、保持终端、操作桌面。 支持多 worker 并行任务。">
           <div class="rank">19</div>
           <div class="card-body">
             <div class="card-top">
@@ -1549,7 +1562,7 @@
             <p class="hl">支持多 worker 并行任务。</p>
           </div>
         </article>
-        <article class="card" data-src="weekly" data-text="jub0t/concat rust 开源版 capcut：无版权水印、无订阅。 本地 rust 引擎、支持 mcp。">
+        <article class="card" style="--c:#DEA584" data-src="weekly" data-text="jub0t/concat rust 开源版 capcut：无版权水印、无订阅。 本地 rust 引擎、支持 mcp。">
           <div class="rank">20</div>
           <div class="card-body">
             <div class="card-top">
@@ -1570,14 +1583,14 @@
       
       <section class="block">
         <div class="block-head"><h3><span class="ico">🔭</span>趋势观察</h3></div>
-        <ul class="obs"><li><span class="num">1</span><p>AI Agent 仍是绝对主线：榜单里浏览器智能体、agent 运行时、自改进智能体基础设施、以及「给 ChatGPT 装本地能力/多 worker」这类桥接工具占了近三分之一。</p></li><li><span class="num">2</span><p>另一个明显方向是 agent 提效与上下文管理（如 Jev 打分式压缩、ChatGPT 做规划 + Codex 执行），说明社区关注点从「能不能跑」转向「跑得省、跑得稳」。</p></li><li><span class="num">3</span><p>面向创作者的开源替代品集中爆发：Photoshop、CapCut、Higgsfield AI 都有对应开源项目冲进前列，且普遍强调「本地运行、无订阅」。</p></li><li><span class="num">4</span><p>硬件/游戏侧以 DLSS 相关 mod 最热，两条上榜；同时中文内容型仓库（生活指南、AI Infra 书稿）在 star 增速上表现强劲。</p></li><li><span class="num">5</span><p>需要留意：本榜单为 Search API 替代口径（近 30 天新建），与官方 Trending 的「star 增速」口径不完全一致，解读时请以此为参照而非精确复刻。</p></li>
+        <ul class="obs"><li style="--c:#5B9BFF"><span class="num">1</span><p>AI Agent 仍是绝对主线：榜单里浏览器智能体、agent 运行时、自改进智能体基础设施、以及「给 ChatGPT 装本地能力/多 worker」这类桥接工具占了近三分之一。</p></li><li style="--c:#A06BFF"><span class="num">2</span><p>另一个明显方向是 agent 提效与上下文管理（如 Jev 打分式压缩、ChatGPT 做规划 + Codex 执行），说明社区关注点从「能不能跑」转向「跑得省、跑得稳」。</p></li><li style="--c:#2FD6A6"><span class="num">3</span><p>面向创作者的开源替代品集中爆发：Photoshop、CapCut、Higgsfield AI 都有对应开源项目冲进前列，且普遍强调「本地运行、无订阅」。</p></li><li style="--c:#FFB13B"><span class="num">4</span><p>硬件/游戏侧以 DLSS 相关 mod 最热，两条上榜；同时中文内容型仓库（生活指南、AI Infra 书稿）在 star 增速上表现强劲。</p></li><li style="--c:#FF7AB6"><span class="num">5</span><p>需要留意：本榜单为 Search API 替代口径（近 30 天新建），与官方 Trending 的「star 增速」口径不完全一致，解读时请以此为参照而非精确复刻。</p></li>
         </ul>
       </section>
     </section>
   </main>
 
   <footer>
-    <span>生成时间：2026-09-23T03:58:10.787Z · 原始数据：<code>data/*.json</code></span>
+    <span>生成时间：2026-09-23T03:59:55.436Z · 原始数据：<code>data/*.json</code></span>
     <span>Generated by OpenClaw · <a href="https://github.com/chengjiangpo/github-trending-daily-report">仓库源码</a></span>
   </footer>
 </div>
