@@ -1,0 +1,82 @@
+{
+  "date": "2026-09-25",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "仓库提交经 api.github.com 公共 API 获取（未认证，本机 gh 未登录）；since=2026-09-23T22:00:00Z，per_page=30，时间已换算为北京时间。deepseek-harness 单页返回 30 条已达上限，实际提交可能更多。",
+    "Trending 本次 github.com/trending 可直连：今日榜返回 14 条，另取本周榜前 6 条未重复项目补位至 20 条（source 标注 daily/weekly）。",
+    "日榜页面未附带仓库描述文本，summary 与 highlight 均取自各仓库 API 的 description / topics 与 README 原文，未做推测。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 24h 内 30 条提交（已达单页上限，仍在持续提交）· 非常活跃",
+        "items": [
+          { "title": "release(dsh)：0.1.7-rc.2（PR #5180）", "desc": "0.1.7 第二个 RC 发布", "author": "turtle1999", "time": "09-24 21:24" },
+          { "title": "feat(web)：停止随包发布 schedule 与 time context 插件（PR #5175）", "desc": "默认装配收缩，配套快照测试对齐", "author": "turtle1999", "time": "09-24 20:27" },
+          { "title": "fix(auto-review)：审批提示本地化，并与 ask 回退路径同步文档（PR #5150）", "desc": "审查流程用户可感知修复", "author": "turtle1999", "time": "09-24 20:48" },
+          { "title": "feat(user-questions)：支持定时等待与迟到回复", "desc": "提问可设定等待窗口，超时后仍可回应", "author": "Magolor", "time": "09-24 16:33" },
+          { "title": "fix(session)：默认模型设置在后台保存（PR #5173）", "desc": "避免保存阻塞交互", "author": "Yichen Jiang", "time": "09-24 19:48" },
+          { "title": "fix(windows)：修复目录 junction 处理（PR #4500）+ plugin-manager 等待残留 pnpm 进程（PR #5165）", "desc": "Windows 与插件安装稳定性", "author": "Turtle", "time": "09-24 19:58 / 19:54" }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 15 条提交",
+        "items": [
+          { "title": "feat(durable)：新增事务化 session 与 document（+ checkpoint 与文档迁移）", "desc": "持久化层从存储升级到事务语义", "author": "Mario Zechner", "time": "09-25 05:09 / 04:23" },
+          { "title": "feat(coding-agent)：HTML 导出支持隐藏消息开关（PR #10020）", "desc": "分享导出可控", "author": "Ramiz Wachtler", "time": "09-25 05:18" },
+          { "title": "feat(ai)：Jev 分类器经 OpenRouter 与 Cloudflare Workers AI 提供服务", "desc": "模型服务多通道分发", "author": "Armin Ronacher", "time": "09-24 18:13" },
+          { "title": "feat(tui,coding-agent)：新增颜色值与主题样式（PR #8398）", "desc": "终端主题可定制", "author": "Armin Ronacher", "time": "09-24 20:42" },
+          { "title": "feat(chord)：不可变增量追踪器成为正式实现 + durable 存储基准工作负载导出", "desc": "增量计算与性能验证", "author": "Mario Zechner / Christian Klotz", "time": "09-24 21:06 / 20:26" },
+          { "title": "fix(tui)：支持 ( 与反引号等包裹符后的路径补全（PR #9957 Kitty 图片比例修正）", "desc": "两处终端体验修复", "author": "Armin Ronacher / Ramiz Wachtler", "time": "09-24 21:08 / 09-25 02:51" }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 6 条提交（含 2 条依赖/杂务已略）",
+        "items": [
+          { "title": "fix(stats)：对比雷达图改用能力回退数据（#51161）", "desc": "统计页数据准确性", "author": "Adam", "time": "09-25 03:26" },
+          { "title": "fix(stats)：把 Hy4 预览流量归因到腾讯（#51050）", "desc": "模型流量归因修正", "author": "Jack", "time": "09-24 14:20" },
+          { "title": "fix(go)：官网图表纳入 DeepSeek V4 Flash（#51032）", "desc": "新模型上官网统计", "author": "Jack", "time": "09-24 12:32" },
+          { "title": "fix(opencode)：调试配置中脱敏凭证（#50956）", "desc": "安全相关修复", "author": "opencode-agent[bot]", "time": "09-24 06:35" }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": { "daily": 14, "weekly": 6 },
+    "items": [
+      { "rank": 1, "repo": "rohitg00/ai-engineering-from-scratch", "url": "https://github.com/rohitg00/ai-engineering-from-scratch", "lang": "Python", "stars": "56,462", "delta": "+310", "source": "daily", "summary": "从零手写 AI 工程的开源参考手册式课程：20 个阶段、523 节课，覆盖 transformers、RL、CV、MCP、多 agent 到部署。", "highlight": "每节课分 Learn / Build 两类并标注语言（Python、Rust、TypeScript、Shell 等）；README 自带 12 种语言的落地页（含简体中文），另有 ROADMAP.md 全量课表。" },
+      { "rank": 2, "repo": "vectorize-io/hindsight", "url": "https://github.com/vectorize-io/hindsight", "lang": "Python", "stars": "27,709", "delta": "+1,607", "source": "daily", "summary": "Hindsight：让 agent「会学」而不只是「记得」的长期记忆系统。", "highlight": "宣称在 LongMemEval 上取得 SOTA，结果由 Virginia Tech Sanghani 中心与华盛顿邮报独立复现（其他方案为厂商自报）；提供 Docker 一键起服务、Python/JS 客户端与 arXiv 论文，README 称已在财富 500 企业投产。" },
+      { "rank": 3, "repo": "dream-num/univer", "url": "https://github.com/dream-num/univer", "lang": "TypeScript", "stars": "17,502", "delta": "+1,060", "source": "daily", "summary": "全栈同构 Office SDK，可嵌入表格 / 文档 / 演示 / 多维表格 / 看板。", "highlight": "描述已改为「The Office Harness for AI Agents」，插件架构 + Canvas 渲染 + 公式引擎，浏览器与 Node.js 共用一套 Facade API；近两日 star 从 15.3k 涨到 17.5k。" },
+      { "rank": 4, "repo": "google/ax", "url": "https://github.com/google/ax", "lang": "Go", "stars": "10,283", "delta": "+1,376", "source": "daily", "summary": "Google 开源的声明式、高吞吐 agent 编排运行时，目标单集群跑数十亿任务。", "highlight": "用 YAML 声明 Task/Workspace，ax apply / watch / ssh 管理，可对沙箱做网络出口围栏；构建在 Agent Substrate 之上，README 明确仍在演进、稳定版前会有破坏性变更。" },
+      { "rank": 5, "repo": "NVIDIA/Model-Optimizer", "url": "https://github.com/NVIDIA/Model-Optimizer", "lang": "Python", "stars": "4,040", "delta": "+22", "source": "daily", "summary": "NVIDIA 官方模型优化库：量化、剪枝、NAS、蒸馏、稀疏化、投机解码一站打包。", "highlight": "输入支持 Hugging Face / PyTorch / ONNX，导出量化 checkpoint 可直接喂给 TensorRT-LLM、TensorRT、vLLM、SGLang；训练阶段与 Megatron-Bridge、Megatron-LM、HF Accelerate 集成。" },
+      { "rank": 6, "repo": "FxEmbed/FxEmbed", "url": "https://github.com/FxEmbed/FxEmbed", "lang": "TypeScript", "stars": "5,348", "delta": "+165", "source": "daily", "summary": "修复 X/Twitter 与 Bluesky 链接预览：在 Discord、Telegram 等平台显示多图、视频、投票与翻译。", "highlight": "用法是给链接加前缀（twitter.com 前加 fx、x.com 前加 fixup、bsky.app 前加 fx），即 FxTwitter / FixupX / FxBluesky；Cloudflare Worker 实现，可 Docker 自托管，带公开 API 文档与 uptime 状态页。" },
+      { "rank": 7, "repo": "anthropics/financial-services", "url": "https://github.com/anthropics/financial-services", "lang": "Python", "stars": "37,329", "delta": "+510", "source": "daily", "summary": "Claude 金融服务参考 agent 库，覆盖投行、股票研究、PE、财富管理，含 agent / skill / 数据连接器。", "highlight": "同一套源码可作 Claude Cowork 插件，或经 Managed Agents API 部署在你自己的 workflow 引擎后面；README 强调所有产出都是「待人工签核」的草稿，不做投资建议或交易执行。" },
+      { "rank": 8, "repo": "HKUDS/CLI-Anything", "url": "https://github.com/HKUDS/CLI-Anything", "lang": "Python", "stars": "50,299", "delta": "+415", "source": "daily", "summary": "「让所有软件变成 agent 原生」的 CLI 方案，配套公开注册表 CLI-Hub。", "highlight": "pip install cli-anything-hub 后 cli-hub install <name> 即可浏览/安装社区 CLI，也可提 PR 补充；仓库含 CAD 建模、3D 场景、字幕等真实 demo，并支持 Pi / OpenClaw / Cursor / Claude Code 调用。" },
+      { "rank": 9, "repo": "mvt-project/mvt", "url": "https://github.com/mvt-project/mvt", "lang": "Python", "stars": "14,703", "delta": "+275", "source": "daily", "summary": "Amnesty 出品的移动端取证工具，排查 Android / iOS 是否被 Pegasus 类间谍软件入侵。", "highlight": "README 提示近期合并 v3 分支引入破坏性变更，依赖旧输出的脚本可能失效。" },
+      { "rank": 10, "repo": "obra/superpowers", "url": "https://github.com/obra/superpowers", "lang": "Shell", "stars": "291,193", "delta": "+606", "source": "daily", "summary": "面向编码 agent 的完整软件开发方法论，构建在一组可组合 skills 之上。", "highlight": "README 列出 18 种客户端安装方式（Claude Code、Codex、Cursor、Gemini CLI、OpenCode、Pi 等）；流程强调先逼出 spec、再出计划，坚持红绿 TDD 与 YAGNI。" },
+      { "rank": 11, "repo": "strands-agents/harness-sdk", "url": "https://github.com/strands-agents/harness-sdk", "lang": "Python", "stars": "8,220", "delta": "+463", "source": "daily", "summary": "开源 agent harness SDK（Python 与 TypeScript），在自己的进程里跑完整 agent loop。", "highlight": "create_harness() / createHarness() 一行拿到带基准默认值的 agent；内置生命周期控制、tools、MCP、多 agent 模式、memory/session、guardrails、tracing 与 evals，且不依赖托管控制面。" },
+      { "rank": 12, "repo": "julyx10/lap", "url": "https://github.com/julyx10/lap", "lang": "Vue", "stars": "2,836", "delta": "+151", "source": "daily", "summary": "离线优先的本地照片管理器，面向大型家庭相册与老照片检索。", "highlight": "主打隐私：不强制上传、本地 AI 搜索、文件夹优先工作流，含重复检测与人脸识别；macOS 版经 Apple 公证，Windows 提供 msi、Linux 提供 deb / AppImage，README 附 8 种语言说明。" },
+      { "rank": 13, "repo": "superdesigndev/treg", "url": "https://github.com/superdesigndev/treg", "lang": "Python", "stars": "3,129", "delta": "+470", "source": "daily", "summary": "「agent 工具的 OpenRouter」——一个 base URL + 一个 token 调 3000+ 端点、60+ 供应商。", "highlight": "按次计费、凭证在服务端注入，团队自有 key 优先且不离开服务器；可自托管，仓库带 dsh-plugin 话题。" },
+      { "rank": 14, "repo": "leejet/stable-diffusion.cpp", "url": "https://github.com/leejet/stable-diffusion.cpp", "lang": "C++", "stars": "7,224", "delta": "+69", "source": "daily", "summary": "纯 C/C++ 的扩散模型推理（SD、Flux、Wan、Qwen Image、Z-Image 等），思路对齐 llama.cpp。", "highlight": "基于 ggml、超轻量且无外部依赖；2026/09/20 刚宣布 Qwen-Image-2.1 首日支持，此前已覆盖 LTX-2.5、MiniMax-H3、Krea2、FLUX.2 等，并自带内嵌 Web UI；README 提示 API 与命令行选项仍可能变动。" },
+      { "rank": 15, "repo": "alibaba/open-code-review", "url": "https://github.com/alibaba/open-code-review", "lang": "Go", "stars": "40,748", "delta": "周 +9,833", "source": "weekly", "summary": "阿里开源的混合架构代码审查工具：确定性流水线 + LLM Agent，输出行级精准评论。", "highlight": "公开 AACR-Bench 基准（50 个开源仓库、200 个真实 PR、10 种语言、1,505 条人工标注），宣称同一底层模型下 F1 与精确率优于通用 agent、token 消耗约 1/9，代价是召回刻意更低；内建多语言规则集（NPE、线程安全、XSS、SQL 注入），OpenSSF Gold 认证。" },
+      { "rank": 16, "repo": "anthropics/claude-code", "url": "https://github.com/anthropics/claude-code", "lang": "TypeScript", "stars": "147,960", "delta": "周 +2,762", "source": "weekly", "summary": "活在终端里的 agentic 编码工具，理解整个代码库并执行常规任务。", "highlight": "README 已标注 npm 安装为 deprecated，推荐 curl 安装脚本或 Homebrew / WinGet 等原生方式。" },
+      { "rank": 17, "repo": "affaan-m/ECC", "url": "https://github.com/affaan-m/ECC", "lang": "JavaScript", "stars": "266,822", "delta": "周 +6,695", "source": "weekly", "summary": "自称「agent harness 操作系统 / 性能优化系统」，提供 skills、instincts、memory 与安全、研究优先的开发流程。", "highlight": "兼容 Claude Code、Codex、Opencode、Cursor。" },
+      { "rank": 18, "repo": "Tencent/WeKnora", "url": "https://github.com/Tencent/WeKnora", "lang": "Go", "stars": "29,691", "delta": "周 +4,522", "source": "weekly", "summary": "开源 LLM 知识平台：把原始文档转成可查询 RAG、自主推理 agent 与自维护 Wiki。", "highlight": "除主仓库外提供官网、微信对话开放平台、Chrome 扩展与 ClawHub Skill 等多个接入入口。" },
+      { "rank": 19, "repo": "addyosmani/agent-skills", "url": "https://github.com/addyosmani/agent-skills", "lang": "JavaScript", "stars": "98,877", "delta": "周 +3,867", "source": "weekly", "summary": "面向 AI 编码 agent 的生产级工程技能集。", "highlight": "9 个斜杠命令贯穿 /spec → /plan → /build → /test → /review → /ship 的完整流程。" },
+      { "rank": 20, "repo": "anthropics/knowledge-work-plugins", "url": "https://github.com/anthropics/knowledge-work-plugins", "lang": "Python", "stars": "25,554", "delta": "周 +1,358", "source": "weekly", "summary": "面向知识工作者的 Cowork 插件集，一次开源 11 个职能插件（产品、销售、法务、财务、数据、企业搜索、生物研究等）。", "highlight": "每个插件附带对应系统的连接器。" }
+    ]
+  },
+  "observation": [
+    "「agent 记忆」正式成为独立赛道：Hindsight 以 LongMemEval 的 SOTA 成绩和第三方复现（Virginia Tech + 华盛顿邮报）单日涨 1,607 star，说明「让 agent 会学」已能与「让 agent 记得」拉开差异，同类还有 akitaonrails/ai-memory 做跨厂商编码 agent 的交接记忆。",
+    "agent 基础设施继续向「操作系统化」演进：Google AX（声明式数百亿任务编排）、CLI-Anything（把任何软件变成 agent 可调 CLI）、harness-sdk（自托管 agent loop）在同一周挤进榜单，加上 superpowers / ECC / agent-skills 这类 harness 优化层，编排与技能两侧同时被补齐。",
+    "编码 agent 的竞争重心从「能不能写」转向「审得准不准」：阿里 open-code-review 以 AACR-Bench 和 1/9 token 消耗猛涨 9,833 star，公开用基准而非体感打擂台，是这一波的新打法。",
+    "「本地化 / 隐私优先」的回潮值得注意：lap（离线照片管理）、stable-diffusion.cpp（纯 C++ 无依赖推理）、colibri 式小引擎方向，与云端超大规模 agent 运行时构成明显两极。",
+    "模型接入速度依旧是零延迟：pi 一天内把 Jev 分类器铺到 OpenRouter 与 Cloudflare Workers AI，opencode 则忙着修 DeepSeek V4 Flash 的官网统计口径——工具链的差异已不在「支不支持」，而在数据与分发的准确度。"
+  ]
+}
