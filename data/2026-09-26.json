@@ -1,0 +1,78 @@
+{
+  "date": "2026-09-26",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "仓库提交经 api.github.com 公共 API 获取（未认证，本机 gh 未登录）；since=2026-09-24T22:00:00Z（当前时间减 24 小时），per_page=30，时间已换算为北京时间。三个仓库默认分支分别为 master / main / dev。",
+    "deepseek-ai/deepseek-harness 在本窗口内无新提交：master 分支最近一次提交为 09-24 21:39（release 0.1.7-rc.2），仓库 pushed_at 为 2026-09-24T14:10:21Z，均在窗口之外。",
+    "Trending 本次 github.com/trending 可直连：今日榜返回 16 条，另取本周榜前 4 条未重复项目补位至 20 条（source 标注 daily/weekly）。",
+    "日榜页面未附带仓库描述文本，summary 与 highlight 均取自各仓库 API 的 description / topics 与 README 原文，未做推测。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 过去 24 小时无新提交",
+        "items": [
+          { "title": "过去 24 小时无新提交", "desc": "master 最近一次提交停在 09-24 21:39 的 release(dsh) 0.1.7-rc.2（PR #5180），本轮 24 小时窗口为空", "author": "—", "time": "—" }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 17 条提交（含 1 条 SDK 升级）· 活跃",
+        "items": [
+          { "title": "feat：改用 TypeScript 7 构建，源码直接用 node 运行", "desc": "整条工具链的构建/运行方式换代", "author": "mitsuhiko", "time": "09-25 19:14" },
+          { "title": "feat(durable)：新增带类型的 ID 与显式所有权", "desc": "持久化层表达力增强", "author": "badlogic", "time": "09-25 23:46" },
+          { "title": "feat(durable)：会话文档支持 fork", "desc": "对话可从某一版派生分支", "author": "badlogic", "time": "09-25 22:17" },
+          { "title": "fix(ai)：OpenAI Fast 模式服务档位按 priority 计价", "desc": "修正计费口径", "author": "davidbrai", "time": "09-25 23:39" },
+          { "title": "feat(coding-agent)：RPC 响应中回报 prompt 处置结果", "desc": "接口层可观测性", "author": "davidbrai", "time": "09-25 20:51" },
+          { "title": "fix(coding-agent)：自定义主题遵循 truecolor（#10039 修复 #9973）", "desc": "终端配色正确性", "author": "christianklotz", "time": "09-25 21:44" },
+          { "title": "fix(coding-agent)：固定版本的临时 git 扩展使用按 ref 区分的缓存目录", "desc": "扩展缓存隔离", "author": "davidbrai", "time": "09-25 17:26" }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 4 条提交（含 1 条 chore 自动生成，已略）",
+        "items": [
+          { "title": "fix(go)：把 DeepSeek 的 $60 额度改为永久有效（#51364）", "desc": "额度政策调整", "author": "MrMushrooooom", "time": "09-26 00:13" },
+          { "title": "docs(zen)：补充 Qwen3.8 Max 文档（#51321）", "desc": "模型矩阵文档更新", "author": "MrMushrooooom", "time": "09-25 19:00" },
+          { "title": "fix(ci)：issue 自动化改用 GPT-6 Luna（#51261）", "desc": "CI 机器人模型切换", "author": "opencode-agent[bot]", "time": "09-25 11:13" }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": { "daily": 16, "weekly": 4 },
+    "items": [
+      { "rank": 1, "repo": "paperclipai/paperclip", "url": "https://github.com/paperclipai/paperclip", "lang": "TypeScript", "stars": "84,711", "delta": "+1,853", "source": "daily", "summary": "开源 agent 团队编排应用：把一组 AI agent 当公司来管，分配目标、跟踪工作与成本。", "highlight": "Node.js 服务 + React UI，README 原话「If OpenClaw is an employee, Paperclip is the company」；内置组织架构、预算、治理与目标对齐，主打「管业务目标而不是 PR 队列」；单日 +1,853 star 登顶，同时位列本周榜第 12。" },
+      { "rank": 2, "repo": "anthropics/claude-plugins-official", "url": "https://github.com/anthropics/claude-plugins-official", "lang": "Python", "stars": "36,890", "delta": "+62", "source": "daily", "summary": "Anthropic 官方维护的 Claude Code 插件目录，收录内部与第三方高质量插件。", "highlight": "分 /plugins（Anthropic 自研）与 /external_plugins（合作方与社区）两部分，可用 /plugin install {name}@claude-plugins-official 安装；README 顶部明确提示插件内的 MCP/文件不受 Anthropic 控制、安装前需自行评估信任，插件 name 为不可变 slug。" },
+      { "rank": 3, "repo": "vectorize-io/hindsight", "url": "https://github.com/vectorize-io/hindsight", "lang": "Python", "stars": "29,728", "delta": "+1,652", "source": "daily", "summary": "Hindsight：让 agent「会学」而不只是「记得」的 agent 记忆系统。", "highlight": "README 称在 LongMemEval 上取得 state-of-the-art，并在 benchmarks.hindsight.vectorize.io 持续公开逐模型准确率/延迟/成本；提供 Python 与 JS 客户端、Docker 一键起服务、arXiv 论文（2512.12818），本周榜同样在列（周 +3,363）。" },
+      { "rank": 4, "repo": "obra/superpowers", "url": "https://github.com/obra/superpowers", "lang": "Shell", "stars": "291,627", "delta": "+465", "source": "daily", "summary": "面向编码 agent 的完整软件开发方法论，构建在一组可组合 skills 之上。", "highlight": "README 列出 18+ 客户端安装入口（Claude Code、Codex、Cursor、Gemini CLI、OpenCode、Pi、Qwen Code、Kimi Code 等）；流程先逼出 spec 再给实施计划，坚持 red/green TDD、YAGNI、DRY，并采用 subagent 驱动开发循环。" },
+      { "rank": 5, "repo": "mattpocock/skills", "url": "https://github.com/mattpocock/skills", "lang": "Shell", "stars": "269,682", "delta": "+588", "source": "daily", "summary": "mattpocock 日常在用的工程 skills 集，主打「真实工程而不是 vibe coding」。", "highlight": "作者自述 skills 刻意做小、可组合、可随意改写并兼容任意模型；两条安装路径——Claude Code 插件（只读、随作者更新）或 skills.sh（把可编辑文件拷进项目），并提醒不要同时装；作者 newsletter 约 6 万开发者。" },
+      { "rank": 6, "repo": "dream-num/univer", "url": "https://github.com/dream-num/univer", "lang": "TypeScript", "stars": "18,375", "delta": "+1,048", "source": "daily", "summary": "全栈同构 Office SDK，可嵌入表格 / 文档 / 演示 / 多维表 / 看板（PDF 规划中）。", "highlight": "描述已更新为「The Office Harness for AI Agents」，插件架构 + Canvas 渲染 + 公式引擎，浏览器与 Node.js 共用一套 Facade API；star 从 09-23 的 15,330 涨到 18,375。" },
+      { "rank": 7, "repo": "anthropics/skills", "url": "https://github.com/anthropics/skills", "lang": "Python", "stars": "178,268", "delta": "+231", "source": "daily", "summary": "Anthropic 的 Agent Skills 公开示例仓库。", "highlight": "每个 skill 自成目录并含 SKILL.md 指令与元数据，覆盖创意类（艺术/音乐/设计）、技术类（测试 Web 应用、生成 MCP server）与企业工作流（沟通、品牌）；多数以 Apache 2.0 开源，驱动文档创作/编辑的 skill 也在其中。" },
+      { "rank": 8, "repo": "androoAGI/starnet", "url": "https://github.com/androoAGI/starnet", "lang": "JavaScript", "stars": "446", "delta": "+118", "source": "daily", "summary": "像素风空间站界面的本地优先桌面 agent harness，agent 在真实环境里跑真实任务。", "highlight": "446 star 的小仓库单日 +118；产品契约写得很硬：房间=有权限边界的团队、走廊=授权交接通道、摆放的物件=真实能力授权，即你画的布局就是 agent 的工作流；Tauri 桌面端，BYOK、本地优先。" },
+      { "rank": 9, "repo": "derv82/wifit3", "url": "https://github.com/derv82/wifit3", "lang": "Python", "stars": "882", "delta": "+168", "source": "daily", "summary": "Wifite 的跨平台重写版，仅靠 USB 无线网卡做 Wi-Fi 安全审计。", "highlight": "纯 Python（PyUSB + Textual）零运行时依赖，不需要 aircrack-ng / reaver，自带无线栈绕开内核驱动与 Windows NDIS；覆盖 WPA/WPA2 握手与 PMKID 抓取、WPA3 EvilTwin 降级、多网卡聚合与隐藏网络识别，需至少一个受支持的 USB 网卡。" },
+      { "rank": 10, "repo": "kelseyhightower/kubernetes-the-hard-way", "url": "https://github.com/kelseyhightower/kubernetes-the-hard-way", "lang": "", "stars": "50,111", "delta": "+105", "source": "daily", "summary": "Kelsey Hightower 的手动搭建 Kubernetes 经典教程，「No scripts」。", "highlight": "目标版本 k8s v1.32.x / containerd v2.1.x / CNI v1.6.x / etcd v3.6.x，需 4 台同网 ARM64 或 AMD64 机器；README 明确声明结果不应视为生产可用、仅供理解控制平面各组件如何拼装。注意仓库最近一次 push 停在 2025-04-10。" },
+      { "rank": 11, "repo": "rohitg00/ai-engineering-from-scratch", "url": "https://github.com/rohitg00/ai-engineering-from-scratch", "lang": "Python", "stars": "57,408", "delta": "+1,181", "source": "daily", "summary": "从零手写 AI 工程的开源课程手册，「Learn it. Build it. Ship it for others.」", "highlight": "按 Phase 组织教学（含 Phase 15 Autonomous Systems 等），并提供可安装的 agent skills（start-learning / learn / course-guide 等），在 Codex、Claude Code 等宿主里当导师并记录进度；自带 12 种语言落地页（含简体中文），英文为准、课程页在 translations 分支机翻。" },
+      { "rank": 12, "repo": "shy3130/tick-stock-panel", "url": "https://github.com/shy3130/tick-stock-panel", "lang": "Python", "stars": "5,118", "delta": "+31", "source": "daily", "summary": "自托管、零运维的 A 股「选股 + 监控 + 回测」量化工作台。", "highlight": "数据源插件化 + 能力路由，Polars 毫秒级扫全 A 股，含 25 内置策略、68 列指标流水线、四类回测视图（因子/策略/分钟/验证）与样本外因子挖掘；README 明确「个人开源、仅供学习研究」，不做 AI 荐股与涨停预测，Docker 单容器、数据留在本地 Parquet。" },
+      { "rank": 13, "repo": "google/ax", "url": "https://github.com/google/ax", "lang": "Go", "stars": "11,426", "delta": "+1,386", "source": "daily", "summary": "Google 开源的声明式、高吞吐 agent 编排运行时，目标单集群跑数十亿任务。", "highlight": "用 YAML 声明 Task / Workspace 与模型规格，ax apply / watch / ssh 管理，可给沙箱设 CPU/内存限制与网络出口围栏；构建在 Agent Substrate 之上、与 Kubernetes 手感类似，README 警告稳定版前会有破坏性变更。star 从 09-25 的 10,283 继续涨到 11,426。" },
+      { "rank": 14, "repo": "NVIDIA/Model-Optimizer", "url": "https://github.com/NVIDIA/Model-Optimizer", "lang": "Python", "stars": "4,436", "delta": "+360", "source": "daily", "summary": "NVIDIA 官方模型优化库：量化、剪枝、NAS、蒸馏、稀疏化、投机解码一站打包。", "highlight": "输入支持 Hugging Face / PyTorch / ONNX，导出的量化 checkpoint 可直接部署到 TensorRT-LLM、TensorRT、vLLM 等下游框架；训练侧与 Megatron-Bridge、Megatron-LM、Hugging Face Accelerate 集成，近两日由 4,040 涨至 4,436。" },
+      { "rank": 15, "repo": "pbakaus/impeccable", "url": "https://github.com/pbakaus/impeccable", "lang": "JavaScript", "stars": "71,152", "delta": "+326", "source": "daily", "summary": "让 AI 编码 agent 设计做得更好的「设计语言」skill。", "highlight": "1 个 skill + 24 个命令 + 61 条确定性检测规则，规则部分无需 LLM 与 API key 即可在 CLI 和浏览器插件里跑；/impeccable init 会把产品事实固化进 PRODUCT.md，README 点名要治「Inter 字体、紫蓝渐变、卡片套卡片、彩色背景配灰字」等 AI 生成前端通病。" },
+      { "rank": 16, "repo": "openbao/openbao", "url": "https://github.com/openbao/openbao", "lang": "Go", "stars": "7,696", "delta": "+16", "source": "daily", "summary": "开源密钥 / 证书 / 敏感数据管理与分发方案。", "highlight": "由 OpenSSF 与 Linux Foundation 社区在开放治理下维护，带 OpenSSF Scorecard 与 Best Practices 徽章；README 列出 namespaces、PKCS#11、可扩展性、供应链等多个工作组，属长线治理型项目，故日增幅仅 +16。" },
+      { "rank": 17, "repo": "cloudflare/security-audit-skill", "url": "https://github.com/cloudflare/security-audit-skill", "lang": "JavaScript", "stars": "21,620", "delta": "周 +11,262", "source": "weekly", "summary": "把编码 agent 变成安全审计员的 skill，产出可独立验证的机器可读发现。", "highlight": "六阶段流程：侦察 → 按覆盖账本派隔离 hunter → 每个候选交给新 verifier 尝试证伪 → 输出 findings.json 并按 report-schema.json 校验 → 独立复核来源断言 → 生成中性报告；配套 validate-coverage-ledger.cjs / validate-findings.cjs。README 说明它是 Cloudflare 漏洞发现 harness 的单仓库起点，后者已长成多阶段车队系统。本周 +11,262 star 为全榜最高。" },
+      { "rank": 18, "repo": "anthropics/financial-services", "url": "https://github.com/anthropics/financial-services", "lang": "Python", "stars": "37,537", "delta": "周 +2,382", "source": "weekly", "summary": "Claude 金融服务参考 agent 库，覆盖投行、股票研究、PE、财富管理。", "highlight": "同一套源码可作 Claude Cowork 插件，或经 Claude Managed Agents API 部署在自己的工作流引擎后面；每个 agent 自带所需 skills，也可单独装 /comps、/dcf、/earnings 等命令与数据连接器；README 强调所有产出都是待人工签核的草稿，不做投资建议或交易执行。" },
+      { "rank": 19, "repo": "anthropics/claude-code", "url": "https://github.com/anthropics/claude-code", "lang": "TypeScript", "stars": "148,087", "delta": "周 +2,384", "source": "weekly", "summary": "活在终端里的 agentic 编码工具，理解整个代码库并执行常规任务、处理 git 流程。", "highlight": "README 已标注 npm 安装为 deprecated，推荐 curl 安装脚本或 Homebrew / WinGet 等原生方式；仓库内附 plugins 目录用于扩展自定义命令与 agent。" },
+      { "rank": 20, "repo": "alibaba/open-code-review", "url": "https://github.com/alibaba/open-code-review", "lang": "Go", "stars": "41,298", "delta": "周 +6,920", "source": "weekly", "summary": "阿里开源的 AI 代码审查 CLI：确定性流水线 + LLM Agent 的混合架构，行级精准评论。", "highlight": "源自阿里内部官方 AI 代码审查助手（两年服务数万开发者、发现数百万缺陷）；公开 AACR-Bench 基准（50 个仓库 / 200 个真实 PR / 10 种语言 / 1,505 条人工标注），称同底模下 Precision 与 F1 优于通用 agent、token 消耗约 1/9，并用更低的召回换取精度；除 diff 审查外 ocr scan 可审整文件。" }
+    ]
+  },
+  "observation": [
+    "「管理 agent」正从单机 harness 升级为组织级应用：Paperclip 以 org chart + 预算 + 治理把一群 agent 当公司运营，单日 +1,853 star 登顶；superpowers / mattpocock-skills / impeccable 则从方法论、技能集、设计规则三个侧面给 harness 补课——竞争焦点已从模型能力转向流程与治理。",
+    "agent 记忆赛道继续升温：Hindsight 以 LongMemEval 的 SOTA 与持续公开的逐模型基准同日涨 1,652 star，并与本周榜交叉（周 +3,363），说明「让 agent 会学」这一叙事正在被基准化验证。",
+    "安全方向的 agent 化很显眼：Cloudflare 把内部漏洞发现 harness 的单仓库起点开源（周 +11,262，本周榜首），NVIDIA Model-Optimizer 与 openbao 则分别守住模型推理与密钥管理的基础设施位，日榜里第一次同时出现「用 agent 做安全」与「被 agent 依赖的安全底座」。",
+    "中文项目回暖：tick-stock-panel（A 股量化工作台）凭「自托管 + 明确不做 AI 荐股」的克制定位进入日榜，配合 univer「Office Harness for AI Agents」的再度上涨，本地化与数据自持仍是一个稳定卖点。",
+    "工具链的模型口径仍在快速挪动：opencode 一天内调整 DeepSeek 额度策略、补 Qwen3.8 Max 文档并给 CI 换上 GPT-6 Luna，pi 则用 TypeScript 7 重建构建链并修正 OpenAI Fast 档位计价——差异已不在「接不接」，而在计费与文档的准确度。"
+  ]
+}
