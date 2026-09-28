@@ -1,0 +1,90 @@
+{
+  "date": "2026-09-29",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "仓库提交经 api.github.com 公共 API 获取（未认证，本机 gh 未登录）；since=2026-09-27T22:00:00Z（当前时间减 24 小时），per_page=30，时间已换算为北京时间。三个仓库默认分支分别为 master / main / dev。",
+    "deepseek-ai/deepseek-harness 本窗口命中 30 条（已达 per_page 上限，实际更多），最新提交为 0.2.0-rc.1 发布；earendil-works/pi 命中 15 条、anomalyco/opencode 命中 24 条，两者本窗口均明显活跃。",
+    "Trending 本次 github.com/trending 可直连：今日榜仅返回 8 条，另取本周榜未重复项目 12 条补位至 20 条（条目中已标注 source=daily/weekly），日榜与周榜均按页面原始顺序排列。",
+    "star 总数为 api.github.com 实时返回的 stargazers_count；上下涨跌（delta）取 Trending 页面原文（日榜为 today，周榜为 this week）。",
+    "summary 与 highlight 取自各仓库 API 的 description 与 README 原文，未做推测；不确定的字段留空。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 24h 内 30+ 条提交（已达 per_page 上限）· 非常活跃",
+        "items": [
+          { "title": "release(dsh): 0.2.0-rc.1（PR #5387）", "desc": "0.2 首个正式候选版发布", "author": "imccyu", "time": "09-28 19:48" },
+          { "title": "fix(webworker)：预览中打开配置文件并加载插件管理器（#5375）", "desc": "修复预览窗口插件能力", "author": "Turtle", "time": "19:29" },
+          { "title": "Merge PR #5356 copy/preview-notice-0.2（0.2 预览提示文案）", "desc": "0.2 版本提示文案入库", "author": "Ziya", "time": "18:37" },
+          { "title": "feat(web)：通用设置新增 Session Log 上传偏好（#5337）", "desc": "新增会话日志上传开关", "author": "turtle1999", "time": "13:33" },
+          { "title": "fix(windows)：对话框与浮动面板避开窗口标题栏（#5268）", "desc": "修 Windows 端遮挡问题", "author": "Yudong Han", "time": "17:05" },
+          { "title": "perf(settings)：跳过未使用的共享组合（#5357 / 系列）", "desc": "设置页性能优化", "author": "turtle1999", "time": "16:12" },
+          { "title": "Merge PR #5203 windows-sandbox-acl-diagnosis", "desc": "Windows 沙箱 ACL 诊断分支合入", "author": "Huanqi Cao", "time": "17:58" }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 15 条提交 · 活跃",
+        "items": [
+          { "title": "feat(durable)：新增 durable 任务运行时", "desc": "可持久化任务执行能力", "author": "Mario Zechner", "time": "09-29 05:55" },
+          { "title": "feat(coding-agent)：Virtual models（#10035）", "desc": "新增虚拟模型抽象", "author": "Armin Ronacher", "time": "05:30" },
+          { "title": "fix(ai)：未完成的 Responses 工具调用改为拒绝而非执行", "desc": "避免半成品工具调用", "author": "David Brailovsky", "time": "05:19" },
+          { "title": "fix(coding-agent,tui)：粘贴 Finder 文件路径而非图标（#10136）", "desc": "修复 macOS 拖拽粘贴", "author": "Christian Klotz", "time": "03:59" },
+          { "title": "feat(ai,coding-agent)：支持 Claude Sonnet 5.5", "desc": "新模型接入", "author": "Armin Ronacher", "time": "02:46" },
+          { "title": "fix(ai)：为 OpenCode qwen3.8-flash 允许空 thinking 签名；Mistral 推理模型下发 requested thinking level", "desc": "多供应商推理参数修正", "author": "David Brailovsky", "time": "20:55 / 20:32" },
+          { "title": "fix(coding-agent)：Kimi K2.6 下线后 OpenCode Go 默认切到 Kimi K3", "desc": "默认模型跟随上游调整", "author": "Armin Ronacher", "time": "18:08" }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 24 条提交 · 活跃",
+        "items": [
+          { "title": "feat(console)：Go 页 hero 与套餐页按新设计重做（#51933）", "desc": "Console 付费页改版", "author": "vprdev", "time": "09-29 03:55" },
+          { "title": "fix(console)：告知推荐链接访客该计划已结束（#51920）", "desc": "推荐计划下线提示", "author": "vprdev", "time": "03:52" },
+          { "title": "fix(stats)：图表 tooltip 可读性（#51898）", "desc": "统计页展示修复", "author": "Adam", "time": "00:30" },
+          { "title": "fix(console)：停止 Black 订阅续费（#51884）", "desc": "历史套餐续费调整", "author": "vprdev", "time": "23:44" },
+          { "title": "feat(console)：Go 与 Go Plus 额度并排对比（#51865）／feat(go)：展示 Go Plus 套餐与限额（#51822）", "desc": "新付费套餐 Go Plus 上线", "author": "Victor Navarro / Jack", "time": "21:25 / 18:38" },
+          { "title": "feat(stats)：新增每日模型排行榜（#51774）", "desc": "统计维度扩展", "author": "Jack", "time": "12:44" },
+          { "title": "fix(opencode)：对 Cloudflare AI Gateway 模型应用供应商超时（#51549）", "desc": "修网关超时未生效", "author": "Dan Lapid", "time": "11:22" },
+          { "title": "sync release versions for v1.18.33", "desc": "发版同步（窗口内另有 4 条 bot chore: generate，属噪音已略）", "author": "opencode", "time": "12:22" }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": { "daily": 8, "weekly": 12 },
+    "items": [
+      { "rank": 1, "repo": "debpalash/VoiceStudio", "url": "https://github.com/debpalash/VoiceStudio", "lang": "Python", "stars": "43,728", "delta": "+3,274", "source": "daily", "summary": "完全本地的开源语音工作台：语音克隆、音色设计、视频配音、听写、转写与有声书制作，覆盖 646 种语言。", "highlight": "定位为 ElevenLabs 的开源自托管替代，README 明确「fully-local」，提供桌面端下载与 CI；同时进入本周榜第 11 位。" },
+      { "rank": 2, "repo": "paperclipai/paperclip", "url": "https://github.com/paperclipai/paperclip", "lang": "TypeScript", "stars": "92,609", "delta": "+3,185", "source": "daily", "summary": "管理「工作用 AI agent」的开源应用，号称大家都在用的 agent 管控台。", "highlight": "README 提供 Quickstart、独立文档站与 Discord/X 入口；MIT 许可，内置 star-history 排名徽章。" },
+      { "rank": 3, "repo": "vectorize-io/hindsight", "url": "https://github.com/vectorize-io/hindsight", "lang": "Python", "stars": "40,850", "delta": "+4,413", "source": "daily", "summary": "会学习的 agent 长期记忆系统：不止回放对话历史，而是让 agent 随使用变聪明。", "highlight": "带 arXiv 论文（2512.12818）、独立 benchmark 站与 cookbook；Python/JS 客户端均已上 PyPI 与 npm，另有托管版 Hindsight Cloud。" },
+      { "rank": 4, "repo": "NawfalMotii79/PLFM_RADAR", "url": "https://github.com/NawfalMotii79/PLFM_RADAR", "lang": "PLSQL", "stars": "25,727", "delta": "+145", "source": "daily", "summary": "AERIS-10：开源低成本 10.5 GHz 相位阵列雷达，脉冲线性调频，面向研究者、无人机开发者与 SDR 爱好者。", "highlight": "提供 3km 与 20km 两种量程版本，强调模块化可魔改；采用 MIT + CERN-OHL-P v2 双许可。语言被 GitHub 标为 PLSQL，应为其代码统计口径异常。" },
+      { "rank": 5, "repo": "cs341-illinois/coursebook", "url": "https://github.com/cs341-illinois/coursebook", "lang": "TeX", "stars": "2,465", "delta": "+316", "source": "daily", "summary": "伊利诺伊大学 CS 341《系统编程》课程的开源系统编程教材。", "highlight": "全部代码与讲解用 C（作者称其为 Linux 内核事实标准语言）；自动构建 PDF 与 EPUB，并延续 Angrave 的 wikibook 实验。" },
+      { "rank": 6, "repo": "byoungd/up", "url": "https://github.com/byoungd/up", "lang": "JavaScript", "stars": "64,609", "delta": "+310", "source": "daily", "summary": "《人生进阶指南》：面向普通人的 AI 时代终身学习书稿，从英语学习写到 AI 学习、真实项目与创业复盘。", "highlight": "作者韩先凯（笔名离谱），2017 年从《离谱的英语学习指南》演化而来；中英双语 EPUB/PDF 可下载，正文 CC BY-NC 4.0。" },
+      { "rank": 7, "repo": "mvschwarz/openrig", "url": "https://github.com/mvschwarz/openrig", "lang": "TypeScript", "stars": "1,645", "delta": "+781", "source": "daily", "summary": "「rig 包住 harness」的多 agent 编排器：用 YAML 定义 agent 团队，一条命令启动，Claude Code 与 Codex 同处一套系统。", "highlight": "可与 lead agent 对话并协调专职 agent；需 Node 22/24 + tmux，macOS/Linux 支持、Windows 原生暂不支持，README 明确警告启动会写入 provider hooks 与工作区信任设置，须先备份。" },
+      { "rank": 8, "repo": "dream-num/univer", "url": "https://github.com/dream-num/univer", "lang": "TypeScript", "stars": "21,184", "delta": "+1,105", "source": "daily", "summary": "「AI Agent 的 Office Harness」：表格、文档、演示、Bases、看板、PDF 于一体的全栈 Office SDK。", "highlight": "插件化架构 + Canvas 渲染 + 公式引擎，同一套 Facade API 同时可用于浏览器与 Node.js。" },
+      { "rank": 9, "repo": "anthropics/financial-services", "url": "https://github.com/anthropics/financial-services", "lang": "Python", "stars": "38,040", "delta": "周 +2,606", "source": "weekly", "summary": "面向金融服务工作流的参考 agent、skill 与数据连接器：投行、股票研究、私募股权与财富管理。", "highlight": "同一份源码两用：可作 Claude Cowork 插件安装，或经 Claude Managed Agents API 部署；README 明确所有产出仅供专业人审阅、需人工签核，不构成投资建议。" },
+      { "rank": 10, "repo": "cloudflare/security-audit-skill", "url": "https://github.com/cloudflare/security-audit-skill", "lang": "JavaScript", "stars": "22,706", "delta": "周 +4,805", "source": "weekly", "summary": "把编码 agent 变成安全审计员的 skill：侦察 → 覆盖驱动狩猎 → 候选验证 → 结构化输出 → 独立复核 → 中性报告。", "highlight": "正是 Cloudflare 漏洞发现 harness 的种子项目（配套官方博客《Build your own vulnerability harness》），每个候选由全新 verifier 尝试证伪，结果写入 findings.json 并按 schema 校验。" },
+      { "rank": 11, "repo": "davila7/claude-code-templates", "url": "https://github.com/davila7/claude-code-templates", "lang": "Python", "stars": "32,071", "delta": "周 +1,154", "source": "weekly", "summary": "配置与监控 Claude Code 的 CLI 工具。", "highlight": "已进入 Vercel OSS Program 与 Neon 开源计划，README 含 Trendshift 排名徽章。" },
+      { "rank": 12, "repo": "Tencent/WeKnora", "url": "https://github.com/Tencent/WeKnora", "lang": "Go", "stars": "30,928", "delta": "周 +2,705", "source": "weekly", "summary": "腾讯开源的知识管理框架：把原始文档转成可查询的 RAG、自主推理 agent 与自维护 Wiki。", "highlight": "当前版本 v0.8.2，MIT 许可，带独立文档站与 CHANGELOG。" },
+      { "rank": 13, "repo": "vercel/next.js", "url": "https://github.com/vercel/next.js", "lang": "JavaScript", "stars": "142,852", "delta": "周 +496", "source": "weekly", "summary": "Vercel 出品的 React 全栈框架。", "highlight": "老牌常青项目，被大量大型企业采用。" },
+      { "rank": 14, "repo": "stablyai/orca", "url": "https://github.com/stablyai/orca", "lang": "TypeScript", "stars": "80,643", "delta": "周 +6,227", "source": "weekly", "summary": "并行 agent 的 ADE：用你自己的订阅运行任意编码 agent，桌面 / 移动 / 远程三端可用。", "highlight": "MIT 许可，覆盖 macOS / Windows / Linux，README 提供中、日、韩多语言版本。" },
+      { "rank": 15, "repo": "HKUDS/CLI-Anything", "url": "https://github.com/HKUDS/CLI-Anything", "lang": "Python", "stars": "50,878", "delta": "周 +1,105", "source": "weekly", "summary": "口号「Making ALL Software Agent-Native」，配套 CLI-Hub（clianything.cc）。", "highlight": "港大数据智能实验室（HKUDS）作品，README 带 GitHub Trending of the Day 与 Trendshift 徽章。" },
+      { "rank": 16, "repo": "pytorch/pytorch", "url": "https://github.com/pytorch/pytorch", "lang": "Python", "stars": "103,463", "delta": "周 +320", "source": "weekly", "summary": "带强 GPU 加速的张量计算与基于 tape autograd 的深度神经网络库。", "highlight": "可复用 NumPy/SciPy/Cython 生态扩展；trunk 健康度公开在 hud.pytorch.org。" },
+      { "rank": 17, "repo": "rohitg00/ai-engineering-from-scratch", "url": "https://github.com/rohitg00/ai-engineering-from-scratch", "lang": "Python", "stars": "60,330", "delta": "周 +3,850", "source": "weekly", "summary": "从零开始的 AI 工程参考手册：Learn it. Build it. Ship it。", "highlight": "MIT 许可，标注 523 节课程并有 13 种语言落地页（英文为权威版本，译文在 translations 分支机器翻译）。" },
+      { "rank": 18, "repo": "trycua/cua", "url": "https://github.com/trycua/cua", "lang": "HTML", "stars": "26,845", "delta": "周 +1,559", "source": "weekly", "summary": "给 AI agent 一台能用的电脑：开源桌面自动化、隔离云桌面、本地 macOS VM 与 computer-use agent 评测基准。", "highlight": "主打 Cua Fleets 跨 OS 机群（run.cua.ai），涵盖训练、评测与数据生成。" },
+      { "rank": 19, "repo": "akitaonrails/ai-memory", "url": "https://github.com/akitaonrails/ai-memory", "lang": "Rust", "stars": "8,555", "delta": "周 +1,224", "source": "weekly", "summary": "面向编码 agent 的长期记忆：中途退出 Claude Code、在同目录换用 Codex，也能无缝续上进度。", "highlight": "README 称可跨 20+ harness（Claude Code、Codex、Cursor、Gemini CLI、OpenCode、Devin、Kimi、Kiro 等）共享同一份记忆，解决「笔记锁在单一工具/单机」的问题。" },
+      { "rank": 20, "repo": "FxEmbed/FxEmbed", "url": "https://github.com/FxEmbed/FxEmbed", "lang": "TypeScript", "stars": "5,547", "delta": "周 +432", "source": "weekly", "summary": "修复 X/Twitter 与 Bluesky 的嵌入：在 Discord、Telegram 等平台展示多图、视频、投票与翻译。", "highlight": "即 FxTwitter / FixupX / FxBluesky 的官方仓库，通过 Crowdin 做多语言，并公开 30 天可用率状态页。" }
+    ]
+  },
+  "observation": [
+    "agent「记忆与团队」正在成为新战场：hindsight（会学习的记忆）、ai-memory（跨 20+ harness 交接）、openrig（YAML 定义 agent 团队）同日上榜，说明单 agent 的记忆与编排已不够用。",
+    "本地优先的多模态开始吃香：VoiceStudio 以「完全本地 + 646 语言」对标 ElevenLabs，一周涨近 7,800 star，反映用户对云端语音服务的替代需求。",
+    "安全审计 agent 化得到背书：Cloudflare 把自家漏洞发现 harness 的种子 skill 开源（本周 +4,805），并配套官方方法论博客，agent 在攻防侧的落地在提速。",
+    "编码 agent 的商业模式在调整：opencode 窗口内上线 Go Plus 套餐、停止 Black 订阅续费并下线推荐计划，同时 pi 与 opencode 都在追新模型（Claude Sonnet 5.5 / Kimi K3）。",
+    "非典型项目仍能爆发：开源相控阵雷达 PLFM_RADAR、UIUC 系统编程教材、中文《人生进阶指南》同日进榜，说明硬件开源与优质学习资料在算法热度之外仍有强需求。"
+  ]
+}
