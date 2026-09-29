@@ -1,0 +1,84 @@
+{
+  "date": "2026-09-30",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "仓库提交经 api.github.com 公共 API 获取（未认证，本机 gh 未登录）；since=2026-09-28T22:00:00Z（运行时间减 24 小时），per_page=30，时间已换算为北京时间。三个仓库默认分支分别为 master / main / dev。",
+    "deepseek-ai/deepseek-harness 本窗口命中 30 条（已达 per_page 上限，实际更多），最新为 0.2.0-rc.2 发布；earendil-works/pi 命中 30 条（同样触顶），含 v0.99.0 / v0.99.1 两次发版；anomalyco/opencode 命中 3 条，较前几日明显回落。",
+    "口径差异：本机到 github.com 的 HTTPS 本次不可达（curl 返回 000），无法直连 Trending 页面，故改用 api.github.com Search API 近似：以「近期创建 + star 数最高」代表 trending——daily 用 created:>2026-09-28、weekly 用 created:>2026-09-22，均按 stars 降序取前 20（去重后 daily 3 条、weekly 17 条）。该口径与官方 Trending 的「周期内新增 star」并不等价，仅供参考。",
+    "star 总数为 Search API 实时返回的 stargazers_count；因改用 Search API，无法获取日/周 star 增量，delta 字段一律留空（不编造）。",
+    "summary 与 highlight 取自各仓库 API 的 description 与 README 原文，未做推测；不确定的字段留空。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 24h 内 30+ 条提交（已达 per_page 上限）· 非常活跃",
+        "items": [
+          { "title": "release(dsh): 0.2.0-rc.2（PR #5479）", "desc": "0.2 第二个候选版发布", "author": "imccyu", "time": "09-29 17:21" },
+          { "title": "perf(web/client)：内联鲸鱼图至 CSS、降低长会话渲染与动画开销（PR #5456）", "desc": "前端长会话性能优化", "author": "imccyu", "time": "16:21 / 14:59 / 14:44" },
+          { "title": "fix(windows)：单次运行内诊断并修复文件权限（ACL）问题（PR #5432）", "desc": "Windows 权限稳定性", "author": "Huanqi Cao", "time": "16:21 / 16:12" },
+          { "title": "refactor(desktop)：CLI 注册改为安装后菜单操作（PR #5288）", "desc": "桌面端安装体验", "author": "Tianyi Cui", "time": "16:27 / 15:41" },
+          { "title": "fix(cordis)：跳过离线 Client inspect 查询并限制其耗时（PR #5409）", "desc": "修复检查查询超时", "author": "imccyu / turtle1999", "time": "15:59 / 13:14" },
+          { "title": "feat(desktop)：登录 shell 环境（PR #5393）+ 侧边栏打开文件夹（PR #5314）", "desc": "桌面端与环境能力", "author": "lsdsjy / imccyu", "time": "15:59 / 15:52" }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 30 条提交（已达 per_page 上限）· 非常活跃",
+        "items": [
+          { "title": "Release v0.99.0 / v0.99.1", "desc": "两个小版本连发", "author": "Armin Ronacher", "time": "09-30 01:04 / 02:06" },
+          { "title": "feat(ai,coding-agent)：新增 GPT-6.1 Sol 并设为 Codex 默认", "desc": "新模型接入", "author": "Armin Ronacher", "time": "01:43" },
+          { "title": "feat(durable)：Package 15-18——首个可运行对话轮、首个编码工具轮、inbox/重置/用量/会话视图、会话中止与所有权级联/子 agent 句柄", "desc": "durable 存储后端成体系推进", "author": "Mario Zechner", "time": "04:47 / 03:23 / 03:30 / 04:08" },
+          { "title": "feat(ai,durable)：新增轻量 pi-ai/models 入口，durable 内避免 TypeBox", "desc": "依赖瘦身", "author": "Mario Zechner", "time": "09-29 21:24" },
+          { "title": "feat(coding-agent)：向 codemode 脚本返回最多 1 MiB bash 输出", "desc": "工具能力增强", "author": "Armin Ronacher", "time": "00:06" },
+          { "title": "feat(ai)：在 Vercel AI Gateway 与 OpenCode Zen 上暴露 Jev", "desc": "模型分发扩展", "author": "Armin Ronacher", "time": "09-29 21:32" },
+          { "title": "fix(extensions)：替换内置项时给出警告（#10174）+ openai 提供商替代登录方式与 OAuth 打包", "desc": "扩展与登录修复", "author": "Cristina Poncela Cubeiro / David Brailovsky", "time": "09-29 22:37 / 01:16" }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 3 条提交 · 活跃度回落",
+        "items": [
+          { "title": "docs(web)：修正 GPT 6.1 Sol 缓存定价（#52176）", "desc": "文档修正", "author": "Daniel Chen", "time": "09-30 05:43" },
+          { "title": "fix(ci)：用 Developer ID 签名 macOS CLI", "desc": "修复 macOS 分发签名", "author": "Dax Raad", "time": "03:33" },
+          { "title": "Merge branch 'dev'", "desc": "常规合并（本窗口仅此 3 条）", "author": "Frank", "time": "09-29 06:59" }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": { "daily": 3, "weekly": 17 },
+    "items": [
+      { "rank": 1, "repo": "KKKKhazix/AIHOT", "url": "https://github.com/KKKKhazix/AIHOT", "lang": "TypeScript", "stars": "3,008", "delta": "", "source": "weekly", "summary": "「自己找热点、自己写日报」的网站框架：把信源和精选标准换成你自己的 KnowHow，就变成你所在行业的热点站。", "highlight": "README 标注 Node.js 24 + PostgreSQL 17 + Docker Compose 一键起，演示站 aihot.news，MIT 许可。" },
+      { "rank": 2, "repo": "yetone/magpie", "url": "https://github.com/yetone/magpie", "lang": "Go", "stars": "2,588", "delta": "", "source": "weekly", "summary": "菜单栏里统一给机器上每个编码 agent 换模型：Codex 挂 DeepSeek、Claude Code 挂 Kimi、Gemini CLI 挂 GLM。", "highlight": "一屏列出各 agent 及其当前模型，点一下即改（写入 ~/.claude/settings.json 等）；同时提供 GUI、终端 TUI 与 CLI 三种形态。" },
+      { "rank": 3, "repo": "mexicat/pdoom-video", "url": "https://github.com/mexicat/pdoom-video", "lang": "TypeScript", "stars": "1,970", "delta": "", "source": "weekly", "summary": "代码渲染的生成式音乐视频，带逐词同步的卡拉 OK 字幕。", "highlight": "每一帧都是歌曲时间的确定性函数，浏览器预览与离线 1080p60/4K60 导出完全一致；作者称概念、音频分析、渲染器与每一场景均由 Claude Opus 5.5 在 Claude Code 中完成。" },
+      { "rank": 4, "repo": "tobi/disktree", "url": "https://github.com/tobi/disktree", "lang": "Rust", "stars": "1,899", "delta": "", "source": "weekly", "summary": "为 Omarchy 做的磁盘占用树状图：找出占空间的东西、标记、再删除。", "highlight": "基于 GPUI（gpui-omarchy）构建、跟随 Omarchy 主题；默认扫描家目录，标记不会立即生效，需先复核再提交，永久删除路径会先行询问。" },
+      { "rank": 5, "repo": "dzhng/jevgrep", "url": "https://github.com/dzhng/jevgrep", "lang": "TypeScript", "stars": "1,762", "delta": "", "source": "weekly", "summary": "用「问代码在做什么」来找文件，给编码 agent 一个起点。", "highlight": "用 Jev 在文件夹/文件/声明层级判断相关性，一次 stdout 返回相关文件、阅读线索与源码原文；作者称十题 SWE-bench 对比中与基线同样完成 8/10，但成本更低（约 -30%）。" },
+      { "rank": 6, "repo": "Niko1221/Strata", "url": "https://github.com/Niko1221/Strata", "lang": "C++", "stars": "1,658", "delta": "", "source": "weekly", "summary": "在普通游戏 PC 上跑 125B 大模型（Qwen3.8-Flash-Next）。", "highlight": "单张 12–24GB NVIDIA 卡 + 64GB 内存，Windows/Linux 一键安装，读写速度 60–95 tokens/s；演示为 RTX 5070 上一句话生成体素场景。" },
+      { "rank": 7, "repo": "mikehasa/golive-skill", "url": "https://github.com/mikehasa/golive-skill", "lang": "TypeScript", "stars": "1,110", "delta": "", "source": "weekly", "summary": "让 agent 把做好的产品真正上线：托管、数据库、鉴权、域名、邮件、支付，全走你自己的账号。", "highlight": "开源 Agent Skill：探测依赖→计划变更→经你批准→用你的登录执行→验证真正可用的部分，并记录所建资源、可按需复查漂移或整体拆除。" },
+      { "rank": 8, "repo": "852wa/JIZURA", "url": "https://github.com/852wa/JIZURA", "lang": "HTML", "stars": "1,097", "delta": "", "source": "weekly", "summary": "浏览器里的歌词文字 PV 自动构成工具：输入歌词，自动拼出常用歌词动效分镜并导出 MP4。", "highlight": "覆盖排版、运动、装饰、转场与收尾，另附 After Effects 面板（ScriptUI / CEP）；提供英、印尼、越、繁中、简中、韩多语言界面。" },
+      { "rank": 9, "repo": "firelex/jeff", "url": "https://github.com/firelex/jeff", "lang": "Python", "stars": "990", "delta": "", "source": "weekly", "summary": "基于 Qwen3.5 与 Gemma 4 微调的零样本分类决策模型：小而快，可直接嵌进代码。", "highlight": "v1.1（09-29 发布）起 0.8B/2B 可在至多 254 个选项中挑选（v1.0 为 26 个），长列表测试 0.8B 成绩由 40% 升至 95%；单次前向约 22ms（RTX PRO 6000）、28ms（Apple M4 Max MLX），沿用与 Jev 相同的请求格式。" },
+      { "rank": 10, "repo": "feitangyuan/onetake", "url": "https://github.com/feitangyuan/onetake", "lang": "Python", "stars": "975", "delta": "", "source": "weekly", "summary": "Claude Agent Skill：做「一镜到底」的产品发布片、预告片与功能演示。", "highlight": "主张每个画面都从上一个画面里生长出来，是一条连续镜头，而不是一张张轮流出场的「PPT」。" },
+      { "rank": 11, "repo": "ollaya-dev/ollaya", "url": "https://github.com/ollaya-dev/ollaya", "lang": "Rust", "stars": "973", "delta": "", "source": "weekly", "summary": "像 Ollama 跑 LLM 那样，在本地按名字拉取并服务开放「决策模型」。", "highlight": "决策模型读状态 + 类型化问题（choice/score/noul），单次前向返回校准概率、不生成文本；本地守护进程说 TypeSafe 的 /v1/systemone 线协议，兼容既有调用方。" },
+      { "rank": 12, "repo": "dgreenheck/tidewater", "url": "https://github.com/dgreenheck/tidewater", "lang": "JavaScript", "stars": "964", "delta": "", "source": "weekly", "summary": "浏览器里的海岛钓鱼游戏：码头、沙滩或自己的船上垂钓，卖掉渔获换装备。", "highlight": "直接跑在 WebGPU + WGSL 上，自带小型渲染引擎、不用框架；目标是在 Apple M5 Pro 上以 2560×1267 跑 60fps，慢机自动降分辨率。" },
+      { "rank": 13, "repo": "riba2534/claude-opus-5-5-demo", "url": "https://github.com/riba2534/claude-opus-5-5-demo", "lang": "JavaScript", "stars": "918", "delta": "", "source": "weekly", "summary": "「一句话提示词」实测 Claude Opus 5.5 的代码生成能力。", "highlight": "三个可玩的 3D 网页游戏，每个只给一句提示词、单会话生成、代码零人工改动并直接部署上线（Three.js r186 + esbuild）。" },
+      { "rank": 14, "repo": "shihabal3amri/DiPlay", "url": "https://github.com/shihabal3amri/DiPlay", "lang": "Kotlin", "stars": "914", "delta": "", "source": "weekly", "summary": "为兼容的 BYD Android 车机做的独立 CarPlay 接收端。", "highlight": "有线/无线均支持，无需越狱、加密狗、Mac、账号或认证服务器；0.2.7 为公开预览，需装在车机上而非 iPhone，作者明确仅支持 BYD、不计划适配其他品牌。" },
+      { "rank": 15, "repo": "yihui-dev/awesome-opus5-5-videos", "url": "https://github.com/yihui-dev/awesome-opus5-5-videos", "lang": "", "stars": "903", "delta": "", "source": "weekly", "summary": "用 Claude Opus 5.5 做出的爆款视频合集，并附创作者公开的提示词。", "highlight": "视频都是让 Opus 5.5 以代码（HTML/Canvas/SVG/Three.js 等）写动画生成；每段给出原帖或提示词，可直接复制到自己 agent 复现，README 称收录 389 条。" },
+      { "rank": 16, "repo": "supermemoryai/company-brain", "url": "https://github.com/supermemoryai/company-brain", "lang": "TypeScript", "stars": "845", "delta": "", "source": "weekly", "summary": "开源的「公司大脑」：Slack 里一个记得团队说过什么、并能去干活的队友。", "highlight": "由 supermemory.ai 开源（Apache 2.0），文档含权限说明、用例与五分钟部署指南。" },
+      { "rank": 17, "repo": "kaankiziltug/logo-design-skill", "url": "https://github.com/kaankiziltug/logo-design-skill", "lang": "HTML", "stars": "821", "delta": "", "source": "weekly", "summary": "面向 Claude 及各类 agent 的 Logo 设计技能，从 brief 一路做到可投产 SVG 与品牌规范。", "highlight": "兼容 Claude、Gemini CLI、Codex CLI、Cursor、GitHub Copilot 等 Agent Skills；流程含需求简报、概念，几何构造与视觉修正（overshoot、bone effect 等），带测试工作流。" },
+      { "rank": 18, "repo": "wy51ai/floorplan-3d", "url": "https://github.com/wy51ai/floorplan-3d", "lang": "HTML", "stars": "457", "delta": "", "source": "daily", "summary": "纯前端户型装修设计工具：2D 平面摆家具、拆改墙体、测尺寸，一键切 Three.js 3D 场景。", "highlight": "整个应用就是一个 index.html、无需构建打开即用；含 60 余种家具、1:60/1:100 比例、承重墙标示，以及鸟瞰与第一人称漫游。" },
+      { "rank": 19, "repo": "PostHog/jeeves", "url": "https://github.com/PostHog/jeeves", "lang": "Python", "stars": "256", "delta": "", "source": "daily", "summary": "提升 Jev 类决策模型的推理能力，带扩散 drafter，用 SFT 与 CISPO 训练。", "highlight": "9B 模型（Qwen3.5-9B + LoRA + pointer head）先思考再决策；附完整训练代码与 train/dev/test 数据，称在测试数据上优于 Kev-9B 与 Jev。" },
+      { "rank": 20, "repo": "openai/mcp-extensions", "url": "https://github.com/openai/mcp-extensions", "lang": "TypeScript", "stars": "165", "delta": "", "source": "daily", "summary": "OpenAI 为 MCP 增加 ChatGPT 专属能力，让开发者做出的插件像原生功能一样。", "highlight": "官方示例展示侧边栏入口、文件类型的自定义查看器（如 CAD）、编辑器 @ 提及检索插件资源等；来自 OpenAI 官方账号。" }
+    ]
+  },
+  "observation": [
+    "本周新增项目里「agent 的模型/决策层」最密集：magpie 统一给各 agent 换模型，jeff 与 jeeves 做小而快的决策模型，ollaya 像 Ollama 一样本地跑决策模型——选型、分类这类「非生成」任务正被单独拆成一层。",
+    "Claude Opus 5.5 的「一句话/一次生成」作品继续刷榜：claude-opus-5-5-demo、awesome-opus5-5-videos、pdoom-video、tidewater 同属此类，模型能力直接被做成可玩、可看的成品。",
+    "Agent Skill 化继续扩散：golive-skill（上线部署）、onetake（一镜到底视频）、logo-design-skill（Logo 设计）把专业流程打包成可安装技能，「技能市场」雏形渐显。",
+    "本地/端侧算力仍是热点：Strata 用单卡 + 64GB 内存跑 125B 模型，floorplan-3d 把整套设计工具压进单个 index.html，延续前几日的「小引擎跑大模型」方向。",
+    "Jev 正在成为事实上的接口标准：jevgrep、jeff、ollaya、company-brain 均以 Jev/TypeSafe 兼容或对标为卖点，工具间的可替换性在提升。"
+  ]
+}
