@@ -1,0 +1,337 @@
+{
+  "date": "2026-10-03",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "gh CLI 未登录，全部改用 curl 直连 api.github.com 公共 API，未认证但请求成功。",
+    "github.com/trending 页面本次不可达（HTTPS 超时，http=000），改用 api.github.com Search API 替代口径：以「近 7 天新建（created:>2026-09-25）、star>150、按 star 降序」近似日榜，故榜单偏向新晋高星项目，而非官方 trending 的当日热度排序。",
+    "Search API 不提供 star 增量，delta 字段一律留空，未做任何估算。",
+    "deepseek-ai/deepseek-harness 最近一次提交为 2026-09-29，过去 24 小时确无新提交。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-10-01T22:00Z，时间已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 过去 24 小时无新提交（最近提交 09-29）",
+        "items": [
+          { "title": "过去 24 小时无新提交", "desc": "", "author": "deepseek-harness", "time": "最近一次提交 2026-09-29" }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 22 条提交 · 非常活跃",
+        "items": [
+          {
+            "title": "fix(ai)：修复 Bedrock 上 Claude 重放时残留的 thinking 块",
+            "desc": "稳定性修复",
+            "author": "Armin Ronacher",
+            "time": "10-03 04:38"
+          },
+          {
+            "title": "feat(coding-agent)：项目级 mcp.json 可覆盖全局服务器的 enabled/exposure",
+            "desc": "MCP 配置更灵活",
+            "author": "Armin Ronacher",
+            "time": "10-03 00:34"
+          },
+          {
+            "title": "feat(coding-agent)：新增 Nix flake（#9137）",
+            "desc": "开发环境",
+            "author": "Armin Ronacher",
+            "time": "10-03 00:30"
+          },
+          {
+            "title": "fix(ai)：为 Amazon Bedrock 模型保留 models.dev 定价档位",
+            "desc": "修复计费展示",
+            "author": "David Brailovsky",
+            "time": "10-03 00:25"
+          },
+          {
+            "title": "fix(codemode)：限制脚本输出，避免 print 循环耗尽宿主内存",
+            "desc": "健壮性修复",
+            "author": "Armin Ronacher",
+            "time": "10-02 23:54"
+          },
+          {
+            "title": "feat(ai)：Workers AI 接入 Cloudflare Clef 分类器（#10316）",
+            "desc": "模型/能力扩充",
+            "author": "Nathan Disidore",
+            "time": "10-02 22:52"
+          },
+          {
+            "title": "feat(ai)：Anthropic 对话中工具改为内联定义",
+            "desc": "能力适配",
+            "author": "Armin Ronacher",
+            "time": "10-02 18:30"
+          },
+          {
+            "title": "fix(ai)：对「Selected model is at capacity」类错误自动重试",
+            "desc": "提升可用性",
+            "author": "David Brailovsky",
+            "time": "10-02 17:38"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 3 条提交",
+        "items": [
+          {
+            "title": "fix(stats)：隐藏被列入 secret 的模型（#52834）",
+            "desc": "",
+            "author": "vprdev",
+            "time": "10-03 04:56"
+          },
+          {
+            "title": "docs(web)：Zen 文档补充 Ling 3.1 Flash Free（#52781）",
+            "desc": "",
+            "author": "Jack",
+            "time": "10-02 23:58"
+          },
+          {
+            "title": "chore(stats)：退役旧版 S3 数据湖（#52515）",
+            "desc": "基础设施清理",
+            "author": "Adam",
+            "time": "10-02 11:21"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": {
+      "daily": 20,
+      "weekly": 0
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "KKKKhazix/AIHOT",
+        "url": "https://github.com/KKKKhazix/AIHOT",
+        "lang": "TypeScript",
+        "stars": "4,956",
+        "delta": "",
+        "source": "daily",
+        "summary": "自动找热点、自动写日报的行业热点站框架（信源、精选、聚簇、热度算法全开源）。",
+        "highlight": "提示词原文与入选门槛全部公开，可把信源与 KnowHow 换成任意行业；技术栈 Node.js 24 + PostgreSQL 17 + Docker Compose，demo 在 aihot.news。"
+      },
+      {
+        "rank": 2,
+        "repo": "Louis-CFM/coucou",
+        "url": "https://github.com/Louis-CFM/coucou",
+        "lang": "Swift",
+        "stars": "2,939",
+        "delta": "",
+        "source": "daily",
+        "summary": "住在 Mac 刘海（Windows/Linux 顶部）的 AI 编码助手小挂件。",
+        "highlight": "不离开当前工作即可批准权限、查看 agent 会话、拖文件、与 Claude 对话；MIT 开源，原生 SwiftUI，另有 Tauri 2 跨平台构建。"
+      },
+      {
+        "rank": 3,
+        "repo": "feder-cr/dots",
+        "url": "https://github.com/feder-cr/dots",
+        "lang": "Python",
+        "stars": "2,454",
+        "delta": "",
+        "source": "daily",
+        "summary": "自带真实浏览器的开源 Web AI agent（每换模型只需一个 flag）。",
+        "highlight": "用 C++ 打补丁的 Firefox 引擎，指纹在引擎内部决定而非 JS 涂抹；一个 seed 对应一个一致身份，页面检测不到 WebDriver/DevTools 痕迹，指针与按键模拟真人。"
+      },
+      {
+        "rank": 4,
+        "repo": "dzhng/jevgrep",
+        "url": "https://github.com/dzhng/jevgrep",
+        "lang": "TypeScript",
+        "stars": "2,059",
+        "delta": "",
+        "source": "daily",
+        "summary": "用自然语言提问来定位代码的 CLI，供编码 agent 起步使用。",
+        "highlight": "README 称十项 SWE-bench 对比中与基线完成同样的 8/10 任务而成本更低（约省 30%）；用 Jev 判断跨目录/文件/声明的相关性，支持 Vercel AI Gateway 等多家 key。"
+      },
+      {
+        "rank": 5,
+        "repo": "rehan-remade/universal-modder",
+        "url": "https://github.com/rehan-remade/universal-modder",
+        "lang": "Python",
+        "stars": "2,057",
+        "delta": "",
+        "source": "daily",
+        "summary": "让任意 AI 编码 agent 给 PC 游戏做 mod 的技能+工具+知识库。",
+        "highlight": "覆盖 Claude Code/Codex/Cursor/Gemini/Copilot/OpenCode；agent 自行识别引擎、读真实代码、用 fal 生成美术/3D/音效、在运行中的游戏里测试并剪视频，并把经验写入知识库供下一个 agent 复用。"
+      },
+      {
+        "rank": 6,
+        "repo": "kaankiziltug/logo-design-skill",
+        "url": "https://github.com/kaankiziltug/logo-design-skill",
+        "lang": "HTML",
+        "stars": "1,509",
+        "delta": "",
+        "source": "daily",
+        "summary": "把 Claude 等 agent 变成纪律严明品牌设计师的 logo 设计 Agent Skill。",
+        "highlight": "内置 1,400+ 真实 SVG logo 参考库（按标记类型/技法/几何/情绪等分类，可命令行搜索）；含无依赖 Python 工具做 SVG 审计与多场景测试表（16px 像素测试、单色、镜像、竞品货架等）。"
+      },
+      {
+        "rank": 7,
+        "repo": "yihui-dev/awesome-opus5-5-videos",
+        "url": "https://github.com/yihui-dev/awesome-opus5-5-videos",
+        "lang": "",
+        "stars": "1,409",
+        "delta": "",
+        "source": "daily",
+        "summary": "用 Claude Opus 5.5 生成的病毒式视频合集，附创作者分享的提示词。",
+        "highlight": "475 个提示词存于 prompts/ 与 data/videos.json，每条链接创作者原帖；视频均由 Opus 5.5 用代码（HTML/Canvas/SVG/Three.js）写成动画；2026-09-29 更新新增 86 条。"
+      },
+      {
+        "rank": 8,
+        "repo": "CopilotKit/OpenDots",
+        "url": "https://github.com/CopilotKit/OpenDots",
+        "lang": "TypeScript",
+        "stars": "1,392",
+        "delta": "",
+        "source": "daily",
+        "summary": "常驻式 AI 同事（跨文本/通话/Slack）的开源模板，每个 agent 自带一台电脑。",
+        "highlight": "基于 CopilotKit 与 AG-UI，Web+移动端，完全可自托管；聊天内就地 ask→browse→approve→save，带人工复核卡片；状态标注 alpha。"
+      },
+      {
+        "rank": 9,
+        "repo": "firelex/jeff",
+        "url": "https://github.com/firelex/jeff",
+        "lang": "Python",
+        "stars": "1,318",
+        "delta": "",
+        "source": "daily",
+        "summary": "0.8B 的「System 1」决策小模型，主打毫秒级、任意领域。",
+        "highlight": "README 称可把 Jeff 放在 27B 模型前面；社区预览 v1.2 带 9 个适配器，稳定基座 v1.3 预告约 36 小时内发布，适配器不跨基座沿用但数据集可迁移。"
+      },
+      {
+        "rank": 10,
+        "repo": "feitangyuan/onetake",
+        "url": "https://github.com/feitangyuan/onetake",
+        "lang": "Python",
+        "stars": "1,313",
+        "delta": "",
+        "source": "daily",
+        "summary": "Claude Agent Skill：做「一镜到底」的连贯产品动效片/预告/演示。",
+        "highlight": "每个画面从上一画面生长而出，而非 PPT 式分镜；含 10 部成片案例，并提供按每个转场边界测量连贯性的校验脚本 verify_promo.py。"
+      },
+      {
+        "rank": 11,
+        "repo": "wy51ai/floorplan-3d",
+        "url": "https://github.com/wy51ai/floorplan-3d",
+        "lang": "HTML",
+        "stars": "1,306",
+        "delta": "",
+        "source": "daily",
+        "summary": "纯前端户型装修设计工具，2D 布置一键切 Three.js 3D。",
+        "highlight": "整个应用就是一个 index.html、无构建；含 60+ 家具家电、拆改承重墙标示、测量、WASD 第一人称漫游、日照时间与按面积造价估算，方案存浏览器本地。"
+      },
+      {
+        "rank": 12,
+        "repo": "nanaism/yomiyasu",
+        "url": "https://github.com/nanaism/yomiyasu",
+        "lang": "Python",
+        "stars": "1,173",
+        "delta": "",
+        "source": "daily",
+        "summary": "把 AI 生成的日语推敲成自然、易读、信息密度高的 Agent Skill。",
+        "highlight": "面向技术文章/设计文档/PR 描述等实务文本，兼容 Codex、Claude Code、Cursor；作者 ALGO ARTIS 附 Zenn 长文说明语言学病理分析与多语料验证。"
+      },
+      {
+        "rank": 13,
+        "repo": "echris6/motion-video-kit",
+        "url": "https://github.com/echris6/motion-video-kit",
+        "lang": "Python",
+        "stars": "959",
+        "delta": "",
+        "source": "daily",
+        "summary": "用 AI 生成素材+代码动效做「高端发布级」商业广告的 Claude Code skill。",
+        "highlight": "提炼自 28 支专业 SaaS 发布片研究，含「Gauntlet」独立评审闭环（建造者≠评判者）、16 个可复用动效机制、可量化质量门槛与音频规则，以及面向客户的商业 playbook。"
+      },
+      {
+        "rank": 14,
+        "repo": "edenfunf/reelmimic",
+        "url": "https://github.com/edenfunf/reelmimic",
+        "lang": "JavaScript",
+        "stars": "953",
+        "delta": "",
+        "source": "daily",
+        "summary": "给一个喜欢的参考视频，产出一支同风格的新视频。",
+        "highlight": "支持 Claude Code 与 Codex CLI；README 展示由参考视频+一句 brief 生成的音乐视频与旁白漫画，并提供繁体/简体中文说明。"
+      },
+      {
+        "rank": 15,
+        "repo": "lemomo-ai/lemo-opuscar",
+        "url": "https://github.com/lemomo-ai/lemo-opuscar",
+        "lang": "JavaScript",
+        "stars": "835",
+        "delta": "",
+        "source": "daily",
+        "summary": "43 种影片风格，每种配一支完全用代码做的短片，让编码 agent 当导演。",
+        "highlight": "代表作 OPUSCAR 98 由 Claude Opus 5.5 写代码重现 98 年最佳影片；作者明确声明「不是 awesome list」；提供 1080p 成片下载。"
+      },
+      {
+        "rank": 16,
+        "repo": "CAPCOM-TD-OSS/REDox",
+        "url": "https://github.com/CAPCOM-TD-OSS/REDox",
+        "lang": "C#",
+        "stars": "799",
+        "delta": "",
+        "source": "daily",
+        "summary": "CAPCOM 为次世代引擎开源的 .NET 高性能 token 化结构化数据引擎。",
+        "highlight": "把 JSON/JSON5/CBOR/MessagePack/TOML/XML/HTML/CSV 等解析成紧凑定长 token DOM/IR 再统一读写；宣称顺序反序列化最高约 1.8x、自动并行反序列化约 2.8x、序列化约 1.6x 于 System.Text.Json。"
+      },
+      {
+        "rank": 17,
+        "repo": "openai/mcp-extensions",
+        "url": "https://github.com/openai/mcp-extensions",
+        "lang": "TypeScript",
+        "stars": "695",
+        "delta": "",
+        "source": "daily",
+        "summary": "为 MCP 增加 ChatGPT 专属能力，让插件用起来像原生功能。",
+        "highlight": "官方提供侧边栏入口、文件扩展名查看器、composer @ 提及、扩展表单等规范与示例，示例插件 Bits & Bolts 可直接安装试用。"
+      },
+      {
+        "rank": 18,
+        "repo": "chasmlol/2010-rust-rewrite-mashup",
+        "url": "https://github.com/chasmlol/2010-rust-rewrite-mashup",
+        "lang": "Rust",
+        "stars": "612",
+        "delta": "",
+        "source": "daily",
+        "summary": "把 MW2、Skate 3 和 Minecraft 塞进同一个 Rust 游戏的混搭项目。",
+        "highlight": "基于从零重写 MW2 的 IW4L；含 Skate 3 物理/招式、无限生成的 Minecraft 世界与昼夜光照、击杀掉落与背包合成、手柄支持与全按键重映射。"
+      },
+      {
+        "rank": 19,
+        "repo": "Edwardxlai/easyread",
+        "url": "https://github.com/Edwardxlai/easyread",
+        "lang": "Python",
+        "stars": "601",
+        "delta": "",
+        "source": "daily",
+        "summary": "本地运行的英文论文 PDF 翻译阅读器：原文对照、公式表格重排、边读边问 AI。",
+        "highlight": "三平台本地运行，文献库默认存本机（可放网盘同步）；译文与 AI 解释分区显示，支持按划线颜色检索、逐字流式回答、一键切深色。"
+      },
+      {
+        "rank": 20,
+        "repo": "OpSafari/hypoarena",
+        "url": "https://github.com/OpSafari/hypoarena",
+        "lang": "Python",
+        "stars": "556",
+        "delta": "",
+        "source": "daily",
+        "summary": "完全离线的科学假说发现工作台。",
+        "highlight": "把 generate–debate–evolve 的机制层拆成可单独测试的组件（带引用的假说/证据图、合成文献工厂、span 级接地校验、Bradley–Terry/Elo 锦标赛、贝叶斯证据累积等）；运行时仅依赖 NumPy，默认测试与示例全离线。"
+      }
+    ]
+  },
+  "observation": [
+    "本日（Search API 替代口径）榜单几乎被「Agent Skill × 内容生产」包场：视频（Opus 5.5 视频集、lemo-opuscar、motion-video-kit、reelmimic、onetake）、logo 设计、日语润色、游戏 mod 一应俱全，AI 生成边界正从代码扩到创意生产。",
+    "视频是最热的内容载体：前 20 中至少 6 个直接围绕「让 agent 写代码生成视频/动效」，且都强调可复现的提示词或成片案例，而非单纯演示。",
+    "小模型与离线运行时受关注：0.8B 的 Jeff 主打毫秒级 System 1 决策并宣称可放在 27B 之前；hypoarena 则走完全离线、仅依赖 NumPy 的可测试科研流水线，反映对「可验证、可自托管」的偏爱。",
+    "基础设施侧出现硬核工程细节：CAPCOM 的 RE:Dox 以 token DOM/IR 统一十余种数据格式并给出并行反序列化倍速；dots 用 C++ 打补丁的 Firefox 做反检测浏览器，说明 agent 竞争正下沉到运行时与浏览器层。",
+    "口径提示：github.com/trending 不可达，本次以 Search API「近 7 天创建、按 star 降序」近似日榜，star 增量无法获取故留空，榜单更偏新晋高星项目而非官方当日热度榜。"
+  ]
+}
