@@ -1,0 +1,281 @@
+{
+  "date": "2026-10-04",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "gh CLI 未登录，仓库与 Trending 数据全部改用 curl 直连 api.github.com 公共 API，未认证但请求成功。",
+    "github.com/trending 于今日 06:00（北京时间）先行抓取成功并缓存：日榜 19 条，含各仓库当日 star 增量（stars today），故本次日榜直接沿用该缓存快照（已用 api.github.com 交叉核对，star 数仅小幅增长，确认快照为今日）。",
+    "09:16 重试 github.com/trending（日榜/周榜）均不可达（HTTPS 超时，http=000），故第 20 名无法由周榜补位，改用 api.github.com Search API 近似口径（created:>2026-09-27、star>150、按 star 降序）取一条补位，来源标注 weekly；Search API 不提供 star 增量，该条 delta 留空，未做任何估算。",
+    "deepseek-ai/deepseek-harness 过去 24 小时有 8 条提交，核心为 0.2.1-alpha.1 发版与隔离 npm 发布通道；anomalyco/opencode 仅 1 条提交。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-10-03T01:16Z，时间已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 24h 内 8 条提交 · 发布 0.2.1-alpha.1",
+        "items": [
+          { "title": "release(dsh): 0.2.1-alpha.1（PR #5648）", "desc": "发布新 alpha 版本", "author": "Tianyi Cui", "time": "10-03 10:46" },
+          { "title": "Merge PR #5648 from worktree/release-dsh-0.2.1-alpha.1", "desc": "合并发版 PR", "author": "Tianyi Cui", "time": "10-03 11:48" },
+          { "title": "release(vendor)：cordis 4.0.5-alpha.1 / cosmokit 1.8.6-alpha.1 / schemastery 3.18.5-alpha.1 等一批内部依赖（PR #5643）", "desc": "内部依赖统一发版", "author": "Tianyi Cui", "time": "10-03 10:02" },
+          { "title": "feat(release)：支持相互隔离的 npm 发布通道", "desc": "发版能力增强", "author": "Tianyi Cui", "time": "10-03 09:20" },
+          { "title": "fix(release)：preflight 不再依赖 latest 通道", "desc": "发版预检修复", "author": "Tianyi Cui", "time": "10-03 09:52" },
+          { "title": "test(release)：手动发布 workflow 允许传参", "desc": "CI 测试补充", "author": "Tianyi Cui", "time": "10-03 09:34" }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 11 条提交 · 连发 v1.0.1 / v1.0.2",
+        "items": [
+          { "title": "Release v1.0.2 + 开启下一周期 [Unreleased] 段", "desc": "版本发布", "author": "Armin Ronacher", "time": "10-04 08:41" },
+          { "title": "feat(ai)：新增按思考档位（thinking level）的采样参数（#9776）", "desc": "推理可控性增强", "author": "Duncan Ogilvie", "time": "10-04 07:29" },
+          { "title": "fix(durable)：持久化 provider 会话身份", "desc": "会话稳定性", "author": "Mario Zechner", "time": "10-04 06:54" },
+          { "title": "Release v1.0.1 + 审计自 v1.0.0 以来 changelog", "desc": "版本发布", "author": "Armin Ronacher", "time": "10-03 20:21" },
+          { "title": "fix(coding-agent)：NVIDIA 默认模型切到 Nemotron 3 Ultra", "desc": "默认模型调整", "author": "Armin Ronacher", "time": "10-03 20:14" },
+          { "title": "fix(coding-agent)：MCP 工具调用在其服务器连接前即可渲染", "desc": "交互修复", "author": "Armin Ronacher", "time": "10-03 19:53" },
+          { "title": "fix：Nix workflow 在 fast-forward stable 前先拉全量历史", "desc": "发布流水线修复", "author": "Armin Ronacher", "time": "10-03 21:23" }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 1 条提交",
+        "items": [
+          { "title": "docs(web)：Zen 文档补充 Fledge Alpha Free（#52895）", "desc": "", "author": "Daniel Chen", "time": "10-03 12:55" }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": { "daily": 19, "weekly": 1 },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "DietrichGebert/ponytail",
+        "url": "https://github.com/DietrichGebert/ponytail",
+        "lang": "JavaScript",
+        "stars": "153,256",
+        "delta": "+1,289",
+        "source": "daily",
+        "summary": "让 AI agent 像「最懒的资深工程师」那样写代码：能一行解决就不写五十行。",
+        "highlight": "README 用 before/after 演示「一个日期选择器」——普通 agent 装库、写包装组件、争论时区，ponytail 只回一段极简 HTML；MIT 协议，npm 包 @dietrichgebert/ponytail，徽章称兼容 20 个 agent。"
+      },
+      {
+        "rank": 2,
+        "repo": "pbakaus/impeccable",
+        "url": "https://github.com/pbakaus/impeccable",
+        "lang": "JavaScript",
+        "stars": "75,212",
+        "delta": "+705",
+        "source": "daily",
+        "summary": "给 AI 编码 agent 的设计指导：1 个 skill、24 条命令、61 条确定性检测规则。",
+        "highlight": "README 明确其起点是 Anthropic 的 frontend-design skill，目标是消除 AI 前端千篇一律的「SaaS 模板感」（到处都是 Inter 字体、紫蓝渐变、卡片套卡片）；其中最核心的确定性规则由 CLI 与浏览器扩展本地运行，无需 LLM、无需 API key。"
+      },
+      {
+        "rank": 3,
+        "repo": "affaan-m/ECC",
+        "url": "https://github.com/affaan-m/ECC",
+        "lang": "JavaScript",
+        "stars": "272,174",
+        "delta": "+954",
+        "source": "daily",
+        "summary": "自称「agent harness 性能优化系统」，提供 skills、instincts、memory、安全与研究优先的开发流程。",
+        "highlight": "README 强调只从官方渠道安装（GitHub 仓库、npm ecc-universal/ecc-agentshield、ecc@ecc 插件、GitHub App、ecc.tools），并警告第三方镜像可能含恶意代码；官网列出 GitHub App 免费、私有仓库 $19/seat/月起。"
+      },
+      {
+        "rank": 4,
+        "repo": "Effect-TS/effect",
+        "url": "https://github.com/Effect-TS/effect",
+        "lang": "TypeScript",
+        "stars": "16,787",
+        "delta": "+302",
+        "source": "daily",
+        "summary": "在 TypeScript 中构建健壮、可维护、类型安全的生产级应用的库。",
+        "highlight": "README 说明 Effect 4.x 为长期支持（LTS）版本并提供 3.x 迁移指南；面向类型化错误、依赖注入、结构化并发、调度、链路追踪与统一 schema 校验，要求 TypeScript 5.9+（推荐 TS 7）并强制 strict。"
+      },
+      {
+        "rank": 5,
+        "repo": "JuliusBrussee/caveman",
+        "url": "https://github.com/JuliusBrussee/caveman",
+        "lang": "Go",
+        "stars": "109,500",
+        "delta": "+505",
+        "source": "daily",
+        "summary": "一个给编码 agent 省 token 的 skill + 代理：让模型用「原始人」式的简短输出。",
+        "highlight": "README 引用 Adobe Research 论文 CAVEWOMAN，称 caveman 风格输出把成本降 1.4–2.4 倍（最高 3 倍）；JetBrains 用 86 个真实编码任务测试后评价「质量上没有可测量的损失」；一条命令 npx skills add 即可，兼容 30+ agent，独立宣称曾登 GitHub Trending 第一。"
+      },
+      {
+        "rank": 6,
+        "repo": "Panniantong/Agent-Reach",
+        "url": "https://github.com/Panniantong/Agent-Reach",
+        "lang": "Python",
+        "stars": "89,727",
+        "delta": "+1,683",
+        "source": "daily",
+        "summary": "一键给 AI agent 装上「互联网能力」：读取与搜索 Twitter、Reddit、YouTube、GitHub、B 站、小红书等。",
+        "highlight": "README 逐条列出 agent 上不了网的痛点：YouTube 拿不到字幕、Twitter API 要付费、Reddit 返回 403、小红书必须登录、B 站遭风控拦截等；主张「替你选好、装好、体检好」接入方式，MIT 协议、Python 3.10+，提供中英日韩多语言文档。"
+      },
+      {
+        "rank": 7,
+        "repo": "pingdotgg/t3code",
+        "url": "https://github.com/pingdotgg/t3code",
+        "lang": "TypeScript",
+        "stars": "24,634",
+        "delta": "+251",
+        "source": "daily",
+        "summary": "「agent harness 控制面」：用手机 / 网页 / 桌面端遥控本机上的编码 agent。",
+        "highlight": "README 称可用你已有的订阅，统一控制 Claude Code、Codex、Cursor、Grok Build、OpenCode、Google Antigravity；作者强调不是卖产品、代码完全开源可 fork，提供 iOS/Android App、Web 与 Electron 桌面端。"
+      },
+      {
+        "rank": 8,
+        "repo": "thedotmack/claude-mem",
+        "url": "https://github.com/thedotmack/claude-mem",
+        "lang": "TypeScript",
+        "stars": "95,528",
+        "delta": "+218",
+        "source": "daily",
+        "summary": "面向 Claude Code 的持久记忆压缩系统，捕获 agent 的一举一动并跨会话保留。",
+        "highlight": "README 自述为「为 Claude Code 打造的持久记忆压缩系统」，提供跨会话上下文（截图预览见仓库 docs）。"
+      },
+      {
+        "rank": 9,
+        "repo": "cloudflare/cloudflare-os",
+        "url": "https://github.com/cloudflare/cloudflare-os",
+        "lang": "TypeScript",
+        "stars": "10,538",
+        "delta": "+84",
+        "source": "daily",
+        "summary": "Cloudflare 内部自用的 AI 生产力「操作系统」，现已开源。",
+        "highlight": "README 称 Cloudflare 大量员工（工程到销售）每天用它办公，提供三件事：预置公司知识的 agent 对话 UI、沙箱化 gadget 应用开发、名为 Gatekeepers 的安全框架；本地 pnpm run-local 即可跑（wrangler/workerd，非生产），也可一键部署到 Cloudflare 账户。"
+      },
+      {
+        "rank": 10,
+        "repo": "addyosmani/agent-skills",
+        "url": "https://github.com/addyosmani/agent-skills",
+        "lang": "JavaScript",
+        "stars": "100,810",
+        "delta": "+305",
+        "source": "daily",
+        "summary": "面向 AI 编码 agent 的生产级工程技能（skills）。",
+        "highlight": "README 用「DEFINE→PLAN→BUILD→VERIFY→REVIEW→SHIP」流程图对应 9 个斜杠命令（/spec、/plan、/build、/test、/constraints、/review、/ship 等），把资深工程师的工作流与质量门槛打包给 agent。"
+      },
+      {
+        "rank": 11,
+        "repo": "obra/superpowers",
+        "url": "https://github.com/obra/superpowers",
+        "lang": "Shell",
+        "stars": "294,883",
+        "delta": "+578",
+        "source": "daily",
+        "summary": "一套完整的编码 agent 软件开发方法论，构建在可组合 skills 之上。",
+        "highlight": "README 目录列出对 16+ 客户端的安装方式：Claude Code、Codex App/CLI、Cursor、Devin CLI、Gemini CLI、GitHub Copilot CLI、Grok Build、Kimi Code、OpenCode、Pi、Qwen Code、Muse 等，覆盖面在同类 skill 框架中少见。"
+      },
+      {
+        "rank": 12,
+        "repo": "mattpocock/skills",
+        "url": "https://github.com/mattpocock/skills",
+        "lang": "Shell",
+        "stars": "275,316",
+        "delta": "+750",
+        "source": "daily",
+        "summary": "来自作者个人 .agents 目录的「真正工程师的 skills」，刻意保持小而可组合。",
+        "highlight": "README 提供两条互斥安装路径：Claude Code 插件（只读、随作者发版自动更新）或 skills.sh（把可编辑 skill 文件拷进项目、自行修改）；作者 newsletter 约 6 万名开发者订阅。"
+      },
+      {
+        "rank": 13,
+        "repo": "mksglu/context-mode",
+        "url": "https://github.com/mksglu/context-mode",
+        "lang": "TypeScript",
+        "stars": "25,229",
+        "delta": "+256",
+        "source": "daily",
+        "summary": "面向编码 agent 的上下文窗口优化 MCP server：沙箱化工具输出 + 会话续接。",
+        "highlight": "README 给出量化数字：一次 Playwright 快照 56KB、20 条 GitHub issue 59KB，经沙箱化后「315KB 变 5.4KB」（-98%）；用 SQLite + FTS5/BM25 索引事件，让压缩后仍能续接；主张「Think in Code」范式，支持 17 个客户端并含 OpenClaw gateway 集成；README 标注 Hacker News #1（570+ 分），协议为 ELv2。"
+      },
+      {
+        "rank": 14,
+        "repo": "earendil-works/pi",
+        "url": "https://github.com/earendil-works/pi",
+        "lang": "TypeScript",
+        "stars": "112,118",
+        "delta": "+408",
+        "source": "daily",
+        "summary": "极简、可扩展的 agent harness，可用 extensions/skills/主题等改成自己的工具。",
+        "highlight": "README 明确「让 Pi 适配你的流程，而非反过来」，支持交互、print/JSON 自动化、RPC 与 TypeScript SDK，并点名 OpenClaw 为真实世界集成；默认不带 sub-agents 与 plan mode，鼓励自行扩展。"
+      },
+      {
+        "rank": 15,
+        "repo": "getsentry/sentry",
+        "url": "https://github.com/getsentry/sentry",
+        "lang": "Python",
+        "stars": "45,189",
+        "delta": "+211",
+        "source": "daily",
+        "summary": "开发者优先的错误追踪与性能监控平台。",
+        "highlight": "README 列出官方 SDK 覆盖 JS、Python、Go、Rust、Java/Kotlin、.NET、Ruby、PHP、原生 C/C++、Cocoa 等，主打「让开发者更快定位并修复问题」。"
+      },
+      {
+        "rank": 16,
+        "repo": "anthropics/claude-code",
+        "url": "https://github.com/anthropics/claude-code",
+        "lang": "TypeScript",
+        "stars": "149,198",
+        "delta": "+127",
+        "source": "daily",
+        "summary": "运行在终端里的 agentic 编码工具，理解代码库并执行日常任务、git 流程。",
+        "highlight": "README 提示 npm 安装方式已弃用，推荐 curl 安装脚本或 Homebrew；可在终端、IDE 使用，或通过 @claude 在 GitHub 上协作。"
+      },
+      {
+        "rank": 17,
+        "repo": "jamwithai/production-agentic-rag-course",
+        "url": "https://github.com/jamwithai/production-agentic-rag-course",
+        "lang": "Python",
+        "stars": "9,382",
+        "delta": "+192",
+        "source": "daily",
+        "summary": "实战教学项目：从零构建生产级 RAG 研究助手（arXiv 论文 curator）。",
+        "highlight": "README 分周推进：先 Docker/FastAPI/PostgreSQL/OpenSearch/Airflow 搭基础设施，再抓取解析 arXiv 论文，然后用 BM25 关键词检索打底，最后叠加语义的混合检索；强调「先搜索基础、后 AI 增强」的专业路径而非一上来就上向量库。"
+      },
+      {
+        "rank": 18,
+        "repo": "meituan-longcat/LongCat-Video",
+        "url": "https://github.com/meituan-longcat/LongCat-Video",
+        "lang": "Python",
+        "stars": "8,715",
+        "delta": "+43",
+        "source": "daily",
+        "summary": "美团 LongCat 团队的 13.6B 视频生成基础模型。",
+        "highlight": "README 称单一模型统一 Text-to-Video、Image-to-Video、Video-Continuation 三类任务；原生预训练支持分钟级长视频且不漂色/不降质；用时空 coarse-to-fine + Block Sparse Attention，宣称 720p/30fps 数分钟生成，并以多奖励 GRPO RLHF 把效果拉到可比开源与商业方案，定位「迈向世界模型的第一步」。"
+      },
+      {
+        "rank": 19,
+        "repo": "OpenCut-app/OpenCut",
+        "url": "https://github.com/OpenCut-app/OpenCut",
+        "lang": "TypeScript",
+        "stars": "91,568",
+        "delta": "+234",
+        "source": "daily",
+        "summary": "开源版 CapCut（视频剪辑器）。",
+        "highlight": "README 状态栏说明项目正在从底层重写，规划包括 Editor API、插件优先架构、基于 Rust 核心的桌面/移动/浏览器一套代码、面向 AI agent 的 MCP server 以及无头批渲染模式。"
+      },
+      {
+        "rank": 20,
+        "repo": "facebookincubator/muse-gadget-sdk",
+        "url": "https://github.com/facebookincubator/muse-gadget-sdk",
+        "lang": "C",
+        "stars": "861",
+        "delta": "",
+        "source": "weekly",
+        "summary": "Meta 开源的 Muse Gadgets 设备 SDK：自己动手把 ESP32 / 树莓派做成可对话的硬件。",
+        "highlight": "README 称 Muse gadgets 是「自己组装的开放设备」，用现成 ESP32 或 Linux 盒子接入屏幕、按钮、传感器、执行器，再连到 iOS/Android 的 Muse 应用；本仓库开源了设备 SDK 与固件，Apache-2.0 授权，作者自嘲「副作用可能包括变砖、失去保修」。"
+      }
+    ]
+  },
+  "observation": [
+    "当日榜单几乎被「agent harness 的技能 / 记忆 / 上下文」包场：ponytail、impeccable、agent-skills、superpowers、mattpocock/skills 全是 skill 类项目，claude-mem 与 context-mode 则主攻记忆持久化与上下文窗口压缩，竞争焦点正从模型本身转向 harness 的工程化细节。",
+    "增量冠军指向两大刚需：给 agent 装「互联网眼睛」的 Agent-Reach（+1,683）与反 token 浪费的 caveman（+505），一个解决数据可达性、一个解决成本，都是模型之外、日常最能被感知的痛点。",
+    "大厂把内部系统直接开源成产品：Cloudflare OS 把内部全员在用的 AI 生产力「操作系统」开放，Meta 开源 Muse Gadgets SDK（硬件侧），开源正从「单个 SDK」扩到「整套公司级 agent 基础设施」。",
+    "编码 agent 继续向「控制面 / 远程化」演进：T3 Code 用手机、网页、桌面统一遥控本机上的多个 agent；pi 在 24 小时内连发 v1.0.1 与 v1.0.2（新增按思考档位的采样参数），发布节奏明显加快。",
+    "多模态与硬件两端延伸：美团 LongCat-Video（13.6B、分钟级长视频）与 Meta 的 ESP32/树莓派可编程设备 SDK 同榜，AI 正同时向更重的模型与更贴身的硬件落地。"
+  ]
+}
