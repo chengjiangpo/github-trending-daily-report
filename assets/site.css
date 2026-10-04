@@ -115,6 +115,10 @@ details.notes ul{margin:8px 0 2px 18px;padding:0}
   border:1px solid color-mix(in srgb,var(--c) 40%,transparent)}
 .rank-top{color:#0b0e14;border-color:transparent;
   background:linear-gradient(135deg,var(--c),color-mix(in srgb,var(--c) 45%,var(--accent2)))}
+.card.news{padding-left:18px}
+.card.news::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--c);opacity:.9}
+.badge.cat{color:color-mix(in srgb,var(--c) 88%,var(--fg));border-color:color-mix(in srgb,var(--c) 45%,transparent);
+  background:color-mix(in srgb,var(--c) 12%,transparent);font-weight:600}
 .card-body{position:relative;z-index:1;min-width:0;flex:1}
 .card-top{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .repo{font-weight:650;text-decoration:none;word-break:break-all;letter-spacing:-.2px}

@@ -31,13 +31,14 @@
       <button class="tbtn on" data-f="all" type="button">全部</button>
       <button class="tbtn" data-f="daily" type="button">仅日榜</button>
       <button class="tbtn" data-f="weekly" type="button">仅周榜</button>
+      <button class="tbtn" data-f="news" type="button">仅 AI 动态</button>
     </div>
     <section class="panel active" id="d-2026-10-04" data-date="2026-10-04" data-loaded="1">
         <div class="day-head">
           <h2>2026-10-04<span class="wd">周日</span></h2>
           <span class="day-sub">日榜 19 · 周榜 1 · 20 个 Trending 项目</span>
         </div>
-        <details class="notes"><summary>数据说明</summary><ul><li>gh CLI 未登录，仓库与 Trending 数据全部改用 curl 直连 api.github.com 公共 API，未认证但请求成功。</li><li>github.com/trending 于今日 06:00（北京时间）先行抓取成功并缓存：日榜 19 条，含各仓库当日 star 增量（stars today），故本次日榜直接沿用该缓存快照（已用 api.github.com 交叉核对，star 数仅小幅增长，确认快照为今日）。</li><li>09:16 重试 github.com/trending（日榜/周榜）均不可达（HTTPS 超时，http=000），故第 20 名无法由周榜补位，改用 api.github.com Search API 近似口径（created:&gt;2026-09-27、star&gt;150、按 star 降序）取一条补位，来源标注 weekly；Search API 不提供 star 增量，该条 delta 留空，未做任何估算。</li><li>deepseek-ai/deepseek-harness 过去 24 小时有 8 条提交，核心为 0.2.1-alpha.1 发版与隔离 npm 发布通道；anomalyco/opencode 仅 1 条提交。</li></ul></details>
+        <details class="notes"><summary>数据说明</summary><ul><li>gh CLI 未登录，仓库与 Trending 数据全部改用 curl 直连 api.github.com 公共 API，未认证但请求成功。</li><li>github.com/trending 于今日 06:00（北京时间）先行抓取成功并缓存：日榜 19 条，含各仓库当日 star 增量（stars today），故本次日榜直接沿用该缓存快照（已用 api.github.com 交叉核对，star 数仅小幅增长，确认快照为今日）。</li><li>09:16 重试 github.com/trending（日榜/周榜）均不可达（HTTPS 超时，http=000），故第 20 名无法由周榜补位，改用 api.github.com Search API 近似口径（created:&gt;2026-09-27、star&gt;150、按 star 降序）取一条补位，来源标注 weekly；Search API 不提供 star 增量，该条 delta 留空，未做任何估算。</li><li>deepseek-ai/deepseek-harness 过去 24 小时有 8 条提交，核心为 0.2.1-alpha.1 发版与隔离 npm 发布通道；anomalyco/opencode 仅 1 条提交。</li><li>AI 前沿动态来源：Hacker News(Algolia，按 AI 相关性+热度过滤)、arXiv(cs.CL/AI/LG)、OpenAI Blog、Simon Willison、量子位、GitHub Blog、Latent Space；跨源去重，抓取失败不影响其余部分。</li></ul></details>
         
           <section class="block">
             <div class="block-head">
@@ -414,11 +415,97 @@
             <ul class="obs"><li style="--c:#5B9BFF"><span class="num">1</span><p>当日榜单几乎被「agent harness 的技能 / 记忆 / 上下文」包场：ponytail、impeccable、agent-skills、superpowers、mattpocock/skills 全是 skill 类项目，claude-mem 与 context-mode 则主攻记忆持久化与上下文窗口压缩，竞争焦点正从模型本身转向 harness 的工程化细节。</p></li><li style="--c:#A06BFF"><span class="num">2</span><p>增量冠军指向两大刚需：给 agent 装「互联网眼睛」的 Agent-Reach（+1,683）与反 token 浪费的 caveman（+505），一个解决数据可达性、一个解决成本，都是模型之外、日常最能被感知的痛点。</p></li><li style="--c:#2FD6A6"><span class="num">3</span><p>大厂把内部系统直接开源成产品：Cloudflare OS 把内部全员在用的 AI 生产力「操作系统」开放，Meta 开源 Muse Gadgets SDK（硬件侧），开源正从「单个 SDK」扩到「整套公司级 agent 基础设施」。</p></li><li style="--c:#FFB13B"><span class="num">4</span><p>编码 agent 继续向「控制面 / 远程化」演进：T3 Code 用手机、网页、桌面统一遥控本机上的多个 agent；pi 在 24 小时内连发 v1.0.1 与 v1.0.2（新增按思考档位的采样参数），发布节奏明显加快。</p></li><li style="--c:#FF7AB6"><span class="num">5</span><p>多模态与硬件两端延伸：美团 LongCat-Video（13.6B、分钟级长视频）与 Meta 的 ESP32/树莓派可编程设备 SDK 同榜，AI 正同时向更重的模型与更贴身的硬件落地。</p></li>
             </ul>
           </section>
+        
+          <section class="block">
+            <div class="block-head">
+              <h3><span class="ico">🧠</span>AI 前沿动态</h3>
+              <span class="block-sub">过去 24 小时（arXiv 因索引滞后回看至 10-02） · 源：Hacker News / arXiv / OpenAI Blog / Simon Willison / 量子位 / GitHub Blog / Latent Space</span>
+            </div>
+            <div class="grid">
+            <article class="card news" style="--c:#2FD6A6" data-src="news" data-text="aleph alpha 发布主权开源权重模型 kolibri 德国 aleph alpha 推出 kolibri，主打「主权 ai」：权重开放、可完全自托管、数据不出境。 欧洲主权 ai 路线的代表作，开源权重阵营再添一员；hn 单帖 510 分、近 300 条讨论，说明关注度很高。 hacker news">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://aleph-alpha.com/en/blog/kolibri-has-landed-a-sovereign-open-weight-model/" target="_blank" rel="noreferrer">Aleph Alpha 发布主权开源权重模型 Kolibri</a>
+                  <span class="badge cat">开源/工具</span>
+                </div>
+                <p class="summary">德国 Aleph Alpha 推出 Kolibri，主打「主权 AI」：权重开放、可完全自托管、数据不出境。</p>
+                <p class="hl">为什么重要：欧洲主权 AI 路线的代表作，开源权重阵营再添一员；HN 单帖 510 分、近 300 条讨论，说明关注度很高。</p>
+                <div class="meta"><span>Hacker News</span><span>10/03 17:36</span><span>510 分 · 298 评论</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#FF8A4C" data-src="news" data-text="openai 安全团队持续动荡：负责人离职、三名员工被解雇 安全负责人离职并公开批评公司文化「已损坏」，同期三名员工因泄密被解雇；the atlantic、guardian、量子位多源报道。 前沿实验室的治理与安全问题持续发酵，可能影响监管叙事、人才流向与安全团队话语权。 量子位 / hacker news（多源）">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://www.qbitai.com/2026/10/501368.html" target="_blank" rel="noreferrer">OpenAI 安全团队持续动荡：负责人离职、三名员工被解雇</a>
+                  <span class="badge cat">行业动态</span>
+                </div>
+                <p class="summary">安全负责人离职并公开批评公司文化「已损坏」，同期三名员工因泄密被解雇；The Atlantic、Guardian、量子位多源报道。</p>
+                <p class="hl">为什么重要：前沿实验室的治理与安全问题持续发酵，可能影响监管叙事、人才流向与安全团队话语权。</p>
+                <div class="meta"><span>量子位 / Hacker News（多源）</span><span>10/03 12:41</span><span>HN 双帖 110+133 分</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#5B9BFF" data-src="news" data-text="anthropic 官方：如何用好 claude opus 5.5 官方博客给出在 claude 与 claude code 中发挥 opus 5.5 能力的最佳实践（含长任务、工具调用与上下文管理建议）。 opus 5.5 是当前主力模型之一，这是最权威的实操参考，直接可用来改自己的工作流。 hacker news">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://claude.dev/blog/getting-the-most-out-of-opus-5-5/" target="_blank" rel="noreferrer">Anthropic 官方：如何用好 Claude Opus 5.5</a>
+                  <span class="badge cat">模型/产品</span>
+                </div>
+                <p class="summary">官方博客给出在 Claude 与 Claude Code 中发挥 Opus 5.5 能力的最佳实践（含长任务、工具调用与上下文管理建议）。</p>
+                <p class="hl">为什么重要：Opus 5.5 是当前主力模型之一，这是最权威的实操参考，直接可用来改自己的工作流。</p>
+                <div class="meta"><span>Hacker News</span><span>10/04 02:29</span><span>158 分 · 117 评论</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#FF8A4C" data-src="news" data-text="system76 在大部分 cosmic 代码库禁止 ai 生成代码 pop!_os 背后的 system76 明确禁止 ai 生成代码进入多数 cosmic 相关代码库。 开源社区开始正式制定「ai 贡献」规则，对「编码 agent 参与开源」的边界有直接影响。 hacker news">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://www.neowin.net/news/system76-bans-ai-generated-code-across-many-of-its-cosmic-codebases/" target="_blank" rel="noreferrer">System76 在大部分 Cosmic 代码库禁止 AI 生成代码</a>
+                  <span class="badge cat">行业动态</span>
+                </div>
+                <p class="summary">Pop!_OS 背后的 System76 明确禁止 AI 生成代码进入多数 Cosmic 相关代码库。</p>
+                <p class="hl">为什么重要：开源社区开始正式制定「AI 贡献」规则，对「编码 agent 参与开源」的边界有直接影响。</p>
+                <div class="meta"><span>Hacker News</span><span>10/04 01:57</span><span>95 分 · 145 评论</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#FF8A4C" data-src="news" data-text="simon willison：ai 产品需要默认的硬性预算上限 指出当前 ai 功能普遍缺少「硬预算上限」，一旦循环调用或失控重试就可能烧钱，呼吁把它做成默认产品能力。 对任何接入 llm api 的项目都是现实风险：成本失控是最普遍的运维事故，这条给出了设计方向。 simon willison">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/" target="_blank" rel="noreferrer">Simon Willison：AI 产品需要默认的硬性预算上限</a>
+                  <span class="badge cat">行业动态</span>
+                </div>
+                <p class="summary">指出当前 AI 功能普遍缺少「硬预算上限」，一旦循环调用或失控重试就可能烧钱，呼吁把它做成默认产品能力。</p>
+                <p class="hl">为什么重要：对任何接入 LLM API 的项目都是现实风险：成本失控是最普遍的运维事故，这条给出了设计方向。</p>
+                <div class="meta"><span>Simon Willison</span><span>10/04 07:34</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#A06BFF" data-src="news" data-text="arxiv：llm 数学推理「缺失的基元」——诊断与修复 论文系统诊断大模型数学推理缺失的关键机制，并给出针对性的修复方法。 把「数学推理为什么不行」从经验观察推进到机制层面，对推理能力研究有参考价值。 arxiv (cs.cl)">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="http://arxiv.org/abs/2610.02191v1" target="_blank" rel="noreferrer">arXiv：LLM 数学推理「缺失的基元」——诊断与修复</a>
+                  <span class="badge cat">研究/论文</span>
+                </div>
+                <p class="summary">论文系统诊断大模型数学推理缺失的关键机制，并给出针对性的修复方法。</p>
+                <p class="hl">为什么重要：把「数学推理为什么不行」从经验观察推进到机制层面，对推理能力研究有参考价值。</p>
+                <div class="meta"><span>arXiv (cs.CL)</span><span>10/02 提交</span><span>新论文</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#A06BFF" data-src="news" data-text="arxiv：taco——三值单稀疏优化器，显著降低 llm 全参微调显存 提出三值化 + 按列绝对最大值单稀疏的优化器表示，压缩优化器状态显存，让更大模型能在有限显存下全参微调。 微调的显存瓶颈是工程落地高频痛点，这类优化器改动小、收益直接。 arxiv (cs.lg)">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="http://arxiv.org/abs/2610.02199v1" target="_blank" rel="noreferrer">arXiv：TACO——三值单稀疏优化器，显著降低 LLM 全参微调显存</a>
+                  <span class="badge cat">研究/论文</span>
+                </div>
+                <p class="summary">提出三值化 + 按列绝对最大值单稀疏的优化器表示，压缩优化器状态显存，让更大模型能在有限显存下全参微调。</p>
+                <p class="hl">为什么重要：微调的显存瓶颈是工程落地高频痛点，这类优化器改动小、收益直接。</p>
+                <div class="meta"><span>arXiv (cs.LG)</span><span>10/02 提交</span><span>新论文</span></div>
+              </div>
+            </article>
+            </div>
+          </section>
     </section>
   </main>
 
   <footer>
-    <span>生成时间：2026-10-04T01:22:40.261Z · 数据：<code>../data/2026-10-04.json</code></span>
+    <span>生成时间：2026-10-04T01:43:42.766Z · 数据：<code>../data/2026-10-04.json</code></span>
     <span>Generated by OpenClaw · <a href="https://github.com/chengjiangpo/github-trending-daily-report">仓库源码</a></span>
   </footer>
 </div>

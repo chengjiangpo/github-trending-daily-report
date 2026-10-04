@@ -5,7 +5,8 @@
     "gh CLI 未登录，仓库与 Trending 数据全部改用 curl 直连 api.github.com 公共 API，未认证但请求成功。",
     "github.com/trending 于今日 06:00（北京时间）先行抓取成功并缓存：日榜 19 条，含各仓库当日 star 增量（stars today），故本次日榜直接沿用该缓存快照（已用 api.github.com 交叉核对，star 数仅小幅增长，确认快照为今日）。",
     "09:16 重试 github.com/trending（日榜/周榜）均不可达（HTTPS 超时，http=000），故第 20 名无法由周榜补位，改用 api.github.com Search API 近似口径（created:>2026-09-27、star>150、按 star 降序）取一条补位，来源标注 weekly；Search API 不提供 star 增量，该条 delta 留空，未做任何估算。",
-    "deepseek-ai/deepseek-harness 过去 24 小时有 8 条提交，核心为 0.2.1-alpha.1 发版与隔离 npm 发布通道；anomalyco/opencode 仅 1 条提交。"
+    "deepseek-ai/deepseek-harness 过去 24 小时有 8 条提交，核心为 0.2.1-alpha.1 发版与隔离 npm 发布通道；anomalyco/opencode 仅 1 条提交。",
+    "AI 前沿动态来源：Hacker News(Algolia，按 AI 相关性+热度过滤)、arXiv(cs.CL/AI/LG)、OpenAI Blog、Simon Willison、量子位、GitHub Blog、Latent Space；跨源去重，抓取失败不影响其余部分。"
   ],
   "commits": {
     "title": "仓库提交简报",
@@ -15,39 +16,112 @@
         "name": "deepseek-ai/deepseek-harness",
         "meta": "master · 24h 内 8 条提交 · 发布 0.2.1-alpha.1",
         "items": [
-          { "title": "release(dsh): 0.2.1-alpha.1（PR #5648）", "desc": "发布新 alpha 版本", "author": "Tianyi Cui", "time": "10-03 10:46" },
-          { "title": "Merge PR #5648 from worktree/release-dsh-0.2.1-alpha.1", "desc": "合并发版 PR", "author": "Tianyi Cui", "time": "10-03 11:48" },
-          { "title": "release(vendor)：cordis 4.0.5-alpha.1 / cosmokit 1.8.6-alpha.1 / schemastery 3.18.5-alpha.1 等一批内部依赖（PR #5643）", "desc": "内部依赖统一发版", "author": "Tianyi Cui", "time": "10-03 10:02" },
-          { "title": "feat(release)：支持相互隔离的 npm 发布通道", "desc": "发版能力增强", "author": "Tianyi Cui", "time": "10-03 09:20" },
-          { "title": "fix(release)：preflight 不再依赖 latest 通道", "desc": "发版预检修复", "author": "Tianyi Cui", "time": "10-03 09:52" },
-          { "title": "test(release)：手动发布 workflow 允许传参", "desc": "CI 测试补充", "author": "Tianyi Cui", "time": "10-03 09:34" }
+          {
+            "title": "release(dsh): 0.2.1-alpha.1（PR #5648）",
+            "desc": "发布新 alpha 版本",
+            "author": "Tianyi Cui",
+            "time": "10-03 10:46"
+          },
+          {
+            "title": "Merge PR #5648 from worktree/release-dsh-0.2.1-alpha.1",
+            "desc": "合并发版 PR",
+            "author": "Tianyi Cui",
+            "time": "10-03 11:48"
+          },
+          {
+            "title": "release(vendor)：cordis 4.0.5-alpha.1 / cosmokit 1.8.6-alpha.1 / schemastery 3.18.5-alpha.1 等一批内部依赖（PR #5643）",
+            "desc": "内部依赖统一发版",
+            "author": "Tianyi Cui",
+            "time": "10-03 10:02"
+          },
+          {
+            "title": "feat(release)：支持相互隔离的 npm 发布通道",
+            "desc": "发版能力增强",
+            "author": "Tianyi Cui",
+            "time": "10-03 09:20"
+          },
+          {
+            "title": "fix(release)：preflight 不再依赖 latest 通道",
+            "desc": "发版预检修复",
+            "author": "Tianyi Cui",
+            "time": "10-03 09:52"
+          },
+          {
+            "title": "test(release)：手动发布 workflow 允许传参",
+            "desc": "CI 测试补充",
+            "author": "Tianyi Cui",
+            "time": "10-03 09:34"
+          }
         ]
       },
       {
         "name": "earendil-works/pi",
         "meta": "main · 24h 内 11 条提交 · 连发 v1.0.1 / v1.0.2",
         "items": [
-          { "title": "Release v1.0.2 + 开启下一周期 [Unreleased] 段", "desc": "版本发布", "author": "Armin Ronacher", "time": "10-04 08:41" },
-          { "title": "feat(ai)：新增按思考档位（thinking level）的采样参数（#9776）", "desc": "推理可控性增强", "author": "Duncan Ogilvie", "time": "10-04 07:29" },
-          { "title": "fix(durable)：持久化 provider 会话身份", "desc": "会话稳定性", "author": "Mario Zechner", "time": "10-04 06:54" },
-          { "title": "Release v1.0.1 + 审计自 v1.0.0 以来 changelog", "desc": "版本发布", "author": "Armin Ronacher", "time": "10-03 20:21" },
-          { "title": "fix(coding-agent)：NVIDIA 默认模型切到 Nemotron 3 Ultra", "desc": "默认模型调整", "author": "Armin Ronacher", "time": "10-03 20:14" },
-          { "title": "fix(coding-agent)：MCP 工具调用在其服务器连接前即可渲染", "desc": "交互修复", "author": "Armin Ronacher", "time": "10-03 19:53" },
-          { "title": "fix：Nix workflow 在 fast-forward stable 前先拉全量历史", "desc": "发布流水线修复", "author": "Armin Ronacher", "time": "10-03 21:23" }
+          {
+            "title": "Release v1.0.2 + 开启下一周期 [Unreleased] 段",
+            "desc": "版本发布",
+            "author": "Armin Ronacher",
+            "time": "10-04 08:41"
+          },
+          {
+            "title": "feat(ai)：新增按思考档位（thinking level）的采样参数（#9776）",
+            "desc": "推理可控性增强",
+            "author": "Duncan Ogilvie",
+            "time": "10-04 07:29"
+          },
+          {
+            "title": "fix(durable)：持久化 provider 会话身份",
+            "desc": "会话稳定性",
+            "author": "Mario Zechner",
+            "time": "10-04 06:54"
+          },
+          {
+            "title": "Release v1.0.1 + 审计自 v1.0.0 以来 changelog",
+            "desc": "版本发布",
+            "author": "Armin Ronacher",
+            "time": "10-03 20:21"
+          },
+          {
+            "title": "fix(coding-agent)：NVIDIA 默认模型切到 Nemotron 3 Ultra",
+            "desc": "默认模型调整",
+            "author": "Armin Ronacher",
+            "time": "10-03 20:14"
+          },
+          {
+            "title": "fix(coding-agent)：MCP 工具调用在其服务器连接前即可渲染",
+            "desc": "交互修复",
+            "author": "Armin Ronacher",
+            "time": "10-03 19:53"
+          },
+          {
+            "title": "fix：Nix workflow 在 fast-forward stable 前先拉全量历史",
+            "desc": "发布流水线修复",
+            "author": "Armin Ronacher",
+            "time": "10-03 21:23"
+          }
         ]
       },
       {
         "name": "anomalyco/opencode",
         "meta": "dev · 24h 内 1 条提交",
         "items": [
-          { "title": "docs(web)：Zen 文档补充 Fledge Alpha Free（#52895）", "desc": "", "author": "Daniel Chen", "time": "10-03 12:55" }
+          {
+            "title": "docs(web)：Zen 文档补充 Fledge Alpha Free（#52895）",
+            "desc": "",
+            "author": "Daniel Chen",
+            "time": "10-03 12:55"
+          }
         ]
       }
     ]
   },
   "trending": {
     "title": "GitHub Trending 分析",
-    "sources": { "daily": 19, "weekly": 1 },
+    "sources": {
+      "daily": 19,
+      "weekly": 1
+    },
     "items": [
       {
         "rank": 1,
@@ -277,5 +351,90 @@
     "大厂把内部系统直接开源成产品：Cloudflare OS 把内部全员在用的 AI 生产力「操作系统」开放，Meta 开源 Muse Gadgets SDK（硬件侧），开源正从「单个 SDK」扩到「整套公司级 agent 基础设施」。",
     "编码 agent 继续向「控制面 / 远程化」演进：T3 Code 用手机、网页、桌面统一遥控本机上的多个 agent；pi 在 24 小时内连发 v1.0.1 与 v1.0.2（新增按思考档位的采样参数），发布节奏明显加快。",
     "多模态与硬件两端延伸：美团 LongCat-Video（13.6B、分钟级长视频）与 Meta 的 ESP32/树莓派可编程设备 SDK 同榜，AI 正同时向更重的模型与更贴身的硬件落地。"
-  ]
+  ],
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（arXiv 因索引滞后回看至 10-02）",
+    "sourcesUsed": [
+      "Hacker News",
+      "arXiv",
+      "OpenAI Blog",
+      "Simon Willison",
+      "量子位",
+      "GitHub Blog",
+      "Latent Space"
+    ],
+    "items": [
+      {
+        "category": "oss",
+        "title": "Aleph Alpha 发布主权开源权重模型 Kolibri",
+        "summary": "德国 Aleph Alpha 推出 Kolibri，主打「主权 AI」：权重开放、可完全自托管、数据不出境。",
+        "why": "欧洲主权 AI 路线的代表作，开源权重阵营再添一员；HN 单帖 510 分、近 300 条讨论，说明关注度很高。",
+        "url": "https://aleph-alpha.com/en/blog/kolibri-has-landed-a-sovereign-open-weight-model/",
+        "source": "Hacker News",
+        "time": "10/03 17:36",
+        "heat": "510 分 · 298 评论"
+      },
+      {
+        "category": "industry",
+        "title": "OpenAI 安全团队持续动荡：负责人离职、三名员工被解雇",
+        "summary": "安全负责人离职并公开批评公司文化「已损坏」，同期三名员工因泄密被解雇；The Atlantic、Guardian、量子位多源报道。",
+        "why": "前沿实验室的治理与安全问题持续发酵，可能影响监管叙事、人才流向与安全团队话语权。",
+        "url": "https://www.qbitai.com/2026/10/501368.html",
+        "source": "量子位 / Hacker News（多源）",
+        "time": "10/03 12:41",
+        "heat": "HN 双帖 110+133 分"
+      },
+      {
+        "category": "release",
+        "title": "Anthropic 官方：如何用好 Claude Opus 5.5",
+        "summary": "官方博客给出在 Claude 与 Claude Code 中发挥 Opus 5.5 能力的最佳实践（含长任务、工具调用与上下文管理建议）。",
+        "why": "Opus 5.5 是当前主力模型之一，这是最权威的实操参考，直接可用来改自己的工作流。",
+        "url": "https://claude.dev/blog/getting-the-most-out-of-opus-5-5/",
+        "source": "Hacker News",
+        "time": "10/04 02:29",
+        "heat": "158 分 · 117 评论"
+      },
+      {
+        "category": "industry",
+        "title": "System76 在大部分 Cosmic 代码库禁止 AI 生成代码",
+        "summary": "Pop!_OS 背后的 System76 明确禁止 AI 生成代码进入多数 Cosmic 相关代码库。",
+        "why": "开源社区开始正式制定「AI 贡献」规则，对「编码 agent 参与开源」的边界有直接影响。",
+        "url": "https://www.neowin.net/news/system76-bans-ai-generated-code-across-many-of-its-cosmic-codebases/",
+        "source": "Hacker News",
+        "time": "10/04 01:57",
+        "heat": "95 分 · 145 评论"
+      },
+      {
+        "category": "industry",
+        "title": "Simon Willison：AI 产品需要默认的硬性预算上限",
+        "summary": "指出当前 AI 功能普遍缺少「硬预算上限」，一旦循环调用或失控重试就可能烧钱，呼吁把它做成默认产品能力。",
+        "why": "对任何接入 LLM API 的项目都是现实风险：成本失控是最普遍的运维事故，这条给出了设计方向。",
+        "url": "https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/",
+        "source": "Simon Willison",
+        "time": "10/04 07:34",
+        "heat": ""
+      },
+      {
+        "category": "research",
+        "title": "arXiv：LLM 数学推理「缺失的基元」——诊断与修复",
+        "summary": "论文系统诊断大模型数学推理缺失的关键机制，并给出针对性的修复方法。",
+        "why": "把「数学推理为什么不行」从经验观察推进到机制层面，对推理能力研究有参考价值。",
+        "url": "http://arxiv.org/abs/2610.02191v1",
+        "source": "arXiv (cs.CL)",
+        "time": "10/02 提交",
+        "heat": "新论文"
+      },
+      {
+        "category": "research",
+        "title": "arXiv：TACO——三值单稀疏优化器，显著降低 LLM 全参微调显存",
+        "summary": "提出三值化 + 按列绝对最大值单稀疏的优化器表示，压缩优化器状态显存，让更大模型能在有限显存下全参微调。",
+        "why": "微调的显存瓶颈是工程落地高频痛点，这类优化器改动小、收益直接。",
+        "url": "http://arxiv.org/abs/2610.02199v1",
+        "source": "arXiv (cs.LG)",
+        "time": "10/02 提交",
+        "heat": "新论文"
+      }
+    ]
+  }
 }
