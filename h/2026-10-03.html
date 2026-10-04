@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-10-03 · GitHub Trending 每日分析</title>
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="hero mini">
+    <div>
+      <a class="kicker" href="../">← 返回首页（含全部 14 期）</a>
+      <h1>2026-10-03<span class="wd" style="font-size:15px;font-weight:400;color:var(--muted);margin-left:10px">周六</span></h1>
+      <p>GitHub Trending 每日分析 · 单日页 · 共收录 280 个项目</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>20</b><span>本期项目</span></div>
+    </div>
+  </header>
+
+  <div class="toolbar" style="margin-top:22px">
+    <a class="tbtn" href="2026-10-04.html">‹ 2026-10-04</a>
+    <a class="tbtn" href="2026-10-02.html">2026-10-02 ›</a>
+    <a class="tbtn" href="../#d-2026-10-03">在首页中查看</a>
+  </div>
+
+  <main>
+    <div class="toolbar">
+      <input id="q" type="search" placeholder="筛选：仓库名 / 语言 / 关键词…">
+      <button class="tbtn on" data-f="all" type="button">全部</button>
+      <button class="tbtn" data-f="daily" type="button">仅日榜</button>
+      <button class="tbtn" data-f="weekly" type="button">仅周榜</button>
+    </div>
+    <section class="panel active" id="d-2026-10-03" data-date="2026-10-03" data-loaded="1">
+        <div class="day-head">
+          <h2>2026-10-03<span class="wd">周六</span></h2>
+          <span class="day-sub">日榜 20 · 周榜 0 · 20 个 Trending 项目</span>
+        </div>
+        <details class="notes"><summary>数据说明</summary><ul><li>gh CLI 未登录，全部改用 curl 直连 api.github.com 公共 API，未认证但请求成功。</li><li>github.com/trending 页面本次不可达（HTTPS 超时，http=000），改用 api.github.com Search API 替代口径：以「近 7 天新建（created:&gt;2026-09-25）、star&gt;150、按 star 降序」近似日榜，故榜单偏向新晋高星项目，而非官方 trending 的当日热度排序。</li><li>Search API 不提供 star 增量，delta 字段一律留空，未做任何估算。</li><li>deepseek-ai/deepseek-harness 最近一次提交为 2026-09-29，过去 24 小时确无新提交。</li></ul></details>
+        
+          <section class="block">
+            <div class="block-head">
+              <h3><span class="ico">🧩</span>仓库提交简报</h3>
+              <span class="block-sub">过去 24 小时（since 2026-10-01T22:00Z，时间已换算为北京时间）</span>
+            </div>
+            <div class="repo-grid">
+              <div class="repo-block" style="--c:#5B9BFF">
+                <div class="rb-head"><h4>deepseek-ai/deepseek-harness</h4><span class="rb-meta">master · 过去 24 小时无新提交（最近提交 09-29）</span></div>
+                <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">过去 24 小时无新提交</div>
+                    <div class="c-meta">deepseek-harness · 最近一次提交 2026-09-29</div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+              <div class="repo-block" style="--c:#A06BFF">
+                <div class="rb-head"><h4>earendil-works/pi</h4><span class="rb-meta">main · 24h 内 22 条提交 · 非常活跃</span></div>
+                <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(ai)：修复 Bedrock 上 Claude 重放时残留的 thinking 块</div>
+                    <div class="c-meta">稳定性修复 · Armin Ronacher · 10-03 04:38</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(coding-agent)：项目级 mcp.json 可覆盖全局服务器的 enabled/exposure</div>
+                    <div class="c-meta">MCP 配置更灵活 · Armin Ronacher · 10-03 00:34</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(coding-agent)：新增 Nix flake（#9137）</div>
+                    <div class="c-meta">开发环境 · Armin Ronacher · 10-03 00:30</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(ai)：为 Amazon Bedrock 模型保留 models.dev 定价档位</div>
+                    <div class="c-meta">修复计费展示 · David Brailovsky · 10-03 00:25</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(codemode)：限制脚本输出，避免 print 循环耗尽宿主内存</div>
+                    <div class="c-meta">健壮性修复 · Armin Ronacher · 10-02 23:54</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(ai)：Workers AI 接入 Cloudflare Clef 分类器（#10316）</div>
+                    <div class="c-meta">模型/能力扩充 · Nathan Disidore · 10-02 22:52</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(ai)：Anthropic 对话中工具改为内联定义</div>
+                    <div class="c-meta">能力适配 · Armin Ronacher · 10-02 18:30</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(ai)：对「Selected model is at capacity」类错误自动重试</div>
+                    <div class="c-meta">提升可用性 · David Brailovsky · 10-02 17:38</div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+              <div class="repo-block" style="--c:#2FD6A6">
+                <div class="rb-head"><h4>anomalyco/opencode</h4><span class="rb-meta">dev · 24h 内 3 条提交</span></div>
+                <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(stats)：隐藏被列入 secret 的模型（#52834）</div>
+                    <div class="c-meta">vprdev · 10-03 04:56</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">docs(web)：Zen 文档补充 Ling 3.1 Flash Free（#52781）</div>
+                    <div class="c-meta">Jack · 10-02 23:58</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">chore(stats)：退役旧版 S3 数据湖（#52515）</div>
+                    <div class="c-meta">基础设施清理 · Adam · 10-02 11:21</div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        <section class="block">
+          <div class="block-head">
+            <h3><span class="ico">🚀</span>GitHub Trending 分析</h3>
+            <span class="block-sub">20 个项目</span>
+          </div>
+          <div class="grid">
+            <article class="card" style="--c:#3178C6" data-src="daily" data-text="kkkkhazix/aihot typescript 自动找热点、自动写日报的行业热点站框架（信源、精选、聚簇、热度算法全开源）。 提示词原文与入选门槛全部公开，可把信源与 knowhow 换成任意行业；技术栈 node.js 24 + postgresql 17 + docker compose，demo 在 aihot.news。">
+              <div class="rank rank-top">1</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/KKKKhazix/AIHOT" target="_blank" rel="noreferrer">KKKKhazix/AIHOT</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#3178C6"></i>TypeScript</span><span class="stars">★ 4,956</span><span class="delta"></span></div>
+                <p class="summary">自动找热点、自动写日报的行业热点站框架（信源、精选、聚簇、热度算法全开源）。</p>
+                <p class="hl">提示词原文与入选门槛全部公开，可把信源与 KnowHow 换成任意行业；技术栈 Node.js 24 + PostgreSQL 17 + Docker Compose，demo 在 aihot.news。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#F05138" data-src="daily" data-text="louis-cfm/coucou swift 住在 mac 刘海（windows/linux 顶部）的 ai 编码助手小挂件。 不离开当前工作即可批准权限、查看 agent 会话、拖文件、与 claude 对话；mit 开源，原生 swiftui，另有 tauri 2 跨平台构建。">
+              <div class="rank rank-top">2</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/Louis-CFM/coucou" target="_blank" rel="noreferrer">Louis-CFM/coucou</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#F05138"></i>Swift</span><span class="stars">★ 2,939</span><span class="delta"></span></div>
+                <p class="summary">住在 Mac 刘海（Windows/Linux 顶部）的 AI 编码助手小挂件。</p>
+                <p class="hl">不离开当前工作即可批准权限、查看 agent 会话、拖文件、与 Claude 对话；MIT 开源，原生 SwiftUI，另有 Tauri 2 跨平台构建。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="feder-cr/dots python 自带真实浏览器的开源 web ai agent（每换模型只需一个 flag）。 用 c++ 打补丁的 firefox 引擎，指纹在引擎内部决定而非 js 涂抹；一个 seed 对应一个一致身份，页面检测不到 webdriver/devtools 痕迹，指针与按键模拟真人。">
+              <div class="rank rank-top">3</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/feder-cr/dots" target="_blank" rel="noreferrer">feder-cr/dots</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#4B8BBE"></i>Python</span><span class="stars">★ 2,454</span><span class="delta"></span></div>
+                <p class="summary">自带真实浏览器的开源 Web AI agent（每换模型只需一个 flag）。</p>
+                <p class="hl">用 C++ 打补丁的 Firefox 引擎，指纹在引擎内部决定而非 JS 涂抹；一个 seed 对应一个一致身份，页面检测不到 WebDriver/DevTools 痕迹，指针与按键模拟真人。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#3178C6" data-src="daily" data-text="dzhng/jevgrep typescript 用自然语言提问来定位代码的 cli，供编码 agent 起步使用。 readme 称十项 swe-bench 对比中与基线完成同样的 8/10 任务而成本更低（约省 30%）；用 jev 判断跨目录/文件/声明的相关性，支持 vercel ai gateway 等多家 key。">
+              <div class="rank">4</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/dzhng/jevgrep" target="_blank" rel="noreferrer">dzhng/jevgrep</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#3178C6"></i>TypeScript</span><span class="stars">★ 2,059</span><span class="delta"></span></div>
+                <p class="summary">用自然语言提问来定位代码的 CLI，供编码 agent 起步使用。</p>
+                <p class="hl">README 称十项 SWE-bench 对比中与基线完成同样的 8/10 任务而成本更低（约省 30%）；用 Jev 判断跨目录/文件/声明的相关性，支持 Vercel AI Gateway 等多家 key。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="rehan-remade/universal-modder python 让任意 ai 编码 agent 给 pc 游戏做 mod 的技能+工具+知识库。 覆盖 claude code/codex/cursor/gemini/copilot/opencode；agent 自行识别引擎、读真实代码、用 fal 生成美术/3d/音效、在运行中的游戏里测试并剪视频，并把经验写入知识库供下一个 agent 复用。">
+              <div class="rank">5</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/rehan-remade/universal-modder" target="_blank" rel="noreferrer">rehan-remade/universal-modder</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#4B8BBE"></i>Python</span><span class="stars">★ 2,057</span><span class="delta"></span></div>
+                <p class="summary">让任意 AI 编码 agent 给 PC 游戏做 mod 的技能+工具+知识库。</p>
+                <p class="hl">覆盖 Claude Code/Codex/Cursor/Gemini/Copilot/OpenCode；agent 自行识别引擎、读真实代码、用 fal 生成美术/3D/音效、在运行中的游戏里测试并剪视频，并把经验写入知识库供下一个 agent 复用。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#E34C26" data-src="daily" data-text="kaankiziltug/logo-design-skill html 把 claude 等 agent 变成纪律严明品牌设计师的 logo 设计 agent skill。 内置 1,400+ 真实 svg logo 参考库（按标记类型/技法/几何/情绪等分类，可命令行搜索）；含无依赖 python 工具做 svg 审计与多场景测试表（16px 像素测试、单色、镜像、竞品货架等）。">
+              <div class="rank">6</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/kaankiziltug/logo-design-skill" target="_blank" rel="noreferrer">kaankiziltug/logo-design-skill</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#E34C26"></i>HTML</span><span class="stars">★ 1,509</span><span class="delta"></span></div>
+                <p class="summary">把 Claude 等 agent 变成纪律严明品牌设计师的 logo 设计 Agent Skill。</p>
+                <p class="hl">内置 1,400+ 真实 SVG logo 参考库（按标记类型/技法/几何/情绪等分类，可命令行搜索）；含无依赖 Python 工具做 SVG 审计与多场景测试表（16px 像素测试、单色、镜像、竞品货架等）。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#8b93a7" data-src="daily" data-text="yihui-dev/awesome-opus5-5-videos  用 claude opus 5.5 生成的病毒式视频合集，附创作者分享的提示词。 475 个提示词存于 prompts/ 与 data/videos.json，每条链接创作者原帖；视频均由 opus 5.5 用代码（html/canvas/svg/three.js）写成动画；2026-09-29 更新新增 86 条。">
+              <div class="rank">7</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/yihui-dev/awesome-opus5-5-videos" target="_blank" rel="noreferrer">yihui-dev/awesome-opus5-5-videos</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="stars">★ 1,409</span><span class="delta"></span></div>
+                <p class="summary">用 Claude Opus 5.5 生成的病毒式视频合集，附创作者分享的提示词。</p>
+                <p class="hl">475 个提示词存于 prompts/ 与 data/videos.json，每条链接创作者原帖；视频均由 Opus 5.5 用代码（HTML/Canvas/SVG/Three.js）写成动画；2026-09-29 更新新增 86 条。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#3178C6" data-src="daily" data-text="copilotkit/opendots typescript 常驻式 ai 同事（跨文本/通话/slack）的开源模板，每个 agent 自带一台电脑。 基于 copilotkit 与 ag-ui，web+移动端，完全可自托管；聊天内就地 ask→browse→approve→save，带人工复核卡片；状态标注 alpha。">
+              <div class="rank">8</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/CopilotKit/OpenDots" target="_blank" rel="noreferrer">CopilotKit/OpenDots</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#3178C6"></i>TypeScript</span><span class="stars">★ 1,392</span><span class="delta"></span></div>
+                <p class="summary">常驻式 AI 同事（跨文本/通话/Slack）的开源模板，每个 agent 自带一台电脑。</p>
+                <p class="hl">基于 CopilotKit 与 AG-UI，Web+移动端，完全可自托管；聊天内就地 ask→browse→approve→save，带人工复核卡片；状态标注 alpha。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="firelex/jeff python 0.8b 的「system 1」决策小模型，主打毫秒级、任意领域。 readme 称可把 jeff 放在 27b 模型前面；社区预览 v1.2 带 9 个适配器，稳定基座 v1.3 预告约 36 小时内发布，适配器不跨基座沿用但数据集可迁移。">
+              <div class="rank">9</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/firelex/jeff" target="_blank" rel="noreferrer">firelex/jeff</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#4B8BBE"></i>Python</span><span class="stars">★ 1,318</span><span class="delta"></span></div>
+                <p class="summary">0.8B 的「System 1」决策小模型，主打毫秒级、任意领域。</p>
+                <p class="hl">README 称可把 Jeff 放在 27B 模型前面；社区预览 v1.2 带 9 个适配器，稳定基座 v1.3 预告约 36 小时内发布，适配器不跨基座沿用但数据集可迁移。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="feitangyuan/onetake python claude agent skill：做「一镜到底」的连贯产品动效片/预告/演示。 每个画面从上一画面生长而出，而非 ppt 式分镜；含 10 部成片案例，并提供按每个转场边界测量连贯性的校验脚本 verify_promo.py。">
+              <div class="rank">10</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/feitangyuan/onetake" target="_blank" rel="noreferrer">feitangyuan/onetake</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#4B8BBE"></i>Python</span><span class="stars">★ 1,313</span><span class="delta"></span></div>
+                <p class="summary">Claude Agent Skill：做「一镜到底」的连贯产品动效片/预告/演示。</p>
+                <p class="hl">每个画面从上一画面生长而出，而非 PPT 式分镜；含 10 部成片案例，并提供按每个转场边界测量连贯性的校验脚本 verify_promo.py。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#E34C26" data-src="daily" data-text="wy51ai/floorplan-3d html 纯前端户型装修设计工具，2d 布置一键切 three.js 3d。 整个应用就是一个 index.html、无构建；含 60+ 家具家电、拆改承重墙标示、测量、wasd 第一人称漫游、日照时间与按面积造价估算，方案存浏览器本地。">
+              <div class="rank">11</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/wy51ai/floorplan-3d" target="_blank" rel="noreferrer">wy51ai/floorplan-3d</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#E34C26"></i>HTML</span><span class="stars">★ 1,306</span><span class="delta"></span></div>
+                <p class="summary">纯前端户型装修设计工具，2D 布置一键切 Three.js 3D。</p>
+                <p class="hl">整个应用就是一个 index.html、无构建；含 60+ 家具家电、拆改承重墙标示、测量、WASD 第一人称漫游、日照时间与按面积造价估算，方案存浏览器本地。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="nanaism/yomiyasu python 把 ai 生成的日语推敲成自然、易读、信息密度高的 agent skill。 面向技术文章/设计文档/pr 描述等实务文本，兼容 codex、claude code、cursor；作者 algo artis 附 zenn 长文说明语言学病理分析与多语料验证。">
+              <div class="rank">12</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/nanaism/yomiyasu" target="_blank" rel="noreferrer">nanaism/yomiyasu</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#4B8BBE"></i>Python</span><span class="stars">★ 1,173</span><span class="delta"></span></div>
+                <p class="summary">把 AI 生成的日语推敲成自然、易读、信息密度高的 Agent Skill。</p>
+                <p class="hl">面向技术文章/设计文档/PR 描述等实务文本，兼容 Codex、Claude Code、Cursor；作者 ALGO ARTIS 附 Zenn 长文说明语言学病理分析与多语料验证。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="echris6/motion-video-kit python 用 ai 生成素材+代码动效做「高端发布级」商业广告的 claude code skill。 提炼自 28 支专业 saas 发布片研究，含「gauntlet」独立评审闭环（建造者≠评判者）、16 个可复用动效机制、可量化质量门槛与音频规则，以及面向客户的商业 playbook。">
+              <div class="rank">13</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/echris6/motion-video-kit" target="_blank" rel="noreferrer">echris6/motion-video-kit</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#4B8BBE"></i>Python</span><span class="stars">★ 959</span><span class="delta"></span></div>
+                <p class="summary">用 AI 生成素材+代码动效做「高端发布级」商业广告的 Claude Code skill。</p>
+                <p class="hl">提炼自 28 支专业 SaaS 发布片研究，含「Gauntlet」独立评审闭环（建造者≠评判者）、16 个可复用动效机制、可量化质量门槛与音频规则，以及面向客户的商业 playbook。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#F1E05A" data-src="daily" data-text="edenfunf/reelmimic javascript 给一个喜欢的参考视频，产出一支同风格的新视频。 支持 claude code 与 codex cli；readme 展示由参考视频+一句 brief 生成的音乐视频与旁白漫画，并提供繁体/简体中文说明。">
+              <div class="rank">14</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/edenfunf/reelmimic" target="_blank" rel="noreferrer">edenfunf/reelmimic</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#F1E05A"></i>JavaScript</span><span class="stars">★ 953</span><span class="delta"></span></div>
+                <p class="summary">给一个喜欢的参考视频，产出一支同风格的新视频。</p>
+                <p class="hl">支持 Claude Code 与 Codex CLI；README 展示由参考视频+一句 brief 生成的音乐视频与旁白漫画，并提供繁体/简体中文说明。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#F1E05A" data-src="daily" data-text="lemomo-ai/lemo-opuscar javascript 43 种影片风格，每种配一支完全用代码做的短片，让编码 agent 当导演。 代表作 opuscar 98 由 claude opus 5.5 写代码重现 98 年最佳影片；作者明确声明「不是 awesome list」；提供 1080p 成片下载。">
+              <div class="rank">15</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/lemomo-ai/lemo-opuscar" target="_blank" rel="noreferrer">lemomo-ai/lemo-opuscar</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#F1E05A"></i>JavaScript</span><span class="stars">★ 835</span><span class="delta"></span></div>
+                <p class="summary">43 种影片风格，每种配一支完全用代码做的短片，让编码 agent 当导演。</p>
+                <p class="hl">代表作 OPUSCAR 98 由 Claude Opus 5.5 写代码重现 98 年最佳影片；作者明确声明「不是 awesome list」；提供 1080p 成片下载。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#8b93a7" data-src="daily" data-text="capcom-td-oss/redox c# capcom 为次世代引擎开源的 .net 高性能 token 化结构化数据引擎。 把 json/json5/cbor/messagepack/toml/xml/html/csv 等解析成紧凑定长 token dom/ir 再统一读写；宣称顺序反序列化最高约 1.8x、自动并行反序列化约 2.8x、序列化约 1.6x 于 system.text.json。">
+              <div class="rank">16</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/CAPCOM-TD-OSS/REDox" target="_blank" rel="noreferrer">CAPCOM-TD-OSS/REDox</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#8b93a7"></i>C#</span><span class="stars">★ 799</span><span class="delta"></span></div>
+                <p class="summary">CAPCOM 为次世代引擎开源的 .NET 高性能 token 化结构化数据引擎。</p>
+                <p class="hl">把 JSON/JSON5/CBOR/MessagePack/TOML/XML/HTML/CSV 等解析成紧凑定长 token DOM/IR 再统一读写；宣称顺序反序列化最高约 1.8x、自动并行反序列化约 2.8x、序列化约 1.6x 于 System.Text.Json。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#3178C6" data-src="daily" data-text="openai/mcp-extensions typescript 为 mcp 增加 chatgpt 专属能力，让插件用起来像原生功能。 官方提供侧边栏入口、文件扩展名查看器、composer @ 提及、扩展表单等规范与示例，示例插件 bits &amp; bolts 可直接安装试用。">
+              <div class="rank">17</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/openai/mcp-extensions" target="_blank" rel="noreferrer">openai/mcp-extensions</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#3178C6"></i>TypeScript</span><span class="stars">★ 695</span><span class="delta"></span></div>
+                <p class="summary">为 MCP 增加 ChatGPT 专属能力，让插件用起来像原生功能。</p>
+                <p class="hl">官方提供侧边栏入口、文件扩展名查看器、composer @ 提及、扩展表单等规范与示例，示例插件 Bits &amp; Bolts 可直接安装试用。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#DEA584" data-src="daily" data-text="chasmlol/2010-rust-rewrite-mashup rust 把 mw2、skate 3 和 minecraft 塞进同一个 rust 游戏的混搭项目。 基于从零重写 mw2 的 iw4l；含 skate 3 物理/招式、无限生成的 minecraft 世界与昼夜光照、击杀掉落与背包合成、手柄支持与全按键重映射。">
+              <div class="rank">18</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/chasmlol/2010-rust-rewrite-mashup" target="_blank" rel="noreferrer">chasmlol/2010-rust-rewrite-mashup</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#DEA584"></i>Rust</span><span class="stars">★ 612</span><span class="delta"></span></div>
+                <p class="summary">把 MW2、Skate 3 和 Minecraft 塞进同一个 Rust 游戏的混搭项目。</p>
+                <p class="hl">基于从零重写 MW2 的 IW4L；含 Skate 3 物理/招式、无限生成的 Minecraft 世界与昼夜光照、击杀掉落与背包合成、手柄支持与全按键重映射。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="edwardxlai/easyread python 本地运行的英文论文 pdf 翻译阅读器：原文对照、公式表格重排、边读边问 ai。 三平台本地运行，文献库默认存本机（可放网盘同步）；译文与 ai 解释分区显示，支持按划线颜色检索、逐字流式回答、一键切深色。">
+              <div class="rank">19</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/Edwardxlai/easyread" target="_blank" rel="noreferrer">Edwardxlai/easyread</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#4B8BBE"></i>Python</span><span class="stars">★ 601</span><span class="delta"></span></div>
+                <p class="summary">本地运行的英文论文 PDF 翻译阅读器：原文对照、公式表格重排、边读边问 AI。</p>
+                <p class="hl">三平台本地运行，文献库默认存本机（可放网盘同步）；译文与 AI 解释分区显示，支持按划线颜色检索、逐字流式回答、一键切深色。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="opsafari/hypoarena python 完全离线的科学假说发现工作台。 把 generate–debate–evolve 的机制层拆成可单独测试的组件（带引用的假说/证据图、合成文献工厂、span 级接地校验、bradley–terry/elo 锦标赛、贝叶斯证据累积等）；运行时仅依赖 numpy，默认测试与示例全离线。">
+              <div class="rank">20</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/OpSafari/hypoarena" target="_blank" rel="noreferrer">OpSafari/hypoarena</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#4B8BBE"></i>Python</span><span class="stars">★ 556</span><span class="delta"></span></div>
+                <p class="summary">完全离线的科学假说发现工作台。</p>
+                <p class="hl">把 generate–debate–evolve 的机制层拆成可单独测试的组件（带引用的假说/证据图、合成文献工厂、span 级接地校验、Bradley–Terry/Elo 锦标赛、贝叶斯证据累积等）；运行时仅依赖 NumPy，默认测试与示例全离线。</p>
+              </div>
+            </article>
+          </div>
+        </section>
+        
+          <section class="block">
+            <div class="block-head"><h3><span class="ico">🔭</span>趋势观察</h3></div>
+            <ul class="obs"><li style="--c:#5B9BFF"><span class="num">1</span><p>本日（Search API 替代口径）榜单几乎被「Agent Skill × 内容生产」包场：视频（Opus 5.5 视频集、lemo-opuscar、motion-video-kit、reelmimic、onetake）、logo 设计、日语润色、游戏 mod 一应俱全，AI 生成边界正从代码扩到创意生产。</p></li><li style="--c:#A06BFF"><span class="num">2</span><p>视频是最热的内容载体：前 20 中至少 6 个直接围绕「让 agent 写代码生成视频/动效」，且都强调可复现的提示词或成片案例，而非单纯演示。</p></li><li style="--c:#2FD6A6"><span class="num">3</span><p>小模型与离线运行时受关注：0.8B 的 Jeff 主打毫秒级 System 1 决策并宣称可放在 27B 之前；hypoarena 则走完全离线、仅依赖 NumPy 的可测试科研流水线，反映对「可验证、可自托管」的偏爱。</p></li><li style="--c:#FFB13B"><span class="num">4</span><p>基础设施侧出现硬核工程细节：CAPCOM 的 RE:Dox 以 token DOM/IR 统一十余种数据格式并给出并行反序列化倍速；dots 用 C++ 打补丁的 Firefox 做反检测浏览器，说明 agent 竞争正下沉到运行时与浏览器层。</p></li><li style="--c:#FF7AB6"><span class="num">5</span><p>口径提示：github.com/trending 不可达，本次以 Search API「近 7 天创建、按 star 降序」近似日榜，star 增量无法获取故留空，榜单更偏新晋高星项目而非官方当日热度榜。</p></li>
+            </ul>
+          </section>
+    </section>
+  </main>
+
+  <footer>
+    <span>生成时间：2026-10-04T01:22:40.261Z · 数据：<code>../data/2026-10-03.json</code></span>
+    <span>Generated by OpenClaw · <a href="https://github.com/chengjiangpo/github-trending-daily-report">仓库源码</a></span>
+  </footer>
+</div>
+<script>
+(function(){
+
+  var q = document.getElementById('q');
+  var btns = Array.prototype.slice.call(document.querySelectorAll('.tbtn'));
+  var mode = 'all';
+  function applyFilter(){
+    var scope = document.querySelector('.panel.active') || document;
+    var term = (q.value || '').trim().toLowerCase();
+    scope.querySelectorAll('.card').forEach(function(c){
+      var okMode = mode === 'all' || c.getAttribute('data-src') === mode;
+      var okText = !term || (c.getAttribute('data-text') || '').indexOf(term) > -1;
+      c.classList.toggle('hide', !(okMode && okText));
+    });
+    scope.querySelectorAll('.block').forEach(function(sec){
+      var grid = sec.querySelector('.grid');
+      if (!grid) return;
+      sec.style.display = grid.querySelectorAll('.card:not(.hide)').length ? '' : 'none';
+    });
+  }
+  q.addEventListener('input', applyFilter);
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      mode = b.getAttribute('data-f');
+      btns.forEach(function(x){ x.classList.toggle('on', x === b); });
+      applyFilter();
+    });
+  });
+  window.__applyFilter = applyFilter;
+
+  applyFilter();
+})();
+</script>
+</body>
+</html>

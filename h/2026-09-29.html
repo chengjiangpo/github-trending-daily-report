@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-09-29 · GitHub Trending 每日分析</title>
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="hero mini">
+    <div>
+      <a class="kicker" href="../">← 返回首页（含全部 14 期）</a>
+      <h1>2026-09-29<span class="wd" style="font-size:15px;font-weight:400;color:var(--muted);margin-left:10px">周二</span></h1>
+      <p>GitHub Trending 每日分析 · 单日页 · 共收录 280 个项目</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>20</b><span>本期项目</span></div>
+    </div>
+  </header>
+
+  <div class="toolbar" style="margin-top:22px">
+    <a class="tbtn" href="2026-09-30.html">‹ 2026-09-30</a>
+    <a class="tbtn" href="2026-09-28.html">2026-09-28 ›</a>
+    <a class="tbtn" href="../#d-2026-09-29">在首页中查看</a>
+  </div>
+
+  <main>
+    <div class="toolbar">
+      <input id="q" type="search" placeholder="筛选：仓库名 / 语言 / 关键词…">
+      <button class="tbtn on" data-f="all" type="button">全部</button>
+      <button class="tbtn" data-f="daily" type="button">仅日榜</button>
+      <button class="tbtn" data-f="weekly" type="button">仅周榜</button>
+    </div>
+    <section class="panel active" id="d-2026-09-29" data-date="2026-09-29" data-loaded="1">
+        <div class="day-head">
+          <h2>2026-09-29<span class="wd">周二</span></h2>
+          <span class="day-sub">日榜 8 · 周榜 12 · 20 个 Trending 项目</span>
+        </div>
+        <details class="notes"><summary>数据说明</summary><ul><li>仓库提交经 api.github.com 公共 API 获取（未认证，本机 gh 未登录）；since=2026-09-27T22:00:00Z（当前时间减 24 小时），per_page=30，时间已换算为北京时间。三个仓库默认分支分别为 master / main / dev。</li><li>deepseek-ai/deepseek-harness 本窗口命中 30 条（已达 per_page 上限，实际更多），最新提交为 0.2.0-rc.1 发布；earendil-works/pi 命中 15 条、anomalyco/opencode 命中 24 条，两者本窗口均明显活跃。</li><li>Trending 本次 github.com/trending 可直连：今日榜仅返回 8 条，另取本周榜未重复项目 12 条补位至 20 条（条目中已标注 source=daily/weekly），日榜与周榜均按页面原始顺序排列。</li><li>star 总数为 api.github.com 实时返回的 stargazers_count；上下涨跌（delta）取 Trending 页面原文（日榜为 today，周榜为 this week）。</li><li>summary 与 highlight 取自各仓库 API 的 description 与 README 原文，未做推测；不确定的字段留空。</li></ul></details>
+        
+          <section class="block">
+            <div class="block-head">
+              <h3><span class="ico">🧩</span>仓库提交简报</h3>
+              <span class="block-sub">过去 24 小时（已换算为北京时间）</span>
+            </div>
+            <div class="repo-grid">
+              <div class="repo-block" style="--c:#5B9BFF">
+                <div class="rb-head"><h4>deepseek-ai/deepseek-harness</h4><span class="rb-meta">master · 24h 内 30+ 条提交（已达 per_page 上限）· 非常活跃</span></div>
+                <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">release(dsh): 0.2.0-rc.1（PR #5387）</div>
+                    <div class="c-meta">0.2 首个正式候选版发布 · imccyu · 09-28 19:48</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(webworker)：预览中打开配置文件并加载插件管理器（#5375）</div>
+                    <div class="c-meta">修复预览窗口插件能力 · Turtle · 19:29</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">Merge PR #5356 copy/preview-notice-0.2（0.2 预览提示文案）</div>
+                    <div class="c-meta">0.2 版本提示文案入库 · Ziya · 18:37</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(web)：通用设置新增 Session Log 上传偏好（#5337）</div>
+                    <div class="c-meta">新增会话日志上传开关 · turtle1999 · 13:33</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(windows)：对话框与浮动面板避开窗口标题栏（#5268）</div>
+                    <div class="c-meta">修 Windows 端遮挡问题 · Yudong Han · 17:05</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">perf(settings)：跳过未使用的共享组合（#5357 / 系列）</div>
+                    <div class="c-meta">设置页性能优化 · turtle1999 · 16:12</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">Merge PR #5203 windows-sandbox-acl-diagnosis</div>
+                    <div class="c-meta">Windows 沙箱 ACL 诊断分支合入 · Huanqi Cao · 17:58</div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+              <div class="repo-block" style="--c:#A06BFF">
+                <div class="rb-head"><h4>earendil-works/pi</h4><span class="rb-meta">main · 24h 内 15 条提交 · 活跃</span></div>
+                <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(durable)：新增 durable 任务运行时</div>
+                    <div class="c-meta">可持久化任务执行能力 · Mario Zechner · 09-29 05:55</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(coding-agent)：Virtual models（#10035）</div>
+                    <div class="c-meta">新增虚拟模型抽象 · Armin Ronacher · 05:30</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(ai)：未完成的 Responses 工具调用改为拒绝而非执行</div>
+                    <div class="c-meta">避免半成品工具调用 · David Brailovsky · 05:19</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(coding-agent,tui)：粘贴 Finder 文件路径而非图标（#10136）</div>
+                    <div class="c-meta">修复 macOS 拖拽粘贴 · Christian Klotz · 03:59</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(ai,coding-agent)：支持 Claude Sonnet 5.5</div>
+                    <div class="c-meta">新模型接入 · Armin Ronacher · 02:46</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(ai)：为 OpenCode qwen3.8-flash 允许空 thinking 签名；Mistral 推理模型下发 requested thinking level</div>
+                    <div class="c-meta">多供应商推理参数修正 · David Brailovsky · 20:55 / 20:32</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(coding-agent)：Kimi K2.6 下线后 OpenCode Go 默认切到 Kimi K3</div>
+                    <div class="c-meta">默认模型跟随上游调整 · Armin Ronacher · 18:08</div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+              <div class="repo-block" style="--c:#2FD6A6">
+                <div class="rb-head"><h4>anomalyco/opencode</h4><span class="rb-meta">dev · 24h 内 24 条提交 · 活跃</span></div>
+                <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(console)：Go 页 hero 与套餐页按新设计重做（#51933）</div>
+                    <div class="c-meta">Console 付费页改版 · vprdev · 09-29 03:55</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(console)：告知推荐链接访客该计划已结束（#51920）</div>
+                    <div class="c-meta">推荐计划下线提示 · vprdev · 03:52</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(stats)：图表 tooltip 可读性（#51898）</div>
+                    <div class="c-meta">统计页展示修复 · Adam · 00:30</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(console)：停止 Black 订阅续费（#51884）</div>
+                    <div class="c-meta">历史套餐续费调整 · vprdev · 23:44</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(console)：Go 与 Go Plus 额度并排对比（#51865）／feat(go)：展示 Go Plus 套餐与限额（#51822）</div>
+                    <div class="c-meta">新付费套餐 Go Plus 上线 · Victor Navarro / Jack · 21:25 / 18:38</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(stats)：新增每日模型排行榜（#51774）</div>
+                    <div class="c-meta">统计维度扩展 · Jack · 12:44</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(opencode)：对 Cloudflare AI Gateway 模型应用供应商超时（#51549）</div>
+                    <div class="c-meta">修网关超时未生效 · Dan Lapid · 11:22</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">sync release versions for v1.18.33</div>
+                    <div class="c-meta">发版同步（窗口内另有 4 条 bot chore: generate，属噪音已略） · opencode · 12:22</div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        <section class="block">
+          <div class="block-head">
+            <h3><span class="ico">🚀</span>GitHub Trending 分析</h3>
+            <span class="block-sub">20 个项目</span>
+          </div>
+          <div class="grid">
+            <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="debpalash/voicestudio python 完全本地的开源语音工作台：语音克隆、音色设计、视频配音、听写、转写与有声书制作，覆盖 646 种语言。 定位为 elevenlabs 的开源自托管替代，readme 明确「fully-local」，提供桌面端下载与 ci；同时进入本周榜第 11 位。">
+              <div class="rank rank-top">1</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/debpalash/VoiceStudio" target="_blank" rel="noreferrer">debpalash/VoiceStudio</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#4B8BBE"></i>Python</span><span class="stars">★ 43,728</span><span class="delta">+3,274</span></div>
+                <p class="summary">完全本地的开源语音工作台：语音克隆、音色设计、视频配音、听写、转写与有声书制作，覆盖 646 种语言。</p>
+                <p class="hl">定位为 ElevenLabs 的开源自托管替代，README 明确「fully-local」，提供桌面端下载与 CI；同时进入本周榜第 11 位。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#3178C6" data-src="daily" data-text="paperclipai/paperclip typescript 管理「工作用 ai agent」的开源应用，号称大家都在用的 agent 管控台。 readme 提供 quickstart、独立文档站与 discord/x 入口；mit 许可，内置 star-history 排名徽章。">
+              <div class="rank rank-top">2</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/paperclipai/paperclip" target="_blank" rel="noreferrer">paperclipai/paperclip</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#3178C6"></i>TypeScript</span><span class="stars">★ 92,609</span><span class="delta">+3,185</span></div>
+                <p class="summary">管理「工作用 AI agent」的开源应用，号称大家都在用的 agent 管控台。</p>
+                <p class="hl">README 提供 Quickstart、独立文档站与 Discord/X 入口；MIT 许可，内置 star-history 排名徽章。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="daily" data-text="vectorize-io/hindsight python 会学习的 agent 长期记忆系统：不止回放对话历史，而是让 agent 随使用变聪明。 带 arxiv 论文（2512.12818）、独立 benchmark 站与 cookbook；python/js 客户端均已上 pypi 与 npm，另有托管版 hindsight cloud。">
+              <div class="rank rank-top">3</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/vectorize-io/hindsight" target="_blank" rel="noreferrer">vectorize-io/hindsight</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#4B8BBE"></i>Python</span><span class="stars">★ 40,850</span><span class="delta">+4,413</span></div>
+                <p class="summary">会学习的 agent 长期记忆系统：不止回放对话历史，而是让 agent 随使用变聪明。</p>
+                <p class="hl">带 arXiv 论文（2512.12818）、独立 benchmark 站与 cookbook；Python/JS 客户端均已上 PyPI 与 npm，另有托管版 Hindsight Cloud。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#8b93a7" data-src="daily" data-text="nawfalmotii79/plfm_radar plsql aeris-10：开源低成本 10.5 ghz 相位阵列雷达，脉冲线性调频，面向研究者、无人机开发者与 sdr 爱好者。 提供 3km 与 20km 两种量程版本，强调模块化可魔改；采用 mit + cern-ohl-p v2 双许可。语言被 github 标为 plsql，应为其代码统计口径异常。">
+              <div class="rank">4</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/NawfalMotii79/PLFM_RADAR" target="_blank" rel="noreferrer">NawfalMotii79/PLFM_RADAR</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#8b93a7"></i>PLSQL</span><span class="stars">★ 25,727</span><span class="delta">+145</span></div>
+                <p class="summary">AERIS-10：开源低成本 10.5 GHz 相位阵列雷达，脉冲线性调频，面向研究者、无人机开发者与 SDR 爱好者。</p>
+                <p class="hl">提供 3km 与 20km 两种量程版本，强调模块化可魔改；采用 MIT + CERN-OHL-P v2 双许可。语言被 GitHub 标为 PLSQL，应为其代码统计口径异常。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#3D6117" data-src="daily" data-text="cs341-illinois/coursebook tex 伊利诺伊大学 cs 341《系统编程》课程的开源系统编程教材。 全部代码与讲解用 c（作者称其为 linux 内核事实标准语言）；自动构建 pdf 与 epub，并延续 angrave 的 wikibook 实验。">
+              <div class="rank">5</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/cs341-illinois/coursebook" target="_blank" rel="noreferrer">cs341-illinois/coursebook</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#3D6117"></i>TeX</span><span class="stars">★ 2,465</span><span class="delta">+316</span></div>
+                <p class="summary">伊利诺伊大学 CS 341《系统编程》课程的开源系统编程教材。</p>
+                <p class="hl">全部代码与讲解用 C（作者称其为 Linux 内核事实标准语言）；自动构建 PDF 与 EPUB，并延续 Angrave 的 wikibook 实验。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#F1E05A" data-src="daily" data-text="byoungd/up javascript 《人生进阶指南》：面向普通人的 ai 时代终身学习书稿，从英语学习写到 ai 学习、真实项目与创业复盘。 作者韩先凯（笔名离谱），2017 年从《离谱的英语学习指南》演化而来；中英双语 epub/pdf 可下载，正文 cc by-nc 4.0。">
+              <div class="rank">6</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/byoungd/up" target="_blank" rel="noreferrer">byoungd/up</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#F1E05A"></i>JavaScript</span><span class="stars">★ 64,609</span><span class="delta">+310</span></div>
+                <p class="summary">《人生进阶指南》：面向普通人的 AI 时代终身学习书稿，从英语学习写到 AI 学习、真实项目与创业复盘。</p>
+                <p class="hl">作者韩先凯（笔名离谱），2017 年从《离谱的英语学习指南》演化而来；中英双语 EPUB/PDF 可下载，正文 CC BY-NC 4.0。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#3178C6" data-src="daily" data-text="mvschwarz/openrig typescript 「rig 包住 harness」的多 agent 编排器：用 yaml 定义 agent 团队，一条命令启动，claude code 与 codex 同处一套系统。 可与 lead agent 对话并协调专职 agent；需 node 22/24 + tmux，macos/linux 支持、windows 原生暂不支持，readme 明确警告启动会写入 provider hooks 与工作区信任设置，须先备份。">
+              <div class="rank">7</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/mvschwarz/openrig" target="_blank" rel="noreferrer">mvschwarz/openrig</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#3178C6"></i>TypeScript</span><span class="stars">★ 1,645</span><span class="delta">+781</span></div>
+                <p class="summary">「rig 包住 harness」的多 agent 编排器：用 YAML 定义 agent 团队，一条命令启动，Claude Code 与 Codex 同处一套系统。</p>
+                <p class="hl">可与 lead agent 对话并协调专职 agent；需 Node 22/24 + tmux，macOS/Linux 支持、Windows 原生暂不支持，README 明确警告启动会写入 provider hooks 与工作区信任设置，须先备份。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#3178C6" data-src="daily" data-text="dream-num/univer typescript 「ai agent 的 office harness」：表格、文档、演示、bases、看板、pdf 于一体的全栈 office sdk。 插件化架构 + canvas 渲染 + 公式引擎，同一套 facade api 同时可用于浏览器与 node.js。">
+              <div class="rank">8</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/dream-num/univer" target="_blank" rel="noreferrer">dream-num/univer</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#3178C6"></i>TypeScript</span><span class="stars">★ 21,184</span><span class="delta">+1,105</span></div>
+                <p class="summary">「AI Agent 的 Office Harness」：表格、文档、演示、Bases、看板、PDF 于一体的全栈 Office SDK。</p>
+                <p class="hl">插件化架构 + Canvas 渲染 + 公式引擎，同一套 Facade API 同时可用于浏览器与 Node.js。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="weekly" data-text="anthropics/financial-services python 面向金融服务工作流的参考 agent、skill 与数据连接器：投行、股票研究、私募股权与财富管理。 同一份源码两用：可作 claude cowork 插件安装，或经 claude managed agents api 部署；readme 明确所有产出仅供专业人审阅、需人工签核，不构成投资建议。">
+              <div class="rank">9</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/anthropics/financial-services" target="_blank" rel="noreferrer">anthropics/financial-services</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#4B8BBE"></i>Python</span><span class="stars">★ 38,040</span><span class="delta">周 +2,606</span></div>
+                <p class="summary">面向金融服务工作流的参考 agent、skill 与数据连接器：投行、股票研究、私募股权与财富管理。</p>
+                <p class="hl">同一份源码两用：可作 Claude Cowork 插件安装，或经 Claude Managed Agents API 部署；README 明确所有产出仅供专业人审阅、需人工签核，不构成投资建议。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#F1E05A" data-src="weekly" data-text="cloudflare/security-audit-skill javascript 把编码 agent 变成安全审计员的 skill：侦察 → 覆盖驱动狩猎 → 候选验证 → 结构化输出 → 独立复核 → 中性报告。 正是 cloudflare 漏洞发现 harness 的种子项目（配套官方博客《build your own vulnerability harness》），每个候选由全新 verifier 尝试证伪，结果写入 findings.json 并按 schema 校验。">
+              <div class="rank">10</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/cloudflare/security-audit-skill" target="_blank" rel="noreferrer">cloudflare/security-audit-skill</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#F1E05A"></i>JavaScript</span><span class="stars">★ 22,706</span><span class="delta">周 +4,805</span></div>
+                <p class="summary">把编码 agent 变成安全审计员的 skill：侦察 → 覆盖驱动狩猎 → 候选验证 → 结构化输出 → 独立复核 → 中性报告。</p>
+                <p class="hl">正是 Cloudflare 漏洞发现 harness 的种子项目（配套官方博客《Build your own vulnerability harness》），每个候选由全新 verifier 尝试证伪，结果写入 findings.json 并按 schema 校验。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="weekly" data-text="davila7/claude-code-templates python 配置与监控 claude code 的 cli 工具。 已进入 vercel oss program 与 neon 开源计划，readme 含 trendshift 排名徽章。">
+              <div class="rank">11</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/davila7/claude-code-templates" target="_blank" rel="noreferrer">davila7/claude-code-templates</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#4B8BBE"></i>Python</span><span class="stars">★ 32,071</span><span class="delta">周 +1,154</span></div>
+                <p class="summary">配置与监控 Claude Code 的 CLI 工具。</p>
+                <p class="hl">已进入 Vercel OSS Program 与 Neon 开源计划，README 含 Trendshift 排名徽章。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#00ADD8" data-src="weekly" data-text="tencent/weknora go 腾讯开源的知识管理框架：把原始文档转成可查询的 rag、自主推理 agent 与自维护 wiki。 当前版本 v0.8.2，mit 许可，带独立文档站与 changelog。">
+              <div class="rank">12</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/Tencent/WeKnora" target="_blank" rel="noreferrer">Tencent/WeKnora</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#00ADD8"></i>Go</span><span class="stars">★ 30,928</span><span class="delta">周 +2,705</span></div>
+                <p class="summary">腾讯开源的知识管理框架：把原始文档转成可查询的 RAG、自主推理 agent 与自维护 Wiki。</p>
+                <p class="hl">当前版本 v0.8.2，MIT 许可，带独立文档站与 CHANGELOG。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#F1E05A" data-src="weekly" data-text="vercel/next.js javascript vercel 出品的 react 全栈框架。 老牌常青项目，被大量大型企业采用。">
+              <div class="rank">13</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/vercel/next.js" target="_blank" rel="noreferrer">vercel/next.js</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#F1E05A"></i>JavaScript</span><span class="stars">★ 142,852</span><span class="delta">周 +496</span></div>
+                <p class="summary">Vercel 出品的 React 全栈框架。</p>
+                <p class="hl">老牌常青项目，被大量大型企业采用。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#3178C6" data-src="weekly" data-text="stablyai/orca typescript 并行 agent 的 ade：用你自己的订阅运行任意编码 agent，桌面 / 移动 / 远程三端可用。 mit 许可，覆盖 macos / windows / linux，readme 提供中、日、韩多语言版本。">
+              <div class="rank">14</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/stablyai/orca" target="_blank" rel="noreferrer">stablyai/orca</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#3178C6"></i>TypeScript</span><span class="stars">★ 80,643</span><span class="delta">周 +6,227</span></div>
+                <p class="summary">并行 agent 的 ADE：用你自己的订阅运行任意编码 agent，桌面 / 移动 / 远程三端可用。</p>
+                <p class="hl">MIT 许可，覆盖 macOS / Windows / Linux，README 提供中、日、韩多语言版本。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="weekly" data-text="hkuds/cli-anything python 口号「making all software agent-native」，配套 cli-hub（clianything.cc）。 港大数据智能实验室（hkuds）作品，readme 带 github trending of the day 与 trendshift 徽章。">
+              <div class="rank">15</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/HKUDS/CLI-Anything" target="_blank" rel="noreferrer">HKUDS/CLI-Anything</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#4B8BBE"></i>Python</span><span class="stars">★ 50,878</span><span class="delta">周 +1,105</span></div>
+                <p class="summary">口号「Making ALL Software Agent-Native」，配套 CLI-Hub（clianything.cc）。</p>
+                <p class="hl">港大数据智能实验室（HKUDS）作品，README 带 GitHub Trending of the Day 与 Trendshift 徽章。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="weekly" data-text="pytorch/pytorch python 带强 gpu 加速的张量计算与基于 tape autograd 的深度神经网络库。 可复用 numpy/scipy/cython 生态扩展；trunk 健康度公开在 hud.pytorch.org。">
+              <div class="rank">16</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/pytorch/pytorch" target="_blank" rel="noreferrer">pytorch/pytorch</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#4B8BBE"></i>Python</span><span class="stars">★ 103,463</span><span class="delta">周 +320</span></div>
+                <p class="summary">带强 GPU 加速的张量计算与基于 tape autograd 的深度神经网络库。</p>
+                <p class="hl">可复用 NumPy/SciPy/Cython 生态扩展；trunk 健康度公开在 hud.pytorch.org。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#4B8BBE" data-src="weekly" data-text="rohitg00/ai-engineering-from-scratch python 从零开始的 ai 工程参考手册：learn it. build it. ship it。 mit 许可，标注 523 节课程并有 13 种语言落地页（英文为权威版本，译文在 translations 分支机器翻译）。">
+              <div class="rank">17</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/rohitg00/ai-engineering-from-scratch" target="_blank" rel="noreferrer">rohitg00/ai-engineering-from-scratch</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#4B8BBE"></i>Python</span><span class="stars">★ 60,330</span><span class="delta">周 +3,850</span></div>
+                <p class="summary">从零开始的 AI 工程参考手册：Learn it. Build it. Ship it。</p>
+                <p class="hl">MIT 许可，标注 523 节课程并有 13 种语言落地页（英文为权威版本，译文在 translations 分支机器翻译）。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#E34C26" data-src="weekly" data-text="trycua/cua html 给 ai agent 一台能用的电脑：开源桌面自动化、隔离云桌面、本地 macos vm 与 computer-use agent 评测基准。 主打 cua fleets 跨 os 机群（run.cua.ai），涵盖训练、评测与数据生成。">
+              <div class="rank">18</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/trycua/cua" target="_blank" rel="noreferrer">trycua/cua</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#E34C26"></i>HTML</span><span class="stars">★ 26,845</span><span class="delta">周 +1,559</span></div>
+                <p class="summary">给 AI agent 一台能用的电脑：开源桌面自动化、隔离云桌面、本地 macOS VM 与 computer-use agent 评测基准。</p>
+                <p class="hl">主打 Cua Fleets 跨 OS 机群（run.cua.ai），涵盖训练、评测与数据生成。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#DEA584" data-src="weekly" data-text="akitaonrails/ai-memory rust 面向编码 agent 的长期记忆：中途退出 claude code、在同目录换用 codex，也能无缝续上进度。 readme 称可跨 20+ harness（claude code、codex、cursor、gemini cli、opencode、devin、kimi、kiro 等）共享同一份记忆，解决「笔记锁在单一工具/单机」的问题。">
+              <div class="rank">19</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/akitaonrails/ai-memory" target="_blank" rel="noreferrer">akitaonrails/ai-memory</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#DEA584"></i>Rust</span><span class="stars">★ 8,555</span><span class="delta">周 +1,224</span></div>
+                <p class="summary">面向编码 agent 的长期记忆：中途退出 Claude Code、在同目录换用 Codex，也能无缝续上进度。</p>
+                <p class="hl">README 称可跨 20+ harness（Claude Code、Codex、Cursor、Gemini CLI、OpenCode、Devin、Kimi、Kiro 等）共享同一份记忆，解决「笔记锁在单一工具/单机」的问题。</p>
+              </div>
+            </article>
+            <article class="card" style="--c:#3178C6" data-src="weekly" data-text="fxembed/fxembed typescript 修复 x/twitter 与 bluesky 的嵌入：在 discord、telegram 等平台展示多图、视频、投票与翻译。 即 fxtwitter / fixupx / fxbluesky 的官方仓库，通过 crowdin 做多语言，并公开 30 天可用率状态页。">
+              <div class="rank">20</div>
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/FxEmbed/FxEmbed" target="_blank" rel="noreferrer">FxEmbed/FxEmbed</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <div class="meta"><span class="lang"><i style="background:#3178C6"></i>TypeScript</span><span class="stars">★ 5,547</span><span class="delta">周 +432</span></div>
+                <p class="summary">修复 X/Twitter 与 Bluesky 的嵌入：在 Discord、Telegram 等平台展示多图、视频、投票与翻译。</p>
+                <p class="hl">即 FxTwitter / FixupX / FxBluesky 的官方仓库，通过 Crowdin 做多语言，并公开 30 天可用率状态页。</p>
+              </div>
+            </article>
+          </div>
+        </section>
+        
+          <section class="block">
+            <div class="block-head"><h3><span class="ico">🔭</span>趋势观察</h3></div>
+            <ul class="obs"><li style="--c:#5B9BFF"><span class="num">1</span><p>agent「记忆与团队」正在成为新战场：hindsight（会学习的记忆）、ai-memory（跨 20+ harness 交接）、openrig（YAML 定义 agent 团队）同日上榜，说明单 agent 的记忆与编排已不够用。</p></li><li style="--c:#A06BFF"><span class="num">2</span><p>本地优先的多模态开始吃香：VoiceStudio 以「完全本地 + 646 语言」对标 ElevenLabs，一周涨近 7,800 star，反映用户对云端语音服务的替代需求。</p></li><li style="--c:#2FD6A6"><span class="num">3</span><p>安全审计 agent 化得到背书：Cloudflare 把自家漏洞发现 harness 的种子 skill 开源（本周 +4,805），并配套官方方法论博客，agent 在攻防侧的落地在提速。</p></li><li style="--c:#FFB13B"><span class="num">4</span><p>编码 agent 的商业模式在调整：opencode 窗口内上线 Go Plus 套餐、停止 Black 订阅续费并下线推荐计划，同时 pi 与 opencode 都在追新模型（Claude Sonnet 5.5 / Kimi K3）。</p></li><li style="--c:#FF7AB6"><span class="num">5</span><p>非典型项目仍能爆发：开源相控阵雷达 PLFM_RADAR、UIUC 系统编程教材、中文《人生进阶指南》同日进榜，说明硬件开源与优质学习资料在算法热度之外仍有强需求。</p></li>
+            </ul>
+          </section>
+    </section>
+  </main>
+
+  <footer>
+    <span>生成时间：2026-10-04T01:22:40.263Z · 数据：<code>../data/2026-09-29.json</code></span>
+    <span>Generated by OpenClaw · <a href="https://github.com/chengjiangpo/github-trending-daily-report">仓库源码</a></span>
+  </footer>
+</div>
+<script>
+(function(){
+
+  var q = document.getElementById('q');
+  var btns = Array.prototype.slice.call(document.querySelectorAll('.tbtn'));
+  var mode = 'all';
+  function applyFilter(){
+    var scope = document.querySelector('.panel.active') || document;
+    var term = (q.value || '').trim().toLowerCase();
+    scope.querySelectorAll('.card').forEach(function(c){
+      var okMode = mode === 'all' || c.getAttribute('data-src') === mode;
+      var okText = !term || (c.getAttribute('data-text') || '').indexOf(term) > -1;
+      c.classList.toggle('hide', !(okMode && okText));
+    });
+    scope.querySelectorAll('.block').forEach(function(sec){
+      var grid = sec.querySelector('.grid');
+      if (!grid) return;
+      sec.style.display = grid.querySelectorAll('.card:not(.hide)').length ? '' : 'none';
+    });
+  }
+  q.addEventListener('input', applyFilter);
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      mode = b.getAttribute('data-f');
+      btns.forEach(function(x){ x.classList.toggle('on', x === b); });
+      applyFilter();
+    });
+  });
+  window.__applyFilter = applyFilter;
+
+  applyFilter();
+})();
+</script>
+</body>
+</html>
