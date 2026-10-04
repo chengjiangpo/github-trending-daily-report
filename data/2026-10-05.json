@@ -1,0 +1,424 @@
+{
+  "date": "2026-10-05",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "gh CLI 未登录，仓库与 Trending 数据全部改用 curl 直连 api.github.com / github.com 公共接口，未认证但请求成功。",
+    "github.com/trending 今日 06:00（北京时间）抓取成功：日榜 15 条（含各仓库 stars today 增量）。不足 20 条，按规则取周榜（stars this week）补位 5 条，来源标注 source=weekly，其余 15 条为 source=daily。",
+    "deepseek-ai/deepseek-harness（master）与 anomalyco/opencode（dev）在窗口内各 0 条提交，均写「过去 24 小时无新提交」（两者最新提交发生在窗口开始之前）；earendil-works/pi（main）窗口内 19 条提交，集中为 durable 子系统、coding-agent 修复与 v1.0.2 发版。",
+    "AI 前沿动态来源：Hacker News(Algolia，按 AI 相关性+热度过滤)、arXiv(cs.CL/AI/LG/MA/RO)、Simon Willison；本次 OpenAI Blog、GitHub Blog、Latent Space、CrewAI Blog、GitHub AI/ML Blog、GitHub Releases 均抓取成功但 0 条候选（非失败）。",
+    "arXiv 因索引滞后，相关条目回看至 96 小时内（提交日 10-01/10-02，time 字段标注北京时间）。跨源去重；抓取失败不影响其余部分。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-10-03T22:00Z，时间已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 过去 24 小时无新提交",
+        "items": [
+          {
+            "title": "过去 24 小时无新提交",
+            "desc": "窗口内 0 条；最新提交为 10-03 11:48（合并 0.2.1-alpha.1 发版 PR）",
+            "author": "",
+            "time": ""
+          }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 19 条提交 · durable 子系统集中提交，另发布 v1.0.2",
+        "items": [
+          {
+            "title": "feat(coding-agent)：codemode 的 image() 输出改为写入临时文件",
+            "desc": "编码 agent 能力增强",
+            "author": "Armin Ronacher",
+            "time": "10-05 05:32"
+          },
+          {
+            "title": "fix(durable)：在 Windows 上轮询 watch（打开监听的目录会阻塞其父目录重命名）",
+            "desc": "Windows 兼容修复",
+            "author": "Mario Zechner",
+            "time": "10-05 05:06"
+          },
+          {
+            "title": "feat(durable)：新增 FileSystem.watch",
+            "desc": "文件系统监听能力",
+            "author": "Mario Zechner",
+            "time": "10-05 05:00"
+          },
+          {
+            "title": "feat(durable)：通过 BinaryReader.scanLines 提供有界读取工具",
+            "desc": "大文件读取安全化",
+            "author": "Mario Zechner",
+            "time": "10-05 04:54"
+          },
+          {
+            "title": "feat(durable)：窗口化 shell 输出并统计被跳过的行数",
+            "desc": "输出截断可观测",
+            "author": "Mario Zechner",
+            "time": "10-05 04:43"
+          },
+          {
+            "title": "feat(durable)：进度提交间隔可配置",
+            "desc": "可配置性增强",
+            "author": "Mario Zechner",
+            "time": "10-05 04:27"
+          },
+          {
+            "title": "fix(ai,coding-agent)：刷新被取消时仍持久化已轮换的 OAuth token",
+            "desc": "登录态稳定性修复",
+            "author": "Armin Ronacher",
+            "time": "10-05 03:48"
+          },
+          {
+            "title": "feat(ai)：新增按思考档位（thinking level）的采样参数（#9776）",
+            "desc": "推理可控性增强",
+            "author": "Duncan Ogilvie",
+            "time": "10-04 07:29"
+          },
+          {
+            "title": "Release v1.0.2 + 开启下一周期 [Unreleased] 段",
+            "desc": "版本发布",
+            "author": "Armin Ronacher",
+            "time": "10-04 08:41"
+          },
+          {
+            "title": "fix(durable)：持久化 provider 会话身份",
+            "desc": "会话稳定性",
+            "author": "Mario Zechner",
+            "time": "10-04 06:54"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 过去 24 小时无新提交",
+        "items": [
+          {
+            "title": "过去 24 小时无新提交",
+            "desc": "窗口内 0 条；最新提交为 10-03 12:55（Zen 文档补充 Fledge Alpha Free）",
+            "author": "",
+            "time": ""
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": {
+      "daily": 15,
+      "weekly": 5
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "tester-army/e2e",
+        "url": "https://github.com/tester-army/e2e",
+        "lang": "TypeScript",
+        "stars": "2,997",
+        "delta": "+344",
+        "source": "daily",
+        "summary": "用自然语言驱动 agent 做端到端测试的框架：描述目标，agent 操作 App 达成，再用定位器与断言校验。",
+        "highlight": "README 示例展示 `agent.act('升级到 Pro 套餐')` 与 `agent.assert('账单预览显示按比例金额')` 同测并存；被后续断言验证过的 agent 步骤会记录动作，App 未变化时下次运行直接回放、无需调用模型；无 agent 步骤的测试不需要模型；npm 包分为 e2e（SDK/runner/CLI）、@e2e-dev/web（Playwright 驱动 Chromium/Firefox/WebKit）与 @e2e-dev/mobile（iOS/Android 模拟器）。"
+      },
+      {
+        "rank": 2,
+        "repo": "pbakaus/impeccable",
+        "url": "https://github.com/pbakaus/impeccable",
+        "lang": "JavaScript",
+        "stars": "76,226",
+        "delta": "+1,170",
+        "source": "daily",
+        "summary": "给 AI 编码 agent 的设计指导：1 个 skill、24 条命令、61 条确定性检测规则。",
+        "highlight": "README 说明其起点是 Anthropic 的 frontend-design skill，目标是消除「所有模型都训练在同一批 SaaS 模板上」的相似感（Inter 字体、紫蓝渐变、卡片套卡片、彩色底上的灰字）；61 条确定性规则由 CLI 与浏览器扩展本地运行，无需 LLM、无需 API key；一条命令 `npx impeccable install` 后 `/impeccable init` 会把产品事实写入 PRODUCT.md。"
+      },
+      {
+        "rank": 3,
+        "repo": "coreyhaines31/marketingskills",
+        "url": "https://github.com/coreyhaines31/marketingskills",
+        "lang": "JavaScript",
+        "stars": "53,021",
+        "delta": "+270",
+        "source": "daily",
+        "summary": "面向 AI agent 的营销技能库：转化优化、文案、SEO、分析与增长工程。",
+        "highlight": "README 定位为「技术型营销人与创始人的 agent 技能集合」，兼容 Claude Code、OpenAI Codex、Cursor、Windsurf 及任何支持 Agent Skills 规范（agentskills.io）的 agent；MIT 授权，作者 Corey Haines，文中说明由认证合作伙伴资助维护。"
+      },
+      {
+        "rank": 4,
+        "repo": "DietrichGebert/ponytail",
+        "url": "https://github.com/DietrichGebert/ponytail",
+        "lang": "JavaScript",
+        "stars": "154,770",
+        "delta": "+1,894",
+        "source": "daily",
+        "summary": "让 AI agent 像「最懒的资深工程师」那样写代码：能一行解决就不写五十行。",
+        "highlight": "README 给出实测数字：真实 Claude Code 会话编辑真实开源仓库（FastAPI+React）对比无 skill 基线，平均少写约 54% 代码（单任务上限 94%）、约便宜 20%、约快 27%，且保留全部安全护栏；以「日期选择器」为例，基线装 flatpickr、写包装组件、讨论时区，ponytail 只回 `<input type=\"date\">`。"
+      },
+      {
+        "rank": 5,
+        "repo": "earthtojake/text-to-cad",
+        "url": "https://github.com/earthtojake/text-to-cad",
+        "lang": "Python",
+        "stars": "16,830",
+        "delta": "+75",
+        "source": "daily",
+        "summary": "给 agent 装上 CAD 能力：从自然语言或图片生成、检视、选型、切片并交付 CAD 与机器人描述文件。",
+        "highlight": "README 列出成组 skill：CAD（以 STEP 为主输出，可导出 STL/3MF/GLB）、step.parts（查找螺丝/轴承/电机等现成 STEP 件）、Engineering Drawing（从零件生成带尺寸、隐藏线、孔位标注与标题栏的 PDF 图纸）、DXF（从 Python 源码生成 2D 轮廓/垫片/排料图）。"
+      },
+      {
+        "rank": 6,
+        "repo": "Panniantong/Agent-Reach",
+        "url": "https://github.com/Panniantong/Agent-Reach",
+        "lang": "Python",
+        "stars": "90,791",
+        "delta": "+979",
+        "source": "daily",
+        "summary": "一键给 AI agent 装上「互联网能力」：读取与搜索 Twitter、Reddit、YouTube、GitHub、B 站、小红书、RSS 等。",
+        "highlight": "README 逐条列出 agent 触网痛点（YouTube 拿不到字幕、Twitter API 付费、Reddit 403、小红书需登录、B 站风控拦截）；主张「替你选好、装好、体检好」，每个平台采用「首选+备选」多后端路由，举例 2026-06 yt-dlp 被 B 站风控封死后自动切到 bili-cli、用户零操作；提供 `agent-reach doctor` 自检，兼容 Claude Code、OpenClaw、Cursor、Windsurf。"
+      },
+      {
+        "rank": 7,
+        "repo": "getsentry/sentry",
+        "url": "https://github.com/getsentry/sentry",
+        "lang": "Python",
+        "stars": "45,364",
+        "delta": "+152",
+        "source": "daily",
+        "summary": "开发者优先的错误追踪与性能监控平台。",
+        "highlight": "README 称其目标是帮开发者更快 detect、trace、fix 问题，并列出官方 SDK 覆盖 JavaScript、Python、Go、Rust、Java/Kotlin、.NET、Ruby、PHP、Cocoa、C/C++、Dart/Flutter、Elixir、Unity、Unreal、Godot、PowerShell 等。"
+      },
+      {
+        "rank": 8,
+        "repo": "calesthio/OpenMontage",
+        "url": "https://github.com/calesthio/OpenMontage",
+        "lang": "Python",
+        "stars": "63,145",
+        "delta": "+361",
+        "source": "daily",
+        "summary": "开源 agentic 视频生产系统：把编码助手变成完整视频工作室，覆盖调研、脚本、素材生成、剪辑与合成。",
+        "highlight": "README 强调可做「真正的视频」而非把一堆静帧动起来：从免费素材库与开放档案建语料、检索真实动态片段、剪成时间线并渲染；展示案例「THE LAST BANANA」60 秒动画短片用 6 段 Kling v3 生成片段（经 fal.ai）+ Google Chirp3-HD 旁白 + 无版税钢琴 + 逐词字幕 + Remotion 合成，总成本 1.33 美元；据称含 12 条生产线、100+ 工具。"
+      },
+      {
+        "rank": 9,
+        "repo": "pingdotgg/t3code",
+        "url": "https://github.com/pingdotgg/t3code",
+        "lang": "TypeScript",
+        "stars": "25,115",
+        "delta": "+492",
+        "source": "daily",
+        "summary": "「agent harness 控制面」：用手机 / 网页 / 桌面端遥控本机上的编码 agent。",
+        "highlight": "README 称可用你已有的订阅统一控制 Claude Code、Codex、Cursor、Grok Build、OpenCode 与 Google Antigravity（本机需先安装并登录对应 CLI）；提供 iOS/Android App、Web 与 Electron 桌面端；作者强调「不卖东西」，代码完全开源、不满意可自行 fork。"
+      },
+      {
+        "rank": 10,
+        "repo": "caddyserver/caddy",
+        "url": "https://github.com/caddyserver/caddy",
+        "lang": "Go",
+        "stars": "76,517",
+        "delta": "+226",
+        "source": "daily",
+        "summary": "快速、可扩展的多平台 HTTP/1-2-3 Web 服务器，默认自动 HTTPS。",
+        "highlight": "README 列出核心特性：用 Caddyfile 做易配置、用原生 JSON 做强力配置、通过 JSON API 动态配置、配置适配器，以及默认自动 HTTPS（公网域名走 ZeroSSL/Let's Encrypt，内部名称与 IP 用全托管本地 CA）。"
+      },
+      {
+        "rank": 11,
+        "repo": "addyosmani/agent-skills",
+        "url": "https://github.com/addyosmani/agent-skills",
+        "lang": "JavaScript",
+        "stars": "101,185",
+        "delta": "+336",
+        "source": "daily",
+        "summary": "面向 AI 编码 agent 的生产级工程技能（skills）。",
+        "highlight": "README 用 DEFINE→PLAN→BUILD→VERIFY→REVIEW→SHIP 流程图对应 9 个斜杠命令：/spec、/plan、/build、/test、/constraints、/review、/webperf、/code-simplify、/ship，每个命令自动激活对应 skill，把资深工程师的流程与质量门禁打包给 agent。"
+      },
+      {
+        "rank": 12,
+        "repo": "thedotmack/claude-mem",
+        "url": "https://github.com/thedotmack/claude-mem",
+        "lang": "TypeScript",
+        "stars": "96,088",
+        "delta": "+627",
+        "source": "daily",
+        "summary": "为 Claude Code 打造的持久记忆压缩系统，跨会话保留 agent 的一切操作。",
+        "highlight": "README 称其自动捕获工具使用观察、生成语义摘要并供后续会话使用，让 Claude 在会话结束或重连后仍保持项目知识连续性；示例安装 `npx claude-mem install --ide grok-bot`，默认使用托管的 CMEM Pro 记忆，本地观察器需显式 `--provider host` 开启。"
+      },
+      {
+        "rank": 13,
+        "repo": "garrytan/gstack",
+        "url": "https://github.com/garrytan/gstack",
+        "lang": "TypeScript",
+        "stars": "135,131",
+        "delta": "+121",
+        "source": "daily",
+        "summary": "YC 总裁 Garry Tan 公开自己的 Claude Code 全套配置：23 个「有主见」的工具，充当 CEO、设计师、工程经理等角色。",
+        "highlight": "README 以 Karpathy「我大概从去年 12 月起就没怎么手写过一行代码」开篇，作者称近 60 天在兼职并全职运营 YC 的情况下交付 3 个生产服务、40+ 功能，按逻辑代码变更计 2026 年节奏约为 2013 年的 810 倍（11,417 vs 14 逻辑行/天，统计覆盖含 Bookface 在内的 40 个公私仓库）。"
+      },
+      {
+        "rank": 14,
+        "repo": "OpenCut-app/OpenCut",
+        "url": "https://github.com/OpenCut-app/OpenCut",
+        "lang": "TypeScript",
+        "stars": "92,099",
+        "delta": "+512",
+        "source": "daily",
+        "summary": "开源版 CapCut（视频剪辑器），正在从底层重写。",
+        "highlight": "README 状态栏说明重写规划：Editor API、插件优先架构、基于 Rust 核心的桌面/移动/浏览器一套代码、面向 AI agent 的 MCP server、无头模式（自动化与批量渲染）以及编辑器内脚本标签；现版本仍在线（opencut.app 跑 classic 版），重写版先落在 new.opencut.app。"
+      },
+      {
+        "rank": 15,
+        "repo": "antirez/ds4",
+        "url": "https://github.com/antirez/ds4",
+        "lang": "C",
+        "stars": "23,415",
+        "delta": "+211",
+        "source": "daily",
+        "summary": "DwarfStar：面向消费级硬件的原生推理引擎，首优 DeepSeek V4 Flash 等强模型。",
+        "highlight": "README 称目标是「在人们真正买得起的硬件上跑少数几个优秀大模型」，支持 DeepSeek V4 Flash（含实验视觉模型）、V4.1 Flash（Metal/CUDA）、GLM 5.2/5.3 与 Qwen3.8 Flash Next 等；主目标为 96GB+ 的 Metal Mac，支持 DGX Spark 与多卡 CUDA、Strix Halo（Framework Desktop）的 ROCm；作者 antirez（Salvatore Sanfilippo），项目自述基于 llama.cpp/GGML。"
+      },
+      {
+        "rank": 16,
+        "repo": "paperclipai/paperclip",
+        "url": "https://github.com/paperclipai/paperclip",
+        "lang": "TypeScript",
+        "stars": "97,150",
+        "delta": "+10,722",
+        "source": "weekly",
+        "summary": "「管理 AI 员工团队」的开源应用：为 agent 团队做编排，把目标、预算与协作放到一个面板。",
+        "highlight": "README 定位「如果 OpenClaw 是一名员工，Paperclip 就是这家公司」：Node.js 服务 + React UI，自带组织架构、预算、治理、目标对齐与 agent 协调；流程是定目标→招团队（任意 bot/任意 provider）→审批并按预算运行；README 强调「只要能接收 heartbeat，就能被雇佣」。"
+      },
+      {
+        "rank": 17,
+        "repo": "vectorize-io/hindsight",
+        "url": "https://github.com/vectorize-io/hindsight",
+        "lang": "Python",
+        "stars": "45,462",
+        "delta": "+14,507",
+        "source": "weekly",
+        "summary": "让 agent「会学习而不只是会回忆」的记忆系统 Hindsight。",
+        "highlight": "README 称多数 agent 记忆只做对话历史召回，Hindsight 专注让 agent 随时间学习，并自述规避了 RAG 与知识图谱的短板、在长期记忆任务上达到 SOTA；提供服务/客户端/嵌入式多种用法、LLM 包装器（两行代码接入）、MCP server，并附 arXiv 论文 2512.12818 与独立基准站点。"
+      },
+      {
+        "rank": 18,
+        "repo": "debpalash/VoiceStudio",
+        "url": "https://github.com/debpalash/VoiceStudio",
+        "lang": "Python",
+        "stars": "53,122",
+        "delta": "+16,775",
+        "source": "weekly",
+        "summary": "完全本地的开源 ElevenLabs 替代：语音克隆、语音设计、视频配音与批量生产。",
+        "highlight": "README 主打「你的声音、你的工作流」：克隆或设计声音、给视频做定时配音、以本地 API 与 MCP 供 agent 调用，可选远程 worker；默认引擎为 k2-fsa/OmniVoice；安装一条命令（curl voicestudio.sh/install），Windows 用 irm|iex；本地流程在自有硬件运行，远程服务可选，使用分析需用户同意。"
+      },
+      {
+        "rank": 19,
+        "repo": "heygen-com/hyperframes",
+        "url": "https://github.com/heygen-com/hyperframes",
+        "lang": "TypeScript",
+        "stars": "56,732",
+        "delta": "+3,011",
+        "source": "weekly",
+        "summary": "把 HTML/CSS/媒体/可 seek 动画变成确定性 MP4 的开源框架，专为 agent 工作流设计。",
+        "highlight": "README 称可用于本地 CLI、AI 编码 agent 的 skills，或作为托管创作工作流的渲染核心；Claude Code 通过插件市场安装（`claude plugin marketplace add heygen-com/hyperframes`），亦支持 `npx skills add` 与 OpenCode；发布 21 个 skill，核心路由 `/hyperframes` 按需安装各创作流程。"
+      },
+      {
+        "rank": 20,
+        "repo": "rohitg00/ai-engineering-from-scratch",
+        "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
+        "lang": "Python",
+        "stars": "63,871",
+        "delta": "+5,059",
+        "source": "weekly",
+        "summary": "从零开始的 AI 工程课程：523 节课、20 个阶段，覆盖 Python/TypeScript/Rust/Julia。",
+        "highlight": "README 称约 342 小时、MIT 授权，每节课都产出一个可复用产物（prompt、skill、agent 或 MCP server），并含 Agent 工程、工具与协议（MCP）、Agent Skills 及 Claude/MCPA 认证等路径；提供 12 种语言版本，配套站点 aiengineeringfromscratch.com 与课程代码同源。"
+      }
+    ]
+  },
+  "observation": [
+    "今日榜单依旧被 agent 生态占据：Paperclip（团队级 agent 编排，周增 1.07 万）、Hindsight（会学习的 agent 记忆，周增 1.45 万）、Agent-Reach、agent-skills、claude-mem、t3code 同榜，竞争焦点从「单个 agent 好不好用」转向「团队的编排、记忆与预算治理」。",
+    "skill 仍是最大公约数：impeccable（设计）、marketingskills（营销）、agent-skills（工程流程）、text-to-cad（CAD）、hyperframes（HTML→视频）把「怎么让 agent 干得好」拆成可安装的 skill，不少还内置确定性检查（impeccable 的 61 条规则无需 LLM 即可本地运行）。",
+    "本地化与自托管持续升温：antirez 的 ds4（DeepSeek V4 本地推理引擎）与 VoiceStudio（本地 ElevenLabs 替代，周增 1.68 万）说明「在自有硬件上跑强模型/语音」是明确需求，数据不出本地也成卖点。",
+    "内容生产正被 agent 改写：OpenMontage（1.33 美元生成 60 秒短片）、hyperframes（HTML→确定性 MP4）与 OpenCut（重写后带面向 agent 的 MCP server）把视频流水线交给 agent，门槛与成本同时下探。",
+    "经典基础设施照常上榜：Caddy、Sentry、Effect 4.x（LTS）说明榜单并非只有 AI，但 AI 项目仍占据绝对多数，且发布节奏在加快（pi 24 小时内 19 条提交）。"
+  ],
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（arXiv 因索引滞后回看至 10-02）· 已单列「智能体/Agent」分类",
+    "sourcesUsed": [
+      "Hacker News",
+      "arXiv",
+      "Simon Willison"
+    ],
+    "items": [
+      {
+        "category": "oss",
+        "title": "在单张 RTX 4090 上以 100 tok/s 跑 125B 的 Qwen 3.8 Flash Next",
+        "summary": "开源项目 Strata 演示在消费级 RTX 4090 上以约 100 tokens/s 运行 125B 参数的 Qwen 3.8 Flash Next。",
+        "why": "把「125B 级模型跑在单张消费卡上」从概念推到可复现速度，是本地推理效率的重要参考点。",
+        "url": "https://github.com/Niko1221/Strata",
+        "source": "Hacker News",
+        "time": "10/04 20:51",
+        "heat": "507 分 · 252 评论"
+      },
+      {
+        "category": "agent",
+        "title": "「Agent 不需要记忆，需要文档」",
+        "summary": "一篇高热度文章主张：与其给 agent 堆持久记忆，不如把项目知识写成清晰、结构化的文档供其检索。",
+        "why": "直接切中当下 agent 记忆/上下文工程的主流做法，HN 330 分、202 条评论，观点交锋激烈，值得对照自己的 agent 设计。",
+        "url": "https://liao.gg/blog/agents-dont-need-memory",
+        "source": "Hacker News",
+        "time": "10/04 01:03",
+        "heat": "330 分 · 202 评论"
+      },
+      {
+        "category": "agent",
+        "title": "arXiv：KaliBench——网络安全场景的智能体工具调用基准",
+        "summary": "针对「把分析师意图翻译成 Kali Linux 工具调用」设计细粒度基准，并提供无需运行时的可验证奖励。",
+        "why": "工具调用是 agent 落地的核心能力，安全运维是少数能明确验证对错的场景，很适合作为评测标杆。",
+        "url": "http://arxiv.org/abs/2610.02206v1",
+        "source": "arXiv (cs.AI)",
+        "time": "10/02 提交",
+        "heat": "新论文"
+      },
+      {
+        "category": "research",
+        "title": "arXiv：TACO——三值单稀疏优化器，显著降低 LLM 全参微调显存",
+        "summary": "提出三值化 + 按列绝对最大值单稀疏的优化器状态表示，压缩微调显存占用。",
+        "why": "全参微调的显存瓶颈是高频工程痛点，此类优化器改动小、收益直接，可与 Muon 等路线对照。",
+        "url": "http://arxiv.org/abs/2610.02199v1",
+        "source": "arXiv (cs.LG)",
+        "time": "10/02 提交",
+        "heat": "新论文"
+      },
+      {
+        "category": "industry",
+        "title": "LeCun 称对「AI 灭绝人类」零担忧，并批 Dario Amodei 被欺骗",
+        "summary": "图灵奖得主 Yann LeCun 表示自己对 AI 导致人类灭绝以及近期「失控」事件零担忧，并公开批评 Anthropic CEO Dario Amodei。",
+        "why": "顶级科学家之间的公开路线分歧持续扩大，会影响公众叙事与政策讨论；HN 371 分、668 条评论说明关注度极高。",
+        "url": "https://fortune.com/2026/10/01/ai-godfather-yann-lecun-has-zero-concerns-about-human-extinction-says-anthropic-ceo-dario-amodei-is-deuded/",
+        "source": "Hacker News",
+        "time": "10/04 01:44",
+        "heat": "371 分 · 668 评论"
+      },
+      {
+        "category": "industry",
+        "title": "Simon Willison：AI 产品需要默认的硬性预算上限",
+        "summary": "指出按用量计费的服务普遍缺少「硬预算上限」，一旦循环调用或失控重试就可能烧钱，呼吁把它做成默认能力（硬限流而非仅告警）。",
+        "why": "对任何接入 LLM API 的项目都是现实风险：成本失控是最普遍的运维事故，这条给出了明确的设计方向。",
+        "url": "https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/",
+        "source": "Simon Willison",
+        "time": "10/04 07:34",
+        "heat": ""
+      },
+      {
+        "category": "industry",
+        "title": "宗教伦理学者与 Anthropic 会面，讨论 Claude 的道德对齐",
+        "summary": "纽约时报报道，宗教伦理学者与 Anthropic 会面，就 Claude 的道德与价值取向进行交流咨询。",
+        "why": "价值对齐正引入人文学科视角，反映前沿实验室在「模型该持何价值观」上主动寻求外部输入；HN 154 分、386 条评论，争论集中。",
+        "url": "https://www.nytimes.com/2026/09/29/us/anthropic-claude-morals-ai.html",
+        "source": "Hacker News",
+        "time": "10/04 10:34",
+        "heat": "154 分 · 386 评论"
+      }
+    ]
+  }
+}
