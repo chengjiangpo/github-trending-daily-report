@@ -354,7 +354,7 @@
   ],
   "aiNews": {
     "title": "AI 前沿动态",
-    "window": "过去 24 小时（arXiv 因索引滞后回看至 10-02）",
+    "window": "过去 24 小时（arXiv 因索引滞后回看至 10-02）· 已单列「智能体/Agent」分类",
     "sourcesUsed": [
       "Hacker News",
       "arXiv",
@@ -362,7 +362,10 @@
       "Simon Willison",
       "量子位",
       "GitHub Blog",
-      "Latent Space"
+      "Latent Space",
+      "CrewAI Blog",
+      "GitHub AI/ML Blog",
+      "GitHub Releases(agent 生态)"
     ],
     "items": [
       {
@@ -432,6 +435,36 @@
         "why": "微调的显存瓶颈是工程落地高频痛点，这类优化器改动小、收益直接。",
         "url": "http://arxiv.org/abs/2610.02199v1",
         "source": "arXiv (cs.LG)",
+        "time": "10/02 提交",
+        "heat": "新论文"
+      },
+      {
+        "category": "agent",
+        "title": "Offrun：在一个工作台里管理所有编码 agent",
+        "summary": "新开源的编码 agent 管理台，把 Claude Code、Codex、Cursor 等不同 agent 的会话/任务收进同一个工作区统一调度。",
+        "why": "多 agent 并行正在成为常态，「统一调度与可观测」是真实痛点；这类工具会直接影响日常开发流。",
+        "url": "https://offrun.dev/",
+        "source": "Hacker News",
+        "time": "10/03 16:40",
+        "heat": "74 分 · 60 评论"
+      },
+      {
+        "category": "agent",
+        "title": "arXiv：KaliBench——网络安全场景下的智能体工具调用基准",
+        "summary": "针对「把分析师意图翻译成 Kali Linux 工具调用」这一任务设计细粒度基准，且提供无需运行时的可验证奖励。",
+        "why": "工具调用（tool use）是 agent 落地的核心能力，安全运维是少数能明确验证对错的场景，很适合做评测标杆。",
+        "url": "http://arxiv.org/abs/2610.02206v1",
+        "source": "arXiv (cs.AI)",
+        "time": "10/02 提交",
+        "heat": "新论文"
+      },
+      {
+        "category": "agent",
+        "title": "arXiv：具身智能体的「重建—练习—落地」自改进框架",
+        "summary": "提出让具身 agent 在仿真中重建技能、自我练习后再迁移到真实机器人的引导式自改进方法，降低人工设计奖励的成本。",
+        "why": "具身智能体走向真实环境的关键瓶颈就是「数据与奖励从哪来」，自改进路线对机器人 agent 很有参考价值。",
+        "url": "http://arxiv.org/abs/2610.02204v1",
+        "source": "arXiv (cs.RO)",
         "time": "10/02 提交",
         "heat": "新论文"
       }
