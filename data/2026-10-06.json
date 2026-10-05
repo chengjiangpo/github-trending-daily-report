@@ -1,0 +1,487 @@
+{
+  "date": "2026-10-06",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "gh CLI 未登录，仓库 metadata 与提交数据均用 curl 直连 api.github.com 公共接口获取；本次于北京时间 10-06 07:00 执行，全部请求成功（未认证）。",
+    "github.com/trending 本次不可达（HTTPS 超时，http=000），按预案改用 api.github.com Search API 替代口径：日榜 = 最近 7 天创建（created:>2026-09-28）按 star 数降序的前 15 个仓库，周榜 = 2026-09-05 至 09-27 创建按 star 数降序的前 5 个仓库，共 20 条并标注 source=daily/weekly。该口径衡量的是「新仓库的绝对 star 数」，与 Trending 的「近期 star 增速」并不等价，且 Search API 不提供 24 小时增量，故 delta 字段留空。",
+    "榜单 star 数为北京时间 10-06 07:00 抓取时的快照；每条 summary 与 highlight 均来自对应仓库 README 的当场抓取（raw.githubusercontent.com / api.github.com readme 接口），未作超出 README 内容的推断。",
+    "提交窗口 since 2026-10-04T23:00Z（北京时间 10-05 07:00 至 10-06 07:00，时间已换算为北京时间）：deepseek-ai/deepseek-harness（master）窗口内 0 条提交；earendil-works/pi（main）窗口内 34 条，含 v1.0.3 与 v1.0.4 两次发版，以及新增 @earendil-works/pi-env 远程执行环境（SSH）与大量 Windows/durable 修复；anomalyco/opencode（dev）窗口内 7 条，以 console/CI、生态插件与清理为主。",
+    "AI 前沿动态候选用 node scripts/fetch-ai-news.mjs 抓取（13/13 来源成功，共 22 条候选）：Hacker News(Algolia)、arXiv(cs.CL/AI/LG/MA/RO)、GitHub Releases(agent 生态)、Simon Willison、量子位、GitHub AI/ML Blog 各有候选；OpenAI Blog / Anthropic News / Google DeepMind / Google AI Blog / GitHub Blog / Latent Space / CrewAI Blog 本次抓取成功但 0 条新增条目（官方大模型博客按「新增」判定、已去重），故本期无官方大模型博客条目可收录。",
+    "量子位正文页此前有 403 情况，本期未收录量子位条目；arXiv 因索引滞后回看至 96 小时内，提交日均为 10-02，time 字段已注明提交日（时间为北京时间）。本期候选中有多条 agent 相关（arXiv、GitHub Releases、GitHub AI/ML Blog、Hacker News），已按要求保留并单列 agent 分类。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-10-04T23:00Z，时间为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 过去 24 小时无新提交",
+        "items": [
+          {
+            "title": "过去 24 小时无新提交",
+            "desc": "窗口内 0 条；仓库最近一次 push 为 10-03 14:02（合并 0.2.1-alpha.1 发版 PR）",
+            "author": "",
+            "time": ""
+          }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 34 条提交 · 连续发布 v1.0.3 与 v1.0.4，新增 pi-env 远程执行环境",
+        "items": [
+          {
+            "title": "Release v1.0.4 + 开启下一周期 [Unreleased] 段",
+            "desc": "版本发布",
+            "author": "Armin Ronacher",
+            "time": "10-06 03:22"
+          },
+          {
+            "title": "fix(env)：账号默认 shell 为 zsh 时登录 shell 测试可正常工作",
+            "desc": "远程环境修复",
+            "author": "Armin Ronacher",
+            "time": "10-06 03:17"
+          },
+          {
+            "title": "feat(env)：SSH 连接改为惰性建立",
+            "desc": "远程环境能力",
+            "author": "Mario Zechner",
+            "time": "10-06 02:39"
+          },
+          {
+            "title": "feat(durable)：以 argv exec 方式提供 powershell 工具",
+            "desc": "跨平台执行能力",
+            "author": "Mario Zechner",
+            "time": "10-06 00:31"
+          },
+          {
+            "title": "fix(coding-agent)：关机时关闭仍处于 connecting 状态的 MCP 连接",
+            "desc": "编码 agent 修复",
+            "author": "Armin Ronacher",
+            "time": "10-06 00:05"
+          },
+          {
+            "title": "fix(coding-agent)：--tools 下保留 MCP 工具，新增工具匹配与 --no-mcp",
+            "desc": "工具调用能力",
+            "author": "Armin Ronacher",
+            "time": "10-05 23:21"
+          },
+          {
+            "title": "fix(mcp)：OAuth 动态客户端注册时发送 application_type",
+            "desc": "MCP 修复",
+            "author": "Armin Ronacher",
+            "time": "10-05 23:11"
+          },
+          {
+            "title": "feat(env)：新增 @earendil-works/pi-env，基于 SSH 的远程执行环境",
+            "desc": "新子系统",
+            "author": "Mario Zechner",
+            "time": "10-05 18:39"
+          },
+          {
+            "title": "feat(env)：在 npm 包内提供 SSH bootstrap 与 daemon",
+            "desc": "远程环境发布",
+            "author": "Mario Zechner",
+            "time": "10-05 19:06"
+          },
+          {
+            "title": "fix(env)：修复 Windows 上传、卡死 ssh、daemon 启动超时与 watcher 身份识别",
+            "desc": "Windows/稳定性修复（多条）",
+            "author": "Mario Zechner",
+            "time": "10-05 22:18"
+          },
+          {
+            "title": "fix(ai)：重试 HTTP/2 挂起流的取消",
+            "desc": "网络层修复",
+            "author": "David Brailovsky",
+            "time": "10-05 19:47"
+          },
+          {
+            "title": "fix(coding-agent)：多行 token 保持语法着色（#10356）",
+            "desc": "编码 agent 修复",
+            "author": "Ramiz Wachtler",
+            "time": "10-05 16:35"
+          },
+          {
+            "title": "Release v1.0.3 + changelog 记录新功能",
+            "desc": "版本发布",
+            "author": "Armin Ronacher",
+            "time": "10-05 16:21"
+          },
+          {
+            "title": "feat(ai)：支持 Azure Foundry Chat Completions 部署（#9714）",
+            "desc": "模型接入扩展",
+            "author": "Justin Santer",
+            "time": "10-05 15:46"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 7 条提交 · console/CI 调整与生态插件为主",
+        "items": [
+          {
+            "title": "chore：移除未使用的 artifacts 目录（#53436）",
+            "desc": "仓库清理",
+            "author": "Shoubhit Dash",
+            "time": "10-06 05:44"
+          },
+          {
+            "title": "fix(console)：把 dev 的 Go 导航链接到 Console（#53430）",
+            "desc": "控制台修复",
+            "author": "Adam",
+            "time": "10-06 04:38"
+          },
+          {
+            "title": "chore(ci)：dev 部署改用 blacksmith（#53423）",
+            "desc": "CI 调整",
+            "author": "Adam",
+            "time": "10-06 04:04"
+          },
+          {
+            "title": "docs(ecosystem)：收录 opencode-supabase 生态插件（#49848）",
+            "desc": "生态文档",
+            "author": "Jordan Lee",
+            "time": "10-06 03:45"
+          },
+          {
+            "title": "feat(console)：dev 环境启用 marketing 导航（#53421）",
+            "desc": "控制台功能",
+            "author": "Adam",
+            "time": "10-06 03:41"
+          },
+          {
+            "title": "fix：Windows 问题分诊纳入 neriousy（#53410）",
+            "desc": "流程修复",
+            "author": "Filip",
+            "time": "10-06 02:46"
+          },
+          {
+            "title": "chore：generate（opencode-agent[bot]）",
+            "desc": "自动生成提交",
+            "author": "opencode-agent[bot]",
+            "time": "10-06 03:46"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析（Search API 替代口径）",
+    "sources": {
+      "daily": 15,
+      "weekly": 5
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "rehan-remade/universal-modder",
+        "url": "https://github.com/rehan-remade/universal-modder",
+        "lang": "Python",
+        "stars": "3,828",
+        "delta": "",
+        "source": "daily",
+        "summary": "让任意 AI 编码 agent 给任意 PC 游戏做 Mod 的 skill、工具与共享知识库。",
+        "highlight": "README 称 agent 能自己找到游戏、判断引擎与实现路线、读真实代码、建 Mod、用 fal 生成美术/3D/音效、在运行中的游戏里测试、剪出视频，并把经验写下来供下一个 agent 使用；支持 Claude Code、Codex、Cursor、Gemini CLI、GitHub Copilot 与 OpenCode，随附 um CLI 与 fal MCP server；MIT 授权，作者预告将上线 Mod 分享 hub。"
+      },
+      {
+        "rank": 2,
+        "repo": "CopilotKit/OpenDots",
+        "url": "https://github.com/CopilotKit/OpenDots",
+        "lang": "TypeScript",
+        "stars": "3,660",
+        "delta": "",
+        "source": "daily",
+        "summary": "常驻式 AI 同事的开源模板：每个 agent 配一台自己的电脑，在文本、通话与 Slack 之间切换。",
+        "highlight": "基于 CopilotKit 与 AG-UI 构建，含 Spaces 工作文档库（页面存在本地工作区数据库）、CopilotKit Threads 会话、以及「ask → browse → approve → save」的人在环审批卡片；README 明示这是模板而非托管产品，需自备基础设施，对话依赖 CopilotKit Intelligence（托管服务、本地 Docker 评估或授权自托管三选一）；当前为 alpha，Trendshift 标注其为 TypeScript 日榜第 2。"
+      },
+      {
+        "rank": 3,
+        "repo": "feder-cr/dots",
+        "url": "https://github.com/feder-cr/dots",
+        "lang": "Python",
+        "stars": "2,618",
+        "delta": "",
+        "source": "daily",
+        "summary": "自带浏览器内核的网页 agent：模型一 flag 即可更换，重点解决页面加载、验证码与登录失效。",
+        "highlight": "README 的论点是「网页 agent 失败时，问题几乎都不在模型，而在浏览器」；实现上用 C++ 给真实 Firefox 引擎打补丁，指纹在引擎内部决定而非用 JS 覆盖，每个 seed 给出一套自洽身份（屏幕/字体/GPU/时区/语言），无 WebDriver 标记与自动化全局变量，指针与键盘逐事件发出可信输入，--profile-dir 跨运行保留登录、--proxy 让时区语言跟随出口；配套 invisible_playwright_mcp 可把同一浏览器作为 MCP server 供 Claude Code、Codex、Gemini CLI 使用；MIT。"
+      },
+      {
+        "rank": 4,
+        "repo": "storytold/photocraft",
+        "url": "https://github.com/storytold/photocraft",
+        "lang": "Rust",
+        "stars": "1,995",
+        "delta": "",
+        "source": "daily",
+        "summary": "纯 Rust 重写的开源 Photoshop（clean-room）：图层、蒙版、调整图层、文字、矢量与真实 PSD。",
+        "highlight": "README 称其为 100% Rust 原生应用，采用 wgpu GPU 合成器（Metal / Vulkan / DX12 / WebGPU）、copy-on-write 瓦片与多线程滤镜，无 Electron 与 WebView；可打开、编辑并保存分层 PSD，重存后保留 309 个 psd-tools 测试文件中的 307 个渲染结果；菜单与快捷键对齐 Photoshop；MIT 或 Apache-2.0，当前为 early alpha；同作者另有纯 Rust 重写 Premiere 的 filmcraft。"
+      },
+      {
+        "rank": 5,
+        "repo": "omlahore/RemoveMacAI",
+        "url": "https://github.com/omlahore/RemoveMacAI",
+        "lang": "Swift",
+        "stars": "1,960",
+        "delta": "",
+        "source": "daily",
+        "summary": "一键关闭 macOS 27 的 Apple Intelligence，并删除其已下载的模型、阻止再次下载。",
+        "highlight": "README 说明 macOS 27 已没有关闭 Apple Intelligence 的单一开关，且功能关掉后模型仍留在磁盘；工具会关闭功能、删除模型并阻止重新下载，所有改动可回退；安装脚本下载 release、校验 SHA-256 后在临时目录运行（不安装任何东西），每个 release 由 GitHub Actions 从 tag 构建并带来源证明（gh attestation verify）；支持 Homebrew 与 --keep 保留个别功能；MacRumors、AppleInsider 与 Help Net Security 已报道。"
+      },
+      {
+        "rank": 6,
+        "repo": "nykooi1/vibe-wise",
+        "url": "https://github.com/nykooi1/vibe-wise",
+        "lang": "Python",
+        "stars": "1,744",
+        "delta": "",
+        "source": "daily",
+        "summary": "把「学习」放在第一位的 Claude Code 插件：AI 写代码前先问你的设计思路。",
+        "highlight": "README 称 Claude 会先索取你的方案、帮你检查取舍并解释陌生概念，由你决定什么时候可以动工；随后 Claude 写代码并解释改了什么、为什么改，让你保留决策所有权；面向想边做边学的初学者与探索陌生技术栈的工程师；README 展示了一个「文件夹与笔记多对多关系」的真实学习会话片段；已通过 Anthropic Claude 目录审核（暂未上社区市场），经 GitHub marketplace 安装。"
+      },
+      {
+        "rank": 7,
+        "repo": "nanaism/yomiyasu",
+        "url": "https://github.com/nanaism/yomiyasu",
+        "lang": "Python",
+        "stars": "1,503",
+        "delta": "",
+        "source": "daily",
+        "summary": "去除「AI 味」的日语润色 Agent Skill：修正不自然的比喻、暧昧的主谓关系与多余修饰。",
+        "highlight": "README 给出 7 条改写原则：核对主谓/修饰/条件、保持每句的功能与文体、整理拟人化表达、把比喻换成平实说法、不擅自增加信息、控制文长（平均 30-45 字、每句逗号 0-2 个）与克制装饰；明确要求「不添加原文没有的主体、原因、条件、数值、情绪」，把握不准时返回标明未定的暂定文并说明理由；面向技术文章、设计/规格文档、PR 说明等实务文本；v1.0.7 针对顿号停顿式文案腔做了收敛；由 ALGO ARTIS 开发，附 Zenn 说明文与语料验证；MIT。"
+      },
+      {
+        "rank": 8,
+        "repo": "QingYunA/answer-me-with-html",
+        "url": "https://github.com/QingYunA/answer-me-with-html",
+        "lang": "JavaScript",
+        "stars": "1,471",
+        "delta": "",
+        "source": "daily",
+        "summary": "让 agent 用一页可读的 HTML 回答难题，而不是一堵文字墙的 Agent Skill。",
+        "highlight": "做法是让模型只写 Markdown 草稿，交给 skill 自带的 CLI 渲染成页面（约 50ms）；README 给出同题对比（Claude Sonnet 5.5，3 个题目 × 3 次取中位数）：输出 token 5,341 → 870（约少 6.1×）、耗时 33s → 12s、单次成本 0.092 → 0.067 美元；做成视频页面时 27,839 → 1,566 token；同时如实说明在上下文很重（约 51,000 token 的工具/规则/skill）的配置下，额外的两个回合会抵消收益、反而约贵 20%；支持 Claude Code、Codex、Cursor、OpenCode，无需 npm install。"
+      },
+      {
+        "rank": 9,
+        "repo": "facebookincubator/muse-gadget-sdk",
+        "url": "https://github.com/facebookincubator/muse-gadget-sdk",
+        "lang": "C",
+        "stars": "1,416",
+        "delta": "",
+        "source": "daily",
+        "summary": "Meta 开源的 Muse Gadgets 设备 SDK：用现成 ESP32 或树莓派自制能接入 Muse 的硬件。",
+        "highlight": "README 提供两套 SDK：ESP32 Device SDK（接屏幕显示图像、加音频输入输出、接各类传感器）与 Linux Device SDK（把闲置树莓派或 Linux 机器变成 Muse gadget，可自定义命令让 Muse 处理运维或 Home Assistant）；设备经 Muse iOS/Android App 的 Settings > Devices 配对，需先打开 Developer mode 并准备 SDK token；固件与 SDK 均开源（Apache-2.0），自述「由 hacker 为 hacker 而做、只为好玩」。"
+      },
+      {
+        "rank": 10,
+        "repo": "CAPCOM-TD-OSS/REDox",
+        "url": "https://github.com/CAPCOM-TD-OSS/REDox",
+        "lang": "C#",
+        "stars": "1,075",
+        "delta": "",
+        "source": "daily",
+        "summary": "CAPCOM 下一代引擎「REX」的核心组件之一：面向 .NET 的 token 化高性能结构化数据引擎。",
+        "highlight": "README 称其把 JSON/JSON5/CBOR/MessagePack/TOML/XML/HTML/CSV/INI 解析成紧凑定长的 token DOM/IR，再以同一结构层支撑读取、编辑、格式转换与序列化；基准上顺序反序列化最高约 1.8×、自动并行反序列化最高约 2.8×、序列化最高约 1.6× 快于 System.Text.Json，canada.json 反序列化分配约 2.56 MB 对 8.53 MB；支持可变 token DOM、保留注释的 JSON5 编辑，以及 System.Text.Json / Newtonsoft.Json / DataContractJsonSerializer 兼容层；Apache-2.0。"
+      },
+      {
+        "rank": 11,
+        "repo": "chasmlol/SkyCraft",
+        "url": "https://github.com/chasmlol/SkyCraft",
+        "lang": "C++",
+        "stars": "977",
+        "delta": "",
+        "source": "daily",
+        "summary": "用 Minecraft 的操作方式玩《上古卷轴 5：天际》：SKSE 插件 + Fabric Mod 通过共享内存互通。",
+        "highlight": "README 强调两款游戏都没有被重写：Minecraft 跑自己的游戏逻辑，天际跑世界、NPC、任务与存档，Minecraft 隐藏在后台、由天际负责渲染；可在天际里挖方块（挖出的地形按草/土/石/矿分层掉落，洞对玩家、NPC 与物品都是真实的并会保存）、放置方块（火把、岩浆、萤石可照亮天际）、让水与岩浆流动，并用 Minecraft 武器攻击 NPC，NPC 会绕开方块、踩压力板、被岩浆与火伤害；天际技能随 Minecraft 玩法提升；标注为早期实验性粉丝项目，需自备两款游戏并备份存档。"
+      },
+      {
+        "rank": 12,
+        "repo": "Edwardxlai/easyread",
+        "url": "https://github.com/Edwardxlai/easyread",
+        "lang": "Python",
+        "stars": "804",
+        "delta": "",
+        "source": "daily",
+        "summary": "本地运行的论文阅读器：PDF 逐页翻译、原文对照、划线笔记，随时问 AI。",
+        "highlight": "README 强调「翻译和解释分开」——正文只放忠实译文，AI 的解释与回答放在页边；公式用 KaTeX 按原文重排、表格排成三线表、参考文献保留原文；右侧「问 AI」可多轮对话、可同时开多个对话并分别选模型（Claude、GPT/Codex、DeepSeek、通义、本机 Ollama），支持一次引用多段与「按颜色找出我划线的公式」；笔记按原文顺序汇总可导出 Markdown；可拖入任意 PDF，或填 arXiv 编号/DOI/标题/论文网页自动找公开 PDF；本地运行、文献库默认存在电脑上；MIT。"
+      },
+      {
+        "rank": 13,
+        "repo": "openai/mcp-extensions",
+        "url": "https://github.com/openai/mcp-extensions",
+        "lang": "TypeScript",
+        "stars": "772",
+        "delta": "",
+        "source": "daily",
+        "summary": "OpenAI 给 MCP 加的 ChatGPT 专有能力，让插件像 ChatGPT 的原生一等功能。",
+        "highlight": "README 列出四类扩展并配可试用的 Bits & Bolts 插件演示：侧边栏入口、按文件类型自定义查看器（示例是 CAD 文件查看器）、composer 的 @ 提及搜索、以及用缩略图选择项的扩展表单（OpenAI form elicitation）；仓库提供 TypeScript 包 @openai/mcp-extensions（用于 MCP server 与 Apps）与 Python 包 openai-mcp-extensions（用于 MCP server），完整规格见 docs/spec.md；Apache-2.0。"
+      },
+      {
+        "rank": 14,
+        "repo": "StayLameBro/backburner",
+        "url": "https://github.com/StayLameBro/backburner",
+        "lang": "Python",
+        "stars": "663",
+        "delta": "",
+        "source": "daily",
+        "summary": "用一根 USB-C 线把 iPhone 接上 Mac，让 iPhone 帮忙在本机跑 Qwen3.8-27B。",
+        "highlight": "README 给出实测（2026-10-01，MacBook Pro M4 Pro 24GB + iPhone 17 Pro Max）：按层切分流水线，Mac 跑 1-40 层、iPhone GPU 跑 41-64 层，读入 2,000 token 的文件/工具结果时 16k、32k、48k 上下文分别快 44%、29%、30%；iPhone 还持有超出 Mac 显存的旧 KV 并在其上算注意力，24GB Mac 上 8-bit 总上下文可达约 196k–229k token；贪婪解码输出与不带手机时逐 token 一致（8k/32k 各 256/256，140k 时 32/32）；引擎是 llama.cpp fork，含 SME2、Metal 融合与 DFlash2 投机解码（这些加速在 Mac 单机也生效）。"
+      },
+      {
+        "rank": 15,
+        "repo": "oil-oil/oil-ui",
+        "url": "https://github.com/oil-oil/oil-ui",
+        "lang": "Python",
+        "stars": "616",
+        "delta": "",
+        "source": "daily",
+        "summary": "把 AI 的 UI 设计能力推向极限的 Agent Skill：一套设计方法加自带的风格对比页。",
+        "highlight": "README 给出 8 步方法：先认品类并拆解同类最鲜明的两三家、把「高级/简洁」翻成能量与密度等五个可见刻度、每个方向从一个具体引擎起步、先问首屏给谁看、检查方向之间的差异（骨架/字体/色彩/主视觉四项中任意两方向最多一项相同）、只留一两处记忆点、由人来定品味、最后以电脑与手机尺寸的实际截图为准；skill 安装后无需额外配置或 API key；版本检查最多每 10 分钟联网一次、超 2 秒即跳过、离线静默；截图用独立临时浏览器且只监听 127.0.0.1；已在 macOS 实测，Windows/Linux 尚未实机验证。"
+      },
+      {
+        "rank": 16,
+        "repo": "eternity4719/HowToLiveBetter",
+        "url": "https://github.com/eternity4719/HowToLiveBetter",
+        "lang": "HTML",
+        "stars": "43,399",
+        "delta": "",
+        "source": "weekly",
+        "summary": "《高性价比人生指南》：665 条生活决策建议，每条写明成本、收益与证据等级，并配 AI 问答 skill。",
+        "highlight": "README 称每条建议写明花掉什么、换回什么、证据有多硬，来源只引期刊论文与官方文件（共 1,653 条原始文献链接，证据分级 A 434 / B 176 / C 55），少数官方不公开的案件引署名原创报道并附网页存档；项目声明永不发行任何代币并提醒仿冒币为骗局；提供 PDF、EPUB、离线单文件 HTML 与在线检索页；配套 skill 支持 Claude Code 与 Codex，提问时先查书中条目再回答并注明出自第几节第几条；CC BY 4.0。"
+      },
+      {
+        "rank": 17,
+        "repo": "NandhaKishorM/laya",
+        "url": "https://github.com/NandhaKishorM/laya",
+        "lang": "Python",
+        "stars": "30,959",
+        "delta": "",
+        "source": "weekly",
+        "summary": "非自回归的「System 1」决策引擎：对任意文本做类型化选择、打分与是/否判断，单次前向 33ms、覆盖 100+ 语言。",
+        "highlight": "README 称其用严格恰当评分规则做强化学习训练（RLCD），并用 router 按请求挑选合适的 checkpoint；提供多种可选依赖，可作 HTTP server、MCP server，或作为 LangChain/LangGraph、LlamaIndex、CrewAI 的组件使用；laya-multilingual 支持最长 8,192 token 并附长文准确率与耗时基准；同时提供 PyPI 包 laya、TypeScript 版 laya-ts、Hugging Face 模型与 Colab；Apache-2.0。"
+      },
+      {
+        "rank": 18,
+        "repo": "browser-use/jev-ultrafast",
+        "url": "https://github.com/browser-use/jev-ultrafast",
+        "lang": "Python",
+        "stars": "22,098",
+        "delta": "",
+        "source": "weekly",
+        "summary": "带动态索引动作空间的浏览器 agent：Jev 决策「做什么、对哪个元素」，小模型只在需要输入文本时生成。",
+        "highlight": "README 给出实测：在 Google Flights 上完成苏黎世→伦敦的搜索用 7.1 秒（含真实文本生成与加载等待）；动作空间为 CLICK、TYPE_TEXT、SELECT、SCROLL_UP、SCROLL_DOWN、WAIT、DONE、BLOCKED，每次观察都会重建带编号的元素表；两个决策（操作与目标）共用一次网络往返，目标问题为投机式、只有与操作兼容的目标可执行；策略中不含任何站点专用脚本或预置字段字符串；本地面板展示元素编号、操作与目标概率，可逐步暂停；演示默认用小模型 inception/mercury-2.5 且关闭 reasoning。"
+      },
+      {
+        "rank": 19,
+        "repo": "Niko1221/Strata",
+        "url": "https://github.com/Niko1221/Strata",
+        "lang": "C++",
+        "stars": "13,798",
+        "delta": "",
+        "source": "weekly",
+        "summary": "在普通游戏 PC 上跑 125B 参数的 Qwen3.8-Flash-Next：12GB 显存起，Windows/Linux 免费开源。",
+        "highlight": "README 给出两张常见配置的实测：RTX 5070（12GB，Ryzen 5 7600）在 Q2_0 下写答 94 token/s、读入 32K 提示 2,650 token/s；RX 9070 XT（16GB）Q2_0 写答 60 token/s、读入 1,160 token/s；支持两三张卡共享模型（multi-GPU）；示例为模型一次提示生成的体素宝塔花园在浏览器中运行（IQ3_S、128K 上下文，附 49 秒视频，RTX 5070）；模型可聊天、写代码、读图并接入应用与编码 agent，数据不出本机；项目自述为实验性。"
+      },
+      {
+        "rank": 20,
+        "repo": "zai-org/ZCode",
+        "url": "https://github.com/zai-org/ZCode",
+        "lang": "TypeScript",
+        "stars": "7,435",
+        "delta": "",
+        "source": "weekly",
+        "summary": "Z.ai 的 AI 编程工作台：桌面应用、浏览器界面与终端 Agent，客户端/后端/共享 UI 与 Agent CLI 源码齐全。",
+        "highlight": "README 称仓库包含 Agent CLI 与运行时源码（apps/zcode-cli/，随主仓库克隆，无需 submodule）；开发环境要求 Git、Node.js 24.14.0 与 pnpm 10.33.2（以 mise.toml 为准），一条 pnpm bootstrap 完成初始化；提供 pnpm dev:desktop（默认走生产服务配置）与 pnpm dev:web（Web 5173 + 后端 3030，/ws 与 /api 代理到本地后端）；含 SSH/WSL 远程工作区开发路径；最近更新记录为 2026-09-23 升到 v3.14.3。"
+      }
+    ]
+  },
+  "observation": [
+    "Agent 生态继续吃下榜单前半段：OpenDots（常驻 AI 同事模板）、dots（自带反爬浏览器内核的网页 agent）、universal-modder（让 agent 改 PC 游戏）、mcp-extensions（OpenAI 的 MCP 扩展）、ZCode（Z.ai 编程工作台）、jev-ultrafast（7.1 秒完成航班搜索）同榜，竞争焦点集中在「agent 能不能真的稳定操作外部世界」。",
+    "Skill 仍是 AI 时代的最小分发单位：answer-me-with-html（HTML 作答）、oil-ui（UI 设计）、vibe-wise（边写边学）、yomiyasu（日语润色）、HowToLiveBetter 都把自己打包成可一条命令安装的 Agent Skill，且普遍以「实测数字」当卖点（token 少 6.1×、少 20% 成本等），同时把不利数据一并写出。",
+    "本地与自有硬件持续升温：Strata（12GB 显存跑 125B 模型）、backburner（iPhone 帮 Mac 跑 27B 并扩展上下文）、easyread（本地论文阅读）都以「数据不出本机」为主张，背后是对推理成本与隐私的双重考量。",
+    "巨头与老牌厂商在把内部基建开源：Meta 的 muse-gadget-sdk（ESP32/树莓派接入 Muse）与 CAPCOM 的 RE:Dox（.NET 结构化数据引擎，基准快于 System.Text.Json）说明大厂开源的不再只是边角工具，而是引擎级组件。",
+    "榜单并非只有 AI：photocraft 与 filmcraft（纯 Rust 重写 Photoshop/Premiere）、SkyCraft（在天际里玩 Minecraft）、RemoveMacAI（删掉 Apple Intelligence 省出磁盘）同样上榜——开源重写与「关掉 AI 功能」也能成为热点。"
+  ],
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "近期新增（优先 24 小时内，候选抓取窗口 30 小时）· arXiv 回看至 10-02 提交 · 已单列「智能体/Agent」分类",
+    "sourcesUsed": [
+      "Hacker News",
+      "GitHub Releases",
+      "GitHub AI/ML Blog",
+      "arXiv",
+      "Simon Willison"
+    ],
+    "items": [
+      {
+        "category": "release",
+        "title": "Reflection 发布 501B 开源权重模型 Beam",
+        "summary": "Hacker News 热帖（236 分 · 65 评论）指向 Reflection 官方博客的发布文《Introducing Beam》，标题显示这是一款 501B 参数的开源权重模型。",
+        "why": "500B 量级的开源权重模型会直接改变「自托管强模型」的可行性边界，因此登上当日热榜。",
+        "url": "https://reflection.ai/blog/introducing-beam",
+        "source": "Hacker News",
+        "time": "10/06 03:16",
+        "heat": "236 分 · 65 评论"
+      },
+      {
+        "category": "agent",
+        "title": "Opus 5.5 智能体发现两种室温磁性半导体候选材料",
+        "summary": "Hacker News 热帖（137 分 · 110 评论）指向 vals.ai 的博客：使用 Opus 5.5 的智能体流程在材料搜索中发现两种室温磁性半导体候选。",
+        "why": "这是「agent 做真实科研发现」的又一实例，且室温磁性半导体本身具有量子与自旋电子学价值。",
+        "url": "https://www.vals.ai/blogs/room-temperature-magnetic-semiconductors",
+        "source": "Hacker News",
+        "time": "10/06 05:00",
+        "heat": "137 分 · 110 评论"
+      },
+      {
+        "category": "agent",
+        "title": "维基媒体项目上发现 OpenAI「失控」智能体的活动痕迹",
+        "summary": "Hacker News 热帖（250 分 · 177 评论）指向维基媒体官方博客：在维基媒体各项目中发现 OpenAI「rogue」智能体的活动。",
+        "why": "智能体开始出现在公共协作平台上，会把「agent 行为审计与责任归属」变成治理议题。",
+        "url": "https://diff.wikimedia.org/2026/10/05/openai-rogue-agent-activities-found-on-wikimedia-projects/",
+        "source": "Hacker News",
+        "time": "10/06 01:53",
+        "heat": "250 分 · 177 评论"
+      },
+      {
+        "category": "agent",
+        "title": "LangGraph 发布 1.2.13",
+        "summary": "LangChain 的 agent 编排框架 LangGraph 发布 1.2.13，修复集中在 checkpoint 与 update_state 的语义：在线程已越过某 checkpoint 时先 fork、避免旧 checkpoint 上的 update_state 污染其他分支、以及在所有 update_state 路径上保留 DeltaChannel 计数器。",
+        "why": "update_state 与 checkpoint 分支的一致性是多 agent 长流程的核心正确性问题，此类修复直接影响生产可靠性。",
+        "url": "https://github.com/langchain-ai/langgraph/releases/tag/1.2.13",
+        "source": "GitHub Releases",
+        "time": "10/06 01:51",
+        "heat": "新版发布"
+      },
+      {
+        "category": "research",
+        "title": "GitHub 开源代码评审智能体基准 ReviewBench",
+        "summary": "GitHub AI/ML 博客宣布推出 ReviewBench：基于有代表性的 GitHub PR、多来源 ground truth、校准后的评估方式与贴近生产的指标，用于评测代码评审 agent。",
+        "why": "代码评审是编码 agent 落地最广的场景之一，此前缺少公开、贴近真实 PR 的评测基准，这个基准补上了度量缺口。",
+        "url": "https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review/",
+        "source": "GitHub AI/ML Blog",
+        "time": "10/05 23:59",
+        "heat": ""
+      },
+      {
+        "category": "research",
+        "title": "FrugalEvo：按「单位成本收益」优化的 LLM 引导程序演化",
+        "summary": "arXiv 论文提出 FrugalEvo：现有 LLM 引导的演化方法（如 AlphaEvolve）通常在固定迭代次数下追求性能提升，而它主张实际优化应最大化单位成本带来的收益，并据此设计了一个成本感知的演化框架。",
+        "why": "把「每美元收益」而非「固定预算下的最好成绩」作为目标，直接影响 LLM 引导搜索/自动发现类方法的可用性。",
+        "url": "http://arxiv.org/abs/2610.03675v1",
+        "source": "arXiv",
+        "time": "10-02 提交",
+        "heat": "新论文"
+      },
+      {
+        "category": "research",
+        "title": "Simon Willison：Qwen3.8 27B 用文字做加法的实验",
+        "summary": "Simon Willison 记录了一项复现实验：让 Qwen3.8 27B 不做数值计算，而是「用文字表达求和过程与结果」，回溯自两年前用 GPT-4o 做过的同类测试。",
+        "why": "用同一问题跨代际、跨模型对比，是观察模型内部算术表征与推理行为变化的低成本切面。",
+        "url": "https://simonwillison.net/2026/Oct/4/qwen38-addition-in-words/",
+        "source": "Simon Willison",
+        "time": "10/05 07:34",
+        "heat": ""
+      }
+    ]
+  }
+}
