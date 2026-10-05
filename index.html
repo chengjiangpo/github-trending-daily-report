@@ -49,12 +49,12 @@
           <h2>2026-10-05<span class="wd">周一</span></h2>
           <span class="day-sub">日榜 15 · 周榜 5 · 20 个 Trending 项目</span>
         </div>
-        <details class="notes"><summary>数据说明</summary><ul><li>gh CLI 未登录，仓库与 Trending 数据全部改用 curl 直连 api.github.com / github.com 公共接口，未认证但请求成功。</li><li>github.com/trending 今日 06:00（北京时间）抓取成功：日榜 15 条（含各仓库 stars today 增量）。不足 20 条，按规则取周榜（stars this week）补位 5 条，来源标注 source=weekly，其余 15 条为 source=daily。</li><li>deepseek-ai/deepseek-harness（master）与 anomalyco/opencode（dev）在窗口内各 0 条提交，均写「过去 24 小时无新提交」（两者最新提交发生在窗口开始之前）；earendil-works/pi（main）窗口内 19 条提交，集中为 durable 子系统、coding-agent 修复与 v1.0.2 发版。</li><li>AI 前沿动态来源：Hacker News(Algolia，按 AI 相关性+热度过滤)、arXiv(cs.CL/AI/LG/MA/RO)、Simon Willison；本次 OpenAI Blog、GitHub Blog、Latent Space、CrewAI Blog、GitHub AI/ML Blog、GitHub Releases 均抓取成功但 0 条候选（非失败）。</li><li>arXiv 因索引滞后，相关条目回看至 96 小时内（提交日 10-01/10-02，time 字段标注北京时间）。跨源去重；抓取失败不影响其余部分。</li></ul></details>
+        <details class="notes"><summary>数据说明</summary><ul><li>gh CLI 未登录，仓库与提交数据均用 curl 直连 api.github.com 公共接口获取；本次重建于北京时间 10-05 16:54 执行，请求成功（未认证）。</li><li>github.com/trending 本次（16:54）不可达（HTTPS 超时，http=000），无法现场抓取；榜单沿用今日 06:00（北京时间）成功抓取的快照（日榜 15 条 + 周榜补位 5 条），并用 api.github.com 抽查若干仓库 star 数确认快照仍有效（仅小幅增长，未改写快照数值）。</li><li>提交窗口 since 2026-10-04T08:54Z（北京时间 10-04 16:54 至 10-05 16:54）：deepseek-ai/deepseek-harness（master）与 anomalyco/opencode（dev）默认分支窗口内各 0 条提交，均写「过去 24 小时无新提交」（opencode 今日有推送到其他分支，但默认分支 dev 无新提交）；earendil-works/pi（main）窗口内 24 条提交，含 v1.0.3 发版、Azure Foundry 支持、durable 子系统与 coding-agent 密集修复。</li><li>AI 前沿动态来源：Hacker News(Algolia，按 AI 相关性+热度过滤)、arXiv(cs.CL/AI/LG/MA/RO)、Anthropic News、量子位；本次 OpenAI Blog、Google DeepMind、Google AI Blog、Simon Willison、GitHub Blog、Latent Space、CrewAI Blog、GitHub AI/ML Blog、GitHub Releases 均抓取成功但 0 条候选（非失败）；官方大模型博客今日无当日新内容。</li><li>量子位正文页本次返回 403，相关条目仅依据候选的标题与摘要整理，未作超出其内容的推断；arXiv 因索引滞后回看至 96 小时内（提交日 10-02，time 字段为北京时间）；跨源去重；抓取失败不影响其余部分。</li></ul></details>
         
           <section class="block">
             <div class="block-head">
               <h3><span class="ico">🧩</span>仓库提交简报</h3>
-              <span class="block-sub">过去 24 小时（since 2026-10-03T22:00Z，时间已换算为北京时间）</span>
+              <span class="block-sub">过去 24 小时（since 2026-10-04T08:54Z，时间已换算为北京时间）</span>
             </div>
             <div class="repo-grid">
               <div class="repo-block" style="--c:#5B9BFF">
@@ -70,8 +70,57 @@
                 </ul>
               </div>
               <div class="repo-block" style="--c:#A06BFF">
-                <div class="rb-head"><h4>earendil-works/pi</h4><span class="rb-meta">main · 24h 内 19 条提交 · durable 子系统集中提交，另发布 v1.0.2</span></div>
+                <div class="rb-head"><h4>earendil-works/pi</h4><span class="rb-meta">main · 24h 内 24 条提交 · 发布 v1.0.3，durable 子系统与 coding-agent 修复密集</span></div>
                 <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(coding-agent)：多行 token 保持语法高亮（#10356）</div>
+                    <div class="c-meta">编码 agent 修复 · Ramiz Wachtler · 10-05 16:35</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">Release v1.0.3 + 开启下一周期 [Unreleased] 段</div>
+                    <div class="c-meta">版本发布 · Armin Ronacher · 10-05 16:21</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">docs(coding-agent)：changelog 补充新功能</div>
+                    <div class="c-meta">文档更新 · Armin Ronacher · 10-05 16:02</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(tui)：全屏模式下保留编辑器的 Home/End 键</div>
+                    <div class="c-meta">交互修复 · Armin Ronacher · 10-05 15:53</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(ai)：支持 Azure Foundry Chat Completions 部署（#9714）</div>
+                    <div class="c-meta">模型接入扩展 · Justin Santer · 10-05 15:46</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(coding-agent)：不要把终端 stdin 失效误报为崩溃</div>
+                    <div class="c-meta">稳定性修复 · Armin Ronacher · 10-05 06:41</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(coding-agent,durable)：修复 CI 测试桩与 macOS watch 启动竞态</div>
+                    <div class="c-meta">修复 · Armin Ronacher · 10-05 06:02</div>
+                  </div>
+                </li>
                 <li>
                   <span class="dot"></span>
                   <div>
@@ -82,14 +131,7 @@
                 <li>
                   <span class="dot"></span>
                   <div>
-                    <div class="c-title">fix(durable)：在 Windows 上轮询 watch（打开监听的目录会阻塞其父目录重命名）</div>
-                    <div class="c-meta">Windows 兼容修复 · Mario Zechner · 10-05 05:06</div>
-                  </div>
-                </li>
-                <li>
-                  <span class="dot"></span>
-                  <div>
-                    <div class="c-title">feat(durable)：新增 FileSystem.watch</div>
+                    <div class="c-title">feat(durable)：新增 FileSystem.watch（含 Windows / macOS 修复）</div>
                     <div class="c-meta">文件系统监听能力 · Mario Zechner · 10-05 05:00</div>
                   </div>
                 </li>
@@ -103,43 +145,8 @@
                 <li>
                   <span class="dot"></span>
                   <div>
-                    <div class="c-title">feat(durable)：窗口化 shell 输出并统计被跳过的行数</div>
-                    <div class="c-meta">输出截断可观测 · Mario Zechner · 10-05 04:43</div>
-                  </div>
-                </li>
-                <li>
-                  <span class="dot"></span>
-                  <div>
-                    <div class="c-title">feat(durable)：进度提交间隔可配置</div>
-                    <div class="c-meta">可配置性增强 · Mario Zechner · 10-05 04:27</div>
-                  </div>
-                </li>
-                <li>
-                  <span class="dot"></span>
-                  <div>
                     <div class="c-title">fix(ai,coding-agent)：刷新被取消时仍持久化已轮换的 OAuth token</div>
                     <div class="c-meta">登录态稳定性修复 · Armin Ronacher · 10-05 03:48</div>
-                  </div>
-                </li>
-                <li>
-                  <span class="dot"></span>
-                  <div>
-                    <div class="c-title">feat(ai)：新增按思考档位（thinking level）的采样参数（#9776）</div>
-                    <div class="c-meta">推理可控性增强 · Duncan Ogilvie · 10-04 07:29</div>
-                  </div>
-                </li>
-                <li>
-                  <span class="dot"></span>
-                  <div>
-                    <div class="c-title">Release v1.0.2 + 开启下一周期 [Unreleased] 段</div>
-                    <div class="c-meta">版本发布 · Armin Ronacher · 10-04 08:41</div>
-                  </div>
-                </li>
-                <li>
-                  <span class="dot"></span>
-                  <div>
-                    <div class="c-title">fix(durable)：持久化 provider 会话身份</div>
-                    <div class="c-meta">会话稳定性 · Mario Zechner · 10-04 06:54</div>
                   </div>
                 </li>
                 </ul>
@@ -151,7 +158,7 @@
                   <span class="dot"></span>
                   <div>
                     <div class="c-title">过去 24 小时无新提交</div>
-                    <div class="c-meta">窗口内 0 条；最新提交为 10-03 12:55（Zen 文档补充 Fledge Alpha Free） ·  · </div>
+                    <div class="c-meta">默认分支 dev 窗口内 0 条；最新提交为 10-03 12:55（Zen 文档补充 Fledge Alpha Free） ·  · </div>
                   </div>
                 </li>
                 </ul>
@@ -489,91 +496,80 @@
         
           <section class="block">
             <div class="block-head"><h3><span class="ico">🔭</span>趋势观察</h3></div>
-            <ul class="obs"><li style="--c:#5B9BFF"><span class="num">1</span><p>今日榜单依旧被 agent 生态占据：Paperclip（团队级 agent 编排，周增 1.07 万）、Hindsight（会学习的 agent 记忆，周增 1.45 万）、Agent-Reach、agent-skills、claude-mem、t3code 同榜，竞争焦点从「单个 agent 好不好用」转向「团队的编排、记忆与预算治理」。</p></li><li style="--c:#A06BFF"><span class="num">2</span><p>skill 仍是最大公约数：impeccable（设计）、marketingskills（营销）、agent-skills（工程流程）、text-to-cad（CAD）、hyperframes（HTML→视频）把「怎么让 agent 干得好」拆成可安装的 skill，不少还内置确定性检查（impeccable 的 61 条规则无需 LLM 即可本地运行）。</p></li><li style="--c:#2FD6A6"><span class="num">3</span><p>本地化与自托管持续升温：antirez 的 ds4（DeepSeek V4 本地推理引擎）与 VoiceStudio（本地 ElevenLabs 替代，周增 1.68 万）说明「在自有硬件上跑强模型/语音」是明确需求，数据不出本地也成卖点。</p></li><li style="--c:#FFB13B"><span class="num">4</span><p>内容生产正被 agent 改写：OpenMontage（1.33 美元生成 60 秒短片）、hyperframes（HTML→确定性 MP4）与 OpenCut（重写后带面向 agent 的 MCP server）把视频流水线交给 agent，门槛与成本同时下探。</p></li><li style="--c:#FF7AB6"><span class="num">5</span><p>经典基础设施照常上榜：Caddy、Sentry、Effect 4.x（LTS）说明榜单并非只有 AI，但 AI 项目仍占据绝对多数，且发布节奏在加快（pi 24 小时内 19 条提交）。</p></li>
+            <ul class="obs"><li style="--c:#5B9BFF"><span class="num">1</span><p>今日榜单依旧被 agent 生态占据：Paperclip（团队级 agent 编排，周增 1.07 万）、Hindsight（会学习的 agent 记忆，周增 1.45 万）、Agent-Reach、agent-skills、claude-mem、t3code 同榜，竞争焦点从「单个 agent 好不好用」转向「团队的编排、记忆与预算治理」。</p></li><li style="--c:#A06BFF"><span class="num">2</span><p>skill 仍是最大公约数：impeccable（设计）、marketingskills（营销）、agent-skills（工程流程）、text-to-cad（CAD）、hyperframes（HTML→视频）把「怎么让 agent 干得好」拆成可安装的 skill，不少还内置确定性检查（impeccable 的 61 条规则无需 LLM 即可本地运行）。</p></li><li style="--c:#2FD6A6"><span class="num">3</span><p>本地化与自托管持续升温：antirez 的 ds4（DeepSeek V4 本地推理引擎）与 VoiceStudio（本地 ElevenLabs 替代，周增 1.68 万）说明「在自有硬件上跑强模型/语音」是明确需求，数据不出本地也成卖点；HN 上「单张 4090 跑 125B 模型」持续高居热度榜。</p></li><li style="--c:#FFB13B"><span class="num">4</span><p>内容生产正被 agent 改写：OpenMontage（1.33 美元生成 60 秒短片）、hyperframes（HTML→确定性 MP4）与 OpenCut（重写后带面向 agent 的 MCP server）把视频流水线交给 agent，门槛与成本同时下探。</p></li><li style="--c:#FF7AB6"><span class="num">5</span><p>经典基础设施照常上榜：Caddy、Sentry、Effect 4.x（LTS）说明榜单并非只有 AI，但 AI 项目仍占绝对多数；发布节奏也在加快——pi 过去 24 小时内 24 条提交并发布 v1.0.3。</p></li>
             </ul>
           </section>
         
           <section class="block">
             <div class="block-head">
               <h3><span class="ico">🧠</span>AI 前沿动态</h3>
-              <span class="block-sub">过去 24 小时（arXiv 因索引滞后回看至 10-02）· 已单列「智能体/Agent」分类 · 源：Hacker News / arXiv / Simon Willison</span>
+              <span class="block-sub">过去 24 小时（arXiv 因索引滞后回看至 10-02 提交）· 已单列「智能体/Agent」分类 · 源：Hacker News / arXiv / 量子位</span>
             </div>
             <div class="grid">
-            <article class="card news" style="--c:#2FD6A6" data-src="news" data-text="在单张 rtx 4090 上以 100 tok/s 跑 125b 的 qwen 3.8 flash next 开源项目 strata 演示在消费级 rtx 4090 上以约 100 tokens/s 运行 125b 参数的 qwen 3.8 flash next。 把「125b 级模型跑在单张消费卡上」从概念推到可复现速度，是本地推理效率的重要参考点。 hacker news">
+            <article class="card news" style="--c:#A06BFF" data-src="news" data-text="hinton 发表首篇 rsi（递归自我改进）论文 据量子位报道，hinton 发布其首篇关于 rsi 的论文，指向让 ai 进入「造下一代 ai」的流水线。 递归自我改进被视为通向更强智能的关键路径之一，顶级学者入场会显著影响该方向的研究与治理讨论。 量子位">
               <div class="card-body">
                 <div class="card-top">
-                  <a class="repo" href="https://github.com/Niko1221/Strata" target="_blank" rel="noreferrer">在单张 RTX 4090 上以 100 tok/s 跑 125B 的 Qwen 3.8 Flash Next</a>
-                  <span class="badge cat">开源/工具</span>
-                </div>
-                <p class="summary">开源项目 Strata 演示在消费级 RTX 4090 上以约 100 tokens/s 运行 125B 参数的 Qwen 3.8 Flash Next。</p>
-                <p class="hl">为什么重要：把「125B 级模型跑在单张消费卡上」从概念推到可复现速度，是本地推理效率的重要参考点。</p>
-                <div class="meta"><span>Hacker News</span><span>10/04 20:51</span><span>507 分 · 252 评论</span></div>
-              </div>
-            </article>
-            <article class="card news" style="--c:#22D3EE" data-src="news" data-text="「agent 不需要记忆，需要文档」 一篇高热度文章主张：与其给 agent 堆持久记忆，不如把项目知识写成清晰、结构化的文档供其检索。 直接切中当下 agent 记忆/上下文工程的主流做法，hn 330 分、202 条评论，观点交锋激烈，值得对照自己的 agent 设计。 hacker news">
-              <div class="card-body">
-                <div class="card-top">
-                  <a class="repo" href="https://liao.gg/blog/agents-dont-need-memory" target="_blank" rel="noreferrer">「Agent 不需要记忆，需要文档」</a>
-                  <span class="badge cat">智能体/Agent</span>
-                </div>
-                <p class="summary">一篇高热度文章主张：与其给 agent 堆持久记忆，不如把项目知识写成清晰、结构化的文档供其检索。</p>
-                <p class="hl">为什么重要：直接切中当下 agent 记忆/上下文工程的主流做法，HN 330 分、202 条评论，观点交锋激烈，值得对照自己的 agent 设计。</p>
-                <div class="meta"><span>Hacker News</span><span>10/04 01:03</span><span>330 分 · 202 评论</span></div>
-              </div>
-            </article>
-            <article class="card news" style="--c:#22D3EE" data-src="news" data-text="arxiv：kalibench——网络安全场景的智能体工具调用基准 针对「把分析师意图翻译成 kali linux 工具调用」设计细粒度基准，并提供无需运行时的可验证奖励。 工具调用是 agent 落地的核心能力，安全运维是少数能明确验证对错的场景，很适合作为评测标杆。 arxiv (cs.ai)">
-              <div class="card-body">
-                <div class="card-top">
-                  <a class="repo" href="http://arxiv.org/abs/2610.02206v1" target="_blank" rel="noreferrer">arXiv：KaliBench——网络安全场景的智能体工具调用基准</a>
-                  <span class="badge cat">智能体/Agent</span>
-                </div>
-                <p class="summary">针对「把分析师意图翻译成 Kali Linux 工具调用」设计细粒度基准，并提供无需运行时的可验证奖励。</p>
-                <p class="hl">为什么重要：工具调用是 agent 落地的核心能力，安全运维是少数能明确验证对错的场景，很适合作为评测标杆。</p>
-                <div class="meta"><span>arXiv (cs.AI)</span><span>10/02 提交</span><span>新论文</span></div>
-              </div>
-            </article>
-            <article class="card news" style="--c:#A06BFF" data-src="news" data-text="arxiv：taco——三值单稀疏优化器，显著降低 llm 全参微调显存 提出三值化 + 按列绝对最大值单稀疏的优化器状态表示，压缩微调显存占用。 全参微调的显存瓶颈是高频工程痛点，此类优化器改动小、收益直接，可与 muon 等路线对照。 arxiv (cs.lg)">
-              <div class="card-body">
-                <div class="card-top">
-                  <a class="repo" href="http://arxiv.org/abs/2610.02199v1" target="_blank" rel="noreferrer">arXiv：TACO——三值单稀疏优化器，显著降低 LLM 全参微调显存</a>
+                  <a class="repo" href="https://www.qbitai.com/2026/10/501705.html" target="_blank" rel="noreferrer">Hinton 发表首篇 RSI（递归自我改进）论文</a>
                   <span class="badge cat">研究/论文</span>
                 </div>
-                <p class="summary">提出三值化 + 按列绝对最大值单稀疏的优化器状态表示，压缩微调显存占用。</p>
-                <p class="hl">为什么重要：全参微调的显存瓶颈是高频工程痛点，此类优化器改动小、收益直接，可与 Muon 等路线对照。</p>
-                <div class="meta"><span>arXiv (cs.LG)</span><span>10/02 提交</span><span>新论文</span></div>
+                <p class="summary">据量子位报道，Hinton 发布其首篇关于 RSI 的论文，指向让 AI 进入「造下一代 AI」的流水线。</p>
+                <p class="hl">为什么重要：递归自我改进被视为通向更强智能的关键路径之一，顶级学者入场会显著影响该方向的研究与治理讨论。</p>
+                <div class="meta"><span>量子位</span><span>10/05 12:42</span></div>
               </div>
             </article>
-            <article class="card news" style="--c:#FF8A4C" data-src="news" data-text="lecun 称对「ai 灭绝人类」零担忧，并批 dario amodei 被欺骗 图灵奖得主 yann lecun 表示自己对 ai 导致人类灭绝以及近期「失控」事件零担忧，并公开批评 anthropic ceo dario amodei。 顶级科学家之间的公开路线分歧持续扩大，会影响公众叙事与政策讨论；hn 371 分、668 条评论说明关注度极高。 hacker news">
+            <article class="card news" style="--c:#FF8A4C" data-src="news" data-text="openai 推出「没新功能就重置」的 28 天限时机制 据量子位报道，openai 设置 28 天限时窗口，承诺没有新功能就「重置」，网友反馈更想要 opus。 反映产品竞争压力下用「不改进就重置」争取用户，也侧面显示 opus 在用户心中的分量。 量子位">
               <div class="card-body">
                 <div class="card-top">
-                  <a class="repo" href="https://fortune.com/2026/10/01/ai-godfather-yann-lecun-has-zero-concerns-about-human-extinction-says-anthropic-ceo-dario-amodei-is-deuded/" target="_blank" rel="noreferrer">LeCun 称对「AI 灭绝人类」零担忧，并批 Dario Amodei 被欺骗</a>
+                  <a class="repo" href="https://www.qbitai.com/2026/10/501700.html" target="_blank" rel="noreferrer">OpenAI 推出「没新功能就重置」的 28 天限时机制</a>
                   <span class="badge cat">行业动态</span>
                 </div>
-                <p class="summary">图灵奖得主 Yann LeCun 表示自己对 AI 导致人类灭绝以及近期「失控」事件零担忧，并公开批评 Anthropic CEO Dario Amodei。</p>
-                <p class="hl">为什么重要：顶级科学家之间的公开路线分歧持续扩大，会影响公众叙事与政策讨论；HN 371 分、668 条评论说明关注度极高。</p>
-                <div class="meta"><span>Hacker News</span><span>10/04 01:44</span><span>371 分 · 668 评论</span></div>
+                <p class="summary">据量子位报道，OpenAI 设置 28 天限时窗口，承诺没有新功能就「重置」，网友反馈更想要 Opus。</p>
+                <p class="hl">为什么重要：反映产品竞争压力下用「不改进就重置」争取用户，也侧面显示 Opus 在用户心中的分量。</p>
+                <div class="meta"><span>量子位</span><span>10/05 10:50</span></div>
               </div>
             </article>
-            <article class="card news" style="--c:#FF8A4C" data-src="news" data-text="simon willison：ai 产品需要默认的硬性预算上限 指出按用量计费的服务普遍缺少「硬预算上限」，一旦循环调用或失控重试就可能烧钱，呼吁把它做成默认能力（硬限流而非仅告警）。 对任何接入 llm api 的项目都是现实风险：成本失控是最普遍的运维事故，这条给出了明确的设计方向。 simon willison">
+            <article class="card news" style="--c:#A06BFF" data-src="news" data-text="homa：面向 ai 集群的传输协议，主张取代 tcp hacker news 热帖（73 分）讨论数据中心 ai 集群的新传输协议 homa，主张以之取代 tcp。 ai 训练集群的网络延迟与带宽是关键瓶颈，传输层创新可能直接影响大规模训练效率。 hacker news">
               <div class="card-body">
                 <div class="card-top">
-                  <a class="repo" href="https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/" target="_blank" rel="noreferrer">Simon Willison：AI 产品需要默认的硬性预算上限</a>
-                  <span class="badge cat">行业动态</span>
+                  <a class="repo" href="https://www.youtube.com/watch?v=eZ8WWZzoaR0" target="_blank" rel="noreferrer">Homa：面向 AI 集群的传输协议，主张取代 TCP</a>
+                  <span class="badge cat">研究/论文</span>
                 </div>
-                <p class="summary">指出按用量计费的服务普遍缺少「硬预算上限」，一旦循环调用或失控重试就可能烧钱，呼吁把它做成默认能力（硬限流而非仅告警）。</p>
-                <p class="hl">为什么重要：对任何接入 LLM API 的项目都是现实风险：成本失控是最普遍的运维事故，这条给出了明确的设计方向。</p>
-                <div class="meta"><span>Simon Willison</span><span>10/04 07:34</span></div>
+                <p class="summary">Hacker News 热帖（73 分）讨论数据中心 AI 集群的新传输协议 Homa，主张以之取代 TCP。</p>
+                <p class="hl">为什么重要：AI 训练集群的网络延迟与带宽是关键瓶颈，传输层创新可能直接影响大规模训练效率。</p>
+                <div class="meta"><span>Hacker News</span><span>10/05 03:42</span><span>73 分 · 38 评论</span></div>
               </div>
             </article>
-            <article class="card news" style="--c:#FF8A4C" data-src="news" data-text="宗教伦理学者与 anthropic 会面，讨论 claude 的道德对齐 纽约时报报道，宗教伦理学者与 anthropic 会面，就 claude 的道德与价值取向进行交流咨询。 价值对齐正引入人文学科视角，反映前沿实验室在「模型该持何价值观」上主动寻求外部输入；hn 154 分、386 条评论，争论集中。 hacker news">
+            <article class="card news" style="--c:#22D3EE" data-src="news" data-text="arxiv：queen——会下棋并解释走法的 4b 语言模型 提出 queen：4b 参数的棋类语言模型，在保持较强棋力的同时能解释自己的走法与计划，弥补传统棋引擎「沉默专家」的不足。 把「高水平决策 + 可解释」结合起来，对需要可解释性的 agent 决策场景有直接借鉴意义。 arxiv">
               <div class="card-body">
                 <div class="card-top">
-                  <a class="repo" href="https://www.nytimes.com/2026/09/29/us/anthropic-claude-morals-ai.html" target="_blank" rel="noreferrer">宗教伦理学者与 Anthropic 会面，讨论 Claude 的道德对齐</a>
-                  <span class="badge cat">行业动态</span>
+                  <a class="repo" href="http://arxiv.org/abs/2610.03695v1" target="_blank" rel="noreferrer">arXiv：Queen——会下棋并解释走法的 4B 语言模型</a>
+                  <span class="badge cat">智能体/Agent</span>
                 </div>
-                <p class="summary">纽约时报报道，宗教伦理学者与 Anthropic 会面，就 Claude 的道德与价值取向进行交流咨询。</p>
-                <p class="hl">为什么重要：价值对齐正引入人文学科视角，反映前沿实验室在「模型该持何价值观」上主动寻求外部输入；HN 154 分、386 条评论，争论集中。</p>
-                <div class="meta"><span>Hacker News</span><span>10/04 10:34</span><span>154 分 · 386 评论</span></div>
+                <p class="summary">提出 Queen：4B 参数的棋类语言模型，在保持较强棋力的同时能解释自己的走法与计划，弥补传统棋引擎「沉默专家」的不足。</p>
+                <p class="hl">为什么重要：把「高水平决策 + 可解释」结合起来，对需要可解释性的 agent 决策场景有直接借鉴意义。</p>
+                <div class="meta"><span>arXiv</span><span>10/02 提交</span><span>新论文</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#22D3EE" data-src="news" data-text="arxiv：4dcodebench——以代码生成评测智能体的 4d 逆图形能力 提出 4dcodebench：让 agent 从视频重建动态场景，并生成可执行的图形程序（含物理模拟等抽象）来复现复杂行为。 把「动态场景理解 + 代码生成」合成可评测任务，为多模态 agent 的空间与物理推理提供新基准。 arxiv">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="http://arxiv.org/abs/2610.03715v1" target="_blank" rel="noreferrer">arXiv：4DCodeBench——以代码生成评测智能体的 4D 逆图形能力</a>
+                  <span class="badge cat">智能体/Agent</span>
+                </div>
+                <p class="summary">提出 4DCodeBench：让 agent 从视频重建动态场景，并生成可执行的图形程序（含物理模拟等抽象）来复现复杂行为。</p>
+                <p class="hl">为什么重要：把「动态场景理解 + 代码生成」合成可评测任务，为多模态 agent 的空间与物理推理提供新基准。</p>
+                <div class="meta"><span>arXiv</span><span>10/02 提交</span><span>新论文</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#A06BFF" data-src="news" data-text="arxiv：frugalevo——成本感知的 llm 引导程序进化 针对 alphaevolve 类方法只看固定迭代次数的性能增益，提出按「单位成本收益」优化的进化框架 frugalevo。 llm 引导的程序搜索/进化正被广泛用于优化任务，把成本纳入目标让这类方法更贴近实际可用性。 arxiv">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="http://arxiv.org/abs/2610.03675v1" target="_blank" rel="noreferrer">arXiv：FrugalEvo——成本感知的 LLM 引导程序进化</a>
+                  <span class="badge cat">研究/论文</span>
+                </div>
+                <p class="summary">针对 AlphaEvolve 类方法只看固定迭代次数的性能增益，提出按「单位成本收益」优化的进化框架 FrugalEvo。</p>
+                <p class="hl">为什么重要：LLM 引导的程序搜索/进化正被广泛用于优化任务，把成本纳入目标让这类方法更贴近实际可用性。</p>
+                <div class="meta"><span>arXiv</span><span>10-02 提交</span><span>新论文</span></div>
               </div>
             </article>
             </div>
@@ -610,7 +606,7 @@
   </main>
 
   <footer>
-    <span>生成时间：2026-10-04T22:07:36.555Z · 原始数据：<code>data/*.json</code></span>
+    <span>生成时间：2026-10-05T08:56:50.930Z · 原始数据：<code>data/*.json</code></span>
     <span>Generated by OpenClaw · <a href="https://github.com/chengjiangpo/github-trending-daily-report">仓库源码</a></span>
   </footer>
 </div>

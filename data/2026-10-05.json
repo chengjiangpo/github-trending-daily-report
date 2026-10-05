@@ -2,15 +2,15 @@
   "date": "2026-10-05",
   "title": "GitHub 每日情报日报",
   "dataNotes": [
-    "gh CLI 未登录，仓库与 Trending 数据全部改用 curl 直连 api.github.com / github.com 公共接口，未认证但请求成功。",
-    "github.com/trending 今日 06:00（北京时间）抓取成功：日榜 15 条（含各仓库 stars today 增量）。不足 20 条，按规则取周榜（stars this week）补位 5 条，来源标注 source=weekly，其余 15 条为 source=daily。",
-    "deepseek-ai/deepseek-harness（master）与 anomalyco/opencode（dev）在窗口内各 0 条提交，均写「过去 24 小时无新提交」（两者最新提交发生在窗口开始之前）；earendil-works/pi（main）窗口内 19 条提交，集中为 durable 子系统、coding-agent 修复与 v1.0.2 发版。",
-    "AI 前沿动态来源：Hacker News(Algolia，按 AI 相关性+热度过滤)、arXiv(cs.CL/AI/LG/MA/RO)、Simon Willison；本次 OpenAI Blog、GitHub Blog、Latent Space、CrewAI Blog、GitHub AI/ML Blog、GitHub Releases 均抓取成功但 0 条候选（非失败）。",
-    "arXiv 因索引滞后，相关条目回看至 96 小时内（提交日 10-01/10-02，time 字段标注北京时间）。跨源去重；抓取失败不影响其余部分。"
+    "gh CLI 未登录，仓库与提交数据均用 curl 直连 api.github.com 公共接口获取；本次重建于北京时间 10-05 16:54 执行，请求成功（未认证）。",
+    "github.com/trending 本次（16:54）不可达（HTTPS 超时，http=000），无法现场抓取；榜单沿用今日 06:00（北京时间）成功抓取的快照（日榜 15 条 + 周榜补位 5 条），并用 api.github.com 抽查若干仓库 star 数确认快照仍有效（仅小幅增长，未改写快照数值）。",
+    "提交窗口 since 2026-10-04T08:54Z（北京时间 10-04 16:54 至 10-05 16:54）：deepseek-ai/deepseek-harness（master）与 anomalyco/opencode（dev）默认分支窗口内各 0 条提交，均写「过去 24 小时无新提交」（opencode 今日有推送到其他分支，但默认分支 dev 无新提交）；earendil-works/pi（main）窗口内 24 条提交，含 v1.0.3 发版、Azure Foundry 支持、durable 子系统与 coding-agent 密集修复。",
+    "AI 前沿动态来源：Hacker News(Algolia，按 AI 相关性+热度过滤)、arXiv(cs.CL/AI/LG/MA/RO)、Anthropic News、量子位；本次 OpenAI Blog、Google DeepMind、Google AI Blog、Simon Willison、GitHub Blog、Latent Space、CrewAI Blog、GitHub AI/ML Blog、GitHub Releases 均抓取成功但 0 条候选（非失败）；官方大模型博客今日无当日新内容。",
+    "量子位正文页本次返回 403，相关条目仅依据候选的标题与摘要整理，未作超出其内容的推断；arXiv 因索引滞后回看至 96 小时内（提交日 10-02，time 字段为北京时间）；跨源去重；抓取失败不影响其余部分。"
   ],
   "commits": {
     "title": "仓库提交简报",
-    "window": "过去 24 小时（since 2026-10-03T22:00Z，时间已换算为北京时间）",
+    "window": "过去 24 小时（since 2026-10-04T08:54Z，时间已换算为北京时间）",
     "repos": [
       {
         "name": "deepseek-ai/deepseek-harness",
@@ -26,8 +26,50 @@
       },
       {
         "name": "earendil-works/pi",
-        "meta": "main · 24h 内 19 条提交 · durable 子系统集中提交，另发布 v1.0.2",
+        "meta": "main · 24h 内 24 条提交 · 发布 v1.0.3，durable 子系统与 coding-agent 修复密集",
         "items": [
+          {
+            "title": "fix(coding-agent)：多行 token 保持语法高亮（#10356）",
+            "desc": "编码 agent 修复",
+            "author": "Ramiz Wachtler",
+            "time": "10-05 16:35"
+          },
+          {
+            "title": "Release v1.0.3 + 开启下一周期 [Unreleased] 段",
+            "desc": "版本发布",
+            "author": "Armin Ronacher",
+            "time": "10-05 16:21"
+          },
+          {
+            "title": "docs(coding-agent)：changelog 补充新功能",
+            "desc": "文档更新",
+            "author": "Armin Ronacher",
+            "time": "10-05 16:02"
+          },
+          {
+            "title": "fix(tui)：全屏模式下保留编辑器的 Home/End 键",
+            "desc": "交互修复",
+            "author": "Armin Ronacher",
+            "time": "10-05 15:53"
+          },
+          {
+            "title": "feat(ai)：支持 Azure Foundry Chat Completions 部署（#9714）",
+            "desc": "模型接入扩展",
+            "author": "Justin Santer",
+            "time": "10-05 15:46"
+          },
+          {
+            "title": "fix(coding-agent)：不要把终端 stdin 失效误报为崩溃",
+            "desc": "稳定性修复",
+            "author": "Armin Ronacher",
+            "time": "10-05 06:41"
+          },
+          {
+            "title": "fix(coding-agent,durable)：修复 CI 测试桩与 macOS watch 启动竞态",
+            "desc": "修复",
+            "author": "Armin Ronacher",
+            "time": "10-05 06:02"
+          },
           {
             "title": "feat(coding-agent)：codemode 的 image() 输出改为写入临时文件",
             "desc": "编码 agent 能力增强",
@@ -35,13 +77,7 @@
             "time": "10-05 05:32"
           },
           {
-            "title": "fix(durable)：在 Windows 上轮询 watch（打开监听的目录会阻塞其父目录重命名）",
-            "desc": "Windows 兼容修复",
-            "author": "Mario Zechner",
-            "time": "10-05 05:06"
-          },
-          {
-            "title": "feat(durable)：新增 FileSystem.watch",
+            "title": "feat(durable)：新增 FileSystem.watch（含 Windows / macOS 修复）",
             "desc": "文件系统监听能力",
             "author": "Mario Zechner",
             "time": "10-05 05:00"
@@ -53,40 +89,10 @@
             "time": "10-05 04:54"
           },
           {
-            "title": "feat(durable)：窗口化 shell 输出并统计被跳过的行数",
-            "desc": "输出截断可观测",
-            "author": "Mario Zechner",
-            "time": "10-05 04:43"
-          },
-          {
-            "title": "feat(durable)：进度提交间隔可配置",
-            "desc": "可配置性增强",
-            "author": "Mario Zechner",
-            "time": "10-05 04:27"
-          },
-          {
             "title": "fix(ai,coding-agent)：刷新被取消时仍持久化已轮换的 OAuth token",
             "desc": "登录态稳定性修复",
             "author": "Armin Ronacher",
             "time": "10-05 03:48"
-          },
-          {
-            "title": "feat(ai)：新增按思考档位（thinking level）的采样参数（#9776）",
-            "desc": "推理可控性增强",
-            "author": "Duncan Ogilvie",
-            "time": "10-04 07:29"
-          },
-          {
-            "title": "Release v1.0.2 + 开启下一周期 [Unreleased] 段",
-            "desc": "版本发布",
-            "author": "Armin Ronacher",
-            "time": "10-04 08:41"
-          },
-          {
-            "title": "fix(durable)：持久化 provider 会话身份",
-            "desc": "会话稳定性",
-            "author": "Mario Zechner",
-            "time": "10-04 06:54"
           }
         ]
       },
@@ -96,7 +102,7 @@
         "items": [
           {
             "title": "过去 24 小时无新提交",
-            "desc": "窗口内 0 条；最新提交为 10-03 12:55（Zen 文档补充 Fledge Alpha Free）",
+            "desc": "默认分支 dev 窗口内 0 条；最新提交为 10-03 12:55（Zen 文档补充 Fledge Alpha Free）",
             "author": "",
             "time": ""
           }
@@ -336,88 +342,78 @@
   "observation": [
     "今日榜单依旧被 agent 生态占据：Paperclip（团队级 agent 编排，周增 1.07 万）、Hindsight（会学习的 agent 记忆，周增 1.45 万）、Agent-Reach、agent-skills、claude-mem、t3code 同榜，竞争焦点从「单个 agent 好不好用」转向「团队的编排、记忆与预算治理」。",
     "skill 仍是最大公约数：impeccable（设计）、marketingskills（营销）、agent-skills（工程流程）、text-to-cad（CAD）、hyperframes（HTML→视频）把「怎么让 agent 干得好」拆成可安装的 skill，不少还内置确定性检查（impeccable 的 61 条规则无需 LLM 即可本地运行）。",
-    "本地化与自托管持续升温：antirez 的 ds4（DeepSeek V4 本地推理引擎）与 VoiceStudio（本地 ElevenLabs 替代，周增 1.68 万）说明「在自有硬件上跑强模型/语音」是明确需求，数据不出本地也成卖点。",
+    "本地化与自托管持续升温：antirez 的 ds4（DeepSeek V4 本地推理引擎）与 VoiceStudio（本地 ElevenLabs 替代，周增 1.68 万）说明「在自有硬件上跑强模型/语音」是明确需求，数据不出本地也成卖点；HN 上「单张 4090 跑 125B 模型」持续高居热度榜。",
     "内容生产正被 agent 改写：OpenMontage（1.33 美元生成 60 秒短片）、hyperframes（HTML→确定性 MP4）与 OpenCut（重写后带面向 agent 的 MCP server）把视频流水线交给 agent，门槛与成本同时下探。",
-    "经典基础设施照常上榜：Caddy、Sentry、Effect 4.x（LTS）说明榜单并非只有 AI，但 AI 项目仍占据绝对多数，且发布节奏在加快（pi 24 小时内 19 条提交）。"
+    "经典基础设施照常上榜：Caddy、Sentry、Effect 4.x（LTS）说明榜单并非只有 AI，但 AI 项目仍占绝对多数；发布节奏也在加快——pi 过去 24 小时内 24 条提交并发布 v1.0.3。"
   ],
   "aiNews": {
     "title": "AI 前沿动态",
-    "window": "过去 24 小时（arXiv 因索引滞后回看至 10-02）· 已单列「智能体/Agent」分类",
+    "window": "过去 24 小时（arXiv 因索引滞后回看至 10-02 提交）· 已单列「智能体/Agent」分类",
     "sourcesUsed": [
       "Hacker News",
       "arXiv",
-      "Simon Willison"
+      "量子位"
     ],
     "items": [
       {
-        "category": "oss",
-        "title": "在单张 RTX 4090 上以 100 tok/s 跑 125B 的 Qwen 3.8 Flash Next",
-        "summary": "开源项目 Strata 演示在消费级 RTX 4090 上以约 100 tokens/s 运行 125B 参数的 Qwen 3.8 Flash Next。",
-        "why": "把「125B 级模型跑在单张消费卡上」从概念推到可复现速度，是本地推理效率的重要参考点。",
-        "url": "https://github.com/Niko1221/Strata",
+        "category": "research",
+        "title": "Hinton 发表首篇 RSI（递归自我改进）论文",
+        "summary": "据量子位报道，Hinton 发布其首篇关于 RSI 的论文，指向让 AI 进入「造下一代 AI」的流水线。",
+        "why": "递归自我改进被视为通向更强智能的关键路径之一，顶级学者入场会显著影响该方向的研究与治理讨论。",
+        "url": "https://www.qbitai.com/2026/10/501705.html",
+        "source": "量子位",
+        "time": "10/05 12:42",
+        "heat": ""
+      },
+      {
+        "category": "industry",
+        "title": "OpenAI 推出「没新功能就重置」的 28 天限时机制",
+        "summary": "据量子位报道，OpenAI 设置 28 天限时窗口，承诺没有新功能就「重置」，网友反馈更想要 Opus。",
+        "why": "反映产品竞争压力下用「不改进就重置」争取用户，也侧面显示 Opus 在用户心中的分量。",
+        "url": "https://www.qbitai.com/2026/10/501700.html",
+        "source": "量子位",
+        "time": "10/05 10:50",
+        "heat": ""
+      },
+      {
+        "category": "research",
+        "title": "Homa：面向 AI 集群的传输协议，主张取代 TCP",
+        "summary": "Hacker News 热帖（73 分）讨论数据中心 AI 集群的新传输协议 Homa，主张以之取代 TCP。",
+        "why": "AI 训练集群的网络延迟与带宽是关键瓶颈，传输层创新可能直接影响大规模训练效率。",
+        "url": "https://www.youtube.com/watch?v=eZ8WWZzoaR0",
         "source": "Hacker News",
-        "time": "10/04 20:51",
-        "heat": "507 分 · 252 评论"
+        "time": "10/05 03:42",
+        "heat": "73 分 · 38 评论"
       },
       {
         "category": "agent",
-        "title": "「Agent 不需要记忆，需要文档」",
-        "summary": "一篇高热度文章主张：与其给 agent 堆持久记忆，不如把项目知识写成清晰、结构化的文档供其检索。",
-        "why": "直接切中当下 agent 记忆/上下文工程的主流做法，HN 330 分、202 条评论，观点交锋激烈，值得对照自己的 agent 设计。",
-        "url": "https://liao.gg/blog/agents-dont-need-memory",
-        "source": "Hacker News",
-        "time": "10/04 01:03",
-        "heat": "330 分 · 202 评论"
+        "title": "arXiv：Queen——会下棋并解释走法的 4B 语言模型",
+        "summary": "提出 Queen：4B 参数的棋类语言模型，在保持较强棋力的同时能解释自己的走法与计划，弥补传统棋引擎「沉默专家」的不足。",
+        "why": "把「高水平决策 + 可解释」结合起来，对需要可解释性的 agent 决策场景有直接借鉴意义。",
+        "url": "http://arxiv.org/abs/2610.03695v1",
+        "source": "arXiv",
+        "time": "10/02 提交",
+        "heat": "新论文"
       },
       {
         "category": "agent",
-        "title": "arXiv：KaliBench——网络安全场景的智能体工具调用基准",
-        "summary": "针对「把分析师意图翻译成 Kali Linux 工具调用」设计细粒度基准，并提供无需运行时的可验证奖励。",
-        "why": "工具调用是 agent 落地的核心能力，安全运维是少数能明确验证对错的场景，很适合作为评测标杆。",
-        "url": "http://arxiv.org/abs/2610.02206v1",
-        "source": "arXiv (cs.AI)",
+        "title": "arXiv：4DCodeBench——以代码生成评测智能体的 4D 逆图形能力",
+        "summary": "提出 4DCodeBench：让 agent 从视频重建动态场景，并生成可执行的图形程序（含物理模拟等抽象）来复现复杂行为。",
+        "why": "把「动态场景理解 + 代码生成」合成可评测任务，为多模态 agent 的空间与物理推理提供新基准。",
+        "url": "http://arxiv.org/abs/2610.03715v1",
+        "source": "arXiv",
         "time": "10/02 提交",
         "heat": "新论文"
       },
       {
         "category": "research",
-        "title": "arXiv：TACO——三值单稀疏优化器，显著降低 LLM 全参微调显存",
-        "summary": "提出三值化 + 按列绝对最大值单稀疏的优化器状态表示，压缩微调显存占用。",
-        "why": "全参微调的显存瓶颈是高频工程痛点，此类优化器改动小、收益直接，可与 Muon 等路线对照。",
-        "url": "http://arxiv.org/abs/2610.02199v1",
-        "source": "arXiv (cs.LG)",
-        "time": "10/02 提交",
+        "title": "arXiv：FrugalEvo——成本感知的 LLM 引导程序进化",
+        "summary": "针对 AlphaEvolve 类方法只看固定迭代次数的性能增益，提出按「单位成本收益」优化的进化框架 FrugalEvo。",
+        "why": "LLM 引导的程序搜索/进化正被广泛用于优化任务，把成本纳入目标让这类方法更贴近实际可用性。",
+        "url": "http://arxiv.org/abs/2610.03675v1",
+        "source": "arXiv",
+        "time": "10-02 提交",
         "heat": "新论文"
-      },
-      {
-        "category": "industry",
-        "title": "LeCun 称对「AI 灭绝人类」零担忧，并批 Dario Amodei 被欺骗",
-        "summary": "图灵奖得主 Yann LeCun 表示自己对 AI 导致人类灭绝以及近期「失控」事件零担忧，并公开批评 Anthropic CEO Dario Amodei。",
-        "why": "顶级科学家之间的公开路线分歧持续扩大，会影响公众叙事与政策讨论；HN 371 分、668 条评论说明关注度极高。",
-        "url": "https://fortune.com/2026/10/01/ai-godfather-yann-lecun-has-zero-concerns-about-human-extinction-says-anthropic-ceo-dario-amodei-is-deuded/",
-        "source": "Hacker News",
-        "time": "10/04 01:44",
-        "heat": "371 分 · 668 评论"
-      },
-      {
-        "category": "industry",
-        "title": "Simon Willison：AI 产品需要默认的硬性预算上限",
-        "summary": "指出按用量计费的服务普遍缺少「硬预算上限」，一旦循环调用或失控重试就可能烧钱，呼吁把它做成默认能力（硬限流而非仅告警）。",
-        "why": "对任何接入 LLM API 的项目都是现实风险：成本失控是最普遍的运维事故，这条给出了明确的设计方向。",
-        "url": "https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/",
-        "source": "Simon Willison",
-        "time": "10/04 07:34",
-        "heat": ""
-      },
-      {
-        "category": "industry",
-        "title": "宗教伦理学者与 Anthropic 会面，讨论 Claude 的道德对齐",
-        "summary": "纽约时报报道，宗教伦理学者与 Anthropic 会面，就 Claude 的道德与价值取向进行交流咨询。",
-        "why": "价值对齐正引入人文学科视角，反映前沿实验室在「模型该持何价值观」上主动寻求外部输入；HN 154 分、386 条评论，争论集中。",
-        "url": "https://www.nytimes.com/2026/09/29/us/anthropic-claude-morals-ai.html",
-        "source": "Hacker News",
-        "time": "10/04 10:34",
-        "heat": "154 分 · 386 评论"
       }
     ]
   }
