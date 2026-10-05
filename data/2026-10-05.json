@@ -5,8 +5,9 @@
     "gh CLI 未登录，仓库与提交数据均用 curl 直连 api.github.com 公共接口获取；本次重建于北京时间 10-05 16:54 执行，请求成功（未认证）。",
     "github.com/trending 本次（16:54）不可达（HTTPS 超时，http=000），无法现场抓取；榜单沿用今日 06:00（北京时间）成功抓取的快照（日榜 15 条 + 周榜补位 5 条），并用 api.github.com 抽查若干仓库 star 数确认快照仍有效（仅小幅增长，未改写快照数值）。",
     "提交窗口 since 2026-10-04T08:54Z（北京时间 10-04 16:54 至 10-05 16:54）：deepseek-ai/deepseek-harness（master）与 anomalyco/opencode（dev）默认分支窗口内各 0 条提交，均写「过去 24 小时无新提交」（opencode 今日有推送到其他分支，但默认分支 dev 无新提交）；earendil-works/pi（main）窗口内 24 条提交，含 v1.0.3 发版、Azure Foundry 支持、durable 子系统与 coding-agent 密集修复。",
-    "AI 前沿动态来源：Hacker News(Algolia，按 AI 相关性+热度过滤)、arXiv(cs.CL/AI/LG/MA/RO)、Anthropic News、量子位；本次 OpenAI Blog、Google DeepMind、Google AI Blog、Simon Willison、GitHub Blog、Latent Space、CrewAI Blog、GitHub AI/ML Blog、GitHub Releases 均抓取成功但 0 条候选（非失败）；官方大模型博客今日无当日新内容。",
-    "量子位正文页本次返回 403，相关条目仅依据候选的标题与摘要整理，未作超出其内容的推断；arXiv 因索引滞后回看至 96 小时内（提交日 10-02，time 字段为北京时间）；跨源去重；抓取失败不影响其余部分。"
+    "AI 前沿动态来源：Hacker News(Algolia，按 AI 相关性+热度过滤)、arXiv(cs.CL/AI/LG/MA/RO)、量子位，以及本期新接入的官方大模型博客 OpenAI Blog / Anthropic News / Google DeepMind / Google AI Blog（按「新增」判定、已去重；本次四个官方源各发现 6 条近期新内容；Simon Willison、GitHub Blog、Latent Space、CrewAI Blog、GitHub AI/ML Blog、GitHub Releases 抓取成功但 0 条候选）。官方博客内容时间跨 09-30～10-03，本期收录其中最重要的三条（Gemini 4 Argon、GPT-6 选型指南、Claude Frontier Academy）。",
+    "量子位正文页本次返回 403，相关条目仅依据候选的标题与摘要整理，未作超出其内容的推断；arXiv 因索引滞后回看至 96 小时内（提交日 10-02，time 字段为北京时间）；跨源去重；抓取失败不影响其余部分。",
+    "本期（10-05）为 17:05 的补充重跑：在原有 commits/trending 基础上，新接入并补入官方大模型博客来源。"
   ],
   "commits": {
     "title": "仓库提交简报",
@@ -348,13 +349,46 @@
   ],
   "aiNews": {
     "title": "AI 前沿动态",
-    "window": "过去 24 小时（arXiv 因索引滞后回看至 10-02 提交）· 已单列「智能体/Agent」分类",
+    "window": "近期新增（官方大模型博客按「新增」判定、回看 14 天）· arXiv 回看至 10-02 提交 · 已单列「智能体/Agent」分类",
     "sourcesUsed": [
+      "OpenAI Blog",
+      "Anthropic News",
+      "Google DeepMind",
       "Hacker News",
       "arXiv",
       "量子位"
     ],
     "items": [
+      {
+        "category": "release",
+        "title": "Google DeepMind 发布 Gemini 4 Argon",
+        "summary": "Google DeepMind 在官方博客发布 Gemini 4 Argon，称其为「下一个前沿智能（frontier intelligence）纪元」的新一代 Gemini 模型。",
+        "why": "Gemini 进入第 4 代，是旗舰模型的重要代际更新；本条由本期新接入的 DeepMind 官方博客捕获。",
+        "url": "https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence/",
+        "source": "Google DeepMind",
+        "time": "10/01 04:01",
+        "heat": "官方发布"
+      },
+      {
+        "category": "industry",
+        "title": "OpenAI 发布 GPT-6 系列选型指南",
+        "summary": "OpenAI 官方博客给出面向创业公司的 GPT-6 系列使用指南：如何在 GPT-6 各型号间选择、调节推理强度、改进提示与技能、协同工具，并为生产环境准备流程。",
+        "why": "官方一次性给出 GPT-6 的选型与生产落地方法，标志该系列进入规模化应用阶段。",
+        "url": "https://openai.com/index/practical-guide-building-gpt-6",
+        "source": "OpenAI Blog",
+        "time": "10/03 00:15",
+        "heat": "官方发布"
+      },
+      {
+        "category": "industry",
+        "title": "Anthropic 投 1 亿美元办 Claude Frontier Academy",
+        "summary": "Anthropic 宣布 Claude Frontier Academy，计划以 1 亿美元到 2027 年底培训 1 万名「Frontier Deployed Engineer」，水准对标 Anthropic 自身团队。",
+        "why": "大模型公司开始系统性投入人才与生态建设，反映企业级落地对工程人才的强需求。",
+        "url": "https://www.anthropic.com/news/claude-frontier-academy",
+        "source": "Anthropic News",
+        "time": "10/03 07:01",
+        "heat": "官方发布"
+      },
       {
         "category": "research",
         "title": "Hinton 发表首篇 RSI（递归自我改进）论文",
@@ -403,16 +437,6 @@
         "url": "http://arxiv.org/abs/2610.03715v1",
         "source": "arXiv",
         "time": "10/02 提交",
-        "heat": "新论文"
-      },
-      {
-        "category": "research",
-        "title": "arXiv：FrugalEvo——成本感知的 LLM 引导程序进化",
-        "summary": "针对 AlphaEvolve 类方法只看固定迭代次数的性能增益，提出按「单位成本收益」优化的进化框架 FrugalEvo。",
-        "why": "LLM 引导的程序搜索/进化正被广泛用于优化任务，把成本纳入目标让这类方法更贴近实际可用性。",
-        "url": "http://arxiv.org/abs/2610.03675v1",
-        "source": "arXiv",
-        "time": "10-02 提交",
         "heat": "新论文"
       }
     ]
