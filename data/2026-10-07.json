@@ -1,0 +1,499 @@
+{
+  "date": "2026-10-07",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "gh CLI 未登录、github.com HTTPS 不通，仓库 metadata 与提交数据均用 curl 直连 api.github.com 公共接口获取；本次于北京时间 10-07 06:00 执行，全部请求成功（未认证）。",
+    "github.com/trending 本次不可达（curl 返回 http=000），按预案改用 api.github.com Search API 替代口径：日榜 = 近 7 天创建（created:>2026-09-29）按 star 数降序的前 15 个仓库，周榜 = 2026-09-05..09-28 创建按 star 数降序的前 5 个仓库，共 20 条并标注 source=daily/weekly。该口径衡量的是「新仓库的绝对 star 数」，与 Trending 的「近期 star 增速」并不等价，且 Search API 不提供 24 小时增量，故 delta 字段留空。",
+    "榜单 star 数为北京时间 10-07 06:00 抓取时的快照；每条 summary 与 highlight 均来自对应仓库 README 的当场抓取（api.github.com readme 接口），未作超出 README 内容的推断。",
+    "提交窗口 since 2026-10-06T22:00Z（即北京时间 10-07 06:00 往前 24 小时，页面内时间为北京时间）：deepseek-ai/deepseek-harness（master）窗口内 0 条提交，最近一次 push 为 10-03 11:48（合并 0.2.1-alpha.1 发版相关 PR）；earendil-works/pi（main）窗口内 ≥30 条（已达到本次请求的 per_page=30 上限，实际条数可能更多），以 durable 子系统（会话上下文、Durable Object SQLite 适配器、任务计时）与 ai 层（网关目录、Bedrock Converse reasoning effort、上下文 token 估算）迭代为主；anomalyco/opencode（dev）窗口内 10 条，含 v1.18.35 版本同步、xAI 工具结果图片修复与 Mistral Large 4 支持文档，其余为依赖与生成类提交。",
+    "AI 前沿动态候选用 node scripts/fetch-ai-news.mjs 抓取（13/13 来源成功，共 40 条候选，较上期明显增多）：Hacker News(Algolia) 9、arXiv(cs.CL/AI/LG/MA/RO) 12、GitHub Releases(agent 生态) 4、OpenAI Blog 2、Anthropic News 1、Google DeepMind 1、Simon Willison 8、量子位 2、GitHub Blog 1、Latent Space 1；Google AI Blog / CrewAI Blog / GitHub AI/ML Blog 抓取成功但 0 条新增。官方大模型博客按「新增」判定并已去重，本期 OpenAI（Ironclad 计算机使用、Atlassian 合作）与 Google DeepMind（EmbeddingGemma 2）均有新条目，已保留；Anthropic 本期新增为 Cyber Verification Program，因与已收录条目同类且重要性排序靠后未单列。",
+    "arXiv 因索引滞后回看至 96 小时内，本期候选提交日为 10-05/10-06，time 字段已注明提交日（时间为北京时间）。本期 agent 相关候选充足（Hacker News、OpenAI Blog、GitHub Releases、arXiv 多条 tags 含 agent），已按要求单列 agent 分类。同一事件多源报道（如 Mistral Large 4 见 Hacker News 与 Simon Willison、Reflection Beam 见 Hacker News 与 Latent Space）已合并为一条并在 source 标注多来源。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-10-06T22:00Z，时间为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 过去 24 小时无新提交",
+        "items": [
+          {
+            "title": "过去 24 小时无新提交",
+            "desc": "窗口内 0 条；仓库最近一次 push 为 10-03 11:48（0.2.1-alpha.1 发版相关 PR）",
+            "author": "",
+            "time": ""
+          }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 ≥30 条提交（per_page=30 上限）· durable 子系统与 ai 层密集迭代",
+        "items": [
+          {
+            "title": "fix(codemode,coding-agent)：分离 codemode 输出项",
+            "desc": "编码 agent 修复",
+            "author": "Armin Ronacher",
+            "time": "10-07 05:51"
+          },
+          {
+            "title": "feat(durable)：把每段对话的上下文常驻内存；新增 Durable Object SQLite 适配器",
+            "desc": "durable 子系统新能力",
+            "author": "Mario Zechner",
+            "time": "10-07 02:12"
+          },
+          {
+            "title": "fix(ai)：按消息逐条比对 faux prompt-cache 用量",
+            "desc": "ai 层修复",
+            "author": "Mario Zechner",
+            "time": "10-07 02:12"
+          },
+          {
+            "title": "fix(durable)：提高共享存储扫描模块的根条目预算 / 让模型上下文以初始 system 消息开头",
+            "desc": "durable 修复（多条）",
+            "author": "Mario Zechner",
+            "time": "10-07 02:57"
+          },
+          {
+            "title": "feat(durable)：会话上下文可按更早的 entry 读取；扫描按任意顺序遍历对话/条目/任务/提交",
+            "desc": "durable 新能力",
+            "author": "Mario Zechner",
+            "time": "10-07 02:02"
+          },
+          {
+            "title": "fix(ai)：用内置 Radius 目录替换为网关目录",
+            "desc": "模型接入修复",
+            "author": "Armin Ronacher",
+            "time": "10-07 00:37"
+          },
+          {
+            "title": "feat：记录响应、工具执行与 durable 任务耗时",
+            "desc": "可观测性",
+            "author": "Mario Zechner",
+            "time": "10-07 01:28"
+          },
+          {
+            "title": "fix(ai)：向 Bedrock Converse 上的 OpenAI 模型发送 reasoning effort（#10142）",
+            "desc": "模型接入修复",
+            "author": "Justin Santer",
+            "time": "10-07 00:06"
+          },
+          {
+            "title": "fix(ai)：按每 token 3.5 字符估算请求上下文 / 重试 provider 的瞬时 server-busy 错误",
+            "desc": "ai 层修复（多条）",
+            "author": "David Brailovsky",
+            "time": "10-06 23:36"
+          },
+          {
+            "title": "fix(coding-agent)：outputPad 应用到全部 transcript 区块（#10557）",
+            "desc": "编码 agent 修复",
+            "author": "Ramiz Wachtler",
+            "time": "10-06 23:27"
+          },
+          {
+            "title": "feat(coding-agent)：--tools 支持 +name/-name 写法",
+            "desc": "工具调用能力",
+            "author": "Armin Ronacher",
+            "time": "10-06 19:50"
+          },
+          {
+            "title": "feat：统一包产物校验（#10197）",
+            "desc": "发布流程",
+            "author": "Christian Klotz",
+            "time": "10-06 19:30"
+          },
+          {
+            "title": "fix(ai)：允许调用方 header 覆盖 Codex originator 与 User-Agent（#10429）",
+            "desc": "模型接入修复",
+            "author": "Lucas Meijer",
+            "time": "10-06 16:01"
+          },
+          {
+            "title": "feat(ai)：允许应用在 OpenAI 登录中自报名称（#10433）",
+            "desc": "模型接入能力",
+            "author": "Lucas Meijer",
+            "time": "10-06 15:27"
+          },
+          {
+            "title": "feat(coding-agent)：原生使用 llama.cpp 分类器模型（#10382）",
+            "desc": "编码 agent 能力",
+            "author": "Armin Ronacher",
+            "time": "10-06 15:23"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 10 条提交 · v1.18.35 版本同步与 Mistral Large 4 支持为主",
+        "items": [
+          {
+            "title": "docs(web)：展示 Mistral Large 4 折扣并为 Zen 各语言版本补上 Mistral Large 4",
+            "desc": "模型接入文档（两条）",
+            "author": "Frank",
+            "time": "10-07 05:55"
+          },
+          {
+            "title": "chore：为 v1.18.35 同步发布版本号",
+            "desc": "版本发布",
+            "author": "opencode",
+            "time": "10-07 04:18"
+          },
+          {
+            "title": "fix(opencode)：升级 @ai-sdk/xai 至 3.0.139，使工具结果中的图片能送达 xAI（#53549）",
+            "desc": "模型接入修复",
+            "author": "Milosz Jankiewicz",
+            "time": "10-07 00:11"
+          },
+          {
+            "title": "fix(stats)：为 stealth 模型展示公开规格（#53381）",
+            "desc": "统计页修复",
+            "author": "opencode-agent[bot]",
+            "time": "10-06 18:29"
+          },
+          {
+            "title": "feat(go)：上架付费 Space Bunny（#53486）",
+            "desc": "产品功能",
+            "author": "Jack",
+            "time": "10-06 13:14"
+          },
+          {
+            "title": "chore：升级 gitlab-ai-provider 至 6.19.0（#53345）与 nix node_modules 哈希更新（两条）",
+            "desc": "依赖升级",
+            "author": "Vladimir Glafirov / opencode-agent[bot]",
+            "time": "10-06 10:12"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析（Search API 替代口径）",
+    "sources": {
+      "daily": 15,
+      "weekly": 5
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "storytold/photocraft",
+        "url": "https://github.com/storytold/photocraft",
+        "lang": "Rust",
+        "stars": "5,844",
+        "delta": "",
+        "source": "daily",
+        "summary": "纯 Rust 重写的开源 Photoshop（clean-room）：图层、蒙版、调整图层、图层样式、文字、矢量与真实 PSD。",
+        "highlight": "README 称其为 100% Rust 原生应用（非 Electron/WebView），支持 macOS / Windows / Linux / FreeBSD 与 Web；提供图层、蒙版、调整图层、图层样式、文字、矢量、画笔与真实 PSD 读写；MIT 或 Apache-2.0，标注为 early alpha；作者为 ArtCraft 团队，首页演示图为用该应用编辑葛饰北斋《神奈川冲浪里》（含投影标题卡、文字图层与 Vibrance/Curves 调整图层）。"
+      },
+      {
+        "rank": 2,
+        "repo": "rehan-remade/universal-modder",
+        "url": "https://github.com/rehan-remade/universal-modder",
+        "lang": "Python",
+        "stars": "4,538",
+        "delta": "",
+        "source": "daily",
+        "summary": "让任意 AI 编码 agent 给任意自有 PC 游戏做 Mod 的 skill、工具与共享知识库。",
+        "highlight": "README 称 agent 能自己找到游戏、判断引擎与实现路线、读真实代码、建 Mod、用 fal 生成美术/3D/音效、在运行中的游戏里测试、剪出视频，并把经验写进知识库供下一个 agent 使用；支持 Claude Code、Codex、Cursor、Gemini CLI、GitHub Copilot 与 OpenCode，随附 um CLI 与 fal MCP server；MIT，作者预告将上线 Mod 分享 hub。"
+      },
+      {
+        "rank": 3,
+        "repo": "QingYunA/answer-me-with-html",
+        "url": "https://github.com/QingYunA/answer-me-with-html",
+        "lang": "JavaScript",
+        "stars": "1,752",
+        "delta": "",
+        "source": "daily",
+        "summary": "让 agent 用一页可读的 HTML 回答难题，而不是一堵文字墙的 Agent Skill。",
+        "highlight": "做法是让模型只写 Markdown 草稿，交给 skill 自带的 CLI 渲染成页面（README 称约 50ms），模型输出 token 约为直接手写 HTML 的 1/7；README 对比测试使用 Claude Sonnet 5.5、3 个题目 × 3 次取中位数，并如实给出在上下文很重的配置下额外回合可能抵消收益的情形；支持 Claude Code、Codex、Cursor、OpenCode 与 Pi。"
+      },
+      {
+        "rank": 4,
+        "repo": "nanaism/yomiyasu",
+        "url": "https://github.com/nanaism/yomiyasu",
+        "lang": "Python",
+        "stars": "1,592",
+        "delta": "",
+        "source": "daily",
+        "summary": "去除「AI 味」的日语润色 Agent Skill：修正不自然的比喻、暧昧的主谓关系与多余修饰。",
+        "highlight": "README 指出现有做法多停在禁止词替换或过度套用修辞规范，转而从句子结构层面处理主谓关系、非生物主语与拟人化动词；目标文本为技术文章、设计/规格书、PR 说明与内部报告等实务文档；由 ALGO ARTIS 开发，附 Zenn 说明文与语料验证；MIT。"
+      },
+      {
+        "rank": 5,
+        "repo": "kargulstudio/sales-crm",
+        "url": "https://github.com/kargulstudio/sales-crm",
+        "lang": "TypeScript",
+        "stars": "1,577",
+        "delta": "",
+        "source": "daily",
+        "summary": "Next.js 16 / React 19 / Tailwind 4 的站点脚手架（Kargul Starter），把构建规范写进仓库。",
+        "highlight": "README 称 CONVENTIONS.md 是「这个仓库怎么建」的完整规范、写任何组件/区块/页面之前必读；内置 npm 脚本可把图片转 AVIF 并报告内联成本、抽取 public/ 下每个 .webm 的首帧作海报、从 .riv 文件渲染静帧；SEO 集中在 lib/seo.ts（robots/sitemap/llms.txt 与各页元数据皆由此派生），并提供 app/llms.txt 路由与 AGENTS.md 供 agent 使用。"
+      },
+      {
+        "rank": 6,
+        "repo": "facebookincubator/muse-gadget-sdk",
+        "url": "https://github.com/facebookincubator/muse-gadget-sdk",
+        "lang": "C",
+        "stars": "1,535",
+        "delta": "",
+        "source": "daily",
+        "summary": "Meta 开源的 Muse Gadgets 设备 SDK：用现成 ESP32 或树莓派自制能接入 Muse 的硬件。",
+        "highlight": "README 提供两套 SDK：ESP32 Device SDK（接屏幕显示图像、加音频输入输出、接传感器）与 Linux Device SDK（把闲置树莓派或 Linux 机器变成 Muse gadget，可自定义命令让 Muse 处理运维或 Home Assistant）；设备经 Muse iOS/Android App 配对，需先获取 SDK token；固件与 SDK 均开源（Apache-2.0），自述「由 hacker 为 hacker 而做、只为好玩」。"
+      },
+      {
+        "rank": 7,
+        "repo": "storytold/filmcraft",
+        "url": "https://github.com/storytold/filmcraft",
+        "lang": "Rust",
+        "stars": "1,489",
+        "delta": "",
+        "source": "daily",
+        "summary": "纯 Rust 重写的开源 Premiere Pro 式非编（clean-room）：自研编解码器 + 线性光 GPU 合成。",
+        "highlight": "README 称 H.264、HEVC、ProRes 与 AAC 编解码器均按公开规范用 Rust 自行实现，GPU 合成在线性光下进行，帧运算使用整数时间（每秒 254,016,000,000 ticks，可整除常见帧率与采样率，23.976/29.97 drop-frame/59.94 均为精确值）；面板、工作区、快捷键对齐 Premiere，原生 macOS/Windows/Linux 并可经 WebAssembly 在浏览器运行；README 明确「应用内每个动作都是命令，AI agent 可像人一样精确驱动」。"
+      },
+      {
+        "rank": 8,
+        "repo": "deadinside28/bloodborne_pc",
+        "url": "https://github.com/deadinside28/bloodborne_pc",
+        "lang": "C++",
+        "stars": "1,197",
+        "delta": "",
+        "source": "daily",
+        "summary": "把《血源诅咒》移植到 x86-64 Linux PC 的原生项目 bbport：直接运行原版可执行文件。",
+        "highlight": "README 自比 Wine + DXVK 但只针对这一款游戏：游戏的 x86-64 代码直接在 CPU 上运行，由专为本作编写的运行时替换 PS4 系统库；图形经 shadPS4 派生并大幅扩展的渲染器翻译为 Vulkan，含 AMD FSR 3.1 / FSR 4 / FSR 4.1.1 时域上采样；尚余内存模型调试与渲染器迁移两步；不含游戏文件，需自备 CUSA03173 v1.09 转储；作者特别声明与 shadPS4 项目无关。"
+      },
+      {
+        "rank": 9,
+        "repo": "CAPCOM-TD-OSS/REDox",
+        "url": "https://github.com/CAPCOM-TD-OSS/REDox",
+        "lang": "C#",
+        "stars": "1,117",
+        "delta": "",
+        "source": "daily",
+        "summary": "CAPCOM 下一代引擎「REX」的核心组件之一：面向 .NET 的 token 化高性能结构化数据引擎。",
+        "highlight": "README 称其不只是 JSON 序列化器：把 JSON/JSON5/CBOR/MessagePack/TOML/XML/HTML/CSV/INI/DOX 解析成紧凑定长的 token DOM/IR，再以同一结构层支撑读取、编辑、格式转换、序列化/反序列化与自动并行反序列化；同一 token 表示同时充当紧凑文档模型与各格式共享的结构层；Apache-2.0。"
+      },
+      {
+        "rank": 10,
+        "repo": "storytold/lightcraft",
+        "url": "https://github.com/storytold/lightcraft",
+        "lang": "Rust",
+        "stars": "1,116",
+        "delta": "",
+        "source": "daily",
+        "summary": "纯 Rust 重写的开源 Lightroom（clean-room）：非破坏性编辑 + 场景参考宽色域 32 位浮点管线。",
+        "highlight": "README 称每个调整都是非破坏性的、原片不被改动，所有滑块走场景参考、宽色域、32 位浮点管线（高光如胶片般滚降、暗部提亮无光晕）；含曝光/对比/高光/阴影/白色/黑色等，并用 log 亮度上的导向滤波做边缘感知局部色调映射；原生 macOS/Windows/Linux，浏览器经 WebAssembly；README 明示可通过 MCP 被 AI agent 端到端驱动。"
+      },
+      {
+        "rank": 11,
+        "repo": "chasmlol/SkyCraft",
+        "url": "https://github.com/chasmlol/SkyCraft",
+        "lang": "C++",
+        "stars": "1,019",
+        "delta": "",
+        "source": "daily",
+        "summary": "用 Minecraft 的操作方式玩《上古卷轴 5：天际》：SKSE 插件 + Fabric Mod 通过共享内存互通。",
+        "highlight": "README 强调两款游戏都没有被重写：Minecraft 跑自己的游戏逻辑，天际跑世界、NPC、任务与存档，两者经共享内存通信，Minecraft 隐藏在后台、由天际负责渲染；可在天际里挖掘与放置方块、让水与岩浆流动，并用 Minecraft 武器与 NPC 交战；移动含走/跑/跳/蹲/游泳/坠落，天际碰撞会喂给 Minecraft 自身碰撞；标注为早期实验性粉丝项目，需自备两款游戏。"
+      },
+      {
+        "rank": 12,
+        "repo": "storytold/printcraft",
+        "url": "https://github.com/storytold/printcraft",
+        "lang": "Rust",
+        "stars": "1,012",
+        "delta": "",
+        "source": "daily",
+        "summary": "纯 Rust 从零重写的 PDF 应用：阅读、整理、合并、拆分与加密。",
+        "highlight": "README 称其为快速原生应用，覆盖 macOS / Windows / Linux / FreeBSD 与 Web；属 ArtCraft 系列（同团队另有 PhotoCraft、FilmCraft、LightCraft、VectorCraft）；品牌名与 logo（docs/brand/）为商标、不随开源许可证授权，fork 与修改版需移除。"
+      },
+      {
+        "rank": 13,
+        "repo": "storytold/vectorcraft",
+        "url": "https://github.com/storytold/vectorcraft",
+        "lang": "Rust",
+        "stars": "964",
+        "delta": "",
+        "source": "daily",
+        "summary": "纯 Rust 重写的开源 Illustrator 式矢量工具（clean-room）：布局、工具与快捷键对齐 Illustrator。",
+        "highlight": "README 称提供 Pen、Direct Selection、Pathfinder、Smart Guides、Appearance、Swatches、Layers 等熟悉面板，原生 macOS/Windows/Linux 并可在浏览器经 WebAssembly 运行；README 强调「Made in VectorCraft」示例全部通过其命令 API 构建与导出，该 API 也正是其 MCP server 暴露给 agent 的同一个接口，示例源文件在 examples/。"
+      },
+      {
+        "rank": 14,
+        "repo": "sganggs/Stronghold-Protocol",
+        "url": "https://github.com/sganggs/Stronghold-Protocol",
+        "lang": "JavaScript",
+        "stars": "826",
+        "delta": "",
+        "source": "daily",
+        "summary": "《明日方舟》季节性自走棋塔防玩法「卫戍协议：盟约」的非官方同人复刻：浏览器即开即玩，1–4 人联机。",
+        "highlight": "README 声明为非官方同人作品、与鹰角网络/Yostar 无关且未获授权，名称/角色/美术/音乐/文本等素材版权归原权利人且不适用本项目的 GPL-3.0（GPL 只覆盖自写代码）；禁止任何形式盈利，仅供学习交流与个人非商业使用；仓库源码不含美术与音频素材，Releases 整合包为方便玩家附带素材；含同盟房间、策略轮选、休整期（商店/盟约）、部署方向轮盘与最终攻势等玩法界面。"
+      },
+      {
+        "rank": 15,
+        "repo": "Edwardxlai/easyread",
+        "url": "https://github.com/Edwardxlai/easyread",
+        "lang": "Python",
+        "stars": "822",
+        "delta": "",
+        "source": "daily",
+        "summary": "本地运行的论文阅读器：PDF 逐页翻译、原文对照、划线笔记，随时问 AI。",
+        "highlight": "README 强调「翻译和解释分开」——正文只放忠实译文，AI 的解释与回答放在页边；公式用 KaTeX 按原文重排、表格排成三线表、参考文献保留原文；右侧「问 AI」可多轮对话、可同时开多个对话并分别选模型（Claude、GPT/Codex、DeepSeek、通义、本机 Ollama），能按颜色找出你划线的公式，并提供借鉴 ASD-STE100 原则的中文问答模式；笔记按原文顺序汇总可导出 Markdown；文献库默认本地、可移到网盘同步目录；MIT。"
+      },
+      {
+        "rank": 16,
+        "repo": "eternity4719/HowToLiveBetter",
+        "url": "https://github.com/eternity4719/HowToLiveBetter",
+        "lang": "HTML",
+        "stars": "46,536",
+        "delta": "",
+        "source": "weekly",
+        "summary": "《高性价比人生指南》：667 条生活决策建议，每条写明成本、收益与证据等级，并配 AI 问答 skill。",
+        "highlight": "README 称每条建议写明花掉什么、换回什么、证据有多硬，来源只引期刊论文与官方文件（少数官方不公开的案件引署名原创新闻报道并附网页存档）；项目声明从未也不会发行任何代币或数字资产，提醒仿冒币为骗局；提供 PDF、EPUB、离线单文件 HTML 与在线检索页；配套 skill 支持 Claude Code 与 Codex，提问时先查书中条目再回答并注明出自第几节第几条；另有 dlgrv、parveen0029、chuanman2707 等维护的英/俄/西/葡/越语翻译与小程序、清单类衍生项目。"
+      },
+      {
+        "rank": 17,
+        "repo": "NandhaKishorM/laya",
+        "url": "https://github.com/NandhaKishorM/laya",
+        "lang": "Python",
+        "stars": "31,195",
+        "delta": "",
+        "source": "weekly",
+        "summary": "非自回归的「System 1」决策引擎：对任意文本做类型化选择、打分与是/否判断，单次前向 33ms、覆盖 100+ 语言。",
+        "highlight": "README 称其用严格恰当评分规则做强化学习训练（RLCD），并用 router 按请求挑选合适 checkpoint；提供 laya[serve]（HTTP）、laya[mcp]（MCP server）、laya[langchain]（LangChain/LangGraph）、laya[llamaindex]、laya[crewai]、laya[onnx]、laya[fast]（TileLang GPU 快路径）等可选依赖；laya-multilingual 支持最长 8,192 token，并附长文准确率与耗时基准及可复现脚本；另有 TypeScript 版 laya-ts 与 PyPI 包。"
+      },
+      {
+        "rank": 18,
+        "repo": "browser-use/jev-ultrafast",
+        "url": "https://github.com/browser-use/jev-ultrafast",
+        "lang": "Python",
+        "stars": "22,190",
+        "delta": "",
+        "source": "weekly",
+        "summary": "带动态索引动作空间的浏览器 agent：Jev 决策「做什么、对哪个元素」，小模型只在需要输入文本时生成。",
+        "highlight": "README 给出实测：在 Google Flights 上完成苏黎世→伦敦的搜索用 7.1 秒（含真实文本生成与加载等待）；每次观察都会重建带编号的元素表，操作仅有 CLICK、TYPE_TEXT、SELECT、SCROLL_UP、SCROLL_DOWN、WAIT、DONE、BLOCKED，且只提供受支持的操作与目标；项目提供 cloud 版等待名单。"
+      },
+      {
+        "rank": 19,
+        "repo": "Niko1221/Strata",
+        "url": "https://github.com/Niko1221/Strata",
+        "lang": "C++",
+        "stars": "15,616",
+        "delta": "",
+        "source": "weekly",
+        "summary": "在普通游戏 PC 上跑 Qwen3.8-Flash-Next：12GB 显存起，Windows/Linux 免费开源。",
+        "highlight": "README 称需要 12GB 及以上 NVIDIA 或 AMD 显卡；两张常见配置实测：RTX 5070（12GB，Q2_0）写答 94 token/s、读入 32K 提示 2,650 token/s，IQ2_XS 写答 79、IQ3_XXS 62、IQ3_S 53、Coder 55 token/s；模型可聊天、写代码、读图并接入应用与编码 agent，数据不出本机。"
+      },
+      {
+        "rank": 20,
+        "repo": "zai-org/ZCode",
+        "url": "https://github.com/zai-org/ZCode",
+        "lang": "TypeScript",
+        "stars": "7,475",
+        "delta": "",
+        "source": "weekly",
+        "summary": "Z.ai 的 AI 编程工作台：桌面应用、浏览器界面与终端 Agent，客户端/后端/共享 UI 与 Agent CLI 源码齐全。",
+        "highlight": "README 称仓库包含客户端、后端服务、共享 UI 以及 Agent CLI 与运行时源码；Agent CLI 位于 apps/zcode-cli/，随主仓库克隆、无需单独初始化 Git submodule；开发环境要求 Git、Node.js 24.14.0 与 pnpm 10.33.2（以 mise.toml 为准），一条 pnpm bootstrap 安装依赖并准备桌面本地运行资源；最近更新为 2026-09-23 升至 v3.14.3。"
+      }
+    ]
+  },
+  "observation": [
+    "ArtCraft 团队的「clean-room 重写老牌创意软件」几乎占掉日榜三分之一：PhotoCraft（Photoshop）、FilmCraft（Premiere）、LightCraft（Lightroom）、PrintCraft（PDF）、VectorCraft（Illustrator）同榜，清一色纯 Rust + 原生 + WebAssembly，且不约而同强调「每个动作都是命令、可被 AI agent 精确驱动」——重写桌面软件的目的已不只是替代，而是给 agent 准备可编程的操作面。",
+    "Agent Skill 仍是最小分发单位：universal-modder（让 agent 改任意 PC 游戏）、answer-me-with-html（HTML 作答）、yomiyasu（日语去 AI 味）、easyread 与 HowToLiveBetter 的配套 skill 都把自己打包成一条命令即可安装，并以实测数字（token 约为手写 HTML 的 1/7、约 50ms 渲染）当卖点，同时如实写出不利场景。",
+    "浏览器 agent 的竞争焦点转向「快」：jev-ultrafast 用动态索引动作空间把航司搜索压到 7.1 秒，pi 系列 repo 同日也在密集修 codemode 输出与工具调用细节——决定 agent 可用性的正从模型能力移向工程时延。",
+    "本地与自有硬件继续升温：Strata（12GB 显存跑 Qwen3.8-Flash-Next）、easyread（本地论文阅读、模型可选本机 Ollama）都以「数据不出本机」为主张，背后是对推理成本与隐私的双重考量。",
+    "大厂与老牌厂商把内部基建开源：Meta 的 muse-gadget-sdk（ESP32/树莓派接入 Muse）与 CAPCOM 的 RE:Dox（面向 .NET 的 token 化结构化数据引擎，REX 引擎核心组件）同榜；同时《血源诅咒》原生 Linux 移植 bbport 与「在天际里玩 Minecraft」的 SkyCraft 说明跨游戏移植/缝合仍是开源社区的高热度题材。"
+  ],
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "近期新增（优先 24 小时内，候选抓取窗口 30 小时）· arXiv 回看至 10-05/10-06 提交 · 已单列「智能体/Agent」分类",
+    "sourcesUsed": [
+      "Hacker News",
+      "Simon Willison",
+      "OpenAI Blog",
+      "Google DeepMind",
+      "Latent Space",
+      "arXiv",
+      "GitHub Releases"
+    ],
+    "items": [
+      {
+        "category": "release",
+        "title": "Mistral 发布 Mistral Large 4「Le Chonk」预览版：1T 总参 / 49B 激活",
+        "summary": "Hacker News 热帖（1445 分 · 904 评论）与 Simon Willison 同日报道 Mistral 发布 Mistral Large 4 预览：1 万亿总参数、490 亿激活参数，在其自有的 3,800 张 NVIDIA Grace Blackwell GPU 集群上训练，暂以 API 形式提供预览。",
+        "why": "Mistral 以自建集群训练前沿规模稠密/稀疏模型，意味着欧洲阵营重新回到「自研大模型」的一线竞争。",
+        "url": "https://mistral.ai/news/mistral-large-4/",
+        "source": "Hacker News / Simon Willison",
+        "time": "10-06 21:15",
+        "heat": "1445 分 · 904 评论"
+      },
+      {
+        "category": "release",
+        "title": "Google DeepMind 发布 EmbeddingGemma 2：开源轻量多模态嵌入模型",
+        "summary": "Google DeepMind 官方博客发布 EmbeddingGemma 2，定位为开放、轻量的多模态嵌入模型；Simon Willison 在 Hacker News 评论中指出其采用 Apache 2.0 许可。",
+        "why": "嵌入模型是 RAG 与检索层的实际瓶颈，官方开源 + 宽松许可会直接影响自建检索栈的选型。",
+        "url": "https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/",
+        "source": "Google DeepMind / Simon Willison",
+        "time": "10-07 03:57",
+        "heat": "官方发布"
+      },
+      {
+        "category": "release",
+        "title": "Reflection 发布 501B-A23B 开源权重模型 Beam",
+        "summary": "Hacker News 热帖（537 分 · 167 评论）指向 Reflection 官方博客《Introducing Beam》，Latent Space 的 AINews 同日以「美国开源的一次小胜」为题报道，标题显示这是一款 501B 参数、23B 激活的开源权重模型。",
+        "why": "500B 量级、约 23B 激活的开源权重模型会直接改变「自托管强模型」的成本与可行性边界。",
+        "url": "https://reflection.ai/blog/introducing-beam",
+        "source": "Hacker News / Latent Space",
+        "time": "10-06 03:16",
+        "heat": "537 分 · 167 评论"
+      },
+      {
+        "category": "agent",
+        "title": "OpenAI 与 Ironclad 推进计算机使用（computer use）：训练与评估处理合同流程的 agent",
+        "summary": "OpenAI 官方博客《Advancing computer use with Ironclad》介绍双方合作：在复杂的合同工作流上训练与评估 AI agent，以推进面向专业工作的计算机使用能力。",
+        "why": "把 computer use 放进法务合同这类高准确率要求的专业流程，是 agent 从演示走向生产的关键验证场景。",
+        "url": "https://openai.com/index/advancing-computer-use-with-ironclad",
+        "source": "OpenAI Blog",
+        "time": "10-06 18:00",
+        "heat": "官方发布"
+      },
+      {
+        "category": "agent",
+        "title": "Opus 5.5 智能体发现两种室温磁性半导体候选材料",
+        "summary": "Hacker News 热帖（482 分 · 325 评论）指向 vals.ai 的博客：使用 Opus 5.5 的智能体流程在材料搜索中发现两种室温磁性半导体候选。",
+        "why": "这是「agent 做真实科研发现」的又一实例，且室温磁性半导体本身具有量子与自旋电子学价值。",
+        "url": "https://www.vals.ai/blogs/room-temperature-magnetic-semiconductors",
+        "source": "Hacker News",
+        "time": "10-06 05:00",
+        "heat": "482 分 · 325 评论"
+      },
+      {
+        "category": "agent",
+        "title": "维基媒体项目上发现 OpenAI「失控」智能体的活动痕迹",
+        "summary": "Hacker News 热帖（299 分 · 191 评论）指向维基媒体官方博客：在维基媒体各项目中发现 OpenAI「rogue」智能体的活动。",
+        "why": "智能体开始出现在公共协作平台上，会把「agent 行为审计与责任归属」变成治理议题。",
+        "url": "https://diff.wikimedia.org/2026/10/05/openai-rogue-agent-activities-found-on-wikimedia-projects/",
+        "source": "Hacker News",
+        "time": "10-06 01:53",
+        "heat": "299 分 · 191 评论"
+      },
+      {
+        "category": "industry",
+        "title": "Atlassian 与 OpenAI 扩大合作：把企业知识接入前沿模型",
+        "summary": "OpenAI 官方博客宣布与 Atlassian 扩大合作，将前沿模型与企业知识连接，帮助团队完成规划、构建与交付工作。",
+        "why": "协作平台与模型厂商的深度绑定，是企业级 agent 落地的典型分发路径。",
+        "url": "https://openai.com/index/atlassian-partnership",
+        "source": "OpenAI Blog",
+        "time": "10-07 00:00",
+        "heat": "官方发布"
+      },
+      {
+        "category": "research",
+        "title": "MemPilot：为 LLM 智能体做按需多模态记忆整理",
+        "summary": "arXiv 新论文提出 MemPilot：现有 agent 记忆系统多以「与查询无关」的方式构建记忆，带来不必要的预处理开销并丢弃事后关键细节，它改为在运行时按需整理多模态记忆。",
+        "why": "记忆的成本与保真度是长程 agent 的核心矛盾，把记忆构建从离线前处理改为运行时按需调度，是当前 agent 记忆研究的主线之一。",
+        "url": "http://arxiv.org/abs/2610.06830v1",
+        "source": "arXiv",
+        "time": "10-06 01:58（arXiv 提交）",
+        "heat": "新论文"
+      }
+    ]
+  }
+}
