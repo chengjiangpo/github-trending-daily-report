@@ -1,0 +1,464 @@
+{
+  "date": "2026-10-08",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "gh CLI 未登录、github.com HTTPS 不通，仓库 metadata、提交与 Trending 替代数据均用 curl / fetch 直连 api.github.com 公共接口获取；本次于北京时间 10-08 07:00 执行，全部请求成功（未认证）。",
+    "github.com/trending 本次不可达（curl 返回 http=000，日榜/周榜均超时），按预案改用 api.github.com Search API 替代口径：日榜 = 近 7 天创建（created:>2026-10-01）按 star 数降序的前 15 个仓库，周榜 = 2026-09-06..2026-09-29 创建按 star 数降序的前 5 个仓库，共 20 条并标注 source=daily/weekly。该口径衡量的是「新仓库的绝对 star 数」，与 Trending 的「近期 star 增速」并不等价，且 Search API 不提供 24 小时增量，故 delta 字段留空。",
+    "榜单 star 数为北京时间 10-08 07:01 抓取时的快照；每条 summary 与 highlight 均来自对应仓库 README 的当场抓取（raw.githubusercontent.com），未作超出 README 内容的推断。",
+    "提交窗口 since 2026-10-06T23:00Z（即北京时间 10-08 07:00 往前 24 小时，页面内时间为北京时间）：deepseek-ai/deepseek-harness（master）窗口内 0 条提交，最近一次 push 为 10-03 06:02Z（即北京时间 10-03 14:02，0.2.1-alpha.1 发版相关）；earendil-works/pi（main）窗口内 23 条，核心为发布 v1.1.0 并接入 Claude Haiku 5.5；anomalyco/opencode（dev）窗口内 6 条，以 Haiku 5.5 接入与 console 计费/网关能力为主。",
+    "AI 前沿动态候选用 node scripts/fetch-ai-news.mjs 抓取（12/13 来源成功，共 41 条候选）：Hacker News(Algolia) 12、arXiv(cs.CL/AI/LG/MA/RO) 12、GitHub Releases(agent 生态) 4、Simon Willison 8、量子位 4、Latent Space 2；OpenAI Blog / Anthropic News / Google DeepMind / Google AI Blog / CrewAI Blog / GitHub AI/ML Blog 抓取成功但 0 条（本轮官方 RSS 无新增），GitHub Blog 抓取失败（fetch failed）。本轮三条官方大模型发布（OpenAI GPT-6、OpenAI 数学进展、Anthropic Claude Haiku 5.5）由 Hacker News 捕获其官方页面链接，Haiku 5.5 页面已单独抓取核对原文，故均予保留。",
+    "arXiv 因索引滞后回看至 96 小时内，本期候选提交日为 10-07，time 字段已注明提交日（时间为北京时间）。本期 agent 相关候选充足（Hacker News、Latent Space、GitHub Releases、arXiv 多条 tags 含 agent），已按要求单列 agent 分类。同一事件多源报道（OpenAI 数学进展见 Hacker News、OpenAI Blog、Latent Space、量子位）已合并为一条并在 source 标注多来源。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-10-06T23:00Z，时间为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 过去 24 小时无新提交",
+        "items": [
+          {
+            "title": "过去 24 小时无新提交",
+            "desc": "窗口内 0 条；仓库最近一次 push 为北京时间 10-03 14:02（0.2.1-alpha.1 发版相关）",
+            "author": "",
+            "time": ""
+          }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 23 条提交 · 发布 v1.1.0 并接入 Claude Haiku 5.5",
+        "items": [
+          {
+            "title": "Release v1.1.0 + 开启下一周期 [Unreleased] 段",
+            "desc": "版本发布",
+            "author": "Armin Ronacher",
+            "time": "10-08 05:33"
+          },
+          {
+            "title": "feat(ai)：新增 Claude Haiku 5.5",
+            "desc": "模型接入（新增 Haiku 5.5）",
+            "author": "Armin Ronacher",
+            "time": "10-08 03:44"
+          },
+          {
+            "title": "fix(ai)：固定 Kimi K3 Moonshot 定价，并支持 Haiku 5.5 自适应思考（adaptive thinking）",
+            "desc": "模型接入修复",
+            "author": "Armin Ronacher",
+            "time": "10-08 04:41"
+          },
+          {
+            "title": "fix(ai)：保留所有模型目录中的 prompt 长度定价档位",
+            "desc": "计费修复",
+            "author": "Armin Ronacher",
+            "time": "10-08 03:54"
+          },
+          {
+            "title": "feat(ai,coding-agent)：新增 OpenAI Decisions 分类器与分类器图像支持",
+            "desc": "模型接入能力（对应 OpenAI 新 Decisions API）",
+            "author": "Armin Ronacher",
+            "time": "10-07 14:27"
+          },
+          {
+            "title": "fix(coding-agent)：保持 MCP 管理器可响应（closes #10562）",
+            "desc": "MCP 稳定性修复",
+            "author": "Armin Ronacher",
+            "time": "10-07 14:35"
+          },
+          {
+            "title": "fix(coding-agent)：关闭时取消 MCP OAuth 登录并停止刷新",
+            "desc": "MCP 修复",
+            "author": "Armin Ronacher",
+            "time": "10-07 22:17"
+          },
+          {
+            "title": "feat(tui,coding-agent)：通过 OSC 7501 上报程序状态；启用 showHardwareCursor 时只使用终端光标（两条）",
+            "desc": "终端交互能力",
+            "author": "Mario Zechner / Armin Ronacher",
+            "time": "10-08 03:04 / 06:22"
+          },
+          {
+            "title": "fix：处理 npm audit 可修复告警",
+            "desc": "安全修复",
+            "author": "Mario Zechner",
+            "time": "10-08 04:31"
+          },
+          {
+            "title": "fix(ai)：Mistral finish_reason 错误重试；Anthropic OAuth 回调回退到空闲端口（两条）",
+            "desc": "模型接入修复",
+            "author": "Mario Zechner",
+            "time": "10-07 17:06 / 15:47"
+          },
+          {
+            "title": "fix(coding-agent)：修复用户 bash 输出分块导致的 ANSI 序列截断 / Android 平台读取 Termux 剪贴板（两条）",
+            "desc": "编码 agent 修复",
+            "author": "David Brailovsky",
+            "time": "10-07 21:02 / 20:35"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 6 条提交 · Haiku 5.5 接入与 console 计费/网关能力为主",
+        "items": [
+          {
+            "title": "feat(console)：Go 各页面展示 Haiku 5.5",
+            "desc": "模型接入（新模型）",
+            "author": "Frank",
+            "time": "10-08 03:16"
+          },
+          {
+            "title": "docs(web)：把 Haiku 5.5 加入 Go / Zen 模型表（两条）",
+            "desc": "模型接入文档",
+            "author": "Frank",
+            "time": "10-08 03:10 / 02:41"
+          },
+          {
+            "title": "feat(console)：记录每月推理花费（#53637）",
+            "desc": "计费能力",
+            "author": "Stefan Avram",
+            "time": "10-08 01:28"
+          },
+          {
+            "title": "feat(console)：把无密钥 Zen 请求按模型代理到新的推理后端（#53717）",
+            "desc": "网关能力",
+            "author": "Victor Navarro",
+            "time": "10-08 00:06"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析（Search API 替代口径）",
+    "sources": {
+      "daily": 15,
+      "weekly": 5
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "openai/math",
+        "url": "https://github.com/openai/math",
+        "lang": "Lean",
+        "stars": "9,298",
+        "delta": "",
+        "source": "daily",
+        "summary": "OpenAI 公开内部模型产出的数学手稿合集：722 篇手稿、372 个家族，含 Lean 形式化与部分推理摘要。",
+        "highlight": "README 称这是在既有数学评测饱和后扩展的开放式研究问题评估，部分结果尚无 Lean 形式化，作者坦言「未形式化的结果可能有问题」并会尽快修正；已发布若干家族的推理摘要（如 π 的无理性指数、对称与一般 Mahler 猜想、乘法函数的两点相关），并提供 Lean 库与 formalization.yaml 目录供检查，同时正探索社区托管仓库。"
+      },
+      {
+        "rank": 2,
+        "repo": "QingYunA/answer-me-with-html",
+        "url": "https://github.com/QingYunA/answer-me-with-html",
+        "lang": "JavaScript",
+        "stars": "2,032",
+        "delta": "",
+        "source": "daily",
+        "summary": "让 agent 用一页可读的 HTML 回答难题，而不是一堵文字墙的 Agent Skill（模型输出 token 约为手写 HTML 的 1/8）。",
+        "highlight": "README 主打 Super Fast、ASD-STE100 简明语言、单文件离线与解释视频；兼容 Claude Code、Codex、Cursor、OpenCode、Pi，并附 theagenticleaderboard 徽章与官网（qingyuna.github.io/answer-me-with-html）。"
+      },
+      {
+        "rank": 3,
+        "repo": "facebookincubator/muse-gadget-sdk",
+        "url": "https://github.com/facebookincubator/muse-gadget-sdk",
+        "lang": "C",
+        "stars": "1,647",
+        "delta": "",
+        "source": "daily",
+        "summary": "Meta 开源的 Muse Gadgets 设备 SDK：用现成 ESP32 或树莓派自制能接入 Muse 的硬件。",
+        "highlight": "README 提供 ESP32 Device SDK（接屏幕显示图像、音频输入输出、传感器）与 Linux Device SDK（把闲置树莓派/Linux 机器变成 Muse gadget，可自定义命令让 Muse 处理运维或 Home Assistant）；设备经 Muse iOS/Android App 配对并需先获取 SDK token，固件与 SDK 均开源（Apache-2.0）。"
+      },
+      {
+        "rank": 4,
+        "repo": "kargulstudio/sales-crm",
+        "url": "https://github.com/kargulstudio/sales-crm",
+        "lang": "TypeScript",
+        "stars": "1,635",
+        "delta": "",
+        "source": "daily",
+        "summary": "Next.js 16 / React 19 / Tailwind 4 的站点脚手架（Kargul Starter），把构建规范写进仓库。",
+        "highlight": "README 称 CONVENTIONS.md 是「这个仓库怎么建」的完整规范、写任何组件/区块/页面之前必读；内置 npm 脚本可把图片转 AVIF 并报告内联成本、抽取 public/ 下每个 .webm 的首帧作海报、从 .riv 文件渲染静帧；SEO 集中在 lib/seo.ts（robots/sitemap/llms.txt 与各页元数据皆由此派生），并提供 app/llms.txt 路由与 AGENTS.md 供 agent 使用。"
+      },
+      {
+        "rank": 5,
+        "repo": "alchaincyf/huashu-art-motion",
+        "url": "https://github.com/alchaincyf/huashu-art-motion",
+        "lang": "JavaScript",
+        "stars": "1,577",
+        "delta": "",
+        "source": "daily",
+        "summary": "艺术动画 skill：35 种艺术风格、9 种解说语法，让 coding agent 把艺术风格写成会动的画。",
+        "highlight": "README 演示用纯代码重绘场景 + 生成帧合成角色（如「花叔闯进超级玛丽」与穿越名画系列），起点是对 @cherry_mx_reds 15 秒 Art History Speedrun 的纯代码复刻；附分镜拆解脚本与质检脚本（测量稳定性、每帧成本、运动与平滑度），需 uv、ffmpeg 与 Playwright Chromium，一条 npx skills add 即可安装；代码与文档 MIT（内置字体/笔画保留各自许可，角色美术仅演示用）。"
+      },
+      {
+        "rank": 6,
+        "repo": "sganggs/Stronghold-Protocol",
+        "url": "https://github.com/sganggs/Stronghold-Protocol",
+        "lang": "JavaScript",
+        "stars": "917",
+        "delta": "",
+        "source": "daily",
+        "summary": "《明日方舟》季节性自走棋塔防玩法「卫戍协议：盟约」的非官方同人复刻：浏览器即开即玩，单人或 1–4 人联机合作。",
+        "highlight": "README 声明为玩家自制的非官方同人作品、与鹰角网络/Yostar 及关联方无任何关系且未获授权，名称/角色/美术/音乐/文本等素材版权归原权利人且不适用本项目 GPL-3.0（GPL 只覆盖自写代码）；仓库含同盟房间、策略轮选、休整期（商店/盟约）、部署方向轮盘与最终攻势等玩法。"
+      },
+      {
+        "rank": 7,
+        "repo": "mizorewww/x_gift_bot",
+        "url": "https://github.com/mizorewww/x_gift_bot",
+        "lang": "Go",
+        "stars": "916",
+        "delta": "",
+        "source": "daily",
+        "summary": "X（Twitter）Premium 礼品兑换平台：生成兑换码，用户自助兑换，系统自动完成下单与付款。",
+        "highlight": "README 提供兑换页与管理后台（含深浅色截图，本地示例数据即可预览），凭据逐条 AES-256-GCM 加密存储、付款前逐项校验金额与商户、付款确认只提交一次；部署需自备 X 登录 Cookie、付款银行卡、可选代理（sing-box 任意 outbound）与 Stripe 公钥，并需 Node.js 22+。"
+      },
+      {
+        "rank": 8,
+        "repo": "Jakeschincariol/replica-skill",
+        "url": "https://github.com/Jakeschincariol/replica-skill",
+        "lang": "Python",
+        "stars": "846",
+        "delta": "",
+        "source": "daily",
+        "summary": "十一个 Claude skills 组合成「克隆任意应用」流水线：逆向、重建、测试、品牌化并上线。",
+        "highlight": "README 强调「只重建应用做什么、绝不重建它拥有什么」（clean-room，不碰其代码/logo/文案/内容）；流程含规划技术栈与数据库、重建设计系统、接入认证与支付、给克隆打分、起名与品牌、写落地页与商店文案，最终部署到自有域名；MIT、无注册无 API key，工具需 Python 3.8+ 且无需 pip 安装。"
+      },
+      {
+        "rank": 9,
+        "repo": "rauchg/gdp-ts",
+        "url": "https://github.com/rauchg/gdp-ts",
+        "lang": "TypeScript",
+        "stars": "738",
+        "delta": "",
+        "source": "daily",
+        "summary": "「Ghosts of Departed Proofs」的 TypeScript 实现：用编译器把鉴权/授权漏洞挡在类型检查阶段。",
+        "highlight": "README 目标是把「这个用户能否读这个资源」「这个用户是否付费」这类授权 bug 在编译期挡住，运行时开销近零（只对 id 检查做一层薄包装）；提供「易用↔严谨」可调档位并附带「何时该停止」的建议，冷启动 TypeScript 7 下每个授权调用点约 0.3ms 且成本随用量而非代码规模增长；要求 TypeScript 5.4+，同时提供库与 AI skill。"
+      },
+      {
+        "rank": 10,
+        "repo": "elstongun/leviathan",
+        "url": "https://github.com/elstongun/leviathan",
+        "lang": "Rust",
+        "stars": "664",
+        "delta": "",
+        "source": "daily",
+        "summary": "给 agent 的大数据集「深度记忆」：单个静态二进制把记录建成一次排序全文索引，按需返回少量带引用卡片。",
+        "highlight": "README 称可索引 JSONL/JSON/CSV/TSV/SQLite 或任意数据库 CLI 输出；在 100 万条记录下，每次提问中位数约 436 token（对比：grep 实体+问题词约 107K、读全部约 2.03 亿），答案带引用；Rust 1.88+、Apache-2.0、MCP 为可选。"
+      },
+      {
+        "rank": 11,
+        "repo": "ythx-101/live-panel-skill",
+        "url": "https://github.com/ythx-101/live-panel-skill",
+        "lang": "HTML",
+        "stars": "642",
+        "delta": "",
+        "source": "daily",
+        "summary": "把一份 JSON 变成终端风格、持续运动的架构图（或柔光信息图），输出 H.264 mp4 或实时网页。",
+        "highlight": "README 明确创意、视觉与运动语法源自 @thedelost 的架构图短片（Codex agent tree），方法（运动语法、配置驱动模板）为重新实现而非其代码；含 Codex agent 树、@林纾《AI Agent 的完整架构》与 Airbnb 访谈数据三个示例；输出适配 X / 小红书，本身也是 Claude Code 风格 skill。"
+      },
+      {
+        "rank": 12,
+        "repo": "AgentMemoryRepo/agentmemoryrepo",
+        "url": "https://github.com/AgentMemoryRepo/agentmemoryrepo",
+        "lang": "",
+        "stars": "612",
+        "delta": "",
+        "source": "daily",
+        "summary": "跨会话 agent 记忆规范：agent 实时保存学到的东西，记忆互相链接、可像 wiki 一样浏览。",
+        "highlight": "README 称规范同时发布在 cognition.com/agent-memory-repo；记忆存于独立 repo（绝不写进公共规范仓库）；提供 Devin CLI（devin plugins install）与 Claude Code/Cursor 等安装方式（npx skills add），本地试用用同一台机器与持久存储即可，跨机器需私有远端或其它持久存储。"
+      },
+      {
+        "rank": 13,
+        "repo": "DozenTwelve/Papermorph",
+        "url": "https://github.com/DozenTwelve/Papermorph",
+        "lang": "HTML",
+        "stars": "528",
+        "delta": "",
+        "source": "daily",
+        "summary": "把 PDF 变成可动、可听、可交互的网页书的 Agent Skill。",
+        "highlight": "README 流程为 PDF → 书籍计划 → 分镜 → 解说 → 动画与测验 → 网页书；目前仅支持 Opus 5.5、暂无图像模型/多语言/BGM，计划扩展到图像绘本与人文纪录片；一条 npx skills add 安装，附带旁白的 75 秒完整演示。"
+      },
+      {
+        "rank": 14,
+        "repo": "Dingo-Shenanigans/ReSkate",
+        "url": "https://github.com/Dingo-Shenanigans/ReSkate",
+        "lang": "C++",
+        "stars": "509",
+        "delta": "",
+        "source": "daily",
+        "summary": "《skate.》的离线 / 自建服务器 / Mod 粉丝项目：启动器 + 注入游戏的运行时 + 专用服务器。",
+        "highlight": "README 提供离线游玩（滑手、装扮、解锁与进度存在本机，Steam 关闭也能跑）、最多 32 人 Steam 大厅与专用服务器、邻近语音与文字聊天、公园编辑器，以及从 Thunderstore 安装 Mod；需自备 Steam 版 skate.，并声明与 EA / Full Circle 无关。"
+      },
+      {
+        "rank": 15,
+        "repo": "zzzz7788990213-ops/EvoVLM",
+        "url": "https://github.com/zzzz7788990213-ops/EvoVLM",
+        "lang": "Python",
+        "stars": "507",
+        "delta": "",
+        "source": "daily",
+        "summary": "冻结模型权重、用 LLM 引导的进化搜索优化多模态「推理程序」（提示、图像预处理、生成预算、答案抽取）。",
+        "highlight": "README 称在 Qwen3-VL-2B（Instruct / Thinking）上做变异—评估—Pareto 选择，搜索规模刻意很小（两代、每模型种群最多六个子代），并强调这不是无约束代码生成、权重训练或对 SOTA 的宣称；附技术报告与可复现说明。"
+      },
+      {
+        "rank": 16,
+        "repo": "eternity4719/HowToLiveBetter",
+        "url": "https://github.com/eternity4719/HowToLiveBetter",
+        "lang": "HTML",
+        "stars": "50,201",
+        "delta": "",
+        "source": "weekly",
+        "summary": "《高性价比人生指南》：667 条生活决策建议，每条写明成本、收益与证据等级，并配 AI 问答 skill。",
+        "highlight": "README 称每条建议写明花掉什么、换回什么、证据有多硬，来源只引期刊论文与官方文件（少数官方不公开的案件引署名原创新闻报道并附网页存档）；声明从未也不会发行任何代币；提供 PDF、EPUB、离线单文件 HTML 与在线检索页，配套 skill 支持 Claude Code 与 Codex 并注明出自第几节第几条。"
+      },
+      {
+        "rank": 17,
+        "repo": "NandhaKishorM/laya",
+        "url": "https://github.com/NandhaKishorM/laya",
+        "lang": "Python",
+        "stars": "31,424",
+        "delta": "",
+        "source": "weekly",
+        "summary": "非自回归的「System 1」决策引擎：对任意文本做类型化选择、打分与是/否判断，单次前向 33ms、覆盖 100+ 语言。",
+        "highlight": "README 称其用严格恰当评分规则的强化学习（RLCD）训练，并用 router 按请求挑选 checkpoint；提供 laya[serve]/[mcp]/[langchain]/[llamaindex]/[crewai]/[onnx]/[fast]（TileLang GPU 快路径）等可选依赖；laya-multilingual 支持最长 8,192 token，并附长文准确率与耗时基准及可复现脚本，另有 TypeScript 版 laya-ts。"
+      },
+      {
+        "rank": 18,
+        "repo": "browser-use/jev-ultrafast",
+        "url": "https://github.com/browser-use/jev-ultrafast",
+        "lang": "Python",
+        "stars": "22,271",
+        "delta": "",
+        "source": "weekly",
+        "summary": "带动态索引动作空间的浏览器 agent：Jev 决策「做什么、对哪个元素」，小模型只在需要输入文本时生成。",
+        "highlight": "README 实测在 Google Flights 上完成苏黎世→伦敦的搜索用 7.1 秒（含真实文本生成与加载等待）；每次观察都会重建带编号的元素表，操作仅有 CLICK、TYPE_TEXT、SELECT、SCROLL_UP、SCROLL_DOWN、WAIT、DONE、BLOCKED，且只提供受支持的操作与目标；项目提供 cloud 版等待名单。"
+      },
+      {
+        "rank": 19,
+        "repo": "Niko1221/Strata",
+        "url": "https://github.com/Niko1221/Strata",
+        "lang": "C++",
+        "stars": "16,991",
+        "delta": "",
+        "source": "weekly",
+        "summary": "在普通游戏 PC 上跑 Qwen3.8-Flash-Next：12GB 显存起，Windows/Linux 免费开源。",
+        "highlight": "README 称需要 12GB 及以上 NVIDIA 或 AMD 显卡，实测 RTX 5070（12GB）Q2_0 写答 94 token/s、读入 32K 提示 2,650 token/s；模型可聊天、写代码、读图并接入应用与编码 agent，数据不出本机。"
+      },
+      {
+        "rank": 20,
+        "repo": "robbietilton/Compositor",
+        "url": "https://github.com/robbietilton/Compositor",
+        "lang": "Swift",
+        "stars": "11,153",
+        "delta": "",
+        "source": "weekly",
+        "summary": "免费开源的 macOS 图像编辑器（Photoshop 替代）：围绕合成与后期工作流，可自行改 Xcode 工程。",
+        "highlight": "README 称提供图层与文件夹（含 Photoshop 全套混合模式与顺序）、图层蒙版、剪裁与文件夹蒙版、调整图层（色相/饱和度、色阶、曲线、渐变映射、颗粒等）、GPU 渲染且可随时编辑的图层效果（描边、投影、内外发光）；作者自述因 Photoshop 太贵、GIMP 不顺手而自建，可用 Homebrew 安装。"
+      }
+    ]
+  },
+  "observation": [
+    "OpenAI 同日占据 Hacker News 与榜单双第一：官方博客《Sharing AI progress in mathematics》热帖 1212 分，Trending 榜首就是 openai/math（722 篇手稿、372 个家族），AI 参与数学研究的公开规模前所未见；叠加同日发布的 GPT-6 与 Anthropic Claude Haiku 5.5，头部模型与前沿研究的迭代节奏仍在加快。",
+    "Agent Skill 依旧是榜单的基本分发单位：answer-me-with-html、huashu-art-motion、replica-skill、Papermorph、live-panel-skill、agentmemoryrepo 都把自己打包成一条 npx skills add 或插件，卖点集中在「省 token」「能直接上屏的成品」与跨会话记忆。",
+    "Agent 的「记忆与检索」正变成独立赛道：leviathan 用单二进制把大数据集建成全文索引（100 万条记录每次提问约 436 token），agentmemoryrepo 干脆把跨会话记忆写成公开规范并托管到 cognition.com，memory 从框架里的一块走向可单独分发的产品。",
+    "工程纪律与可验证性回潮：gdp-ts 用 TypeScript 类型系统在编译期挡授权漏洞、sales-crm 把 CONVENTIONS.md 当作唯一规范、jev-ultrafast 把浏览器 agent 压到 7.1 秒——竞争焦点从模型能力转向可验证性与时延。",
+    "桌面创意软件替代与老游戏复活继续霸榜：Compositor（Swift 版 Photoshop 替代）与 ReSkate（《skate.》离线/自建服务器/Mod）说明「免费替代贵软件」和「让老游戏重新能玩」仍是最能聚拢 star 的题材。"
+  ],
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "近期新增（优先 24 小时内；候选抓取窗口 30 小时）· arXiv 回看至 10-07 提交 · 已单列「智能体/Agent」分类",
+    "sourcesUsed": [
+      "Hacker News",
+      "OpenAI Blog",
+      "Anthropic（官方页）",
+      "Latent Space",
+      "量子位",
+      "arXiv",
+      "GitHub Releases",
+      "Simon Willison"
+    ],
+    "items": [
+      {
+        "category": "release",
+        "title": "OpenAI 发布 GPT-6，并推出「Intelligent UI for everyone」",
+        "summary": "OpenAI 官方博客发布 GPT-6 与面向所有人的 Intelligent UI，Hacker News 热帖 426 分 · 217 评论（Anthropic 官方页面中 Haiku 5.5 的基准表也出现了「GPT-6 Luna」）。",
+        "why": "头部模型换代同时把「界面」作为卖点，会直接改变 agent 与终端产品默认底座的选择。",
+        "url": "https://openai.com/index/gpt-6-for-everyone/",
+        "source": "Hacker News / OpenAI Blog",
+        "time": "10/08 02:00",
+        "heat": "426 分 · 217 评论"
+      },
+      {
+        "category": "release",
+        "title": "Anthropic 发布 Claude Haiku 5.5：更便宜更快的小模型",
+        "summary": "官方称其为「史上最便宜、最快、最强的小模型」，面向高批量低成本任务（摘要、压缩、数据库查询、分类），平均比 Haiku 4.5 便宜约 75%，适合作为 Opus 5.5 / Sonnet 5.5 在编码工作上的 subagent；同时 Sonnet 5.5 缓存读取价格减半（agentic 工作约省 20%），并为 Max / Team 订阅者新增每月 API 额度。",
+        "why": "小模型的价格与速度直接决定 agent 的日常运行成本；同日 pi（v1.1.0）与 opencode 都已接入 Haiku 5.5。",
+        "url": "https://www.anthropic.com/claude-haiku-5-5",
+        "source": "Hacker News / Anthropic（官方页）",
+        "time": "10/08 02:01",
+        "heat": "590 分 · 283 评论"
+      },
+      {
+        "category": "research",
+        "title": "OpenAI 公开 722 篇数学手稿：AI 在开放数学问题上的进展",
+        "summary": "OpenAI 官方博客介绍用内部模型在开放研究问题上取得进展并公开合集：722 篇手稿、372 个家族，含 Lean 形式化与部分推理摘要；Latent Space 称其解决 500 个开放问题中的 90 个（HN 1212 分 · 1382 评论）；量子位报道多位菲尔兹奖得主表示这「不代表认可」。",
+        "why": "这是 AI 参与数学研究规模最大的一次公开，且把「未形式化结果可能有问题」写在明处，验证方式与署名争议随之而来。",
+        "url": "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+        "source": "Hacker News / OpenAI Blog / Latent Space / 量子位（多源）",
+        "time": "10/07 06:17",
+        "heat": "1212 分 · 1382 评论"
+      },
+      {
+        "category": "agent",
+        "title": "Docker 开源 Docker Agent：声明式 YAML 的 agent runtime",
+        "summary": "docker-agent 可作为 docker CLI 插件（docker agent）运行：用声明式 YAML 定义 agent、内置工具与任意 MCP server（本地/远程/Docker 内），支持多智能体编排、think/todo/memory 工具与可插拔 RAG（BM25、向量、混合检索与重排）；模型厂商无关（OpenAI、Anthropic、Gemini、Bedrock、Mistral、xAI、Docker Model Runner 等）。",
+        "why": "容器平台官方下场做 agent runtime，意味着 agent 的打包、分发与运行环境开始走向标准化。",
+        "url": "https://github.com/docker/docker-agent",
+        "source": "Hacker News",
+        "time": "10/08 01:48",
+        "heat": "149 分 · 60 评论"
+      },
+      {
+        "category": "agent",
+        "title": "韩国称 AI 智能体疑似被用于攻击本国银行",
+        "summary": "韩国总统李在明表示，AI（智能体）似乎被用于针对韩国银行的网络攻击（Reuters 报道，HN 97 分 · 30 评论）。",
+        "why": "首次有国家级表态把 agent 与真实金融机构攻击直接关联，agent 安全与责任归属的讨论会加速。",
+        "url": "https://www.reuters.com/world/south-koreas-lee-says-ai-appears-have-been-used-bank-hacks-2026-10-06/",
+        "source": "Hacker News / Reuters",
+        "time": "10/07 07:50",
+        "heat": "97 分 · 30 评论"
+      },
+      {
+        "category": "agent",
+        "title": "Latent Space：Stacklok 想把 agent harness 完全搬进云端",
+        "summary": "Kubernetes 联合创造者 Craig McLuckie 与 Joe Beda 创立 Stacklok，目标是把 agent harness 带入云端，文章讨论它能否让 agent 在桌面之外也可靠运行。",
+        "why": "harness「跑在哪」正在成为 agent 可靠性的新战场，从本地终端走向云原生运行面。",
+        "url": "https://www.latent.space/p/stacklok",
+        "source": "Latent Space",
+        "time": "10/07 22:10",
+        "heat": ""
+      },
+      {
+        "category": "research",
+        "title": "arXiv：在 Web 世界模型中训练 agent 抵御自适应提示注入（AdvSim2Real）",
+        "summary": "论文指出 web agent 必须读取并操作第三方写的页面，页面上的植入指令可劫持 agent，而 agent 又无法直接忽略页面（任务所需的值与控件也在其中）；现有先微调再部署的防御对自适应攻击不够，AdvSim2Real 改在「Web 世界模型」里做对抗式训练。",
+        "why": "提示注入是 web agent 落地的头号安全障碍，把防御从静态微调移到对抗式训练是当前主线。",
+        "url": "http://arxiv.org/abs/2610.08773v1",
+        "source": "arXiv",
+        "time": "10/07 01:56（arXiv 提交）",
+        "heat": "新论文"
+      },
+      {
+        "category": "industry",
+        "title": "报道称 Meta 与微软在减少员工对 Claude 的使用",
+        "summary": "Hacker News 热帖（223 分 · 221 评论）指向报道称 Meta 与微软正采取措施，减少内部员工对 Claude 的使用。",
+        "why": "大厂内部的模型采购与替换，是观察企业级 AI 供应商格局变化最直接的信号。",
+        "url": "https://www.rswebsols.com/news/meta-and-microsoft-take-steps-to-reduce-employee-usage-of-claude-ai/",
+        "source": "Hacker News",
+        "time": "10/08 02:49",
+        "heat": "223 分 · 221 评论"
+      }
+    ]
+  }
+}

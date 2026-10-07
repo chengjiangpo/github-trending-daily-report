@@ -3,35 +3,26 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GitHub Trending 每日分析</title>
-<meta name="description" content="每天自动生成的 GitHub Trending 分析：热门项目、仓库提交简报与趋势观察。">
-<link rel="stylesheet" href="assets/site.css">
+<title>2026-10-08 · GitHub Trending 每日分析</title>
+<link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
 <div class="wrap">
-  <header class="hero">
+  <header class="hero mini">
     <div>
-      <span class="kicker">● 每天 06:00 自动更新</span>
-      <h1>GitHub Trending 每日分析</h1>
-      <p>热门项目榜单 · 重点仓库提交简报 · 趋势观察 —— 数据来自 GitHub Trending 与 GitHub REST API。</p>
+      <a class="kicker" href="../">← 返回首页（含全部 18 期）</a>
+      <h1>2026-10-08<span class="wd" style="font-size:15px;font-weight:400;color:var(--muted);margin-left:10px">周四</span></h1>
+      <p>GitHub Trending 每日分析 · 单日页 · 共收录 360 个项目</p>
     </div>
     <div class="stats">
-      <div class="stat"><b>18</b><span>天记录</span></div>
-      <div class="stat"><b>360</b><span>收录项目</span></div>
-      <div class="stat"><b>2026-10-08</b><span>最新一期</span></div>
+      <div class="stat"><b>20</b><span>本期项目</span></div>
     </div>
   </header>
 
-  <div class="tabbar">
-    <div class="tabsrow">
-      <span class="label">日期</span>
-      <a class="arrow" id="prev" href="#" title="上一期">‹</a>
-      <div class="tabscroll" id="tablist"><a class="pill on" href="#d-2026-10-08" data-target="d-2026-10-08" data-file="h/2026-10-08.html" data-inline="1">10-08<span class="wd">周四</span></a><a class="pill" href="#d-2026-10-07" data-target="d-2026-10-07" data-file="h/2026-10-07.html">10-07<span class="wd">周三</span></a><a class="pill" href="#d-2026-10-06" data-target="d-2026-10-06" data-file="h/2026-10-06.html">10-06<span class="wd">周二</span></a><a class="pill" href="#d-2026-10-05" data-target="d-2026-10-05" data-file="h/2026-10-05.html">10-05<span class="wd">周一</span></a><a class="pill" href="#d-2026-10-04" data-target="d-2026-10-04" data-file="h/2026-10-04.html">10-04<span class="wd">周日</span></a><a class="pill" href="#d-2026-10-03" data-target="d-2026-10-03" data-file="h/2026-10-03.html">10-03<span class="wd">周六</span></a><a class="pill" href="#d-2026-10-02" data-target="d-2026-10-02" data-file="h/2026-10-02.html">10-02<span class="wd">周五</span></a><a class="pill" href="#d-2026-10-01" data-target="d-2026-10-01" data-file="h/2026-10-01.html">10-01<span class="wd">周四</span></a><a class="pill" href="#d-2026-09-30" data-target="d-2026-09-30" data-file="h/2026-09-30.html">09-30<span class="wd">周三</span></a><a class="pill" href="#d-2026-09-29" data-target="d-2026-09-29" data-file="h/2026-09-29.html">09-29<span class="wd">周二</span></a><a class="pill" href="#d-2026-09-28" data-target="d-2026-09-28" data-file="h/2026-09-28.html">09-28<span class="wd">周一</span></a><a class="pill" href="#d-2026-09-27" data-target="d-2026-09-27" data-file="h/2026-09-27.html">09-27<span class="wd">周日</span></a><a class="pill" href="#d-2026-09-26" data-target="d-2026-09-26" data-file="h/2026-09-26.html">09-26<span class="wd">周六</span></a><a class="pill" href="#d-2026-09-25" data-target="d-2026-09-25" data-file="h/2026-09-25.html">09-25<span class="wd">周五</span></a><a class="pill" href="#d-2026-09-24" data-target="d-2026-09-24" data-file="h/2026-09-24.html">09-24<span class="wd">周四</span></a><a class="pill" href="#d-2026-09-23" data-target="d-2026-09-23" data-file="h/2026-09-23.html">09-23<span class="wd">周三</span></a><a class="pill" href="#d-2026-09-22" data-target="d-2026-09-22" data-file="h/2026-09-22.html">09-22<span class="wd">周二</span></a><a class="pill" href="#d-2026-09-21" data-target="d-2026-09-21" data-file="h/2026-09-21.html">09-21<span class="wd">周一</span></a></div>
-      <a class="arrow" id="next" href="#" title="下一期">›</a>
-      <input type="date" id="datepick" class="datepick" aria-label="选择日期" min="2026-09-21" max="2026-10-08">
-      <span class="label counter" id="counter"></span>
-    </div>
-    <div class="hint" id="hint" hidden></div>
+  <div class="toolbar" style="margin-top:22px">
+    <a class="tbtn" href="../">‹ 返回首页</a>
+    <a class="tbtn" href="2026-10-07.html">2026-10-07 ›</a>
+    <a class="tbtn" href="../#d-2026-10-08">在首页中查看</a>
   </div>
 
   <main>
@@ -43,8 +34,7 @@
       <button class="tbtn" data-f="news" type="button">仅 AI 动态</button>
       <button class="tbtn" data-f="agent" type="button">仅 Agent</button>
     </div>
-
-      <section class="panel active" id="d-2026-10-08" data-date="2026-10-08" data-loaded="1">
+    <section class="panel active" id="d-2026-10-08" data-date="2026-10-08" data-loaded="1">
         <div class="day-head">
           <h2>2026-10-08<span class="wd">周四</span></h2>
           <span class="day-sub">日榜 15 · 周榜 5 · 20 个 Trending 项目</span>
@@ -617,58 +607,16 @@
             </article>
             </div>
           </section>
-      </section>
-      <section class="panel" id="d-2026-10-07" data-date="2026-10-07" data-file="h/2026-10-07.html"><p class="empty">加载中…</p>
-      </section>
-      <section class="panel" id="d-2026-10-06" data-date="2026-10-06" data-file="h/2026-10-06.html"><p class="empty">加载中…</p>
-      </section>
-      <section class="panel" id="d-2026-10-05" data-date="2026-10-05" data-file="h/2026-10-05.html"><p class="empty">加载中…</p>
-      </section>
-      <section class="panel" id="d-2026-10-04" data-date="2026-10-04" data-file="h/2026-10-04.html"><p class="empty">加载中…</p>
-      </section>
-      <section class="panel" id="d-2026-10-03" data-date="2026-10-03" data-file="h/2026-10-03.html"><p class="empty">加载中…</p>
-      </section>
-      <section class="panel" id="d-2026-10-02" data-date="2026-10-02" data-file="h/2026-10-02.html"><p class="empty">加载中…</p>
-      </section>
-      <section class="panel" id="d-2026-10-01" data-date="2026-10-01" data-file="h/2026-10-01.html"><p class="empty">加载中…</p>
-      </section>
-      <section class="panel" id="d-2026-09-30" data-date="2026-09-30" data-file="h/2026-09-30.html"><p class="empty">加载中…</p>
-      </section>
-      <section class="panel" id="d-2026-09-29" data-date="2026-09-29" data-file="h/2026-09-29.html"><p class="empty">加载中…</p>
-      </section>
-      <section class="panel" id="d-2026-09-28" data-date="2026-09-28" data-file="h/2026-09-28.html"><p class="empty">加载中…</p>
-      </section>
-      <section class="panel" id="d-2026-09-27" data-date="2026-09-27" data-file="h/2026-09-27.html"><p class="empty">加载中…</p>
-      </section>
-      <section class="panel" id="d-2026-09-26" data-date="2026-09-26" data-file="h/2026-09-26.html"><p class="empty">加载中…</p>
-      </section>
-      <section class="panel" id="d-2026-09-25" data-date="2026-09-25" data-file="h/2026-09-25.html"><p class="empty">加载中…</p>
-      </section>
-      <section class="panel" id="d-2026-09-24" data-date="2026-09-24" data-file="h/2026-09-24.html"><p class="empty">加载中…</p>
-      </section>
-      <section class="panel" id="d-2026-09-23" data-date="2026-09-23" data-file="h/2026-09-23.html"><p class="empty">加载中…</p>
-      </section>
-      <section class="panel" id="d-2026-09-22" data-date="2026-09-22" data-file="h/2026-09-22.html"><p class="empty">加载中…</p>
-      </section>
-      <section class="panel" id="d-2026-09-21" data-date="2026-09-21" data-file="h/2026-09-21.html"><p class="empty">加载中…</p>
-      </section>
+    </section>
   </main>
 
   <footer>
-    <span>生成时间：2026-10-07T23:02:55.580Z · 原始数据：<code>data/*.json</code></span>
+    <span>生成时间：2026-10-07T23:02:55.581Z · 数据：<code>../data/2026-10-08.json</code></span>
     <span>Generated by OpenClaw · <a href="https://github.com/chengjiangpo/github-trending-daily-report">仓库源码</a></span>
   </footer>
 </div>
 <script>
 (function(){
-  var pills = Array.prototype.slice.call(document.querySelectorAll('#tablist .pill'));
-  var panels = Array.prototype.slice.call(document.querySelectorAll('.panel'));
-  var counter = document.getElementById('counter');
-  var prev = document.getElementById('prev');
-  var next = document.getElementById('next');
-  var datepick = document.getElementById('datepick');
-  var hint = document.getElementById('hint');
-  var dates = panels.map(function(p){ return p.getAttribute('data-date'); });
 
   var q = document.getElementById('q');
   var btns = Array.prototype.slice.call(document.querySelectorAll('.tbtn'));
@@ -697,91 +645,7 @@
   });
   window.__applyFilter = applyFilter;
 
-
-  function scrollTabTo(btn){
-    var scroller = document.getElementById('tablist');
-    if (!scroller || !btn) return;
-    scroller.scrollTo({ left: Math.max(0, btn.offsetLeft - (scroller.clientWidth - btn.offsetWidth) / 2), behavior: 'smooth' });
-  }
-  function showHint(msg){
-    hint.textContent = msg; hint.hidden = false;
-    clearTimeout(showHint._t);
-    showHint._t = setTimeout(function(){ hint.hidden = true; }, 4500);
-  }
-  function loadPanel(p, done){
-    if (!p || p.getAttribute('data-loaded') === '1') { done && done(); return; }
-    var file = p.getAttribute('data-file');
-    if (!file) { done && done(); return; }
-    p.classList.add('loading');
-    fetch(file, { cache: 'no-cache' })
-      .then(function(r){ if (!r.ok) throw new Error(r.status); return r.text(); })
-      .then(function(t){
-        var doc = new DOMParser().parseFromString(t, 'text/html');
-        var fresh = doc.getElementById(p.id);
-        if (fresh) { p.innerHTML = fresh.innerHTML; p.setAttribute('data-loaded', '1'); }
-        p.classList.remove('loading');
-        done && done();
-      })
-      .catch(function(){ location.href = file; });
-  }
-  function activate(id, opts){
-    opts = opts || {};
-    var target = document.getElementById(id);
-    if (!target) { if (panels.length) target = panels[0]; else return; }
-    panels.forEach(function(p){ p.classList.toggle('active', p === target); });
-    var activeBtn = null;
-    pills.forEach(function(b){
-      var on = b.getAttribute('data-target') === target.id;
-      b.classList.toggle('on', on);
-      if (on) activeBtn = b;
-    });
-    var idx = panels.indexOf(target);
-    counter.textContent = (idx + 1) + ' / ' + panels.length;
-    prev.style.visibility = idx <= 0 ? 'hidden' : 'visible';
-    next.style.visibility = idx >= panels.length - 1 ? 'hidden' : 'visible';
-    if (opts.push && history.replaceState) history.replaceState(null, '', '#' + target.id);
-    if (datepick) datepick.value = target.getAttribute('data-date') || '';
-    if (activeBtn) scrollTabTo(activeBtn);
-    document.title = (target.getAttribute('data-date') || '') + ' · GitHub Trending 每日分析';
-    loadPanel(target, function(){ applyFilter(); });
-    applyFilter();
-    if (opts.scroll) window.scrollTo({ top: Math.max(0, document.querySelector('.tabbar').offsetTop - 8), behavior: 'smooth' });
-  }
-  function step(delta){
-    var idx = panels.indexOf(document.querySelector('.panel.active'));
-    var n = idx + delta;
-    if (n >= 0 && n < panels.length) activate(panels[n].id, { push: true, scroll: true });
-    return false;
-  }
-
-  pills.forEach(function(b){
-    b.addEventListener('click', function(e){
-      e.preventDefault();
-      activate(b.getAttribute('data-target'), { push: true, scroll: true });
-    });
-  });
-  prev.addEventListener('click', function(e){ e.preventDefault(); step(-1); });
-  next.addEventListener('click', function(e){ e.preventDefault(); step(1); });
-  datepick.addEventListener('change', function(){
-    var v = datepick.value; if (!v) return;
-    if (document.getElementById('d-' + v)) { activate('d-' + v, { push: true, scroll: true }); return; }
-    var cand = null;
-    dates.forEach(function(d){ if (d <= v && (!cand || d > cand)) cand = d; });
-    if (!cand) cand = dates.slice().sort()[0];
-    showHint(v + ' 没有报告，已跳到最近的 ' + cand);
-    activate('d-' + cand, { push: true, scroll: true });
-  });
-  window.addEventListener('hashchange', function(){
-    var id = location.hash.replace('#', '');
-    if (id) activate(id, { push: false });
-  });
-  document.addEventListener('keydown', function(e){
-    if (e.target === document.getElementById('q')) return;
-    if (e.key === 'ArrowLeft') step(-1);
-    if (e.key === 'ArrowRight') step(1);
-  });
-
-  activate(location.hash.replace('#', '') || panels[0].id, { push: false });
+  applyFilter();
 })();
 </script>
 </body>
