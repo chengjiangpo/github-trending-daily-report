@@ -1,0 +1,447 @@
+{
+  "date": "2026-10-09",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "gh CLI 未登录、github.com HTTPS 不通，仓库 metadata、提交与 Trending 替代数据均用 curl / fetch 直连 api.github.com 公共接口获取；本次于北京时间 10-09 06:00 执行，全部请求成功（未认证，core 配额充足）。",
+    "github.com/trending 本次不可达（curl 返回 http=000，日榜/周榜均超时），按预案改用 api.github.com Search API 替代口径：日榜 = 近 7 天创建（created:>2026-10-02）按 star 数降序取前 15 个仓库，周榜 = 2026-09-07..2026-09-30 创建按 star 数降序取前 6 个仓库（日榜前 15 中第 14 名 jiwoochris/artex-ko 为 mhtsec/ARTEX 的韩文本地化分叉，属重复，未收录，故周榜多补 1 条凑满 20），共 20 条并标注 source=daily/weekly。该口径衡量的是「新仓库的绝对 star 数」，与 Trending 的「近期 star 增速」并不等价，且 Search API 不提供 24 小时增量，故 delta 字段留空。",
+    "榜单 star 数为北京时间 10-09 06:0x 抓取时的快照；每条 summary 与 highlight 均来自对应仓库 README 的当场抓取（raw.githubusercontent.com），未作超出 README 内容的推断；同名的韩文分叉 jiwoochris/artex-ko 未重复收录。",
+    "提交窗口 since 2026-10-07T22:00Z（即北京时间 10-09 06:00 往前 24 小时，页面内时间为北京时间）：deepseek-ai/deepseek-harness（master）窗口内 0 条提交，最近一次 push 为 10-03T03:48Z（即北京时间 10-03 11:48，0.2.1-alpha.1 发版合并）；earendil-works/pi（main）窗口内 9 条；anomalyco/opencode（dev）窗口内 9 条（已剔除 chore: generate / nix hash 等噪音）。",
+    "AI 前沿动态候选用 node scripts/fetch-ai-news.mjs 抓取（13/13 来源成功，共 52 条候选）：Hacker News(Algolia) 14、arXiv(cs.CL/AI/LG/MA/RO) 12、GitHub Releases(agent 生态) 8、OpenAI Blog 3、Anthropic News 3、Simon Willison 3、量子位 6、GitHub Blog 2、Latent Space 2；Google DeepMind / Google AI Blog / CrewAI Blog / GitHub AI/ML Blog 抓取成功但 0 条（无新增）。官方大模型博客本期有 OpenAI Blog 3 条新增、Anthropic News 3 条新增，已按要求保留官方条目。",
+    "arXiv 因索引滞后回看至 96 小时内，本期候选提交日为 10-08，time 字段已注明提交日（时间为北京时间）。本期 agent 相关候选充足（Hacker News 的 Docker Agent、arXiv 多条 tags 含 agent、Anthropic Cyber Mission），已按要求单列 agent 分类。同一事件多源报道（OpenAI 撤回数学结果见 Hacker News、量子位、openai/math 仓库 history；Claude Haiku 5.5 见 Hacker News、Latent Space、GitHub Blog）已合并为一条并在 source 标注多来源。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-10-07T22:00Z，时间已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 24h 内 0 条提交（过去 24 小时无新提交）· 最近一次 push 10-03",
+        "items": [
+          {
+            "title": "过去 24 小时无新提交",
+            "desc": "最近一次提交为 10-03 的 0.2.1-alpha.1 发版合并（Merge PR #5648）",
+            "author": "—",
+            "time": "—"
+          }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 9 条提交 · 修复为主并新增配置 schema 发布",
+        "items": [
+          {
+            "title": "fix: 支持 npm 12 的 pack JSON 输出（#10680）",
+            "desc": "打包工具链兼容性修复",
+            "author": "Christian Klotz",
+            "time": "10-08 23:26"
+          },
+          {
+            "title": "feat(coding-agent): 发布配置 schema（#9880）",
+            "desc": "对外暴露 coding-agent 配置结构，便于校验与集成",
+            "author": "Christian Klotz",
+            "time": "10-08 16:01"
+          },
+          {
+            "title": "fix(ai): Claude 5.5 模型改用 models.dev 元数据",
+            "desc": "模型元数据来源统一",
+            "author": "David Brailovsky",
+            "time": "10-08 17:20"
+          },
+          {
+            "title": "feat: mcp / codemode / durable 标签打上时自动指派 owner 并重开 issue",
+            "desc": "issue 流程自动化",
+            "author": "David Brailovsky",
+            "time": "10-08 17:04"
+          },
+          {
+            "title": "fix(ai): Mistral 请求超时只作用于响应头",
+            "desc": "超时语义修复",
+            "author": "David Brailovsky",
+            "time": "10-08 16:20"
+          },
+          {
+            "title": "fix(coding-agent): 修复 OAuth 提示回归测试中残留的假光标标记",
+            "desc": "交互回归测试修复",
+            "author": "Armin Ronacher",
+            "time": "10-08 15:54"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 9 条提交（已剔噪）· 以免费 Zen 模型代理与计费为主",
+        "items": [
+          {
+            "title": "refactor(console): 把所有 keyless 免费 Zen 模型代理到新推理（#53967）",
+            "desc": "推理后端统一切换",
+            "author": "Victor Navarro",
+            "time": "10-08 22:22"
+          },
+          {
+            "title": "feat(console): 代理剩余免费 Zen 模型并保留被代理的 404 错误（#53963）",
+            "desc": "代理覆盖收敛",
+            "author": "Victor Navarro",
+            "time": "10-08 21:50"
+          },
+          {
+            "title": "feat(opencode): 新增 Step 5 Free 内容（#53898）",
+            "desc": "产品内容更新",
+            "author": "Jack",
+            "time": "10-08 21:47"
+          },
+          {
+            "title": "feat(console): 代理更多 keyless 免费 Zen 模型到新推理（#53959）",
+            "desc": "代理范围扩大",
+            "author": "Victor Navarro",
+            "time": "10-08 21:23"
+          },
+          {
+            "title": "fix(provider): 支持 OpenAI ultrafast 服务档位（#53875）",
+            "desc": "provider 能力对齐",
+            "author": "Aiden Cline",
+            "time": "10-08 13:52"
+          },
+          {
+            "title": "docs(web): Zen 模型表中补充 Sonnet 5.5",
+            "desc": "文档更新",
+            "author": "Frank",
+            "time": "10-08 11:30"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": {
+      "daily": 14,
+      "weekly": 6
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "openai/math",
+        "url": "https://github.com/openai/math",
+        "lang": "Lean",
+        "stars": "12,001",
+        "delta": "",
+        "source": "daily",
+        "summary": "OpenAI 内部模型产出的数学手稿与证明工件公开仓库。",
+        "highlight": "README 称当前目录含 719 篇手稿、归为 372 个「家族」，按数学学科分类；提供 overview.pdf 与 CONTENTS.md 索引，结论约 42% 已 Lean 形式化；README 明确「部分未形式化结果可能有问题，会尽快修」，history.md 记录更新（本日含撤回 3 项数学结果的记录）。"
+      },
+      {
+        "rank": 2,
+        "repo": "alchaincyf/huashu-art-motion",
+        "url": "https://github.com/alchaincyf/huashu-art-motion",
+        "lang": "JavaScript",
+        "stars": "2,404",
+        "delta": "",
+        "source": "daily",
+        "summary": "面向 coding agent 的「艺术动画」skill：把艺术风格写成会动的画。",
+        "highlight": "README 标称 35 种艺术风格、9 种解说语法、8 种参数化片段与口播整片参考代码；一条 npx skills add 安装；示例「花叔闯进超级玛丽」把自身做成像素主角跑完一整关，砖块/水管/转场用代码完成、人物用生成帧合成。"
+      },
+      {
+        "rank": 3,
+        "repo": "kargulstudio/sales-crm",
+        "url": "https://github.com/kargulstudio/sales-crm",
+        "lang": "TypeScript",
+        "stars": "1,655",
+        "delta": "",
+        "source": "daily",
+        "summary": "Next.js 16 + React 19 + Tailwind 4 的起始模板，以 CONVENTIONS.md 作为唯一规范。",
+        "highlight": "README 开篇即要求「写任何组件前先读 CONVENTIONS.md，它就是这个仓库的全部规范」；给出 npm run to:avif（图片转 AVIF 并报告内联成本，规则 11）、extract:avif（抽取 webm 首帧作封面）等脚本；SEO 由 lib/seo.ts 单点派生 robots/sitemap/llms.txt（规则 18）。"
+      },
+      {
+        "rank": 4,
+        "repo": "Jakeschincariol/replica-skill",
+        "url": "https://github.com/Jakeschincariol/replica-skill",
+        "lang": "Python",
+        "stars": "1,055",
+        "delta": "",
+        "source": "daily",
+        "summary": "11 个 Claude skill 组成「克隆任意应用」流水线：拆解、重建、测 bug、再按用户吐槽改进。",
+        "highlight": "README 明确 MIT、免注册、免 API key；强调「只重建应用做什么，绝不动它拥有什么」——功能与流程用 clean-room 方式复刻，不复制代码/logo/文案/内容，并由 skill 强制执行；含 Entrepreneur 环节：读原应用用户的抱怨并在自己的克隆里修掉。"
+      },
+      {
+        "rank": 5,
+        "repo": "alejandrobujan/tendedero",
+        "url": "https://github.com/alejandrobujan/tendedero",
+        "lang": "Swift",
+        "stars": "976",
+        "delta": "",
+        "source": "daily",
+        "summary": "把每张截图「晾」在 macOS 屏幕顶端一根细线上的小工具。",
+        "highlight": "README 交互设计清晰：指针停在菜单栏横线就滑下、离开即收起；单击复制、长按进 Markup、双击进 Preview、拖进应用发送副本且原图留在线上；免费开源，要求 macOS 14+，提供多语言 README（含简体中文）。"
+      },
+      {
+        "rank": 6,
+        "repo": "nullmoth/nvidia-macos-driver",
+        "url": "https://github.com/nullmoth/nvidia-macos-driver",
+        "lang": "Rust",
+        "stars": "955",
+        "delta": "",
+        "source": "daily",
+        "summary": "让 NVIDIA 显卡在 macOS 15 Sequoia 上跑起来的 Metal 驱动。",
+        "highlight": "README 称面向 Intel Mac 与 OpenCore 系统的 Turing 及更新架构，设备表覆盖 GTX 16、RTX 20/30/40/50、TITAN RTX 与部分 Quadro/RTX 工作站卡；作者坦承设备表覆盖广于实机验证，实际只在 RTX 5060 / macOS 15.7.x 与 15.8.1 上测过，并提示驱动较新未必人人可用。"
+      },
+      {
+        "rank": 7,
+        "repo": "LoreanXavier/pt-pc",
+        "url": "https://github.com/LoreanXavier/pt-pc",
+        "lang": "C++",
+        "stars": "949",
+        "delta": "",
+        "source": "daily",
+        "summary": "小岛秀夫 2014 年 PS4 预告《P.T.》的原生 PC 移植（非模拟器）。",
+        "highlight": "README 说明游戏逻辑用 C++ 依原作行为重建、渲染器基于 Vulkan，所有关卡/模型/贴图/音效/脚本/过场都在运行时从「你自己那份 PS4 游戏」读取；仓库与安装包均不含游戏数据；需要独立显存的 Vulkan 1.3 显卡，光追与 DLSS 为可选项，作者自述是用业余时间独自完成。"
+      },
+      {
+        "rank": 8,
+        "repo": "rauchg/gdp-ts",
+        "url": "https://github.com/rauchg/gdp-ts",
+        "lang": "TypeScript",
+        "stars": "761",
+        "delta": "",
+        "source": "daily",
+        "summary": "把「幽灵证明（Ghosts of Departed Proofs）」搬进 TypeScript：在编译期挡掉越权/权益类 bug。",
+        "highlight": "README 称可让「这个用户能不能读这个资源」「有没有付费」这一整类 bug 对人类与编码 agent 都难以写出，运行时仅剩一层很薄的 id 包装、约零开销；冷启动 TS 7 检查下每个受保护调用点约 0.3ms，成本随用量而非代码库规模增长；需 TS 5.4+，同时提供 library + linter + AI skill。"
+      },
+      {
+        "rank": 9,
+        "repo": "storytold/wordcraft",
+        "url": "https://github.com/storytold/wordcraft",
+        "lang": "Rust",
+        "stars": "759",
+        "delta": "",
+        "source": "daily",
+        "summary": "纯 Rust 重写的开源版 Microsoft Word（clean-room）。",
+        "highlight": "README 称保留 Word 工作流：功能区、样式、表格、修订痕迹、交叉引用与邮件合并，可读写 .docx，原生跑 macOS / Windows / Linux / BSD，并可通过 WebAssembly 在浏览器运行；MIT OR Apache-2.0 双授权，徽章标注 agent 可通过 MCP/CLI 驱动。"
+      },
+      {
+        "rank": 10,
+        "repo": "elstongun/leviathan",
+        "url": "https://github.com/elstongun/leviathan",
+        "lang": "Rust",
+        "stars": "693",
+        "delta": "",
+        "source": "daily",
+        "summary": "给 agent 的大数据集「深度记忆」：单二进制把表/导出/日志变成排序全文索引。",
+        "highlight": "README 给出量化对比：在 100 万条记录（678MB）下，每次提问中位 token 数 Leviathan 为 436，而「grep 实体+问题词」107K、「grep 实体历史」209K、「读全部」203M；每次回答返回带引用的短结果卡；支持 JSONL/JSON/CSV/SQLite 等，可选 MCP，Apache-2.0。"
+      },
+      {
+        "rank": 11,
+        "repo": "storytold/cadcraft",
+        "url": "https://github.com/storytold/cadcraft",
+        "lang": "Rust",
+        "stars": "689",
+        "delta": "",
+        "source": "daily",
+        "summary": "纯 Rust 重写的开源版 AutoCAD（clean-room）。",
+        "highlight": "README 称保留 AutoCAD 工作流：命令行、对象捕捉、图层、标注、填充、块与 DXF 图纸；原生跑 macOS / Windows / Linux / FreeBSD 并可经 WebAssembly 上浏览器；MIT OR Apache-2.0，徽章标注可由 agent 通过 MCP 驱动，并自标 status: early development。"
+      },
+      {
+        "rank": 12,
+        "repo": "pingdotgg/ts-rust",
+        "url": "https://github.com/pingdotgg/ts-rust",
+        "lang": "Rust",
+        "stars": "682",
+        "delta": "",
+        "source": "daily",
+        "summary": "实验性的 TypeScript 编译器 Rust 移植（tsc-rs）。",
+        "highlight": "作者自述目标是「看 LLM 能不能把 TypeScript 编译器/检查器/LSP 移植到 Rust」，结论是可以；先用 GPT-5.6 Sol 与 GPT-6 Astra 烧掉逾 40 万美元 token、写了 1.3M+ 行 Rust 仍未过 84% 兼容，改让 Opus 5.5 从零重写后 10 小时内出可用 v0，最终约 24,047 美元 API 花费、两周完成；作者坦承「这个代码我一行没读过」，并标明为 early release。"
+      },
+      {
+        "rank": 13,
+        "repo": "mhtsec/ARTEX",
+        "url": "https://github.com/mhtsec/ARTEX",
+        "lang": "Go",
+        "stars": "678",
+        "delta": "",
+        "source": "daily",
+        "summary": "AI 自主渗透测试系统（Go 后端 + Next.js 前端），百度「agent+」攻防挑战赛冠军项目。",
+        "highlight": "README 提供在线 Demo 与多张截图（仪表盘 Token 消耗/活动流、任务执行会话与工具调用、探索链路、资产覆盖力导向图、流量录制、人在环路对话、拦截审批、Agent 与 LLM 配置）；支持从 ScopeSentry 同步资产；仓库自述为「最后一个纯源码备份」，docker 部署失效可自行让 AI 本地构建。"
+      },
+      {
+        "rank": 14,
+        "repo": "ythx-101/live-panel-skill",
+        "url": "https://github.com/ythx-101/live-panel-skill",
+        "lang": "HTML",
+        "stars": "658",
+        "delta": "",
+        "source": "daily",
+        "summary": "把一份 JSON 描述变成「常驻动画」的终端风格架构图，或浅色可动信息图。",
+        "highlight": "README 称固定布局、包沿线缆流动、滚动日志、计数器、翻状态条与轮流亮起的侧触发，输出 H.264 mp4（适配 X/小红书）或实时网页；也是一个 Claude Code 风格 skill（SKILL.md）；README 明确标注创意与视觉来自 @thedelost 的架构图短片，示例含对小红书《AI Agent 的完整架构》的再动画，版权归属原设计者。"
+      },
+      {
+        "rank": 15,
+        "repo": "eternity4719/HowToLiveBetter",
+        "url": "https://github.com/eternity4719/HowToLiveBetter",
+        "lang": "HTML",
+        "stars": "54,412",
+        "delta": "",
+        "source": "weekly",
+        "summary": "《高性价比人生指南》：672 条建议，每条写明成本、收益与证据等级。",
+        "highlight": "README 称覆盖长寿防病、急救、省钱理财、法律红线、失业工伤、医保社保、恋爱婚育、育儿、创业合规、出国与技能，制度部分按中国大陆现行规定写；来源只引期刊论文与官方文件，少数未公开案件引署名原创新闻并附网页存档；明确「本项目从未也不会发行任何代币」，同名代币一律视为骗局。"
+      },
+      {
+        "rank": 16,
+        "repo": "NandhaKishorM/laya",
+        "url": "https://github.com/NandhaKishorM/laya",
+        "lang": "Python",
+        "stars": "31,707",
+        "delta": "",
+        "source": "weekly",
+        "summary": "多语言、非自回归的「System 1」决策引擎：单次前向搞定带类型的决策。",
+        "highlight": "README 称可在 100+ 语言上做带类型的 choice / 打分 / 是-否决策，单次前向仅 33ms，用严格适当评分规则做 RL（RLCD）训练，并有 router 按请求挑选合适 checkpoint；提供 Colab、PyPI 包 laya、Hugging Face 模型与在线 Space、在线文档。"
+      },
+      {
+        "rank": 17,
+        "repo": "storytold/photocraft",
+        "url": "https://github.com/storytold/photocraft",
+        "lang": "Rust",
+        "stars": "26,140",
+        "delta": "",
+        "source": "weekly",
+        "summary": "纯 Rust 重写的开源版 Adobe Photoshop（clean-room）。",
+        "highlight": "README 称 100% Rust、离线可用，支持图层、蒙版、调整图层、图层样式、文字、矢量与笔刷，并能读写真实 PSD 文件；原生跑 macOS / Windows / Linux / FreeBSD 与 Web；MIT OR Apache-2.0，自标 status: early alpha。"
+      },
+      {
+        "rank": 18,
+        "repo": "browser-use/jev-ultrafast",
+        "url": "https://github.com/browser-use/jev-ultrafast",
+        "lang": "Python",
+        "stars": "22,386",
+        "delta": "",
+        "source": "weekly",
+        "summary": "「最快最省」的浏览器 agent：动态索引动作空间 + TypeSafe 的 Jev 决策模型。",
+        "highlight": "README 称其动作空间是动态且带索引的：每次观测生成元素表，可用操作收敛为 CLICK / TYPE_TEXT / SELECT / SCROLL_UP / SCROLL_DOWN / WAIT / DONE / BLOCKED，只有 TYPE_TEXT 才需要小 LLM 生成文本；示例「苏黎世→伦敦」Google Flights 搜索含文本生成与加载等待共 7.1 秒（1× 速度有录屏），并附性能测量文档与 agent.py 循环。"
+      },
+      {
+        "rank": 19,
+        "repo": "Niko1221/Strata",
+        "url": "https://github.com/Niko1221/Strata",
+        "lang": "C++",
+        "stars": "18,358",
+        "delta": "",
+        "source": "weekly",
+        "summary": "在自己的游戏 PC 上跑 125B 参数模型：一键装的本地推理引擎。",
+        "highlight": "README 称让 Qwen3.8-Flash-Next 在普通 PC 上运行（聊天/写码/读图，接你的应用与编码 agent），数据不出本机；要求 NVIDIA 或 AMD 显卡 12GB 以上、Windows 或 Linux，本地起 OpenAI/Anthropic 兼容 API；附 RTX 5070 (12GB) 与 RX 9070 XT (16GB) 两台普通游戏机的实测速度，示例为 RTX 5070 上一句话提示生成的体素塔庭视频。"
+      },
+      {
+        "rank": 20,
+        "repo": "robbietilton/Compositor",
+        "url": "https://github.com/robbietilton/Compositor",
+        "lang": "Swift",
+        "stars": "13,031",
+        "delta": "",
+        "source": "weekly",
+        "summary": "面向 Mac 的 Photoshop 替代品。",
+        "highlight": "README 自述为「Mac 上的 Photoshop 替代」，属 Swift 原生应用；本次仅取 README 首屏信息，未作超出仓库自述的功能推断。"
+      }
+    ]
+  },
+  "observation": [
+    "「清洁室重写商业软件」成为本周最强势能：ArtCraft 团队一家就榜上三连（wordcraft / cadcraft / photocraft），全部纯 Rust、跨平台并可经 WebAssembly 上浏览器，README 一律标 MIT/Apache 双授权与「agent 可经 MCP 驱动」——开源替代品的竞争已从「能用」转向「可被 agent 调用」。",
+    "LLM 生成代码的规模与成本被公开摆上台面：ts-rust 用 GPT-5.6 Sol / GPT-6 Astra 烧掉逾 40 万美元仍卡在 84% 兼容，换 Opus 5.5 从零重写后 10 小时出 v0、最终约 2.4 万美元完成 TypeScript 编译器移植；同榜 openai/math 公开 719 篇模型产出手稿（约 42% 已 Lean 形式化），AI 参与严肃工程与数学研究的真实成本、验证状态正被记录成公开数据。",
+    "Agent 的两个端点同时被强化：一端是「记忆与数据接入」——leviathan 把 100 万条记录的每次提问压到 436 token，另一端是「动作与安全」——ARTEX 把自主渗透测试做成带人在环路审批与资产覆盖图的系统；replica-skill、huashu-art-motion、live-panel-skill 则继续证明「skill」已是最稳定的分发单位。",
+    "消费级硬件上的本地大模型继续推进：Strata 宣称在 12GB 显存的普通游戏 PC 上跑 125B 参数模型并暴露 OpenAI/Anthropic 兼容 API，配合 tendedero、Compositor 等原生桌面小工具，说明「本地、离线、不上云」正在从口号变成可下载的产品。",
+    "硬件与怀旧题材仍未退潮：nvidia-macos-driver 让 NVIDIA 卡在 macOS 15 上跑起 Metal，pt-pc 把《P.T.》原生移植到 PC，HowToLiveBetter 这种「672 条、每条标成本与证据等级」的民生内容则以 5.4 万 star 说明高信息密度的实用文档仍是最能聚拢关注的题材。"
+  ],
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（arXiv 因索引滞后回看至 10-08）· 已单列「智能体/Agent」分类",
+    "sourcesUsed": [
+      "Hacker News",
+      "arXiv",
+      "OpenAI Blog",
+      "Anthropic News",
+      "GitHub Releases(agent 生态)",
+      "Simon Willison",
+      "量子位",
+      "GitHub Blog",
+      "Latent Space"
+    ],
+    "items": [
+      {
+        "category": "release",
+        "title": "Anthropic 发布 Claude Haiku 5.5",
+        "summary": "Anthropic 推出 Claude Haiku 5.5，主打与 GPT-6 Luna 同级价位但更强的跑分，并同步上线 GitHub Copilot。",
+        "why": "小模型价位段的最强竞品更新，HN 1030 分居当日热帖首位，且当天就进了 GitHub Copilot，直接影响编码 agent 的默认模型选择与成本。",
+        "url": "https://www.anthropic.com/claude-haiku-5-5",
+        "source": "Hacker News / Latent Space / GitHub Blog（多源）",
+        "time": "10/08 02:01",
+        "heat": "HN 1030 分 · 480 评论"
+      },
+      {
+        "category": "release",
+        "title": "OpenAI 开放 GPT-6 免费使用",
+        "summary": "OpenAI 官方页面宣布 GPT-6 面向所有人开放（含更少拒答、表达更充分），量子位同步报道「GPT-6 今起免费用」。",
+        "why": "旗舰模型免费开放是最直接的能力下放，会立刻改变个人开发者与 agent 产品的默认基座与成本结构。",
+        "url": "https://openai.com/index/gpt-6-for-everyone/",
+        "source": "Hacker News / 量子位（多源）",
+        "time": "10/08 02:00",
+        "heat": "HN 740 分 · 446 评论"
+      },
+      {
+        "category": "industry",
+        "title": "OpenAI 撤回三项数学结果",
+        "summary": "OpenAI 从其公开的数学手稿仓库撤回 3 项结果，history.md 记录了撤回动作，HN 与量子位多源报道（量子位称论文复现率低至 13.98%）。",
+        "why": "这是「AI 自主产出研究」少见的公开纠错：模型产出手稿一旦进入公共知识库，验证与撤回机制是否可靠，直接决定这类成果能走多远。",
+        "url": "https://github.com/openai/math/blob/main/history.md",
+        "source": "Hacker News / 量子位 / GitHub（多源）",
+        "time": "10/08 16:08",
+        "heat": "HN 337 分 + 234 分 · 529 评论"
+      },
+      {
+        "category": "agent",
+        "title": "Docker 开源 docker-agent",
+        "summary": "Docker Engineering 开源 docker-agent，定位「AI Agent 构建器与运行时」（Go，已 4,225 star）。",
+        "why": "容器厂商亲自下场做 agent 运行时，意味着 agent 的打包、隔离与部署可能很快复用容器生态的既有标准，对 agent 落地方式影响直接。",
+        "url": "https://github.com/docker/docker-agent",
+        "source": "Hacker News",
+        "time": "10/08 01:48",
+        "heat": "HN 292 分 · 136 评论"
+      },
+      {
+        "category": "agent",
+        "title": "Anthropic 推出 Anthropic Cyber Mission",
+        "summary": "Anthropic 官方宣布长期计划 Cyber Mission，为防御方提供工具、研究与资源来保护软件安全。",
+        "why": "头部实验室把智能体能力定向投入安全防御，官方称是「长期承诺」，是 agent 在攻防场景规模化的官方信号。",
+        "url": "https://www.anthropic.com/news/anthropic-cyber-mission",
+        "source": "Anthropic News（官方）",
+        "time": "10/08 17:04",
+        "heat": "官方发布"
+      },
+      {
+        "category": "industry",
+        "title": "OpenAI 年化收入比此前对外信号少约 200 亿美元",
+        "summary": "CNBC 报道称 OpenAI 的年化营收比此前释放的信号低约 200 亿美元，HN 讨论 331 分。",
+        "why": "算力与数据中心投资规模建立在高增长预期上，收入预期下修会传导到整个 AI 基础设施链（英伟达、Oracle、CoreWeave 均被点名）。",
+        "url": "https://www.cnbc.com/2026/10/08/open-ai-revenue-nvidia-oracle-coreweave.html",
+        "source": "Hacker News",
+        "time": "10/09 00:45",
+        "heat": "HN 331 分 · 216 评论"
+      },
+      {
+        "category": "industry",
+        "title": "Anthropic 更新 2026 年使用政策",
+        "summary": "Anthropic 官方发布 2026 Usage Policy 更新。",
+        "why": "使用政策决定哪些用途被允许、哪些被禁止，是开发者与企业在选型时必须先对齐的合规边界。",
+        "url": "https://www.anthropic.com/news/2026-usage-policy-update",
+        "source": "Anthropic News（官方）",
+        "time": "10/09 01:00",
+        "heat": "官方发布"
+      },
+      {
+        "category": "research",
+        "title": "arXiv：RoboJEPA——扩展机器人潜在世界模型",
+        "summary": "论文提出 RoboJEPA，探索机器人潜在世界模型的规模化路径（tags 含 agent）。",
+        "why": "机器人世界模型是具身智能体从「会动」走向「会规划」的关键组件，规模化路线对后续工作有直接参考价值。",
+        "url": "http://arxiv.org/abs/2610.10515v1",
+        "source": "arXiv (cs.RO)",
+        "time": "10-08 提交",
+        "heat": "新论文"
+      }
+    ]
+  }
+}
