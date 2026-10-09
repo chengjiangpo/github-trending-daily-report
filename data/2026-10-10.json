@@ -1,0 +1,436 @@
+{
+  "date": "2026-10-10",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "gh CLI 未登录；仓库 metadata、提交与 Trending 均用 curl / fetch 直连获取。本次于北京时间 10-10 06:00 执行，api.github.com 与 github.com/trending 均返回 200，全部请求成功（未认证，core 配额充足）。",
+    "github.com/trending 本次可直连（http=200），但页面本次只呈现 11 条（daily 与 weekly 的 Box-row 数量均为 11，非抓取截断，也非分批加载）。按预案用周榜补足至 20 条并标注 source=daily/weekly：日榜 11 条 + 周榜去重后 9 条（AnyPS5、mattpocock/skills 两榜重复，不重复收录）。delta 分别取自页面 stars today / stars this week；无该字段的条目 delta 留空，未做估算。",
+    "Trending 每条 summary 与 highlight 均来自对应仓库 README 的当场抓取（raw.githubusercontent.com；storytold/artcraft、BerriAI/litellm 因默认分支/master 差异改走 api.github.com readme 接口），未作超出 README 内容的推断。star 数为北京时间 10-10 06:0x 抓取时的页面快照。",
+    "提交窗口 since 2026-10-08T22:00Z（即北京时间 10-10 06:00 往前 24 小时，页面内时间为北京时间）：deepseek-ai/deepseek-harness（master）窗口内 ≥60 条提交（单页 30 条上限，Link 头显示共 3 页，已挑主要项）；earendil-works/pi（main）窗口内 4 条；anomalyco/opencode（dev）窗口内 0 条（仓库级 pushed_at 为 10-09T21:47Z，但该 push 落在非默认分支，dev 分支最近一次提交为 10-08T16:24Z）。",
+    "AI 前沿动态候选用 node scripts/fetch-ai-news.mjs 抓取（13/13 来源成功，共 48 条候选）：Hacker News(Algolia) 12、arXiv(cs.CL/AI/LG/MA/RO) 12、GitHub Releases(agent 生态) 4、OpenAI Blog 4、Simon Willison 5、量子位 8、GitHub Blog 1、Latent Space 2；Anthropic News / Google DeepMind / Google AI Blog / CrewAI Blog / GitHub AI/ML Blog 抓取均成功但 0 条新增。官方条目本期为 OpenAI Blog 4 条（新增），已按要求保留（Asana × GPT-6.1 Sol）。",
+    "arXiv 因索引滞后回看至 96 小时内，本期候选提交日为 10-08，time 字段已注明提交日（时间为北京时间）。本期 agent 相关候选充足（HN 的 agent 工具、arXiv 多条 tags 含 agent、量子位 AgentOS / TianxiCode），已按要求单列 agent 分类。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-10-08T22:00Z，时间已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 24h 内 ≥60 条提交（3 页）· 以 0.2.1-alpha.2 发版与 plan-mode / models 修复为主",
+        "items": [
+          {
+            "title": "release(dsh)：发布 0.2.1-alpha.2（合并 PR #5946）",
+            "desc": "新 alpha 版本发布",
+            "author": "07akioni",
+            "time": "10-09 17:31"
+          },
+          {
+            "title": "fix(plan-mode)：仅在批准时退出 plan 模式；用户关闭审查即结束回合",
+            "desc": "计划模式交互修复",
+            "author": "Turtle",
+            "time": "10-09 14:58"
+          },
+          {
+            "title": "fix(models)：隐藏未配置的 DeepSeek 模型与不可选中的选项",
+            "desc": "模型目录可见性修复",
+            "author": "Yichen Jiang",
+            "time": "10-09 14:56"
+          },
+          {
+            "title": "feat(web)：重排插件设置并新增实验目录页（#5922）",
+            "desc": "Web 设置与实验页改版",
+            "author": "Ziya",
+            "time": "10-09 14:42"
+          },
+          {
+            "title": "Merge PR #5523 refactor/desktop-pnpm-dedupe",
+            "desc": "桌面端依赖去重重构",
+            "author": "07akioni",
+            "time": "10-09 16:31"
+          },
+          {
+            "title": "fix：校验可选 Python 资源并隔离下载（Python wheel 体积 #5369 相关）",
+            "desc": "Python 运行时打包修复",
+            "author": "yudshj",
+            "time": "10-09 15:51"
+          },
+          {
+            "title": "build：新增 Windows CI（合并 PR #5898 build/windows-ci 等）",
+            "desc": "CI 覆盖扩展到 Windows",
+            "author": "winewill",
+            "time": "10-09 14:06"
+          }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 4 条提交 · 集中在 durable 能力的工具调用与图像处理",
+        "items": [
+          {
+            "title": "feat(durable)：read 支持返回图片，可选 Photon 图像处理器",
+            "desc": "durable 读入支持图像",
+            "author": "Mario Zechner",
+            "time": "10-10 03:38"
+          },
+          {
+            "title": "feat(durable)：嵌套工具调用、结构化输出与 callers；存储错误终止 Session",
+            "desc": "工具调用与输出结构化增强",
+            "author": "Mario Zechner",
+            "time": "10-10 01:12"
+          },
+          {
+            "title": "fix(coding-agent)：在嵌套 git worktree 中加载 symlink 的 AGENTS.md",
+            "desc": "配置加载修复",
+            "author": "David Brailovsky",
+            "time": "10-09 15:40"
+          },
+          {
+            "title": "feat：新增本地 issue triage 工具（scripts/issues）",
+            "desc": "issue 分类脚本",
+            "author": "Mario Zechner",
+            "time": "10-09 06:16"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 0 条提交（过去 24 小时无新提交）· push 落在其他分支",
+        "items": [
+          {
+            "title": "过去 24 小时无新提交",
+            "desc": "dev 分支最近一次提交为 10-08 16:24Z（北京时间 10-09 00:24）的 docs(web)；仓库级 push 活动在其他分支",
+            "author": "—",
+            "time": "—"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": {
+      "daily": 11,
+      "weekly": 9
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "morluto/rea",
+        "url": "https://github.com/morluto/rea",
+        "lang": "TypeScript",
+        "stars": "43,568",
+        "delta": "+15,335",
+        "source": "daily",
+        "summary": "把「逆向工程」做成一个 MCP：从二进制、应用一直分析到运行时行为。",
+        "highlight": "README 称「看到一个喜欢的功能，就想弄懂它到二进制层」；可分析 .NET 程序集、Electron 应用与网站，也能在终端使用同一套工具；分析在本地运行，结论会附上证据与局限；setup 可注册到 Claude Code、Codex、Cursor、Gemini CLI、Grok Build 等，原生分析可选复用已有的 Hopper / Ghidra / IDA。"
+      },
+      {
+        "rank": 2,
+        "repo": "boykopovar/AnyPS5",
+        "url": "https://github.com/boykopovar/AnyPS5",
+        "lang": "C++",
+        "stars": "21,810",
+        "delta": "+5,925",
+        "source": "daily",
+        "summary": "把 PS5 可执行文件自动移植到 Linux 与 Windows 的工具（非模拟器）。",
+        "highlight": "README 说明其含一个 relinker，把可执行文件转成目标系统的原生格式，并实现适配动态链接的系统 prx 库，无需模拟器或独立运行时进程；已验证游戏 Dreaming Sarah 在 GTX 1050 Ti / i5-7500 上稳定 60fps；遇到不支持或异常状态会直接抛 std::runtime_error 并终止进程。"
+      },
+      {
+        "rank": 3,
+        "repo": "mattpocock/skills",
+        "url": "https://github.com/mattpocock/skills",
+        "lang": "Shell",
+        "stars": "282,529",
+        "delta": "+1,696",
+        "source": "daily",
+        "summary": "来自作者日常 .agents 目录的「真工程师」skills，刻意保持小而可组合。",
+        "highlight": "README 强调不是 vibe coding，而是每天用来做真实工程的技能；作者批评 GSD、BMAD、Spec-Kit 等「接管流程」的做法会剥夺控制权、让流程内 bug 难以排查；这些 skills 面向任意模型、可随意改造；newsletter 约 6 万名开发者订阅，提供插件（自动更新）与 skills.sh（可编辑文件）两条安装路径。"
+      },
+      {
+        "rank": 4,
+        "repo": "cathrynlavery/diagram-design",
+        "url": "https://github.com/cathrynlavery/diagram-design",
+        "lang": "HTML",
+        "stars": "47,772",
+        "delta": "+1,744",
+        "source": "daily",
+        "summary": "面向 Claude Code、Codex、Pi 等的「编辑级」图表设计技能（自包含 HTML+SVG）。",
+        "highlight": "README 主打「你的设计师不会讨厌的编辑级图表」——无阴影、无 Mermaid 味；把「语义模式」与「布局」分离描述，队列/策略轨迹/信任边界等行为可独立于排版表达；2.0 引入共享记忆中枢的「Loop」自改进循环，2.5.10 再增 10 种布局语法（Sankey、鱼骨图、Wardley map、看板、用户旅程、部署图、依赖图、UML 类图、故事地图、数据库 schema）。"
+      },
+      {
+        "rank": 5,
+        "repo": "alibaba/open-code-review",
+        "url": "https://github.com/alibaba/open-code-review",
+        "lang": "Go",
+        "stars": "45,131",
+        "delta": "+323",
+        "source": "daily",
+        "summary": "阿里开源的代码评审 agent：用工程逻辑（非模型）保证最不能出错的关键步骤。",
+        "highlight": "README 将设计分为「工程」与「Agent」两层：文件选择、智能分组（相关文件合成一个评审单元并各起子 agent、隔离上下文，支持并发）、细粒度规则匹配、外部定位与反思模块都由确定性逻辑保证；Agent 层用场景调优的提示与工具集（蒸馏自大规模生产数据的工具调用轨迹）提升稳定性；npm 全局安装 @alibaba-group/open-code-review，命令为 ocr。"
+      },
+      {
+        "rank": 6,
+        "repo": "anthropics/knowledge-work-plugins",
+        "url": "https://github.com/anthropics/knowledge-work-plugins",
+        "lang": "Python",
+        "stars": "28,194",
+        "delta": "+714",
+        "source": "daily",
+        "summary": "Anthropic 开源的 11 个「知识工作」插件，让 Claude 变成你岗位/团队/公司的专家。",
+        "highlight": "README 说明插件面向 Claude Cowork 构建，也兼容 Claude Code；每个插件把 skills、连接器、斜杠命令与子 agent 打包给一个具体职能；首批开源 11 个（含 productivity 连接 Slack/Notion/Asana/Linear/Jira/Monday/ClickUp/M365，sales 连接 HubSpot/Close/Clay/ZoomInfo 等），强调真正的价值在于按公司自己的工具、术语与流程二次定制。"
+      },
+      {
+        "rank": 7,
+        "repo": "BerriAI/litellm",
+        "url": "https://github.com/BerriAI/litellm",
+        "lang": "Python",
+        "stars": "60,615",
+        "delta": "+95",
+        "source": "daily",
+        "summary": "开源 AI 网关：用 OpenAI 格式调用 100+ LLM，可自托管、面向企业。",
+        "highlight": "README 自述为「最快的 AI Gateway」，Rust 内核 + Python SDK，调用 100+ LLM；提供 OpenAI 兼容的代理服务器，并给出一键部署到 Render / Railway / AWS / GCP 的入口，主打自托管与企业级能力。"
+      },
+      {
+        "rank": 8,
+        "repo": "addyosmani/agent-skills",
+        "url": "https://github.com/addyosmani/agent-skills",
+        "lang": "JavaScript",
+        "stars": "103,930",
+        "delta": "+523",
+        "source": "daily",
+        "summary": "面向 AI 编码 agent 的生产级工程技能。",
+        "highlight": "README 把资深工程师的工作流与质量门槛打包给 agent：用 DEFINE→PLAN→BUILD→VERIFY→REVIEW→SHIP 的流程图对应 9 个斜杠命令（/spec、/plan、/build、/test、/review、/ship 等），每个命令会激活对应的 skills，让 agent 在每个阶段都遵循同一套最佳实践。"
+      },
+      {
+        "rank": 9,
+        "repo": "storytold/artcraft",
+        "url": "https://github.com/storytold/artcraft",
+        "lang": "Rust",
+        "stars": "11,199",
+        "delta": "+3,723",
+        "source": "daily",
+        "summary": "ArtCraft：面向艺术家、设计师与影视创作者的「艺术家 IDE」。",
+        "highlight": "README 定位为「The IDE for artists（艺术家的 IDE）」，用于交互式 AI 图像与视频创作，可在 2D 中合成；提供 YouTube 两分钟演示与 Discord/X/LinkedIn 社区，并给出官网下载与 GitHub Releases、源码构建入口。"
+      },
+      {
+        "rank": 10,
+        "repo": "Robbyant/lingbot-map",
+        "url": "https://github.com/Robbyant/lingbot-map",
+        "lang": "Python",
+        "stars": "17,663",
+        "delta": "+109",
+        "source": "daily",
+        "summary": "LingBot-Map：面向流式 3D 重建的「几何上下文 Transformer」前馈 3D 基础模型。",
+        "highlight": "README 介绍其 Geometric Context Transformer 在单一流式框架内统一坐标锚定、稠密几何线索与长程漂移修正（anchor context、pose-reference window、轨迹修正）；Apache-2.0，模型发布在 Hugging Face 与 ModelScope，附会议版论文与技术报告（arXiv），页面标注为 ECCV 2026 Best Paper Award Candidate。"
+      },
+      {
+        "rank": 11,
+        "repo": "twostraws/SwiftUI-Agent-Skill",
+        "url": "https://github.com/twostraws/SwiftUI-Agent-Skill",
+        "lang": "Swift",
+        "stars": "5,384",
+        "delta": "+88",
+        "source": "daily",
+        "summary": "让 AI 编码助手写出更现代 SwiftUI 的 agent skill。",
+        "highlight": "README 称该 skill 覆盖 API 用法、设计、性能与无障碍，针对 LLM 实际会犯的错（导航、布局、动画、状态管理、VoiceOver、废弃 API 等）；面向 iOS 26+ / Swift 6.4+，作者另有 SwiftData / Swift Concurrency / Swift Testing 等一系列 Swift agent skill。"
+      },
+      {
+        "rank": 12,
+        "repo": "mvschwarz/openrig",
+        "url": "https://github.com/mvschwarz/openrig",
+        "lang": "TypeScript",
+        "stars": "6,411",
+        "delta": "+2,693",
+        "source": "weekly",
+        "summary": "OpenRig：用 YAML 定义 agent 团队、一条命令启动的「harness 编排器」。",
+        "highlight": "README 的金句是「harness 包住模型，rig 包住你的 harnesses」——可把 Claude Code 与 Codex 放进同一个 rig 当作一个系统管理；把零散的终端会话变成持久、有组织的团队，跟 lead agent 讲清目标即可协调跨团队专家；Apache-2.0，是作者「AI 文明实验」背后的开源系统，npm 安装 @openrig/cli。"
+      },
+      {
+        "rank": 13,
+        "repo": "heygen-com/hyperframes",
+        "url": "https://github.com/heygen-com/hyperframes",
+        "lang": "TypeScript",
+        "stars": "59,743",
+        "delta": "+3,996",
+        "source": "weekly",
+        "summary": "HyperFrames：写 HTML 就能渲染视频，专为 agent 打造。",
+        "highlight": "README 口号为「Write HTML. Render video. Built for agents.」；把能力拆成 /hyperframes-core（合成契约：data-* 时序属性、clip、轨道、子合成、确定性规则）、/hyperframes-animation（GSAP/Lottie/Three.js/Anime.js/CSS/WAAPI/TypeGPU 等运行时）、/hyperframes-keyframes（可寻址关键帧与诊断）、/hyperframes-creative（创意方向、配色、旁白、节拍）；Apache-2.0，要求 Node ≥22。"
+      },
+      {
+        "rank": 14,
+        "repo": "cursor/plugins",
+        "url": "https://github.com/cursor/plugins",
+        "lang": "TypeScript",
+        "stars": "10,563",
+        "delta": "+1,109",
+        "source": "weekly",
+        "summary": "Cursor 官方插件规范与官方插件集（每个插件一个目录 + plugin.json）。",
+        "highlight": "README 说明每个插件是仓库根目录下的独立目录、各带 .cursor-plugin/plugin.json 清单；已收录 Teaching、Continual Learning（把转录增量写回 AGENTS.md 的高信号记忆）、Cursor Team Kit（CI/评审/发布/验证）、Thermos（分支安全与正确性审计、并行 subagent）、create-plugin（脚手架与校验）、Ralph Loop（迭代式自循环）等。"
+      },
+      {
+        "rank": 15,
+        "repo": "EpicGames/raddebugger",
+        "url": "https://github.com/EpicGames/raddebugger",
+        "lang": "C",
+        "stars": "8,254",
+        "delta": "+448",
+        "source": "weekly",
+        "summary": "Epic 开源的 RAD Debugger：原生、用户态、多进程图形调试器。",
+        "highlight": "README 说明当前仅支持本机 Windows x64 + PDB 调试，规划扩展到 Linux 与 DWARF；项目处于 ALPHA，鼓励提交 issue 与 dump；除调试器外还推进两项配套技术——自研调试信息格式 RDI 与 RAD Linker，提供预编译 release 二进制。"
+      },
+      {
+        "rank": 16,
+        "repo": "thedotmack/claude-mem",
+        "url": "https://github.com/thedotmack/claude-mem",
+        "lang": "TypeScript",
+        "stars": "98,960",
+        "delta": "+3,153",
+        "source": "weekly",
+        "summary": "给每个 agent 的跨会话持久上下文：捕获全部过程并压缩留存。",
+        "highlight": "README 定位为「Persistent Context Across Sessions for Every Agent」——捕获 agent 的一举一动并在跨会话间保留上下文；面向 Claude Code 生态，已加入 Vercel OSS 计划，并提供中、繁、日、韩、西、德、法、葡、希伯来、阿拉伯等多语言文档。"
+      },
+      {
+        "rank": 17,
+        "repo": "earthtojake/text-to-cad",
+        "url": "https://github.com/earthtojake/text-to-cad",
+        "lang": "Python",
+        "stars": "18,724",
+        "delta": "+1,898",
+        "source": "weekly",
+        "summary": "text-to-cad：给你的 agent 装上 CAD 超能力。",
+        "highlight": "README 口号「Give your agent CAD superpowers」；以插件形式接入 Claude Code / Claude Desktop（MCP），模型在对话里以可旋转的 viewer card 呈现、也能读到你选中和看到的内容；运行时通过 uv 本地起服务，PyPI 包为 cadgen（基于 build123d），MIT 协议，安装走 latest 分支以只装已发版内容。"
+      },
+      {
+        "rank": 18,
+        "repo": "pingdotgg/t3code",
+        "url": "https://github.com/pingdotgg/t3code",
+        "lang": "TypeScript",
+        "stars": "26,606",
+        "delta": "+2,317",
+        "source": "weekly",
+        "summary": "T3 Code：「agent harness 控制面」，用手机/网页/桌面遥控本机 agent。",
+        "highlight": "README 称可统一控制你已在本机登录的 Claude Code、Codex、Cursor、Grok Build、OpenCode、Google Antigravity；提供 iOS/Android App、Web（app.t3.codes）与 Electron 桌面端；作者强调「不卖你任何东西」，若方向走偏可随时 fork 自己造编辑器。"
+      },
+      {
+        "rank": 19,
+        "repo": "Panniantong/Agent-Reach",
+        "url": "https://github.com/Panniantong/Agent-Reach",
+        "lang": "Python",
+        "stars": "94,829",
+        "delta": "+6,987",
+        "source": "weekly",
+        "summary": "一键给 AI agent 装上互联网能力，替你选好、装好、体检好接入方式。",
+        "highlight": "README 主打「接入方式会换代，你不用操心」，提供当下最稳的平台接入并自动体检；MIT 协议、Python 3.10+，仓库挂 Trendshift「GitHub Trending 当日第一」徽章，并提供英文/日文/韩文文档。"
+      },
+      {
+        "rank": 20,
+        "repo": "DuarteSantos8/openGym",
+        "url": "https://github.com/DuarteSantos8/openGym",
+        "lang": "JavaScript",
+        "stars": "8,592",
+        "delta": "+6,086",
+        "source": "weekly",
+        "summary": "openGym：真正属于你自己的自托管健身与体重记录应用。",
+        "highlight": "README 强调「a self-hosted gym and body-weight tracker you actually own」——在手机上规划一周计划、跟练、记录每一组与体重，多设备同步，登录走自有的 passkey；数据留在自己服务器。"
+      }
+    ]
+  },
+  "observation": [
+    "Agent 工具链几乎包场：日榜 11 条里 rea（逆向 MCP）、mattpocock/skills、diagram-design、open-code-review、knowledge-work-plugins、agent-skills、artcraft 全是 agent 相关，周榜补位的 openrig、hyperframes、cursor/plugins、claude-mem、text-to-cad、t3code、Agent-Reach 也清一色是 agent 生态——榜单的竞争焦点已完全落在 harness／技能／插件／记忆这一层。",
+    "增量冠军指向两类刚需：日榜 morluto/rea（+15,335，逆向工程 MCP）一骑绝尘，AnyPS5（+5,925）与 artcraft（+3,723）紧随；周榜里 Agent-Reach（+6,987/周，给 agent 装互联网能力）与 openGym（+6,086/周，自托管个人数据）说明「让 agent 够得着外部世界」和「数据留在自己手里」都极能聚拢关注。",
+    "官方与大厂集体下场把 agent 能力「插件化」：Anthropic 开源 knowledge-work-plugins（11 个 Cowork/Claude Code 插件），Cursor 发布官方 plugin 规范与插件集，阿里开源企业内部实战的 open-code-review——从模型之争转向「谁定义 agent 的分发与扩展标准」。",
+    "「清洁室重写 / 原生移植」仍在榜：AnyPS5 用 relinker 把 PS5 可执行文件转成原生格式（非模拟器，已验证游戏 60fps），Epic 开源 RAD Debugger，底层系统级工程继续稳定吸睛——这类硬核项目不靠模型叙事也能上榜。",
+    "能力边界向三维与硬件延伸：LingBot-Map（流式 3D 重建，标注 ECCV 2026 Best Paper 候选）与 text-to-cad（给 agent 加 CAD 能力）同榜，agent 正从文本、代码扩到三维建模与实体设计。"
+  ],
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（arXiv 因索引滞后回看至 10-08）· 已单列「智能体/Agent」分类",
+    "sourcesUsed": [
+      "Hacker News",
+      "OpenAI Blog",
+      "量子位",
+      "arXiv"
+    ],
+    "items": [
+      {
+        "category": "release",
+        "title": "StepFun 的 Step 5 Preview 上线 OpenRouter：1M 上下文 MoE",
+        "summary": "阶跃星辰（StepFun）的 Step 5 Preview 出现在 OpenRouter，为 1M 上下文的 MoE 模型。",
+        "why": "大上下文 + MoE 是当前开源/开放权重模型的主战场，新模型直接上第三方聚合平台意味着可即插即用对比。",
+        "url": "https://openrouter.ai/stepfun/step-5-preview",
+        "source": "Hacker News",
+        "time": "10/09 00:20",
+        "heat": "141 分 · 38 评论"
+      },
+      {
+        "category": "industry",
+        "title": "OpenAI 官方：Asana 用 GPT-6.1 Sol 把浏览器 agent 成本降 76 倍",
+        "summary": "OpenAI 官方博客发布案例，称 Asana 借助 GPT-6 Astra/Sol 让其浏览器 agent 在测试中便宜 76 倍、快 5 倍，从而能给客户提供更强的模型。",
+        "why": "官方把「agent 成本」当成卖点讲，说明模型厂商竞争已从跑分转向单位任务成本与工程可用性。",
+        "url": "https://openai.com/index/asana-browser-agent",
+        "source": "OpenAI Blog（官方）",
+        "time": "10/09 15:00",
+        "heat": "官方博客"
+      },
+      {
+        "category": "industry",
+        "title": "OpenAI 以「不当处理研究信息」解雇三名安全研究员",
+        "summary": "TechCrunch 报道 OpenAI 解雇三名安全研究员，被解雇者反驳违规指控并警告会产生「寒蝉效应」。",
+        "why": "前沿实验室的安全团队治理争议持续发酵，牵动监管叙事、人才流向与安全话语权。",
+        "url": "https://techcrunch.com/2026/10/08/fired-openai-safety-researchers-dispute-misconduct-claims-warn-of-chilling-effect/",
+        "source": "Hacker News",
+        "time": "10/09 18:00",
+        "heat": "287 分 · 189 评论"
+      },
+      {
+        "category": "industry",
+        "title": "Typesafe AI 以 75 亿美元估值完成 8.7 亿美元融资",
+        "summary": "Typesafe AI 宣布完成 8.7 亿美元融资，投后估值 75 亿美元。",
+        "why": "大额融资表明资本仍在向「AI + 类型/工程可靠性」方向集中，也提供观察估值与落地节奏的样本。",
+        "url": "https://typesafe.ai/blog/series-ai",
+        "source": "Hacker News",
+        "time": "10/10 01:02",
+        "heat": "200 分 · 158 评论"
+      },
+      {
+        "category": "industry",
+        "title": "伊朗相关行动用 ChatGPT 在美国媒体植入假文章",
+        "summary": "华盛顿邮报报道称，伊朗相关行动利用 ChatGPT 在美国真实出版物上植入 AI 生成的文章。",
+        "why": "这是 AI 生成内容介入信息战的又一实据，直接影响平台的内容溯源与治理策略。",
+        "url": "https://www.washingtonpost.com/technology/2026/10/09/chatgpt-users-iran-planted-ai-generated-articles-us-news-media/",
+        "source": "Hacker News",
+        "time": "10/09 20:21",
+        "heat": "172 分 · 159 评论"
+      },
+      {
+        "category": "agent",
+        "title": "openJiuwen 发布并开源企业级 AgentOS",
+        "summary": "openJiuwen 发布并开源企业级 AgentOS，主打多 Agent 协同与自我进化，面向企业规模落地。",
+        "why": "把多智能体协同做成「操作系统」层的基础设施，是企业级 agent 落地的关键一环，也是开源 agent 生态的新参与者。",
+        "url": "https://www.qbitai.com/2026/10/502106.html",
+        "source": "量子位",
+        "time": "10/09 10:37",
+        "heat": "量子位"
+      },
+      {
+        "category": "agent",
+        "title": "arXiv：多智能体系统的「心智模型」",
+        "summary": "论文提出面向多智能体系统的 mental-models 框架，让 agent 在部分可观测下推理其他 agent 的所知、意图与可能行动。",
+        "why": "多智能体协作的稳定性瓶颈正是「互相揣测」，把心智推理做成可建模的方法对 agent 协作研究有直接价值。",
+        "url": "http://arxiv.org/abs/2610.12453v1",
+        "source": "arXiv (cs.MA)",
+        "time": "10-08 提交",
+        "heat": "新论文"
+      },
+      {
+        "category": "research",
+        "title": "字节研究：DeepSeek「时强时弱」与 Token 站位有关",
+        "summary": "量子位报道字节的研究，称模型答不答得对与 Token 在序列中的「站位」相关，可解释 DeepSeek 表现的时强时弱。",
+        "why": "把「同一模型为何忽强忽弱」归因到可观测的位置因素，对提示设计与评测复现都有实践意义。",
+        "url": "https://www.qbitai.com/2026/10/502364.html",
+        "source": "量子位",
+        "time": "10/09 15:11",
+        "heat": "量子位"
+      }
+    ]
+  }
+}
