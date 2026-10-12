@@ -1,0 +1,460 @@
+{
+  "date": "2026-10-13",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "gh CLI 未登录，仓库提交与补位数据全部改用 curl 直连 api.github.com 公共 API，请求成功。",
+    "github.com/trending 本次可访问：日榜返回 9 条、周榜返回 11 条（页面服务端渲染条目偏少，非抓取失败）。日榜 9 条 + 周榜补位（剔除与日榜重复的 morluto/rea）共 19 条；第 20 名改用 api.github.com Search API 近似口径（created:>2026-10-05、stars>150、按 star 降序）取 openai/math 补位，来源标注 weekly。Search API 不提供 star 增量，该条 delta 留空，未做估算。",
+    "deepseek-ai/deepseek-harness 过去 24 小时无新提交（最近一次 push 为 10-09 18:04 北京时间）；earendil-works/pi 24h 内达 per_page 上限 30 条；anomalyco/opencode 24h 内 29 条。",
+    "AI 前沿动态：官方大模型博客（OpenAI Blog / Anthropic News / Google DeepMind / Google AI Blog）本次抓取均无新增条目（count=0），故未收录官方发布；其余来源正常。arXiv 因索引滞后回看至 10-09 提交。",
+    "AI 候选覆盖源：Hacker News(Algolia) / arXiv(cs.CL/AI/LG/MA/RO) / OpenAI Blog / Anthropic News / Google DeepMind / Google AI Blog / Simon Willison / 量子位 / GitHub Blog / Latent Space / CrewAI Blog / GitHub AI/ML Blog / GitHub Releases(agent 生态)，全部抓取状态 ok。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-10-11T22:00Z，时间已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 过去 24 小时无新提交（最近一次 push 为 10-09 18:04 北京时间）",
+        "items": [
+          {
+            "title": "过去 24 小时无新提交",
+            "desc": "该仓库本时间窗内没有新 commit",
+            "author": "",
+            "time": ""
+          }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 30 条提交（per_page 上限，实际更多）· 重点：chord2 宿主运行时替换、durable 延迟工具与 tool_search",
+        "items": [
+          {
+            "title": "feat(chord)：以 chord2 宿主运行时替换原 facet/service 运行时",
+            "desc": "核心运行时重构（Mario Zechner 同日多条配套提交）",
+            "author": "Mario Zechner",
+            "time": "10-12 18:29"
+          },
+          {
+            "title": "feat(coding-agent)：移除实验性 server 栈及 client / protocol / server 三个包",
+            "desc": "架构收敛，删除实验代码",
+            "author": "Mario Zechner",
+            "time": "10-12 18:19"
+          },
+          {
+            "title": "feat(durable)：延迟工具（deferred tools）与 tool_search 扩展",
+            "desc": "工具检索新能力",
+            "author": "Mario Zechner",
+            "time": "10-12 16:05"
+          },
+          {
+            "title": "feat(env)：远程与本地环境新增 listFiles，新增 nodePlatform",
+            "desc": "环境能力增强（durable/env 配套三条提交）",
+            "author": "Mario Zechner",
+            "time": "10-12 23:13"
+          },
+          {
+            "title": "feat(ai,coding-agent)：仅列出某 API key 可用的 OpenRouter 模型（#10672）",
+            "desc": "模型选择修复",
+            "author": "David Brailovsky",
+            "time": "10-12 16:17"
+          },
+          {
+            "title": "feat(coding-agent)：新增 PI_CLIPBOARD_OSC52 强制 OSC 52 复制",
+            "desc": "终端交互",
+            "author": "David Brailovsky",
+            "time": "10-13 00:05"
+          },
+          {
+            "title": "fix(ai)：Anthropic 严格工具限制时回退；上游报错时自动重试",
+            "desc": "provider 稳定性修复",
+            "author": "Armin Ronacher / David Brailovsky",
+            "time": "10-12 23:20"
+          },
+          {
+            "title": "fix(mcp,coding-agent)：工具 structuredContent 接受任意 JSON 值",
+            "desc": "MCP 兼容性修复",
+            "author": "Armin Ronacher",
+            "time": "10-12 20:16"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 29 条提交 · 同步 v2.0.27 版本号 · 继续清理 legacy Console 与 V1 实验栈",
+        "items": [
+          {
+            "title": "feat(core)：gpt-6.1-sol 的 ChatGPT OAuth 上下文提升至 500k（#54668）",
+            "desc": "上下文扩容",
+            "author": "Aiden Cline",
+            "time": "10-12 10:25"
+          },
+          {
+            "title": "feat(changelog)：以独立 worker 提供 /changelog，并在 /changelog 渲染 CHANGELOG.md（#54906 / #54902）",
+            "desc": "变更可视化",
+            "author": "Dax",
+            "time": "10-13 02:56"
+          },
+          {
+            "title": "fix(plugin)：Promise 工具抛错按工具失败返回（#54913）",
+            "desc": "插件错误处理修复",
+            "author": "Aiden Cline",
+            "time": "10-13 04:37"
+          },
+          {
+            "title": "fix(core)：支持 provider 级兼容配置并迁移 setCacheKey（#54911）",
+            "desc": "provider 兼容性",
+            "author": "Aiden Cline",
+            "time": "10-13 04:54"
+          },
+          {
+            "title": "fix(core)：edit 工具保留混合换行符（#53166）",
+            "desc": "编辑正确性修复",
+            "author": "Filip",
+            "time": "10-12 22:22"
+          },
+          {
+            "title": "refactor(ai)：将 OpenCodeZen provider 重命名为 OpenCode（#54767）",
+            "desc": "命名收敛",
+            "author": "Victor Navarro",
+            "time": "10-12 22:35"
+          },
+          {
+            "title": "chore：同步 v2.0.27 版本号 [skip ci]",
+            "desc": "版本同步",
+            "author": "release bot",
+            "time": "10-12 12:17"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 前 20 项目分析",
+    "sources": {
+      "daily": 9,
+      "weekly": 11
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "morluto/rea",
+        "url": "https://github.com/morluto/rea",
+        "lang": "TypeScript",
+        "stars": "152,787",
+        "delta": "+45,495",
+        "source": "daily",
+        "summary": "把逆向工程做成一个 MCP：让 agent 从应用行为一路挖到原生二进制。",
+        "highlight": "README 定位「REA: Reverse Engineer Anything — One MCP for reverse engineering across binaries, applications, and runtime behavior」，提供 18 种语言的 README；本日榜第一，同时在周榜也排第一（本周 +126,976 星）。"
+      },
+      {
+        "rank": 2,
+        "repo": "bilawalsidhu/gods-eye-view",
+        "url": "https://github.com/bilawalsidhu/gods-eye-view",
+        "lang": "JavaScript",
+        "stars": "53,500",
+        "delta": "+1,903",
+        "source": "daily",
+        "summary": "浏览器里的「间谍卫星」模拟器，数据来自公开真实来源。",
+        "highlight": "README 带「Reached #1 on GitHub Trending」徽章；页面叠加实时飞机、船舶、卫星、地震、交通与公共摄像头，并用实时 AI agent 提供免手语音控制。"
+      },
+      {
+        "rank": 3,
+        "repo": "mksglu/context-mode",
+        "url": "https://github.com/mksglu/context-mode",
+        "lang": "TypeScript",
+        "stars": "27,213",
+        "delta": "+394",
+        "source": "daily",
+        "summary": "面向 AI 编码 agent 的上下文窗口优化：沙箱化工具输出、持久会话记忆、跨平台路由。",
+        "highlight": "仓库描述称沙箱化工具输出可减少约 98% 上下文占用，并跨 17 个平台经 MCP + hooks 路由；README 自称「The other half of the context problem」，以 npm/市场安装量徽章展示用户规模。"
+      },
+      {
+        "rank": 4,
+        "repo": "storytold/artcraft",
+        "url": "https://github.com/storytold/artcraft",
+        "lang": "Rust",
+        "stars": "21,646",
+        "delta": "+4,106",
+        "source": "daily",
+        "summary": "面向艺术家、设计师与影视创作者的「创作者 IDE」（Rust）。",
+        "highlight": "README 自称「The IDE for artists」，附两分钟 YouTube 演示与 Discord 社群徽章。"
+      },
+      {
+        "rank": 5,
+        "repo": "open-webui/open-webui",
+        "url": "https://github.com/open-webui/open-webui",
+        "lang": "Python",
+        "stars": "154,886",
+        "delta": "+142",
+        "source": "daily",
+        "summary": "用户友好的自托管 AI 界面，支持 Ollama、OpenAI API 等后端。",
+        "highlight": "老牌自托管 LLM 前端，README 以 stars/forks/last-commit 等徽章与 Discord 社区为入口，本日以 +142 星重回日榜。"
+      },
+      {
+        "rank": 6,
+        "repo": "cathrynlavery/diagram-design",
+        "url": "https://github.com/cathrynlavery/diagram-design",
+        "lang": "HTML",
+        "stars": "52,451",
+        "delta": "+2,100",
+        "source": "daily",
+        "summary": "一个 agent 技能：按品牌风格生成单文件 HTML+SVG 图表。",
+        "highlight": "README 明确「An agent skill that draws diagrams as one self-contained HTML + SVG file, in your brand. 45 diagram types. No shadows. No Mermaid slop.」，并兼容 Claude Code、Codex、Copilot、Cursor 等编码 agent。"
+      },
+      {
+        "rank": 7,
+        "repo": "lyogavin/airllm",
+        "url": "https://github.com/lyogavin/airllm",
+        "lang": "Jupyter Notebook",
+        "stars": "37,454",
+        "delta": "+886",
+        "source": "daily",
+        "summary": "大幅压低推理显存，让 70B 模型跑在单张 4GB 显卡上。",
+        "highlight": "README 称无需量化、蒸馏或剪枝即可在 4GB 以下跑 Kimi K3（2.8T）、6GB 跑 Qwen3.8-Flash-Next（125B）、约 12GB 跑 DeepSeek-V3（671B），并新增小显存训练超大模型的支持。"
+      },
+      {
+        "rank": 8,
+        "repo": "microsoft/BitNet",
+        "url": "https://github.com/microsoft/BitNet",
+        "lang": "C++",
+        "stars": "40,877",
+        "delta": "+134",
+        "source": "daily",
+        "summary": "微软官方的 1-bit LLM 推理框架（bitnet.cpp）。",
+        "highlight": "README 标注 version 1.0、MIT 许可，附技术报告（arXiv:2502.11880）、在线 Demo 与 GPU kernel。"
+      },
+      {
+        "rank": 9,
+        "repo": "Alishahryar1/free-claude-code",
+        "url": "https://github.com/Alishahryar1/free-claude-code",
+        "lang": "Python",
+        "stars": "58,987",
+        "delta": "+705",
+        "source": "daily",
+        "summary": "用一套工具从终端/IDE/手机/浏览器免费驱动 Claude Code、Codex、Pi、OpenCode 等 10+ harness。",
+        "highlight": "仓库描述称提供 13 亿+ 免费 token、多 harness 多模型、浏览器原生会话并支持语音；README 标 AGPL v3、Python 3.14 + uv。"
+      },
+      {
+        "rank": 10,
+        "repo": "boykopovar/AnyPS5",
+        "url": "https://github.com/boykopovar/AnyPS5",
+        "lang": "C++",
+        "stars": "32,697",
+        "delta": "+25,151",
+        "source": "weekly",
+        "summary": "把 PS5 可执行文件自动移植到 Linux 与 Windows 的工具链。",
+        "highlight": "README 说明内含 relinker，把可执行文件转成目标平台原生格式，并实现可动态链接的系统 prx 库，强调无模拟、无独立运行时进程；附架构与技术债文档。"
+      },
+      {
+        "rank": 11,
+        "repo": "tester-army/e2e",
+        "url": "https://github.com/tester-army/e2e",
+        "lang": "TypeScript",
+        "stars": "9,524",
+        "delta": "+6,440",
+        "source": "weekly",
+        "summary": "面向 Web 与移动应用的下一代 e2e 测试框架（TesterArmy 出品）。",
+        "highlight": "README 定位「the open source AI testing framework by TesterArmy」，npm 包名为 e2e，Apache-2.0 许可。"
+      },
+      {
+        "rank": 12,
+        "repo": "mattpocock/skills",
+        "url": "https://github.com/mattpocock/skills",
+        "lang": "Shell",
+        "stars": "287,850",
+        "delta": "+10,330",
+        "source": "weekly",
+        "summary": "Matt Pocock 的 agent skills 合集，直接取自其 .agents 目录。",
+        "highlight": "README 标题「Skills For Real Engineers」，指向其每期 skills newsletter，并通过 skills.sh 分发。"
+      },
+      {
+        "rank": 13,
+        "repo": "heygen-com/hyperframes",
+        "url": "https://github.com/heygen-com/hyperframes",
+        "lang": "TypeScript",
+        "stars": "61,752",
+        "delta": "+4,223",
+        "source": "weekly",
+        "summary": "写 HTML 就能渲染视频，为 agent 而生。",
+        "highlight": "README 标 npm 包 hyperframes、Apache-2.0，并附 npm 下载量徽章。"
+      },
+      {
+        "rank": 14,
+        "repo": "thedotmack/claude-mem",
+        "url": "https://github.com/thedotmack/claude-mem",
+        "lang": "TypeScript",
+        "stars": "100,059",
+        "delta": "+3,803",
+        "source": "weekly",
+        "summary": "给各种 agent 做跨会话持久记忆：记录会话、AI 压缩、再把相关上下文注入后续会话。",
+        "highlight": "README/描述称兼容 Claude Code、OpenClaw、Codex、Gemini、Copilot、OpenCode 等；页面列 Vercel OSS Program、Greptile 等集成/赞助徽章。"
+      },
+      {
+        "rank": 15,
+        "repo": "flutter/flutter",
+        "url": "https://github.com/flutter/flutter",
+        "lang": "Dart",
+        "stars": "179,946",
+        "delta": "+680",
+        "source": "weekly",
+        "summary": "Google 的跨平台 UI 框架。",
+        "highlight": "长期高频项目，本周仍以约 +680 星/周留在趋势周榜。"
+      },
+      {
+        "rank": 16,
+        "repo": "cursor/plugins",
+        "url": "https://github.com/cursor/plugins",
+        "lang": "TypeScript",
+        "stars": "11,062",
+        "delta": "+1,140",
+        "source": "weekly",
+        "summary": "Cursor 的插件规范与官方插件集合。",
+        "highlight": "README 说明每个插件是仓库根目录下的独立目录、各带 .cursor-plugin/plugin.json 清单，已收录 Teaching、Continual Learning 等插件。"
+      },
+      {
+        "rank": 17,
+        "repo": "earthtojake/text-to-cad",
+        "url": "https://github.com/earthtojake/text-to-cad",
+        "lang": "Python",
+        "stars": "19,610",
+        "delta": "+2,508",
+        "source": "weekly",
+        "summary": "给 agent 加上 CAD 能力（文本生成 CAD）。",
+        "highlight": "README 标语「Give your agent CAD superpowers.」，指向 texttocad.dev 文档，并通过 skills.sh 分发。"
+      },
+      {
+        "rank": 18,
+        "repo": "mvschwarz/openrig",
+        "url": "https://github.com/mvschwarz/openrig",
+        "lang": "TypeScript",
+        "stars": "7,226",
+        "delta": "+2,028",
+        "source": "weekly",
+        "summary": "用 YAML 定义多 agent 团队，一条命令启动（Claude Code 与 Codex 同处一个 rig）。",
+        "highlight": "README 定位「A harness wraps a model. A rig wraps your harnesses.」——持久团队、角色、共享上下文与归属工作，npm 包 @openrig/cli，Apache-2.0。"
+      },
+      {
+        "rank": 19,
+        "repo": "DuarteSantos8/openGym",
+        "url": "https://github.com/DuarteSantos8/openGym",
+        "lang": "JavaScript",
+        "stars": "10,424",
+        "delta": "+7,383",
+        "source": "weekly",
+        "summary": "自托管健身与体重追踪器，数据留在自己服务器上。",
+        "highlight": "README 强调 passkey 登录、从 FitNotes/Strong/Hevy 导入、跨设备同步与 Discord 社群。"
+      },
+      {
+        "rank": 20,
+        "repo": "openai/math",
+        "url": "https://github.com/openai/math",
+        "lang": "Lean",
+        "stars": "14,403",
+        "delta": "",
+        "source": "weekly",
+        "summary": "OpenAI 内部模型在开放数学问题上产出的手稿与证明工件（含 Lean 形式化）。",
+        "highlight": "README 说明这是内部模型在开放研究问题上的评测产物，结果处于不同验证阶段、部分尚无 Lean 形式化，并会持续补充形式化、快速修正问题。（本条经 api.github.com Search API 补位，不提供 star 增量。）"
+      }
+    ]
+  },
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（arXiv 因索引滞后回看至 10-09 提交）· 含「智能体/Agent」专项",
+    "sourcesUsed": [
+      "Hacker News",
+      "GitHub Releases(agent 生态)",
+      "Latent Space",
+      "量子位",
+      "arXiv"
+    ],
+    "items": [
+      {
+        "category": "industry",
+        "title": "Karpathy：对 LLM 能力的「共同理解」正在分化",
+        "summary": "Karpathy 发推称业界与公众对 LLM 实际能力的理解差距持续拉大，HN 讨论达 671 分、976 条评论。",
+        "why": "能力认知分化会直接影响产品预期、监管叙事与采用节奏，是当日最热的技术争论。",
+        "url": "https://twitter.com/karpathy/status/2109361546505966046",
+        "source": "Hacker News",
+        "time": "10/12 04:20",
+        "heat": "671 分 · 976 评论"
+      },
+      {
+        "category": "industry",
+        "title": "QGIS 对 AI 贡献实施禁令（moratorium）",
+        "summary": "QGIS 通过增强提案为 AI 生成贡献设立暂停期，HN 353 分、388 评论。",
+        "why": "继 System76 之后又一主流开源项目为「AI 贡献」立规，直接影响编码 agent 参与开源的方式与边界。",
+        "url": "https://github.com/qgis/QGIS-Enhancement-Proposals/pull/387",
+        "source": "Hacker News",
+        "time": "10/12 19:22",
+        "heat": "353 分 · 388 评论"
+      },
+      {
+        "category": "agent",
+        "title": "AI 编码 agent 产出更多代码，却没有产出更多软件",
+        "summary": "Ars Technica 分析指出：编码 agent 显著提升代码产出量，但并未同步带来更多可用的软件。",
+        "why": "直指 agent 提效的核心争议——「写了多少代码」与「交付多少价值」之间的差距，是评估 agent 真实价值的关键。",
+        "url": "https://arstechnica.com/ai/2026/10/ai-coding-agents-generate-more-code-but-not-more-software/",
+        "source": "Hacker News",
+        "time": "10/13 01:14",
+        "heat": "263 分 · 215 评论"
+      },
+      {
+        "category": "agent",
+        "title": "LangChain 连发 1.4.5 / core-1.6.10 / openai-1.7.1 / anthropic-1.7.6",
+        "summary": "LangChain 生态一次性发布多个版本，并在 model profiles 中声明「对话中途（mid-conversation）」支持。",
+        "why": "作为最主流的 agent 框架，其发版节奏与能力声明直接影响下游 agent 应用的可用特性。",
+        "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.4.5",
+        "source": "GitHub Releases(agent 生态)",
+        "time": "10/13 03:28",
+        "heat": "新版发布"
+      },
+      {
+        "category": "agent",
+        "title": "Latent Space：Anthropic 的「动态工作流」如何协调 Claude agents",
+        "summary": "Anthropic 在 AI Engineer New York 借 Unix/Linux 的经验，讲解 agent 如何在不压垮开发者的前提下承接更大的项目。",
+        "why": "多 agent 协调是 agent 落地的核心难题，来自头部实验室的一手工程经验值得参考。",
+        "url": "https://www.latent.space/p/claude-dynamic-workflows",
+        "source": "Latent Space",
+        "time": "10/13 02:18",
+        "heat": ""
+      },
+      {
+        "category": "release",
+        "title": "量子位：GPT-6 Astra 联手非职业数学家，证明 57 年「摆圆」难题",
+        "summary": "量子位报道称，GPT-6 Astra 与一位非职业数学家合作解决了悬置 57 年的「摆圆」数学难题。",
+        "why": "若属实，是前沿模型在开放数学问题上从「辅助」走向「共同解决」的标志性案例。",
+        "url": "https://www.qbitai.com/2026/10/502667.html",
+        "source": "量子位",
+        "time": "10/12 15:48",
+        "heat": ""
+      },
+      {
+        "category": "release",
+        "title": "量子位：智谱新模型推理速度达 490 tokens/s",
+        "summary": "量子位报道智谱新模型推理速度达到 490 tokens/s，被称「速度仙人」。",
+        "why": "推理速度直接决定 agent 与实时应用的体验和成本，国产模型在吞吐指标上继续加码。",
+        "url": "https://www.qbitai.com/2026/10/502649.html",
+        "source": "量子位",
+        "time": "10/12 10:37",
+        "heat": ""
+      },
+      {
+        "category": "research",
+        "title": "arXiv：AI 模型可「可证明地」隐藏任意能力",
+        "summary": "论文构造后门攻击，把加密神经网络嵌入宿主模型权重，仅在收到秘密触发条件时解密执行，从而绕过能力评估。",
+        "why": "直接动摇「隐藏能力总能被诱导出来」这一安全评估前提，对模型审计与部署安全有重要含义。",
+        "url": "http://arxiv.org/abs/2610.13928v1",
+        "source": "arXiv",
+        "time": "10-09 提交",
+        "heat": "新论文"
+      }
+    ]
+  },
+  "observation": [
+    "日榜几乎被「给编码 agent 加能力」的项目占据：rea 把逆向工程包成单个 MCP，diagram-design 与 text-to-cad 是 skill 形态，context-mode 做上下文压缩与路由，claude-mem 做跨会话记忆，cursor/plugins 定义插件规范——agent 生态的竞争焦点正从模型转向「可插拔能力」。",
+    "「上下文与记忆」已是一条独立赛道：context-mode（工具输出沙箱 + 会话记忆 + 17 平台路由）与 claude-mem（跨会话持久记忆）同时上榜，说明上下文工程正被拆成可复用组件。",
+    "多 agent 编排开始产品化：openrig 用 YAML 定义 agent 团队、把 Claude Code 与 Codex 放进同一个 rig，配合当日 Latent Space 对 Anthropic 动态工作流的一手复盘，工具侧与研究/实践侧同时朝「agent 之间如何协作」收敛。",
+    "大模型能力继续向硬科学外溢：openai/math 把内部模型对开放数学问题的证明工件（含 Lean 形式化）公开，与 GPT-6 Astra 联手证明 57 年难题的报道相互印证。",
+    "与能力扩张形成对照，治理讨论同步升温：QGIS 对 AI 贡献设禁令、Karpathy 谈 LLM 能力认知分化，加上 arXiv 关于「可证明隐藏能力」的论文，权限边界与安全审计正在成为同一条主线。"
+  ]
+}
