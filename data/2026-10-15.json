@@ -1,0 +1,480 @@
+{
+  "date": "2026-10-15",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "gh CLI 未登录、github.com 的 HTTPS 不通，仓库提交与全部补位数据均通过 curl 直连 api.github.com 公共 API 获取，请求成功（HTTP 200）。",
+    "github.com/trending 本次不可达：curl 60 秒超时无响应，未能取得任何 HTML。改用 api.github.com Search API 替代口径：q=created:>2026-10-08 stars:>100，sort=stars desc，取前 20。该口径为约 7 天窗口，故全部标注 source=weekly（日榜 0 条 → 周榜替代口径补足 20 条）。Search API 不提供 star 增量，delta 一律留空，未做估算；榜单与真实 Trending 可能偏差较大，仅供趋势参考。",
+    "仓库提交（since 2026-10-13T22:00Z，即北京时间 10-14 06:00，时间已换算为北京时间）：deepseek-ai/deepseek-harness（master）达 per_page 上限 30 条；earendil-works/pi（main）24 条；anomalyco/opencode（dev）达 per_page 上限 30 条。",
+    "AI 前沿动态：抓取脚本 13/13 源状态 ok（Hacker News 16 / arXiv 12 / GitHub Releases(agent 生态) 6 / OpenAI Blog 4 / Anthropic News 2 / Google DeepMind 1 / Simon Willison 3 / 量子位 8 / GitHub Blog 3 / Latent Space 4，Google AI Blog 0 / CrewAI Blog 0 / GitHub AI/ML Blog 0）。官方大模型博客本期有新条目：OpenAI Blog 4 条（均为 agent 主题）、Anthropic News 2 条、Google DeepMind 1 条，已按「新增」收录。",
+    "arXiv 本次候选 12 条，均为 10-13 17:59Z（北京时间 10-14 01:59）提交，落在 96 小时回看窗口内，故收录其中 1 条（Tev，长时程 agent 环境）。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-10-13T22:00Z，时间已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 24h 内 30 条提交（per_page 上限）· 重点：发布 DSH 0.2.1-alpha.3、批量 vendor 包升版、agent-team 提示与桌面端审批摘要",
+        "items": [
+          {
+            "title": "release(dsh)：0.2.1-alpha.3（并同步到 master，#6234 / #6241）",
+            "desc": "新版本发布与主干同步",
+            "author": "Yichen Jiang",
+            "time": "10-14 19:38 / 21:15"
+          },
+          {
+            "title": "release(vendor)：cordis / cosmokit / loader 等一批 alpha 包升版",
+            "desc": "依赖链整体升版",
+            "author": "Yichen Jiang",
+            "time": "10-14 19:22"
+          },
+          {
+            "title": "feat(agent-team)：简化团队可用性提示（#6208）",
+            "desc": "agent 团队能力调整",
+            "author": "Dudu-0223",
+            "time": "10-14 16:36"
+          },
+          {
+            "title": "feat(desktop)：展示完整的发布审批摘要（#6212）",
+            "desc": "桌面端审批链路",
+            "author": "winewill",
+            "time": "10-14 16:57"
+          },
+          {
+            "title": "feat(plugins)：统一内置功能预览并演示语音输入",
+            "desc": "插件体系与多模态输入",
+            "author": "Ziya Zhang",
+            "time": "10-14 17:19"
+          },
+          {
+            "title": "feat(ui-conversation)：新增 New Session 选项插槽",
+            "desc": "会话界面扩展点",
+            "author": "Yichen Jiang",
+            "time": "10-14 14:45"
+          },
+          {
+            "title": "合并 #4456（feat/experimental-dsh-cua）与 #5945（client-control/operator-connect）",
+            "desc": "CUA 与客户端控制实验分支合入",
+            "author": "CreatixChu / imccyu",
+            "time": "10-14 14:57 / 16:56"
+          }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 24 条提交 · 重点：coding-agent 与 tool-call 解析修复、chord 协议演进（protocol 3/4）、新接入 kimi-coding provider",
+        "items": [
+          {
+            "title": "feat(ai)：kimi-coding provider 改用 Chat Completions",
+            "desc": "新 provider 接入",
+            "author": "David Brailovsky",
+            "time": "10-15 04:23"
+          },
+          {
+            "title": "fix(ai)：工具调用最终参数畸形时如实报错，不再保留已解析前缀（#10944）",
+            "desc": "tool-call 解析修复",
+            "author": "David Brailovsky",
+            "time": "10-15 03:41"
+          },
+          {
+            "title": "feat(chord)：引用（references）使用前先 hydrate 自身状态（protocol 4）",
+            "desc": "chord 协议演进",
+            "author": "Mario Zechner",
+            "time": "10-14 22:29"
+          },
+          {
+            "title": "fix(ai)：为 Codex GPT-6.1 Sol 使用 500K 上下文窗口",
+            "desc": "模型参数修正",
+            "author": "David Brailovsky",
+            "time": "10-14 21:19"
+          },
+          {
+            "title": "fix(coding-agent)：通过单一 provider 选择策略解析模型引用（#10913）",
+            "desc": "模型路由修复",
+            "author": "Christian Klotz",
+            "time": "10-14 18:00"
+          },
+          {
+            "title": "feat(ai)：在 OpenAI GPT-6 上切换思考等级时保留 prompt 缓存（#10930）",
+            "desc": "缓存与成本优化",
+            "author": "David Brailovsky",
+            "time": "10-14 16:56"
+          },
+          {
+            "title": "fix(coding-agent)：保留空的引号包裹提示词模板参数",
+            "desc": "模板解析修复",
+            "author": "David Brailovsky",
+            "time": "10-14 21:34"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 30 条提交（per_page 上限）· 重点：同步 v2.0.29、TUI diff 面板与插件面板重构、插件权限声明与配置优先级",
+        "items": [
+          {
+            "title": "sync release versions for v2.0.29 [skip ci]",
+            "desc": "版本同步",
+            "author": "opencode",
+            "time": "10-14 17:03"
+          },
+          {
+            "title": "feat(tui)：在插件面板插槽里渲染 diff（#47152）",
+            "desc": "插件化界面能力",
+            "author": "James Long",
+            "time": "10-14 23:26"
+          },
+          {
+            "title": "fix(tui)：把 diff 侧栏放到实验开关之后（#55456）",
+            "desc": "实验特性收敛",
+            "author": "James Long",
+            "time": "10-15 00:16"
+          },
+          {
+            "title": "feat(session-ui)：汇总每一轮变更过的文件（#55064）",
+            "desc": "会话可观测性",
+            "author": "opencode-agent[bot]",
+            "time": "10-14 21:13"
+          },
+          {
+            "title": "feat(plugin)：允许插件声明权限（#54930）",
+            "desc": "插件安全模型",
+            "author": "Aiden Cline",
+            "time": "10-14 09:28"
+          },
+          {
+            "title": "fix(core)：受管配置获得最高优先级（#55267）",
+            "desc": "配置优先级修复",
+            "author": "Aiden Cline",
+            "time": "10-14 10:28"
+          },
+          {
+            "title": "feat(desktop)：通过远程访问配对设备（#55306）",
+            "desc": "远程接入能力",
+            "author": "Luke Parker",
+            "time": "10-14 13:56"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 前 20 项目分析",
+    "sources": {
+      "daily": 0,
+      "weekly": 20
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "storytold/craft-launcher",
+        "url": "https://github.com/storytold/craft-launcher",
+        "lang": "Rust",
+        "stars": "2,624",
+        "delta": "",
+        "source": "weekly",
+        "summary": "storytold「Craft」系列应用的启动器。",
+        "highlight": "描述仅一句「The Craft App Launcher」；Apache-2.0，Rust；10-09 创建。"
+      },
+      {
+        "rank": 2,
+        "repo": "liseami/CCBaga",
+        "url": "https://github.com/liseami/CCBaga",
+        "lang": "Rust",
+        "stars": "2,244",
+        "delta": "",
+        "source": "weekly",
+        "summary": "原生工作区 / 环境校验工具包（描述为空，无 README 摘要可核）。",
+        "highlight": "API 返回 description 为空，无 topics；MIT，Rust；10-11 创建。可核实信息仅此，不做推断。"
+      },
+      {
+        "rank": 3,
+        "repo": "onehumanbeing/esp32-iphone-agent",
+        "url": "https://github.com/onehumanbeing/esp32-iphone-agent",
+        "lang": "Python",
+        "stars": "2,063",
+        "delta": "",
+        "source": "weekly",
+        "summary": "用 7 美元的 ESP32 让 AI 模型操作真机 iPhone：AirPlay 当眼睛、USB HID 当手。",
+        "highlight": "描述称无需 Mac、开发者账号或越狱，兼容任意 OpenAI 兼容视觉模型；topics 含 ai-agent、computer-use、esp32-s3；MIT。"
+      },
+      {
+        "rank": 4,
+        "repo": "jhaizhou-ops/d2r-mobile",
+        "url": "https://github.com/jhaizhou-ops/d2r-mobile",
+        "lang": "C",
+        "stars": "2,061",
+        "delta": "",
+        "source": "weekly",
+        "summary": "《暗黑破坏神 II：狱火重生》iOS / macOS 兼容层，让自备的 Switch 版在 iPhone / iPad / Mac 原生运行。",
+        "highlight": "描述称完整触屏操作、60 fps、含「Reign of the Warlock」资料片；topics 含 game-port、compatibility-layer；MIT；10-12 创建。"
+      },
+      {
+        "rank": 5,
+        "repo": "Arekejoker/qwen21-nsfw-pose-skill",
+        "url": "https://github.com/Arekejoker/qwen21-nsfw-pose-skill",
+        "lang": "Python",
+        "stars": "1,232",
+        "delta": "",
+        "source": "weekly",
+        "summary": "Qwen-Image 2.1 出图的姿势控制 skill：提示词配方 + LoRA + 136 姿势人偶控制。",
+        "highlight": "描述称适用 Claude Code / Codex / Cursor / OpenClaw；topics 含 agent-skill、comfyui、pose-control；未声明 License；10-13 创建。"
+      },
+      {
+        "rank": 6,
+        "repo": "shaongitbd/doory",
+        "url": "https://github.com/shaongitbd/doory",
+        "lang": "TypeScript",
+        "stars": "1,187",
+        "delta": "",
+        "source": "weekly",
+        "summary": "开源的 Canva 替代品。",
+        "highlight": "描述即「Open source canva alternative」；TypeScript；License 为 NOASSERTION（未识别）；10-10 创建。"
+      },
+      {
+        "rank": 7,
+        "repo": "opengeos/RustGIS",
+        "url": "https://github.com/opengeos/RustGIS",
+        "lang": "Rust",
+        "stars": "1,034",
+        "delta": "",
+        "source": "weekly",
+        "summary": "用纯 Rust 写的快速、免费、开源 GIS。",
+        "highlight": "描述「A fast, free and open-source GIS in pure Rust」；topics 含 geospatial、gis、remote-sensing；Apache-2.0；10-10 创建。"
+      },
+      {
+        "rank": 8,
+        "repo": "rociiu/talorys",
+        "url": "https://github.com/rociiu/talorys",
+        "lang": "TypeScript",
+        "stars": "997",
+        "delta": "",
+        "source": "weekly",
+        "summary": "部署在自己 Cloudflare 账号里的个人 AI agent（聊天 / 记忆 / 任务 / 笔记 / 定时提醒）。",
+        "highlight": "一条命令 npx create-talorys@latest 部署；基于 Cloudflare Workers + Durable Objects，单用户、无遥测、对免费额度友好；MIT。"
+      },
+      {
+        "rank": 9,
+        "repo": "zhuyansen/new-term-radar",
+        "url": "https://github.com/zhuyansen/new-term-radar",
+        "lang": "Python",
+        "stars": "947",
+        "delta": "",
+        "source": "weekly",
+        "summary": "每日新 AI 术语雷达：在关键词工具收录前，从 X / Hugging Face / GitHub / sitemap 抓新模型、新产品、新仓库名。",
+        "highlight": "topics 含 agent-skills、claude-skills、mcp、keyword-research；MIT；10-12 创建。"
+      },
+      {
+        "rank": 10,
+        "repo": "marclou/mailcheap",
+        "url": "https://github.com/marclou/mailcheap",
+        "lang": "JavaScript",
+        "stars": "929",
+        "delta": "",
+        "source": "weekly",
+        "summary": "面向「agentic 时代」的自托管 newsletter，可自建或用托管版。",
+        "highlight": "描述自述「The affordable newsletter for the agentic era」；topics 含 ai-agents、mcp、self-hosted；AGPL-3.0。"
+      },
+      {
+        "rank": 11,
+        "repo": "storytold/figcraft",
+        "url": "https://github.com/storytold/figcraft",
+        "lang": "Rust",
+        "stars": "873",
+        "delta": "",
+        "source": "weekly",
+        "summary": "界面设计与原型工具：协作设计工作流的开源 clean-room 重实现。",
+        "highlight": "描述称「clean-room reimplementation of collaborative design workflows in pure Rust」；Apache-2.0；10-09 创建。"
+      },
+      {
+        "rank": 12,
+        "repo": "jwuthri-cloud/Tracely-ai",
+        "url": "https://github.com/jwuthri-cloud/Tracely-ai",
+        "lang": "Python",
+        "stars": "817",
+        "delta": "",
+        "source": "weekly",
+        "summary": "（描述为空，仓库无自述信息）。",
+        "highlight": "API 返回 description 为空、无 topics；MIT，Python；10-11 创建。可核实信息仅此，不做推断。"
+      },
+      {
+        "rank": 13,
+        "repo": "YeonwooSung/my-claude-code-mods",
+        "url": "https://github.com/YeonwooSung/my-claude-code-mods",
+        "lang": "TypeScript",
+        "stars": "773",
+        "delta": "",
+        "source": "weekly",
+        "summary": "作者自用的 Claude Code 定制 mod 合集。",
+        "highlight": "描述「Custom Claude Code Mods that I need」；topics 含 claude-code、claude-code-plugin；未声明 License；10-09 创建。"
+      },
+      {
+        "rank": 14,
+        "repo": "h0m3us3r/w1700k-sdr",
+        "url": "https://github.com/h0m3us3r/w1700k-sdr",
+        "lang": "C",
+        "stars": "744",
+        "delta": "",
+        "source": "weekly",
+        "summary": "（描述为空，仓库无自述信息）。",
+        "highlight": "API 返回 description 为空；C 语言；License 为 NOASSERTION；10-11 创建。可核实信息仅此，不做推断。"
+      },
+      {
+        "rank": 15,
+        "repo": "HeyPuter/everything",
+        "url": "https://github.com/HeyPuter/everything",
+        "lang": "JavaScript",
+        "stars": "731",
+        "delta": "",
+        "source": "weekly",
+        "summary": "宣称「从零重建并开源世界上所有软件」。",
+        "highlight": "描述「We're rebuilding and open-sourcing the world's software from scratch」；topics 含 adobe、cad、office、photoshop、saas；MIT；10-13 创建。"
+      },
+      {
+        "rank": 16,
+        "repo": "CoolkHz/gptibo",
+        "url": "https://github.com/CoolkHz/gptibo",
+        "lang": "TypeScript",
+        "stars": "722",
+        "delta": "",
+        "source": "weekly",
+        "summary": "自托管 GPTibo 店面 + 管理后台 + Go 后端（MIT 清理版源码）。",
+        "highlight": "描述称「sanitized MIT source」；MIT；10-13 创建。"
+      },
+      {
+        "rank": 17,
+        "repo": "n1tr00-10/tiktok-web-signature",
+        "url": "https://github.com/n1tr00-10/tiktok-web-signature",
+        "lang": "Python",
+        "stars": "710",
+        "delta": "",
+        "source": "weekly",
+        "summary": "逆向 TikTok Web 签名，为 API 请求生成有效签名。",
+        "highlight": "topics 含 chacha20、reverse-engineering、tiktok；MIT；10-09 创建。"
+      },
+      {
+        "rank": 18,
+        "repo": "zeusinsight/FinderSearch",
+        "url": "https://github.com/zeusinsight/FinderSearch",
+        "lang": "Swift",
+        "stars": "663",
+        "delta": "",
+        "source": "weekly",
+        "summary": "macOS 原生文件浏览器：快速模糊文件名搜索，由 fsearch 驱动。",
+        "highlight": "描述称「powered by fsearch」；topics 含 appkit、file-manager、macos、search；MIT；10-09 创建。"
+      },
+      {
+        "rank": 19,
+        "repo": "SubmitGame/awesome-decomp-games",
+        "url": "https://github.com/SubmitGame/awesome-decomp-games",
+        "lang": "Python",
+        "stars": "652",
+        "delta": "",
+        "source": "weekly",
+        "summary": "评分化、自动刷新的游戏反编译 / 重编译 / 逆向工程清单。",
+        "highlight": "描述称覆盖 decomps、静态重编译、源码移植、引擎重制与浏览器移植；CC0-1.0；10-09 创建。"
+      },
+      {
+        "rank": 20,
+        "repo": "outcrawlai/scout",
+        "url": "https://github.com/outcrawlai/scout",
+        "lang": "TypeScript",
+        "stars": "636",
+        "delta": "",
+        "source": "weekly",
+        "summary": "开源浏览器 agent（Outcrawl 出品，自动镜像自其自有仓库）。",
+        "highlight": "描述称「Mirrored automatically from Outcrawl's own repository」；topics 含 ai-agent、browser-agent、cdp；Apache-2.0；10-13 创建。"
+      }
+    ]
+  },
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（北京时间 10/14 06:00 – 10/15 06:00）· 含「智能体 / Agent」专项",
+    "sourcesUsed": [
+      "OpenAI Blog",
+      "Hacker News",
+      "Anthropic News",
+      "arXiv",
+      "量子位"
+    ],
+    "items": [
+      {
+        "category": "agent",
+        "title": "OpenAI 官方：Amp 用 OpenAI 模型把 agent 做到代码之外",
+        "summary": "OpenAI 博客发布 Amp 案例，说明其如何借助 GPT-6 Astra、Ultrafast、GPT-Live-1 与 Sign in with ChatGPT，把 agent 从编码场景推到更广的任务上。",
+        "why": "官方渠道给出的「agent 出编码边界」样本，指向编码 agent 正被改造成通用任务执行体。",
+        "url": "https://openai.com/index/amp-beyond-coding",
+        "source": "OpenAI Blog",
+        "time": "10/14 20:00",
+        "heat": "官方发布"
+      },
+      {
+        "category": "agent",
+        "title": "AI agent 误删已剪辑素材，瑞典 TV4 被迫推迟节目（多源）",
+        "summary": "瑞典 TV4 宣布把节目《The Challenge》推迟到 2027 年，起因是一次技术故障中 AI agent 删除了已剪辑完成的素材。",
+        "why": "少见的、责任清晰的 agent 生产事故，把 agent 的写入权限与可恢复性推到台前。",
+        "url": "https://swedenherald.com/article/tv4-postpones-the-challenge-until-2027-after-technical-failure-erases-edited-footage",
+        "source": "Hacker News / Sweden Herald",
+        "time": "10/14 18:28",
+        "heat": "HN 136 分 · 75 评论"
+      },
+      {
+        "category": "industry",
+        "title": "专家：AI 黑客事件该怪遏制与监控失效，而非模型失控（多源）",
+        "summary": "CSO Online 汇总专家观点指出，近期被报道的「AI 入侵」事件，根源是前沿实验室在遏制与监控环节的基本安全措施不到位，而不是 agent 自行失控。",
+        "why": "为本期最热的 AI 安全争论给出归因，影响后续 agent 权限与监控的监管取向。",
+        "url": "https://www.csoonline.com/article/4234854/ai-agents-arent-going-rogue-frontier-labs-are-skipping-security-basics.html",
+        "source": "Hacker News / CSO Online",
+        "time": "10/15 01:45",
+        "heat": "HN 776 分 · 375 评论"
+      },
+      {
+        "category": "industry",
+        "title": "Linus Torvalds 提交首个 LLM 辅助的补丁系列",
+        "summary": "LWN 报道 Linus Torvalds 发出了他的第一个借助 LLM 协助完成的补丁系列。",
+        "why": "内核掌门人的态度转向，是「LLM 进入严肃工程流程」的标志性节点。",
+        "url": "https://lwn.net/Articles/1100449/",
+        "source": "Hacker News / LWN",
+        "time": "10/15 00:55",
+        "heat": "HN 109 分 · 92 评论"
+      },
+      {
+        "category": "industry",
+        "title": "Anthropic 公布 2026 美国中期选举防护措施",
+        "summary": "Anthropic 官方发布说明，介绍其在今年美国中期选举前对选举相关滥用的防护与监控措施的加强情况。",
+        "why": "头部实验室的选举期治理动作，是 AI 内容合规与平台责任的当期参照。",
+        "url": "https://www.anthropic.com/news/2026-us-midterms",
+        "source": "Anthropic News",
+        "time": "10/15 02:33",
+        "heat": "官方发布"
+      },
+      {
+        "category": "research",
+        "title": "Tev：用稠密进度奖励扩展长时程 agent 环境",
+        "summary": "论文提出 Tev，用稠密进度奖励来扩展长时程 agent 训练环境，针对开源模型在数小时至数天级自主任务上的短板。",
+        "why": "长时程自主性是「agent 干长活」的核心瓶颈，奖励稠密化是可复用的训练侧解法。",
+        "url": "http://arxiv.org/abs/2610.18868v1",
+        "source": "arXiv (cs.MA)",
+        "time": "10/14 01:59（提交日）",
+        "heat": "新论文"
+      },
+      {
+        "category": "oss",
+        "title": "APUS AI 开源个人 agent「Reflex Agent」",
+        "summary": "量子位报道 APUS AI 开源个人 agent 产品 Reflex Agent，官方口径称响应速度比 Claude Code 快 3 倍并实现「无限上下文」。",
+        "why": "又一家国内厂商把个人 agent 开源，速度与长上下文成为主打卖点（倍数为厂商自述，未见第三方验证）。",
+        "url": "https://www.qbitai.com/2026/10/503165.html",
+        "source": "量子位",
+        "time": "10/14 11:32",
+        "heat": ""
+      }
+    ]
+  },
+  "observation": [
+    "今日最重的信号是「agent 出事后怎么办」：瑞典 TV4 因 AI agent 误删已剪辑素材把节目推迟到 2027 年，CSO Online 汇总的专家观点则把「AI 黑客」归因于遏制与监控基本措施缺失而非模型失控——两条合起来，讨论重心已从「agent 能干什么」转向「agent 的写入权限、可恢复性与监控」。",
+    "官方博客口径几乎全面向 agent 倾斜：OpenAI 一天内三条 agent 主题（Amp 把 agent 用到编码之外、Third Moment 跑 1 万 agent 超 36 小时、欧盟 agentic 采用分析），Anthropic 则把版面给了选举防护与新加坡政府 MOU，Google DeepMind 走端侧 Gemma 反诈。",
+    "研究侧在给 agent 补「长时程基建」：arXiv cs.MA 一批新论文（Tev 稠密进度奖励扩环境、ChunkAct 动作分块、EmbodiedEvo 自改进编码 agent、AutoAgent0 闭环驾驶），把长时程、奖励稠密化与具身并列为下一阶段主攻方向。",
+    "三个仓库都在收口「agent 的可控性」：deepseek-harness 发布 DSH 0.2.1-alpha.3 并调整 agent-team 提示与桌面端审批摘要；pi 修工具调用参数畸形上报、推进 chord protocol 3/4；opencode 同步 v2.0.29、给插件加权限声明、把 diff 侧栏收进实验开关。",
+    "替代口径榜单里 agent 依旧占多数（esp32-iphone-agent、talorys、scout 浏览器 agent、new-term-radar 的 agent-skills、mailcheap 的「agentic era」），而自托管 / 本地优先（RustGIS、mailcheap）与「把软件从零重写」类项目（HeyPuter/everything）同时走高。"
+  ]
+}
