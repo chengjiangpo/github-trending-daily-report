@@ -1,0 +1,427 @@
+{
+  "date": "2026-10-19",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "gh CLI 未登录；仓库元数据与提交全部用 curl 直连 api.github.com 公共 API（未认证，请求成功）。",
+    "github.com/trending 本次连续 3 次请求均失败（HTTPS 超时，HTTP 000），无法取得日榜；改用 api.github.com Search API 近似口径：q=created:>2026-10-12 stars:>100、sort=stars、per_page=40，以 7 天窗口近似周榜。按 star 排序取前 22 名，剔除 1 个成人内容仓库（Arekejoker/qwen21-nsfw-pose-skill）与 1 个无实质代码仓库（xscreensaver-official/xscreensaver），余 20 条，source 统一标 weekly。",
+    "Search API 不提供 star 增量，故 20 条的 delta 全部留空，未做任何估算；star 数为 2026-10-18T22:00Z 的快照值。",
+    "提交简报窗口：since 2026-10-17T22:00Z（北京时间 10-18 06:00）至 2026-10-18T22:00Z，per_page=30；三仓库分别命中 0 / 15 / 26 条，均未触上限。时间已换算为北京时间。",
+    "AI 前沿动态 13 个源全部抓取成功（无失败源），得到 22 条候选。官方博客新增条目：Anthropic News 1 条；OpenAI Blog / Google DeepMind / Google AI Blog 本次新增 0 条（属「无新增」，非抓取失败）。",
+    "今日 agent 动态明确：网站开始封堵 AI 智能体、arXiv MLExpert 自主 ML 工程智能体，已单列；此外 Trending 中多个项目直接服务编码智能体。",
+    "HN 分数与评论数为 2026-10-18T22:00Z 抓取快照；同一事件多源报道已合并并标注来源。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-10-17T22:00Z，时间已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 过去 24 小时无新提交",
+        "items": []
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 15 条提交 · 持久化执行层大改 + 遥测贯通",
+        "items": [
+          {
+            "title": "feat: 遥测传播、span links 与 metrics；chord/context 新增 telemetry 成员",
+            "desc": "为 agent 运行链路补上端到端遥测",
+            "author": "Mario Zechner",
+            "time": "10-19 04:36"
+          },
+          {
+            "title": "fix: chord 边界测试允许 pi-telemetry（Context.telemetry 的依赖）",
+            "desc": "配套修复依赖边界",
+            "author": "Mario Zechner",
+            "time": "10-19 04:43"
+          },
+          {
+            "title": "feat(durable): crash-loop guard、report sources、失败运行后的 inbox、任务图中的 blocked tasks",
+            "desc": "持久化执行可靠性增强",
+            "author": "Mario Zechner",
+            "time": "10-18 08:22"
+          },
+          {
+            "title": "feat(durable): ReportInfo 说明发生了什么，并给出类型化原因",
+            "desc": "失败报告可诊断",
+            "author": "Mario Zechner",
+            "time": "10-18 09:58"
+          },
+          {
+            "title": "feat(durable): 用持久化 sleeping 状态取代 runtime.sleep",
+            "desc": "休眠/唤醒语义重做",
+            "author": "Mario Zechner",
+            "time": "10-18 06:29"
+          },
+          {
+            "title": "feat(durable): Durable Object 托管的 workerd 测试",
+            "desc": "补齐宿主环境测试",
+            "author": "Mario Zechner",
+            "time": "10-18 07:02"
+          },
+          {
+            "title": "docs(coding-agent): 恢复扩展指南细节（#11039）",
+            "desc": "编码 agent 扩展文档",
+            "author": "Christian Klotz",
+            "time": "10-18 07:52"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 26 条提交 · V2 安装方式与文档全面切换",
+        "items": [
+          {
+            "title": "docs: README 安装方式改为指向 V2（#56839）",
+            "desc": "V2 成为默认入口",
+            "author": "Aiden Cline",
+            "time": "10-19 01:13"
+          },
+          {
+            "title": "fix(ai): 把 Responses 流中的 null 字段视为缺省（#56669）",
+            "desc": "兼容流式响应空字段",
+            "author": "Aiden Cline",
+            "time": "10-18 13:50"
+          },
+          {
+            "title": "fix(core): 启动定位时容忍沙箱文件系统拒绝（#55817）",
+            "desc": "沙箱环境可正常启动",
+            "author": "Aiden Cline",
+            "time": "10-18 11:41"
+          },
+          {
+            "title": "fix(core): 限制 skill 发现与文件监听范围（#55597）",
+            "desc": "控制资源占用",
+            "author": "Aiden Cline",
+            "time": "10-18 11:33"
+          },
+          {
+            "title": "fix(core): 仅在输出捕获完成后上报 shell 退出（#56321）",
+            "desc": "修正命令输出丢失",
+            "author": "Aiden Cline",
+            "time": "10-18 09:34"
+          },
+          {
+            "title": "fix(protocol): 消息类型过滤接受 idle（#56504）",
+            "desc": "会话状态协议修复",
+            "author": "Aiden Cline",
+            "time": "10-18 09:43"
+          },
+          {
+            "title": "chore(ci): Cloudflare 部署改用 Blacksmith runners（#56818）",
+            "desc": "CI 迁移",
+            "author": "Dax",
+            "time": "10-18 23:03"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 前 20 项目分析",
+    "sources": {
+      "daily": 0,
+      "weekly": 20
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "HeyPuter/everything",
+        "url": "https://github.com/HeyPuter/everything",
+        "lang": "JavaScript",
+        "stars": "2,203",
+        "delta": "",
+        "source": "weekly",
+        "summary": "「重写全世界的软件」：从 Office、Slack 到 Photoshop、AutoCAD，做免费开源替代品，全部放在一个 monorepo。",
+        "highlight": "README 按 Office、协作、创意、工程、生产力、金融、商业、开发者工具、游戏九大类组织；要求 Node.js ≥22.12，MIT 许可，2026-10-13 创建。"
+      },
+      {
+        "rank": 2,
+        "repo": "ahwootech/BRUTAL",
+        "url": "https://github.com/ahwootech/BRUTAL",
+        "lang": "C#",
+        "stars": "1,893",
+        "delta": "",
+        "source": "weekly",
+        "summary": "免费开源的 C# 游戏框架，也可作为自研引擎的底座。",
+        "highlight": "README 称 Kitten Space Agency 直接基于它开发，Ludeon 用它把 RimWorld 从 Unity 迁到自研 Waylith 引擎；自带 Vulkan、GLFW、Dear ImGui、FMOD、RakNet、Jolt、Box2D 绑定。"
+      },
+      {
+        "rank": 3,
+        "repo": "feder-cr/git-ai",
+        "url": "https://github.com/feder-cr/git-ai",
+        "lang": "Go",
+        "stars": "1,891",
+        "delta": "",
+        "source": "weekly",
+        "summary": "「为 AI 智能体设计的 Git」：让几十个 agent 在同一分支上并发提交。",
+        "highlight": "README 称其实现 Anthropic 为编码智能体提出的 Scion 版本控制思路（Redesigning source control）；每次变更记录由哪个 agent 产生，服务端负责排序，可按规模加服务器。"
+      },
+      {
+        "rank": 4,
+        "repo": "Gathin23/tv-vibehack",
+        "url": "https://github.com/Gathin23/tv-vibehack",
+        "lang": "Java",
+        "stars": "1,739",
+        "delta": "",
+        "source": "weekly",
+        "summary": "通过 ADB 给 Android TV / Google TV 去广告、去预装，换成 tvOS 风格启动器，免 root。",
+        "highlight": "README 称项目源于作者用 Claude Code 连真电视、一个下午修好父母的米 TV，连提示词也开源；不卸载任何应用，提供一行命令还原。"
+      },
+      {
+        "rank": 5,
+        "repo": "chenglou/handwired",
+        "url": "https://github.com/chenglou/handwired",
+        "lang": "TypeScript",
+        "stars": "1,725",
+        "delta": "",
+        "source": "weekly",
+        "summary": "把普通 JavaScript 代码转成神经网络：无需训练、结果精确，而且完全可微。",
+        "highlight": "README 示例用 ReLU 差值把 if-else 改写成算术：两条分支都计算，再由 0/1 掩码选择，因此可手算验证且能回传梯度；MIT，2026-10-15 创建。"
+      },
+      {
+        "rank": 6,
+        "repo": "Supermedo/uncharted_pc",
+        "url": "https://github.com/Supermedo/uncharted_pc",
+        "lang": "C++",
+        "stars": "1,435",
+        "delta": "",
+        "source": "weekly",
+        "summary": "《神秘海域》1/2/3 PS4 合集原生运行在 Windows 10/11。",
+        "highlight": "与作者此前的 Bloodborne 移植同一思路：原 PS4 游戏代码直接在 PC 执行，图形翻译到 Vulkan；不含游戏文件，需自备解密 dump，GPL-2.0。"
+      },
+      {
+        "rank": 7,
+        "repo": "Caho1/open-claude-ui",
+        "url": "https://github.com/Caho1/open-claude-ui",
+        "lang": "TypeScript",
+        "stars": "1,206",
+        "delta": "",
+        "source": "weekly",
+        "summary": "逆向还原 Claude 桌面端设计系统与交互物理的 React 组件库。",
+        "highlight": "README 称还原 30 个独立组件、4 套弹簧参数、4px 指针死区与 CJK 输入法合成守卫，附 3000+ 行逆向分析；过程借助 REA 做 AST 与 ASAR 解构，MIT。"
+      },
+      {
+        "rank": 8,
+        "repo": "outcrawlai/scout",
+        "url": "https://github.com/outcrawlai/scout",
+        "lang": "TypeScript",
+        "stars": "945",
+        "delta": "",
+        "source": "weekly",
+        "summary": "Outcrawl 开源的浏览器智能体，可自带模型。",
+        "highlight": "仓库为 Outcrawl 自有仓库的自动镜像；README 给出三步 quickstart、自带模型与云端运行三种路径，Apache-2.0。"
+      },
+      {
+        "rank": 9,
+        "repo": "CoolkHz/gptibo",
+        "url": "https://github.com/CoolkHz/gptibo",
+        "lang": "TypeScript",
+        "stars": "827",
+        "delta": "",
+        "source": "weekly",
+        "summary": "可自托管的数字商品商城，含用户前台、管理后台与代理商工作台。",
+        "highlight": "后端提供 Go + PostgreSQL 与 Cloudflare Workers + D1 两套实现；原站已停运，代码以 MIT 开放，支付与供应商需接自己的适配器。"
+      },
+      {
+        "rank": 10,
+        "repo": "LiCinCan/blender-ai-mcp-addon",
+        "url": "https://github.com/LiCinCan/blender-ai-mcp-addon",
+        "lang": "Python",
+        "stars": "784",
+        "delta": "",
+        "source": "weekly",
+        "summary": "Blender 里的 AI 助手 + 内置 MCP server：查看场景、建模、改材质、跑多步工作流。",
+        "highlight": "README 称支持 OpenAI、ChatGPT、Claude、Gemini、Ollama、OpenCode；带可视化聊天工作区，可先看 agent 的操作再在视口检查结果，MIT。"
+      },
+      {
+        "rank": 11,
+        "repo": "MyLuxy/overdrive",
+        "url": "https://github.com/MyLuxy/overdrive",
+        "lang": "C++",
+        "stars": "773",
+        "delta": "",
+        "source": "weekly",
+        "summary": "PS5 自制游戏商店，1,800+ 游戏，可直接下载到主机内置存储或 U 盘。",
+        "highlight": "README 称原项目关停后，作者反编译最后一个发行版、恢复完整源码后重建；带评分、新作、搜索、收藏与下载速度/容量显示。"
+      },
+      {
+        "rank": 12,
+        "repo": "Leonxlnx/earshot",
+        "url": "https://github.com/Leonxlnx/earshot",
+        "lang": "Python",
+        "stars": "764",
+        "delta": "",
+        "source": "weekly",
+        "summary": "给编码智能体装上「耳朵」：把声音变成 agent 能推理的证据。",
+        "highlight": "README 称可描述文件听感、评估与描述的匹配度、找长录音里的最佳片段、判断真实录音还是代码合成；CPU-only，22 秒发布片全部由 earshot forge 生成。"
+      },
+      {
+        "rank": 13,
+        "repo": "Tencent-Hunyuan/Hy-Memory",
+        "url": "https://github.com/Tencent-Hunyuan/Hy-Memory",
+        "lang": "Python",
+        "stars": "761",
+        "delta": "",
+        "source": "weekly",
+        "summary": "腾讯混元开源的「双系统认知记忆」，面向 LLM 智能体的生产级记忆层。",
+        "highlight": "README 自我定位为 production-grade dual-system cognitive memory for LLM agents，并提供论文、系统架构与 quickstart 章节；2026-10-15 创建。"
+      },
+      {
+        "rank": 14,
+        "repo": "Zfinix/eleven",
+        "url": "https://github.com/Zfinix/eleven",
+        "lang": "TypeScript",
+        "stars": "752",
+        "delta": "",
+        "source": "weekly",
+        "summary": "agent-first 的逆向工程应用：任何 ACP agent 都能读、改名、打补丁二进制、APK 与 GPU kernel。",
+        "highlight": "跨 macOS / Windows / Linux；README 称把 app、二进制、Android APK、GPU kernel、shader 直接交给 agent 操作，Apache-2.0。"
+      },
+      {
+        "rank": 15,
+        "repo": "Noniv/web-ocean",
+        "url": "https://github.com/Noniv/web-ocean",
+        "lang": "HTML",
+        "stars": "670",
+        "delta": "",
+        "source": "weekly",
+        "summary": "纯 WebGPU 从零写的实时海洋渲染器，不用引擎、不用渲染库。",
+        "highlight": "含 FFT 波浪、白浪、太阳闪光与物理天空；两个自包含单文件（102 KB / 压缩版 61 KB），Chrome 开 WebGPU 直接打开 ocean.html 即可。"
+      },
+      {
+        "rank": 16,
+        "repo": "OpenMOSS/MOSS-Image",
+        "url": "https://github.com/OpenMOSS/MOSS-Image",
+        "lang": "Python",
+        "stars": "669",
+        "delta": "",
+        "source": "weekly",
+        "summary": "5B 参数 DiT 文生图基础模型，主打高质量文字渲染与版面生成。",
+        "highlight": "权重已上 Hugging Face（Base / SFT）与 ModelScope；支持高效微调，topics 含 controllable-generation、text-rendering，Apache-2.0。"
+      },
+      {
+        "rank": 17,
+        "repo": "ly05010419/MacNativeGames",
+        "url": "https://github.com/ly05010419/MacNativeGames",
+        "lang": "C",
+        "stars": "658",
+        "delta": "",
+        "source": "weekly",
+        "summary": "在 Apple 芯片 Mac 上原生运行《塞尔达传说：王国之泪》。",
+        "highlight": "README 强调不是模拟器：游戏自身 ARM64 代码直跑，NVN 图形重建到 Metal 4，需自备 XCI/NSP 与 prod.keys；一个脚本打成 Mac app。"
+      },
+      {
+        "rank": 18,
+        "repo": "datalab-to/indra",
+        "url": "https://github.com/datalab-to/indra",
+        "lang": "Python",
+        "stars": "623",
+        "delta": "",
+        "source": "weekly",
+        "summary": "快速 CPU OCR：行检测、CTC 识别、阅读顺序，直接输出 Markdown。",
+        "highlight": "代码 Apache-2.0、模型 OpenRAIL-M，权重在 Hugging Face；主打 CPU / ONNX 推理，无需 GPU。"
+      },
+      {
+        "rank": 19,
+        "repo": "0xProbabillity/house-control",
+        "url": "https://github.com/0xProbabillity/house-control",
+        "lang": "Swift",
+        "stars": "619",
+        "delta": "",
+        "source": "weekly",
+        "summary": "把家做成实时 3D 模型，放在 Mac 菜单栏/刘海与 iPhone 上控制灯和空调。",
+        "highlight": "户型、墙、门窗与家具由一个 JSON 描述；对接 Smart Life、Home Assistant、Philips Hue、Apple Home；灯会真实照亮场景，运行中的空调有可见气流。"
+      },
+      {
+        "rank": 20,
+        "repo": "aicodeking/leanrea",
+        "url": "https://github.com/aicodeking/leanrea",
+        "lang": "Python",
+        "stars": "617",
+        "delta": "",
+        "source": "weekly",
+        "summary": "一个 8 KB 的 SKILL.md，替代 REA 的整套 MCP 逆向工具链。",
+        "highlight": "README 对比：REA 6.5.0 需装 25 MB npm 包 + MCP server，leanrea 只有一个 skill 文件；作者基准称快 38%、便宜 35%，MIT。"
+      }
+    ]
+  },
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（官方博客为「上次日报后新增」；arXiv 最远回看至 96 小时）",
+    "sourcesUsed": [
+      "Hacker News (Algolia)",
+      "Anthropic News",
+      "arXiv (cs.CL/AI/LG/MA/RO)"
+    ],
+    "items": [
+      {
+        "category": "release",
+        "title": "DeepSeek 上线 Search / Fetch API，按成功请求 $0.75/千次计价",
+        "summary": "DeepSeek 开放自研搜索引擎支撑的 Search API 与 Fetch API，给 agent 和 RAG 应用提供实时网页内容，定价为每 1000 次成功请求 0.75 美元。",
+        "why": "把 agent 的联网检索做成明码标价的原子能力，直接对标 Tavily/Exa 一类检索服务，也意味着 RAG 成本可以按「成功抓取」核算。",
+        "url": "https://api-docs.deepseek.com/guides/search/",
+        "source": "Hacker News",
+        "time": "10/18 14:50",
+        "heat": "505 分 · 249 评论"
+      },
+      {
+        "category": "agent",
+        "title": "网站开始对 AI 智能体「关门」",
+        "summary": "The Verge 报道越来越多站点部署反爬与访问控制，明确阻挡 AI agent 的浏览、抓取和下单行为。",
+        "why": "agent 的上网能力正从「技术可行」撞上「站点许可」，这会推动授权访问、身份标识与 agent 专用接口成为基础设施。",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1013195/ai-agents-blocked-web",
+        "source": "Hacker News / The Verge（多源）",
+        "time": "10/18 22:58",
+        "heat": "131 分 · 122 评论"
+      },
+      {
+        "category": "industry",
+        "title": "Anthropic 设立 Public Benefit Fund，捐出部分公司股份",
+        "summary": "Anthropic 宣布把一部分股份投入新实体 Anthropic Public Benefit Fund，并设计成公司成长时公益持股比例随之上升的结构。",
+        "why": "这是少见的把「公司增值」与「公益控制权」绑定的治理设计，为 AI 实验室的长期公共问责提供了新模板。",
+        "url": "https://www.anthropic.com/news/public-benefit-fund",
+        "source": "Anthropic News",
+        "time": "10/19 00:49",
+        "heat": "官方发布"
+      },
+      {
+        "category": "industry",
+        "title": "Anthropic 提议的 AI 安全法案被指门槛过高",
+        "summary": "Tom's Hardware 报道 Anthropic 支持的安全法案只有在造成 50 人死亡或 10 亿美元损失时才触发，实际会把执法能力集中到商务部。",
+        "why": "前沿实验室亲自参与立法设计，但「事后重罚、事前少管」的阈值设定将直接影响各州与联邦的监管路径。",
+        "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropics-proposed-ai-safety-bill-only-kicks-in-if-50-deaths-or-usd1-billion-in-damages-are-on-the-line-proposal-would-effectively-make-the-commerce-department-the-only-agency-capable-of-stopping-an-ai-model",
+        "source": "Hacker News / Tom's Hardware（多源）",
+        "time": "10/18 22:30",
+        "heat": "147 分 · 160 评论"
+      },
+      {
+        "category": "research",
+        "title": "MLExpert：面向自主机器学习工程的通用智能体模型",
+        "summary": "论文提出 MLExpert，让 LLM 从辅助科研走向自主开发、迭代和改进 AI 系统，指向 AI4AI。",
+        "why": "把「agent 做 ML 工程」从零散工具链收敛为一个通用模型问题，是自主实验与自我改进方向的新基准尝试。",
+        "url": "http://arxiv.org/abs/2610.22344v1",
+        "source": "arXiv",
+        "time": "10-15 提交（arXiv 10/16 01:56 索引）",
+        "heat": "新论文"
+      },
+      {
+        "category": "oss",
+        "title": "Sphinx：发布前用钩子考你「AI 写的代码」",
+        "summary": "Show HN 项目 Sphinx 在提交/发布前弹出一组针对本次 AI 生成代码的测验，答对才放行。",
+        "why": "在「AI 写得多、人读得少」的常态下，用强制回忆替代形式化 review，是审查流程的一个轻量实验。",
+        "url": "https://sphinx-six-theta.vercel.app/",
+        "source": "Hacker News",
+        "time": "10/18 12:33",
+        "heat": "235 分 · 76 评论"
+      }
+    ]
+  },
+  "observation": [
+    "本期 Trending 近似榜单里，服务编码智能体的项目密集出现：git-ai 重做面向多 agent 的版本控制，scout 做浏览器 agent，earshot 给 agent 补听觉，eleven 让 agent 做逆向，Hy-Memory 则补记忆层——agent 栈正在从「模型 + 提示词」拆成一层层可独立融资/开源的基础设施。",
+    "另一条主线是「个人 + AI 编码工具」完成过去需要团队的大工程：Uncharted、王国之泪、inFAMOUS、PS5 商店 Overdrive 都是逆向/移植类项目，tv-vibehack 的作者直言一个下午用 Claude Code 修好父母的电视，编码 agent 正在压低系统级改造的门槛。",
+    "大厂开源仍在榜上：腾讯混元 Hy-Memory 抢 agent 记忆，OpenMOSS 的 5B MOSS-Image 抢可控文生图与文字渲染，说明开源竞争点已从「堆参数」转向记忆、版面、文字等可落地能力。",
+    "AI 动态侧出现了同一天的两面：DeepSeek 把搜索/抓取按「成功请求」明码标价，而 The Verge 报道站点开始封堵 agent——agent 的 Web 访问正在同时被定价和被限权，授权与身份会是下一个卡点。",
+    "Anthropic 一天内两条治理消息（公益基金、安全法案触发门槛），加上 DeepSeek 的 API 商业化，前沿实验室都在把「能力领先」转成「规则与计价权」的提前布局。"
+  ]
+}
