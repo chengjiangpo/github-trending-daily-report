@@ -1,0 +1,443 @@
+{
+  "date": "2026-10-20",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "gh CLI 未登录；仓库元数据与提交全部用 curl 直连 api.github.com 公共 API（未认证，请求成功）。",
+    "github.com/trending 本次日榜与周榜均抓取成功（HTTP 200）：日榜仅 12 条，不足 20 条，按 weekly 补位 8 条（剔除与日榜重复的 MadsLorentzen/ai-job-search、ruvnet/ruflo），共 20 条，source 分别标 daily / weekly。",
+    "star 总数为 api.github.com /repos 在 2026-10-19T22:00Z 的快照；delta 取自 trending 页面显示的 stars today / stars this week，未做估算。",
+    "提交简报窗口 since 2026-10-18T22:00Z（北京时间 10-20 06:00 往前 24 小时），per_page=30；deepseek-harness 命中 0 条（最近一次提交为 10-17），earendil-works/pi 10 条，anomalyco/opencode 30 条（触及 per_page 上限，仅取前 30）。时间已换算为北京时间。",
+    "Trending 中 withmarbleapp/os-taxonomy 仓库简介为空，raw.githubusercontent.com 抓取 README 超时，故其亮点只写可核实的数据（star 与当日增量），未做功能推测。",
+    "AI 前沿动态 13/13 个源抓取成功，共 29 条候选；官方大模型博客本轮新增 0 条（OpenAI / Anthropic / Google DeepMind / Google AI 均为「无新增」，非抓取失败）。",
+    "部分仓库 README 从 raw.githubusercontent.com 抓取超时，相关条目亮点仅依据仓库简介与 trending 页面可见信息撰写；HN 分数与评论数为 2026-10-19T22:00Z 抓取快照。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-10-18T22:00Z，时间已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 过去 24 小时无新提交（最近一次为 10-17 的 0.2.1-rc.2 发版）",
+        "items": []
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 10 条提交 · 补 Windows 兼容与遥测基础设施",
+        "items": [
+          {
+            "title": "fix(ai): 从 Copilot 请求体超限中恢复",
+            "desc": "Copilot 以 HTTP 413 拒绝超限请求，改为可恢复处理",
+            "author": "petrroll",
+            "time": "10-20 03:30"
+          },
+          {
+            "title": "feat(tui): 识别 Rex 终端以启用 OSC 8 超链接",
+            "desc": "终端能力探测扩展",
+            "author": "petrroll",
+            "time": "10-20 04:01"
+          },
+          {
+            "title": "fix(coding-agent): 接受 Windows Store 的 shell 别名",
+            "desc": "Windows 上编码 agent 可正确解析 shell",
+            "author": "petrroll",
+            "time": "10-20 03:21"
+          },
+          {
+            "title": "feat: Durable 文档定义要求 checkpointWhen",
+            "desc": "持久化文档的检查点语义收紧",
+            "author": "badlogic",
+            "time": "10-20 02:17"
+          },
+          {
+            "title": "feat: Chord 增加 SQLite 遥测存储，共享 TelemetryStore 与 trace 渲染",
+            "desc": "遥测与链路追踪落地",
+            "author": "badlogic",
+            "time": "10-20 00:50"
+          },
+          {
+            "title": "feat(ai): 新增 MiniMax-M3.1-Flash，仅隐藏旧版 MiniMax 模型",
+            "desc": "模型目录更新",
+            "author": "davidbrai",
+            "time": "10-19 17:35"
+          },
+          {
+            "title": "feat: Durable 与 pi-ai 接入遥测，Context.telemetry 恒为 span",
+            "desc": "统一遥测上下文",
+            "author": "badlogic",
+            "time": "10-19 14:26"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 30+ 条提交 · 语音、PTY 与提示缓存优化",
+        "items": [
+          {
+            "title": "feat: 在实验开关后恢复 todowrite 工具（#56947）",
+            "desc": "任务清单工具回归",
+            "author": "rekram1-node",
+            "time": "10-20 05:23"
+          },
+          {
+            "title": "fix(core): 仅在已连接时轮询 Console 配置（#57201）",
+            "desc": "减少无效轮询",
+            "author": "rekram1-node",
+            "time": "10-20 05:10"
+          },
+          {
+            "title": "feat(voice): 支持 Gemini Live 临时令牌（#56888）",
+            "desc": "语音会话接入 Gemini Live",
+            "author": "kitlangton",
+            "time": "10-20 04:04"
+          },
+          {
+            "title": "fix(core): 稳定图像预算裁剪，保住 prompt cache（#56983）",
+            "desc": "减少缓存击穿带来的成本",
+            "author": "kitlangton",
+            "time": "10-20 04:02"
+          },
+          {
+            "title": "feat(core): Windows 启用持久化 PTY（#56245）",
+            "desc": "Windows 终端会话可复用",
+            "author": "jlongster",
+            "time": "10-20 03:51"
+          },
+          {
+            "title": "fix(core): 压缩时总结整段对话（#57091）",
+            "desc": "上下文压缩覆盖更完整",
+            "author": "neriousy",
+            "time": "10-20 01:02"
+          },
+          {
+            "title": "fix(cli): 让 mini 会话等待保活（#50248）",
+            "desc": "长等待不再被中断",
+            "author": "andreivince",
+            "time": "10-20 01:13"
+          },
+          {
+            "title": "feat(desktop): 保留 Drive 托管的开发状态（#57112）",
+            "desc": "桌面端状态持久化",
+            "author": "jlongster",
+            "time": "10-20 02:15"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 前 20 项目分析",
+    "sources": {
+      "daily": 12,
+      "weekly": 8
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "MadsLorentzen/ai-job-search",
+        "url": "https://github.com/MadsLorentzen/ai-job-search",
+        "lang": "Python",
+        "stars": "56,945",
+        "delta": "3,860 stars today",
+        "source": "daily",
+        "summary": "跑在本机的 AI 求职流水线，基于 Claude Code 评估岗位、改简历、写求职信、准备面试。",
+        "highlight": "仓库简介明确「fork it and own it」，整套流程在本地运行；今日 +3,860 star，居日榜第一。"
+      },
+      {
+        "rank": 2,
+        "repo": "anomalyco/opencode",
+        "url": "https://github.com/anomalyco/opencode",
+        "lang": "TypeScript",
+        "stars": "217,709",
+        "delta": "1,310 stars today",
+        "source": "daily",
+        "summary": "开源编码 agent，终端为主、另有桌面端。",
+        "highlight": "README 提供 V2 安装脚本（opencode.ai/v2/install）与 brew tap，内置 build / plan 两个可用 Tab 切换的 agent，桌面端标注 BETA。"
+      },
+      {
+        "rank": 3,
+        "repo": "stablyai/orca",
+        "url": "https://github.com/stablyai/orca",
+        "lang": "TypeScript",
+        "stars": "98,144",
+        "delta": "1,591 stars today",
+        "source": "daily",
+        "summary": "管理一整队编码 agent（Grok Bot、Claude Code 等）的工作台，桌面、移动与远程运行时可切换。",
+        "highlight": "今日 +1,591 star 为日榜最高；简介强调「用你自己的订阅运行任意编码 agent」。"
+      },
+      {
+        "rank": 4,
+        "repo": "Comfy-Org/ComfyUI",
+        "url": "https://github.com/Comfy-Org/ComfyUI",
+        "lang": "Python",
+        "stars": "139,618",
+        "delta": "1,011 stars today",
+        "source": "daily",
+        "summary": "节点式扩散模型 GUI / API / 后端，主打本地推理。",
+        "highlight": "自述为「最快的本地推理引擎」，以图/节点界面组织扩散工作流；今日 +1,011 star。"
+      },
+      {
+        "rank": 5,
+        "repo": "akitaonrails/ai-memory",
+        "url": "https://github.com/akitaonrails/ai-memory",
+        "lang": "Rust",
+        "stars": "11,265",
+        "delta": "666 stars today",
+        "source": "daily",
+        "summary": "给编码 CLI 提供长期记忆，并在不同 agent 厂商之间交接上下文。",
+        "highlight": "Rust 实现，定位是跨厂商 handoff 的记忆层；star 基数 1.1 万，今日 +666。"
+      },
+      {
+        "rank": 6,
+        "repo": "HKUDS/CLI-Anything",
+        "url": "https://github.com/HKUDS/CLI-Anything",
+        "lang": "Python",
+        "stars": "55,181",
+        "delta": "607 stars today",
+        "source": "daily",
+        "summary": "把命令行软件变成 agent 可直接调用的能力，口号是「让所有软件 agent-native」。",
+        "highlight": "简介给出配套站点 CLI-Hub（clianything.cc）；HKUDS 出品，今日 +607 star。"
+      },
+      {
+        "rank": 7,
+        "repo": "ruvnet/ruflo",
+        "url": "https://github.com/ruvnet/ruflo",
+        "lang": "TypeScript",
+        "stars": "77,129",
+        "delta": "564 stars today",
+        "source": "daily",
+        "summary": "面向 Claude Code / Codex 的 agent 元框架，可编排多智能体 swarm。",
+        "highlight": "README 自称「agent meta-harness」，通过 /plugin marketplace add ruvnet/ruflo 安装 ruflo-core 等插件；同时位列周榜（+2,117 this week）。"
+      },
+      {
+        "rank": 8,
+        "repo": "Kruk2/jasna",
+        "url": "https://github.com/Kruk2/jasna",
+        "lang": "Python",
+        "stars": "2,857",
+        "delta": "502 stars today",
+        "source": "daily",
+        "summary": "视频修复工具。",
+        "highlight": "仓库简介仅一句「Video restoration tool」；star 基数仅 2.8k，今日 +502，属小项目突发上榜。"
+      },
+      {
+        "rank": 9,
+        "repo": "shiyu-coder/Kronos",
+        "url": "https://github.com/shiyu-coder/Kronos",
+        "lang": "Python",
+        "stars": "41,587",
+        "delta": "355 stars today",
+        "source": "daily",
+        "summary": "面向金融市场「语言」的基础模型。",
+        "highlight": "简介定位为金融时序的基础模型（Foundation Model for the Language of Financial Markets）；今日 +355 star。"
+      },
+      {
+        "rank": 10,
+        "repo": "headroomlabs-ai/headroom",
+        "url": "https://github.com/headroomlabs-ai/headroom",
+        "lang": "Python",
+        "stars": "76,192",
+        "delta": "317 stars today",
+        "source": "daily",
+        "summary": "在内容进入 LLM 之前压缩工具输出、日志、文件与 RAG 片段。",
+        "highlight": "README 举例：55,957 token 的 agent prompt 实际只发送 24,340 token；压缩在本地完成，提供库、代理与 MCP server 三种形态，Apache-2.0。"
+      },
+      {
+        "rank": 11,
+        "repo": "withmarbleapp/os-taxonomy",
+        "url": "https://github.com/withmarbleapp/os-taxonomy",
+        "lang": "JavaScript",
+        "stars": "6,073",
+        "delta": "301 stars today",
+        "source": "daily",
+        "summary": "仓库简介为空，仅从名称看与「OS 分类法」相关，具体用途未有可核实说明。",
+        "highlight": "可核实的只有数据：JavaScript，6,073 star，今日 +301；README 抓取超时。"
+      },
+      {
+        "rank": 12,
+        "repo": "anthropics/claude-code",
+        "url": "https://github.com/anthropics/claude-code",
+        "lang": "TypeScript",
+        "stars": "152,606",
+        "delta": "167 stars today",
+        "source": "daily",
+        "summary": "Anthropic 官方终端编码 agent，理解代码库并执行常规任务与 git 流程。",
+        "highlight": "今日 +167 star，是日榜增量最低的一条，属长期在榜的稳定项目。"
+      },
+      {
+        "rank": 13,
+        "repo": "morluto/rea",
+        "url": "https://github.com/morluto/rea",
+        "lang": "TypeScript",
+        "stars": "335,920",
+        "delta": "229,268 stars this week",
+        "source": "weekly",
+        "summary": "用 agent 逆任何东西：从应用行为一路下探到原生二进制。",
+        "highlight": "周榜第一，trending 页面显示单周 +229,268 star，star 总数 33.6 万。"
+      },
+      {
+        "rank": 14,
+        "repo": "anthropics/claude-plugins-official",
+        "url": "https://github.com/anthropics/claude-plugins-official",
+        "lang": "Python",
+        "stars": "43,157",
+        "delta": "4,774 stars this week",
+        "source": "weekly",
+        "summary": "Anthropic 官方维护的高质量 Claude Code 插件目录。",
+        "highlight": "由 Anthropic 直接管理，本周 +4,774 star。"
+      },
+      {
+        "rank": 15,
+        "repo": "storytold/artcraft",
+        "url": "https://github.com/storytold/artcraft",
+        "lang": "Rust",
+        "stars": "33,662",
+        "delta": "16,379 stars this week",
+        "source": "weekly",
+        "summary": "面向艺术家、设计师与电影人的创作引擎。",
+        "highlight": "Rust 实现，简介强调「intentional crafting」；本周 +16,379 star。"
+      },
+      {
+        "rank": 16,
+        "repo": "boykopovar/AnyPS5",
+        "url": "https://github.com/boykopovar/AnyPS5",
+        "lang": "C++",
+        "stars": "44,371",
+        "delta": "14,224 stars this week",
+        "source": "weekly",
+        "summary": "把 PS5 可执行文件自动移植到 Linux 与 Windows。",
+        "highlight": "C++ 实现，本周 +14,224 star，star 总数 4.4 万。"
+      },
+      {
+        "rank": 17,
+        "repo": "NationalSecurityAgency/ghidra",
+        "url": "https://github.com/NationalSecurityAgency/ghidra",
+        "lang": "Java",
+        "stars": "91,522",
+        "delta": "7,602 stars this week",
+        "source": "weekly",
+        "summary": "NSA 开源的软件逆向工程（SRE）框架。",
+        "highlight": "老牌项目重回周榜，本周 +7,602 star，与 rea、AnyPS5 同属逆向/移植主线。"
+      },
+      {
+        "rank": 18,
+        "repo": "cathrynlavery/diagram-design",
+        "url": "https://github.com/cathrynlavery/diagram-design",
+        "lang": "HTML",
+        "stars": "58,352",
+        "delta": "7,901 stars this week",
+        "source": "weekly",
+        "summary": "给编码 agent 用的编辑级图表设计：44 种图表类型，输出自包含 HTML + SVG。",
+        "highlight": "简介点名支持 Claude Code、Codex、GitHub Copilot、Cursor、Factory Droid 与 Pi，并主张不用 Mermaid；本周 +7,901 star。"
+      },
+      {
+        "rank": 19,
+        "repo": "heygen-com/hyperframes",
+        "url": "https://github.com/heygen-com/hyperframes",
+        "lang": "TypeScript",
+        "stars": "67,602",
+        "delta": "5,883 stars this week",
+        "source": "weekly",
+        "summary": "写 HTML 就能渲染视频，且明确「为 agent 而做」。",
+        "highlight": "HeyGen 出品，TypeScript；本周 +5,883 star。"
+      },
+      {
+        "rank": 20,
+        "repo": "mksglu/context-mode",
+        "url": "https://github.com/mksglu/context-mode",
+        "lang": "TypeScript",
+        "stars": "31,056",
+        "delta": "4,138 stars this week",
+        "source": "weekly",
+        "summary": "编码 agent 的上下文窗口优化层：沙箱化工具输出、持久化会话记忆，并跨 17 个平台做路由。",
+        "highlight": "简介称工具输出可减少 98%，通过 MCP + hooks 接入；本周 +4,138 star。"
+      }
+    ]
+  },
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（官方博客为「上次日报后新增」；arXiv 最远回看至 96 小时）",
+    "sourcesUsed": [
+      "Hacker News (Algolia)",
+      "GitHub AI/ML Blog",
+      "arXiv (cs.CL/AI/LG/MA/RO)"
+    ],
+    "items": [
+      {
+        "category": "release",
+        "title": "Mistral 发布 Timestral：时间序列基础模型",
+        "summary": "Mistral 上线 Timestral，把基础模型路线用于时间序列预测，官方发布页同步公开。",
+        "why": "基础模型的战场从文本、图像扩到企业最刚需的时序预测，直接压到 forecasting 工具与云厂商的地盘。",
+        "url": "https://mistral.ai/news/timestral/",
+        "source": "Hacker News",
+        "time": "10/19 17:59",
+        "heat": "505 分 · 95 评论"
+      },
+      {
+        "category": "agent",
+        "title": "Hybrid Reasoning Agents：在潜空间思考，用文本行动",
+        "summary": "论文提出混合推理智能体框架，让 LLM agent 在潜空间完成推理、再通过文本与环境交互。",
+        "why": "若推理不必逐 token 展开，agent 的延迟与思考成本会被重算，架构选择也会跟着变。",
+        "url": "https://arxiv.org/abs/2610.18861",
+        "source": "Hacker News",
+        "time": "10/19 04:48",
+        "heat": "501 分 · 235 评论"
+      },
+      {
+        "category": "industry",
+        "title": "CERN 与 Mistral 签署战略合作意向书",
+        "summary": "CERN 宣布与 Mistral 建立战略伙伴关系，推动 AI 在科学研究中的应用。",
+        "why": "顶级科研机构把大模型厂商当基础设施伙伴，AI for Science 的采购与治理模式正在成形。",
+        "url": "https://home.cern/cern-and-mistral-join-forces-to-accelerate-ai-for-science/",
+        "source": "Hacker News",
+        "time": "10/19 23:28",
+        "heat": "283 分 · 53 评论"
+      },
+      {
+        "category": "release",
+        "title": "Inception Labs 发布 Mercury 3：把扩散模型推到规模",
+        "summary": "Mercury 3 以扩散（非自回归）路线做大规模文本生成，官方博客主打速度与规模化。",
+        "why": "扩散语言模型若能在规模上站住，会给出自回归之外另一条推理成本曲线。",
+        "url": "https://www.inceptionlabs.ai/blog/introducing-mercury-3",
+        "source": "Hacker News",
+        "time": "10/20 01:27",
+        "heat": "198 分 · 78 评论"
+      },
+      {
+        "category": "industry",
+        "title": "WSJ：Anthropic IPO 背后一只不透明的信托",
+        "summary": "华尔街日报报道 Anthropic 上市结构中一只少见的私人信托安排，可能影响公司控制权。",
+        "why": "前沿实验室的上市治理设计，决定了关键时刻谁能对公司施压。",
+        "url": "https://www.wsj.com/tech/ai/anthropic-ipo-private-trust-188f41f7",
+        "source": "Hacker News / WSJ（多源）",
+        "time": "10/19 20:06",
+        "heat": "120 分 · 82 评论"
+      },
+      {
+        "category": "agent",
+        "title": "WhatsApp MCP 免费跑在 Cloudflare 上",
+        "summary": "Show HN 项目把 WhatsApp 接入封装成 MCP server，部署在 Cloudflare 上免费运行。",
+        "why": "MCP 正从 IDE 扩到日常通信工具，agent 可触达的边界又宽了一层。",
+        "url": "https://github.com/finereli/whatsapp-mcp",
+        "source": "Hacker News",
+        "time": "10/19 05:36",
+        "heat": "146 分 · 78 评论"
+      },
+      {
+        "category": "agent",
+        "title": "GitHub：把 Copilot app 的 agent 会话接续到 VS Code",
+        "summary": "GitHub 官方博客介绍如何把 Copilot app 里的 agent 会话连同对话、代码改动与工作上下文迁到 VS Code。",
+        "why": "会话可迁移意味着 agent 的上下文开始脱离单一客户端，变成可携带的资产。",
+        "url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+        "source": "GitHub AI/ML Blog",
+        "time": "10/20 02:47",
+        "heat": "官方博客"
+      }
+    ]
+  },
+  "observation": [
+    "今天的榜单几乎是一条 agent 基础设施栈：记忆（ai-memory）、上下文压缩（headroom、context-mode）、元框架与编排（ruflo、orca）、插件目录（claude-plugins-official）、把 CLI 变成 agent 能力（CLI-Anything）——竞争点已经从「模型多强」下移到「上下文怎么管、工具怎么接」。",
+    "opencode 同时出现在提交简报与日榜（日增 1,310 star），24 小时内 30+ 条提交集中在语音（Gemini Live）、Windows 持久化 PTY 与 prompt cache 稳定性，说明编码 agent 的差异化正落在工程细节而非模型本身。",
+    "周榜的逆向/移植主线（rea 单周 +22.9 万 star、AnyPS5、ghidra）与编码 agent 的成熟同步：把「读懂二进制」这类高门槛工作交给 agent，正在变成可复制的工作流。",
+    "模型侧同日出现两个细分信号：Mistral 的 Timestral 指向时间序列，Inception 的 Mercury 3 指向扩散路线；加上 CERN 与 Mistral 的战略合作，基础模型的竞争正从通用能力转向行业与推理范式的切分。",
+    "治理面则集中在 Anthropic：一边是 IPO 信托结构的报道，一边是持续扩大的插件与 Copilot 生态，能力领先正在被转换成规则与分发渠道的提前占位。"
+  ]
+}
