@@ -1,0 +1,463 @@
+{
+  "date": "2026-10-22",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "gh CLI 未登录；仓库元数据、提交与 star 数全部用 curl 直连 api.github.com 公共 API（未认证，请求成功）。",
+    "github.com/trending 今日可达（HTTP 200），日榜仅 12 条、周榜 16 条；按预案用周榜补位至 20 条，source 分别标注 daily / weekly。日榜 delta 为 stars today，周榜 delta 为 stars this week（已标注「本周」，两者口径不同，未混算）。",
+    "提交简报窗口 since 2026-10-20T22:00Z（北京时间 10-22 06:00 往前 24 小时），per_page=30。三仓库分别命中 0 / 19 / 30 条：deepseek-harness 无新提交，opencode 触及上限仅取主要提交。时间已换算为北京时间。",
+    "AI 前沿动态 13/13 个源抓取成功（无失败源），共 44 条候选。官方博客新增：OpenAI Blog 6 条（保留 2 条）、Anthropic News 2 条（1 条为栏目导航页、1 条为 Trust 人事，均未入选）、Google AI Blog 1 条（东南亚数字经济报告，非 AI 主线）、Google DeepMind 0 条、CrewAI Blog 0 条。",
+    "OpenAI 官网与 mistral.ai 对 curl 均返回 Cloudflare 挑战或连接失败（mistral.ai 为 HTTP 000）；OpenAI 两篇改由网页抓取获得正文，Mistral Large 4 仅能确认标题、链接与 HN 热度（312 分 / 91 评论），未写任何参数或跑分。",
+    "PHP 核心 RCE（PHP2Shell）与 OpenAI「Patch the Planet」为同一事件的多源报道，已合并为一条并标注多源；两个 agent 专项（Patch the Planet 智能体挖洞、Claude Mods 插件即中间件）已单列。",
+    "趋势观察依据 trending 榜单与各仓库 README（raw.githubusercontent.com 抓取）；周榜条目 star 增量为本周累计。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-10-20T22:00Z，时间已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 过去 24 小时无新提交（最近一次推送为 10-17，0.2.1-rc.2 发版）",
+        "items": []
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 19 条提交 · 客户端身份归入 pi-ai、视觉输入与 SQLite 复制",
+        "items": [
+          {
+            "title": "feat(ai,coding-agent): System One 分类器支持图像输入",
+            "desc": "给轻量分类模型加上多模态入口",
+            "author": "mitsuhiko",
+            "time": "10-22 05:53"
+          },
+          {
+            "title": "feat(ai,agent,coding-agent): 客户端身份与 provider 归属下沉到 pi-ai",
+            "desc": "身份与计费归属统一到模型层",
+            "author": "mitsuhiko",
+            "time": "10-21 18:17"
+          },
+          {
+            "title": "fix(ai,agent,coding-agent,durable): 客户端身份后续修正",
+            "desc": "补齐跨模块身份一致性",
+            "author": "badlogic",
+            "time": "10-21 19:18"
+          },
+          {
+            "title": "fix(coding-agent): 恢复流程丢掉被截断工具调用的结果",
+            "desc": "截断的工具调用不再丢失返回内容",
+            "author": "petrroll",
+            "time": "10-22 04:34"
+          },
+          {
+            "title": "fix(coding-agent): grep 工具用 --no-config 忽略 ripgrep 配置",
+            "desc": "搜索结果不再受用户全局 rg 配置干扰",
+            "author": "petrroll",
+            "time": "10-22 03:25"
+          },
+          {
+            "title": "fix(ai): 重试代理转发的 Codex CLI 流断连错误",
+            "desc": "代理场景下的断流可自动重试",
+            "author": "davidbrai",
+            "time": "10-21 17:54"
+          },
+          {
+            "title": "fix(ai): 处理 ChatGPT Business 工作区用量上限错误",
+            "desc": "企业工作区限额给出明确错误",
+            "author": "davidbrai",
+            "time": "10-21 16:11"
+          },
+          {
+            "title": "fix(ai,coding-agent): 移除上游已下线的模型",
+            "desc": "模型目录按上游可用性收敛",
+            "author": "davidbrai",
+            "time": "10-21 16:10"
+          },
+          {
+            "title": "feat(durable): 新增基于 IndexedDB 的浏览器存储",
+            "desc": "durable 层可在浏览器里持久化",
+            "author": "badlogic",
+            "time": "10-21 09:02"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 30 条提交（触及 per_page 上限）· 类型收紧、压缩与托管 GPT-Live 为主",
+        "items": [
+          {
+            "title": "feat(server): 在已连接的 OpenCode Console 上启动托管 GPT-Live（#57735）",
+            "desc": "托管实时会话接入 Console",
+            "author": "adamdotdevin",
+            "time": "10-21 22:55"
+          },
+          {
+            "title": "fix(function): GitHub App 安装令牌限定到已验证仓库（#57827）",
+            "desc": "缩小令牌作用域，安全修复",
+            "author": "thdxr",
+            "time": "10-21 23:19"
+          },
+          {
+            "title": "fix(core): compaction 摘要与普通轮次使用相同输出上限（#57564）",
+            "desc": "压缩摘要不再被截断",
+            "author": "rekram1-node",
+            "time": "10-22 05:45"
+          },
+          {
+            "title": "fix(ai): 放置缓存断点时跳过不可缓存的内容片段（#57610）",
+            "desc": "提示缓存命中率修复",
+            "author": "rekram1-node",
+            "time": "10-22 00:05"
+          },
+          {
+            "title": "fix(core): 旧版 apply_patch 权限映射为 edit（#57900）",
+            "desc": "权限模型迁移兼容",
+            "author": "rekram1-node",
+            "time": "10-22 04:57"
+          },
+          {
+            "title": "fix(core): 配置的 provider baseURL 可覆盖目录内模型端点（#57810）",
+            "desc": "自建网关/代理场景修复",
+            "author": "opencode-agent[bot]",
+            "time": "10-21 23:20"
+          },
+          {
+            "title": "fix(cli): Windows 服务端口移出 WSL 镜像端口段（#57428）",
+            "desc": "避免与 WSL 端口冲突",
+            "author": "neriousy",
+            "time": "10-22 05:52"
+          },
+          {
+            "title": "ci: 移除 /oc、duplicate-issues、/review 三个工作流",
+            "desc": "收缩仓库自动化面",
+            "author": "jlongster",
+            "time": "10-21 21:28"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 前 20 项目分析",
+    "sources": {
+      "daily": 12,
+      "weekly": 8
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "cloudflare/security-audit-skill",
+        "url": "https://github.com/cloudflare/security-audit-skill",
+        "lang": "JavaScript",
+        "stars": "36,087",
+        "delta": "+1,997",
+        "source": "daily",
+        "summary": "把编码 agent 变成安全审计员：一个六阶段漏洞审计 skill。",
+        "highlight": "README 说明它是 Cloudflare 漏洞挖掘 harness 的起点（对应官方博客「Build your own vulnerability harness」），流程为侦察建 coverage ledger → 按覆盖单元派隔离 hunter → 每个候选交给新 verifier 尝试证伪 → 产出 confirmed/needs_validation/rejected 并用 report-schema.json 校验 → 再由新 agent 独立复核来源。"
+      },
+      {
+        "rank": 2,
+        "repo": "vllm-project/vllm",
+        "url": "https://github.com/vllm-project/vllm",
+        "lang": "Python",
+        "stars": "94,824",
+        "delta": "+439",
+        "source": "daily",
+        "summary": "高吞吐、显存高效的 LLM 推理与服务引擎。",
+        "highlight": "起源于 UC Berkeley Sky Computing Lab，README 称已由 2000+ 贡献者共同维护，文档与社区迁至 vllm.ai；是当前自托管推理最常用的底座之一。"
+      },
+      {
+        "rank": 3,
+        "repo": "stablyai/orca",
+        "url": "https://github.com/stablyai/orca",
+        "lang": "TypeScript",
+        "stars": "101,131",
+        "delta": "+1,543",
+        "source": "daily",
+        "summary": "把一支编码 agent 舰队放进同一个工作台，桌机/手机/远程都能盯。",
+        "highlight": "README 的卖点很具体：一条 prompt 扇出到五个 agent、各自独立 git worktree，比完再合并赢家；手机端可在 agent 完成时收通知并追发指令；Design Mode 点选 Chromium 里的元素，直接把 HTML/CSS 与裁剪截图送进 prompt。"
+      },
+      {
+        "rank": 4,
+        "repo": "headroomlabs-ai/headroom",
+        "url": "https://github.com/headroomlabs-ai/headroom",
+        "lang": "Python",
+        "stars": "77,202",
+        "delta": "+477",
+        "source": "daily",
+        "summary": "在内容进模型之前先压缩：工具输出、日志、RAG 片段、会话历史。",
+        "highlight": "README 首页示例把 55,957 token 的 agent prompt 压到 24,340 token，并强调第 67 条里的 FATAL 行逐字保留；压缩在本机完成、不上传内容；提供 library / proxy / MCP server 三种接入，还能 `headroom wrap` 包住 claude、codex、opencode、openclaw 等客户端。"
+      },
+      {
+        "rank": 5,
+        "repo": "DietrichGebert/ponytail",
+        "url": "https://github.com/DietrichGebert/ponytail",
+        "lang": "JavaScript",
+        "stars": "171,449",
+        "delta": "+2,051",
+        "source": "daily",
+        "summary": "让 agent 像「最懒的资深工程师」：能一行解决就不写五十行。",
+        "highlight": "Ponytail 5 自测（39 个任务、含真实 FastAPI + React 仓库、Opus 5.5、每组 5 次）：代码 -53%、耗时 -41%、成本 -26%、token -45%，同时 98% 的风险逻辑带测试（不用它时为 68%）。"
+      },
+      {
+        "rank": 6,
+        "repo": "Comfy-Org/ComfyUI",
+        "url": "https://github.com/Comfy-Org/ComfyUI",
+        "lang": "Python",
+        "stars": "141,457",
+        "delta": "+914",
+        "source": "daily",
+        "summary": "节点式扩散模型 GUI / API / 后端，主打本地推理。",
+        "highlight": "README 定位「最强大、最模块化的内容创作 AI 引擎」，以 graph/nodes 界面组织扩散流程，同时暴露 API 与后端，可脚本化与二次开发。"
+      },
+      {
+        "rank": 7,
+        "repo": "supabase/supabase",
+        "url": "https://github.com/supabase/supabase",
+        "lang": "TypeScript",
+        "stars": "112,937",
+        "delta": "+509",
+        "source": "daily",
+        "summary": "Postgres 开发平台：数据库、认证、自动 API、实时订阅、边缘函数。",
+        "highlight": "README 自述「用企业级开源工具重建 Firebase 的能力」：独立 Postgres 实例、Auth、REST 与 GraphQL 自动生成、Realtime、Database/Edge Functions，一套给 Web、移动与 AI 应用做后端。"
+      },
+      {
+        "rank": 8,
+        "repo": "twentyhq/twenty",
+        "url": "https://github.com/twentyhq/twenty",
+        "lang": "TypeScript",
+        "stars": "59,096",
+        "delta": "+105",
+        "source": "daily",
+        "summary": "开源 CRM，Salesforce 的开源替代，按「为 AI 设计」重做。",
+        "highlight": "README 强调 CRM 应该像代码一样被构建、发布与版本化：用 `npx create-twenty-app` 起应用，对象、字段、视图都用代码定义，方便技术团队随业务改动。"
+      },
+      {
+        "rank": 9,
+        "repo": "shiyu-coder/Kronos",
+        "url": "https://github.com/shiyu-coder/Kronos",
+        "lang": "Python",
+        "stars": "42,781",
+        "delta": "+570",
+        "source": "daily",
+        "summary": "金融市场 K 线的开源基础模型：把 OHLCV 当成一种语言来预训练。",
+        "highlight": "两段式设计：专用 tokenizer 把多维 K 线量化成分层离散 token，再用 decoder-only Transformer 自回归预训练；训练数据来自 45+ 全球交易所，论文已被 AAAI 2026 接收，并提供 BTC/USDT 24 小时预测的在线 demo 与 Hugging Face 模型族。"
+      },
+      {
+        "rank": 10,
+        "repo": "strelov1/freehire",
+        "url": "https://github.com/strelov1/freehire",
+        "lang": "Go",
+        "stars": "2,331",
+        "delta": "+396",
+        "source": "daily",
+        "summary": "面向求职者的开源职位搜索引擎，直接抓公司招聘页。",
+        "highlight": "README 称已收录 3.3M+ 在招职位，全部来自企业 career page，主打「没有猎头、没有转载、没有死链」；Go 编写、MIT 协议，线上站 freehire.me。"
+      },
+      {
+        "rank": 11,
+        "repo": "akitaonrails/ai-memory",
+        "url": "https://github.com/akitaonrails/ai-memory",
+        "lang": "Rust",
+        "stars": "12,270",
+        "delta": "+303",
+        "source": "daily",
+        "summary": "编码 agent 的跨厂商长期记忆：换工具不丢上下文。",
+        "highlight": "README 描述的场景很具体：Claude Code 做到一半退出，在同一目录开 Codex 继续，不必重讲架构、失败路径与未决问题；20+ 个 harness 共用一份记忆，交接是带 owner 的类型化协议；Rust、MIT。"
+      },
+      {
+        "rank": 12,
+        "repo": "Graphify-Labs/graphify",
+        "url": "https://github.com/Graphify-Labs/graphify",
+        "lang": "Python",
+        "stars": "131,526",
+        "delta": "+1,434",
+        "source": "daily",
+        "summary": "把代码库连同文档、SQL、PDF 变成可查询知识图谱的 /graphify skill。",
+        "highlight": "代码用 tree-sitter AST 解析，确定性、不过 LLM、不出本机；README 明确「不是向量索引」——没有 embedding、没有向量库，而是一张可遍历的图，每条边带 EXTRACTED/INFERRED 置信标签，支持 query / path / explain，并生成可点击的 graph.html。"
+      },
+      {
+        "rank": 13,
+        "repo": "morluto/rea",
+        "url": "https://github.com/morluto/rea",
+        "lang": "TypeScript",
+        "stars": "357,193",
+        "delta": "+157,631 本周",
+        "source": "weekly",
+        "summary": "Reverse Engineer Anything：用一个 MCP 让 agent 从 App 行为一路逆到原生二进制。",
+        "highlight": "README 定位「一个 MCP 覆盖二进制、应用与运行时行为」，npm 包 rea-agents、MIT 协议，并给出 MCP 工具目录与 skills.sh 入口；本周 +157,631 star，是榜单里最夸张的增量。"
+      },
+      {
+        "rank": 14,
+        "repo": "anthropics/claude-plugins-official",
+        "url": "https://github.com/anthropics/claude-plugins-official",
+        "lang": "Python",
+        "stars": "43,615",
+        "delta": "+5,650 本周",
+        "source": "weekly",
+        "summary": "Anthropic 官方维护的 Claude Code 高质量插件目录。",
+        "highlight": "分 /plugins（Anthropic 自研）与 /external_plugins（合作方与社区）两栏，第三方需过质量与安全审核；安装是 `/plugin install 名称@claude-plugins-official`。README 同时显著提示：Anthropic 不控制插件里的 MCP server 与文件，装前自行确认可信。"
+      },
+      {
+        "rank": 15,
+        "repo": "K-Dense-AI/scientific-agent-skills",
+        "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+        "lang": "Python",
+        "stars": "53,567",
+        "delta": "+4,549 本周",
+        "source": "weekly",
+        "summary": "把通用 agent 变成 AI 科学家：177 个科学 skill + 100 多个科研数据库。",
+        "highlight": "覆盖生物、化学、医学与药物发现，README 称全球 25 万+ 科研人员在用；遵循 Agent Skills 开放标准，兼容 Cursor、Claude Code、Codex、Pi、Antigravity；有配套 arXiv 论文（2609.00065）与 CI 安全扫描、skill 测试。"
+      },
+      {
+        "rank": 16,
+        "repo": "ruvnet/ruflo",
+        "url": "https://github.com/ruvnet/ruflo",
+        "lang": "TypeScript",
+        "stars": "78,194",
+        "delta": "+3,143 本周",
+        "source": "weekly",
+        "summary": "Claude Code / Codex 之上的 agent 元框架（meta-harness）。",
+        "highlight": "以插件三件套装进 Claude Code 2.1.287+：core 提供基础工具、console 是 agent 驾驶舱、mods 在 harness 内做路由与策略执行；非 Claude 客户端可用 `npx ruflo mcp start` 接 MCP，MIT 协议。"
+      },
+      {
+        "rank": 17,
+        "repo": "android/skills",
+        "url": "https://github.com/android/skills",
+        "lang": "Kotlin",
+        "stars": "9,144",
+        "delta": "+1,255 本周",
+        "source": "weekly",
+        "summary": "Google 官方的 Android skills 仓库：给 agent 的模块化 SKILL.md 指令。",
+        "highlight": "遵循 agentskills.io 开放标准，内容对齐 developer.android.com；README 明确选题原则——只做评测显示 LLM 表现不佳的用例，不重复 Jetpack Compose 基础这类模型已擅长的领域；用 `android skills add --all` 安装，无既有 agent 目录时默认落到 Gemini / Antigravity。"
+      },
+      {
+        "rank": 18,
+        "repo": "NationalSecurityAgency/ghidra",
+        "url": "https://github.com/NationalSecurityAgency/ghidra",
+        "lang": "Java",
+        "stars": "92,600",
+        "delta": "+6,184 本周",
+        "source": "weekly",
+        "summary": "NSA 研究部门开源的软件逆向工程框架。",
+        "highlight": "README 列出反汇编、汇编、反编译、图形化与脚本能力，支持多种处理器指令集与可执行格式，既能交互使用也能自动化运行，并允许自行开发扩展——这波「agent 做逆向」热潮的上游工具。"
+      },
+      {
+        "rank": 19,
+        "repo": "debpalash/VoiceStudio",
+        "url": "https://github.com/debpalash/VoiceStudio",
+        "lang": "Python",
+        "stars": "80,273",
+        "delta": "+17,057 本周",
+        "source": "weekly",
+        "summary": "全本地的开源 ElevenLabs 替代：克隆、配音、转录、有声书，646 种语言。",
+        "highlight": "默认引擎为 k2-fsa/OmniVoice，可切换其他引擎；本地跑在自己的硬件上，远程服务可选、分析数据需显式同意；除桌面端外还提供 Local API 与 MCP 给 agent 调用。"
+      },
+      {
+        "rank": 20,
+        "repo": "mksglu/context-mode",
+        "url": "https://github.com/mksglu/context-mode",
+        "lang": "TypeScript",
+        "stars": "31,636",
+        "delta": "+3,556 本周",
+        "source": "weekly",
+        "summary": "编码 agent 的上下文窗口优化 MCP：沙箱化工具输出 + 会话记忆。",
+        "highlight": "README 称工具输出沙箱化可减少约 98% token，并通过 MCP + hooks 在 17 个平台上路由；此前版本介绍其用 SQLite FTS5/BM25 索引事件以支持压缩后续接；协议 ELv2，README 挂出 HN 第一（570+ 分）徽章。"
+      }
+    ]
+  },
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（官方博客为「上次日报后新增」；arXiv 最远回看至 96 小时）",
+    "sourcesUsed": [
+      "Hacker News (Algolia)",
+      "OpenAI Blog",
+      "Anthropic News",
+      "Google AI Blog",
+      "arXiv (cs.CL/AI/LG/MA/RO)",
+      "Latent Space",
+      "Simon Willison",
+      "量子位",
+      "GitHub Blog",
+      "GitHub AI/ML Blog",
+      "GitHub Releases(agent 生态)"
+    ],
+    "items": [
+      {
+        "category": "release",
+        "title": "Anthropic 推出 Claude Duet：会主动找上门的个人 agent",
+        "summary": "Claude Duet 以研究预览上线，由 Opus 5.5 驱动，定位「知道什么需要你」的主动型 agent：每天早晨给简报、起草下一步、你离开时继续干活、关键时刻等你点头，接入 6000+ connectors 与 plugins。",
+        "why": "agent 的产品形态从「你问它答」转向「它安排你的注意力」，这是 Claude 桌面端第一次把主动性做成默认交互。",
+        "url": "https://claude.com/product/claude-duet",
+        "source": "Hacker News / Anthropic（多源）",
+        "time": "10/22 03:14",
+        "heat": "215 分 · 182 评论"
+      },
+      {
+        "category": "release",
+        "title": "Mistral 发布新旗舰 Mistral Large 4",
+        "summary": "Mistral 上线新一代旗舰模型 Mistral Large 4，官方发布页与 HN 讨论同步出现。",
+        "why": "欧洲本土旗舰的最新一版；HN 讨论的重心不在跑分，而在与 DeepSeek 的性价比对比以及「必须用欧洲模型」的合规场景。",
+        "url": "https://mistral.ai/news/mistral-large-4/",
+        "source": "Hacker News",
+        "time": "10/22 03:20",
+        "heat": "312 分 · 91 评论"
+      },
+      {
+        "category": "agent",
+        "title": "AI 智能体挖出 PHP 核心 RCE（PHP2Shell），OpenAI 牵头全球协同披露",
+        "summary": "Wiz 与 OpenAI 的 Patch the Planet 项目分别用前沿模型发现 PHP 核心引擎的内存泄漏与未认证 RCE，影响 PHP 5.4 以来几乎所有版本、约七成网站；PHP 官方已于 10-21 发布补丁，Cloudflare 等参与提前布防。",
+        "why": "这是「agent 找漏洞」第一次落到互联网级基础设施上：发现门槛被模型拉低，披露与修复的协同流程也被迫改成全球化编排。",
+        "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/",
+        "source": "OpenAI Blog / Hacker News / Wiz（多源）",
+        "time": "10/21 15:00",
+        "heat": "HN 205 分 · 133 评论"
+      },
+      {
+        "category": "agent",
+        "title": "Claude Mods：把 agent harness 翻过来面向人",
+        "summary": "Latent Space 介绍 Claude Mods——用 TypeScript/JavaScript 函数写 Claude Code 插件，监听 prompt、工具调用与渲染事件，可改写界面与执行流程，相当于 harness 的中间件。",
+        "why": "作者称之为「Attention Interface」的雏形：当模型吃掉越来越多 harness 能力，剩下的那层就是决定何时打断人、给人看什么。",
+        "url": "https://www.latent.space/p/claude-mods",
+        "source": "Latent Space",
+        "time": "10/21 21:04",
+        "heat": "Latent Space 专栏"
+      },
+      {
+        "category": "industry",
+        "title": "OpenAI 模型将进入 Google Cloud Model Garden",
+        "summary": "OpenAI 与 Google Cloud 合作，把前沿模型与 Codex agentic 工作流接进 Model Garden，经 Google Cloud Marketplace 交易、可抵扣 GCP 承诺消费，并将进入 Antigravity 与 Gemini Agent。",
+        "why": "两家最直接的竞争对手开始互相上架：企业采购的入口与云承诺额度，比模型跑分更能决定谁被默认选中。",
+        "url": "https://openai.com/index/openai-models-google-cloud/",
+        "source": "Hacker News / OpenAI Blog（多源）",
+        "time": "10/21 20:53",
+        "heat": "189 分 · 86 评论"
+      },
+      {
+        "category": "industry",
+        "title": "Anthropic 上半年净亏损被曝超 800 亿美元",
+        "summary": "路透援引 WSJ 报道称，Anthropic 在 2026 年上半年录得超过 800 亿美元净亏损。",
+        "why": "前沿实验室的开支曲线第一次以这个量级被公开讨论，融资节奏与 API 定价的外部压力都会跟着变。",
+        "url": "https://www.reuters.com/business/anthropic-recorded-net-loss-over-80-billion-first-half-this-year-wsj-reports-2026-10-20/",
+        "source": "Hacker News / Reuters（多源）",
+        "time": "10/21 04:09",
+        "heat": "185 分 · 91 评论"
+      },
+      {
+        "category": "research",
+        "title": "Industrial ReMEmbR：把时空记忆扩展到机器人车队",
+        "summary": "论文把 NVIDIA ReMEmbR 扩展成车队共享的时空记忆：机器人端用 Jetson + Cosmos-Embed1/Cosmos3-Edge 编码，原始视频不上传，按需才生成场景描述，Nemotron agent 按内容、位置、时间检索。",
+        "why": "在隐私与带宽约束下做多机记忆，是 agent 记忆从「单机聊天记录」走向「物理世界基础设施」的一步。",
+        "url": "http://arxiv.org/abs/2610.28624v1",
+        "source": "arXiv",
+        "time": "10/21 01:58（提交日）",
+        "heat": "新论文"
+      }
+    ]
+  },
+  "observation": [
+    "今日榜单几乎是「agent 的工程化配件」专场：安全审计 skill、上下文压缩、跨厂商记忆、知识图谱、插件目录、元框架，竞争点全在模型之外的那层 harness。",
+    "增量最猛的是 morluto/rea（本周 +157,631），它把逆向工程做成一个 MCP；再对照 Ghidra 同期 +6,184，说明「让 agent 直接读二进制」正在成为独立赛道。",
+    "安全是今天真正的主线：Cloudflare 的 security-audit-skill 登顶日榜，与 OpenAI Patch the Planet / PHP2Shell 是同一种能力的两个侧面——agent 既能大规模找洞，也开始被要求产出可复核的证据链。",
+    "记忆与上下文被拆成两个互补方向：ai-memory 做跨 agent 交接，headroom 与 context-mode 做压缩与沙箱化，「少读一点、记住该记的」比换更强模型更省钱。",
+    "非 AI 基础设施依旧稳固：vLLM、ComfyUI、Supabase、Twenty、Ghidra 同日上榜，说明榜单热度在 agent 概念与真实工程底座之间反复摆动。"
+  ]
+}
