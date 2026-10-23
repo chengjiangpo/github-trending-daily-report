@@ -1,0 +1,465 @@
+{
+  "date": "2026-10-24",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "gh CLI 未登录；仓库元数据、提交与 star 数全部用 curl 直连 api.github.com 公共 API（未认证，请求成功）。",
+    "github.com/trending 今日可达（HTTP 200），日榜仅 8 条、周榜 15 条；按预案用周榜补位至 20 条，source 分别标注 daily / weekly。日榜 delta 为 stars today，周榜 delta 为 stars this week（已标注「本周」），两者口径不同，未混算。",
+    "提交简报窗口 since 2026-10-22T22:00:16Z（北京时间 10-24 06:00 往前 24 小时），per_page=30。三个仓库均触及 30 条上限，故只列主要提交；时间已换算为北京时间。",
+    "AI 前沿动态 13/13 个源抓取成功（无失败源），共 44 条候选。官方博客新增：OpenAI Blog 3 条（保留 2 条：训练环境安全、存储扩展）、Anthropic News 1 条（生命科学访问学者招募，非今日主线未入选）、Google DeepMind 0 条、Google AI Blog 0 条、CrewAI Blog 0 条、GitHub AI/ML Blog 0 条。",
+    "Hacker News 候选中的 NVIDIA OpenShell 与 Anthropic Agent Skills 捐赠已于 10-23 日报覆盖，今日不重复入选；Kimi K3.1 Pro 由 HN、Simon Willison 与 anomalyco/opencode 的提交三方交叉确认。",
+    "瑞典政府禁用 ChatGPT/Claude 一条仅依据 Sveriges Radio 报道标题与 HN 讨论收录；原文正文页未能抓取（脚本仅取到页面壳），故未推测禁令原因。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-10-22T22:00Z，时间已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 24h 内 30+ 条提交（触及上限）· 主线为 liveshare-protocol 打包重构与桌面打包缓存优化",
+        "items": [
+          {
+            "title": "Merge PR #7075 from worktree-chatgap",
+            "desc": "合并 chatgap 分支，含配套插件与交互修复",
+            "author": "imccyu",
+            "time": "10-23 19:48"
+          },
+          {
+            "title": "feat(liveshare-protocol)：收敛为单一发布入口并调整 rc.3 版本线（PR #6748）",
+            "desc": "协作协议包重构：单一入口、mock 身份提供方独立入口、仅转发页面自身 origin",
+            "author": "mektpoy / Xu Hanxiang",
+            "time": "10-23 14:42–16:37"
+          },
+          {
+            "title": "perf(desktop)：共享打包缓存（PR #6675）",
+            "desc": "桌面端打包缓存复用，配套缓存生命周期文档",
+            "author": "winewill",
+            "time": "10-23 17:56"
+          },
+          {
+            "title": "fix(typert)：默认资源声明加固，拒绝有歧义的多重身份",
+            "desc": "类型/资源契约同步，减少默认资源解析歧义",
+            "author": "imccyu",
+            "time": "10-23 17:00"
+          },
+          {
+            "title": "fix(plugin)：个性化推荐使用独立图标（#7071）",
+            "desc": "插件界面细节修复",
+            "author": "Ziya",
+            "time": "10-23 18:16"
+          },
+          {
+            "title": "fix(ci)：runner 网络恢复与 fixture 退出码修正（#7057）",
+            "desc": "Windows runner 重装保留网络设置，CI 夹具上报真实退出状态",
+            "author": "winewill",
+            "time": "10-23 16:33–17:38"
+          }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 30+ 条提交（触及上限）· 无新版本，集中在 Gemini 工具 schema、MCP OAuth 与 TUI/coding-agent 修复",
+        "items": [
+          {
+            "title": "fix(ai)：Gemini 工具 schema 保留字面量，并以 enum 形式发送 const",
+            "desc": "修复 Gemini 工具调用参数被改写的问题",
+            "author": "Petr Houška / triagent",
+            "time": "10-23 13:30 / 10-24 03:42"
+          },
+          {
+            "title": "fix(mcp)：OAuth URL 仅接受 http 与 https",
+            "desc": "收紧 MCP 授权回调的协议校验",
+            "author": "Armin Ronacher",
+            "time": "10-23 18:19"
+          },
+          {
+            "title": "fix(coding-agent)：配置包安装失败时仍可启动（#11304）",
+            "desc": "启动韧性修复；另跳过不支持架构的 fd/rg 下载",
+            "author": "Lincoln / Petr Houška",
+            "time": "10-23 18:27 / 10-24 01:23"
+          },
+          {
+            "title": "feat(chord)：Watchable 接口与 NativeWatchable 进程内实现",
+            "desc": "统一可观察值的 watch 抽象，Durable 改用共享 watch-handle",
+            "author": "Mario Zechner",
+            "time": "10-23 17:05–17:31 / 10-24 03:03"
+          },
+          {
+            "title": "feat(coding-agent)：模型选择器在需要时显示模型名",
+            "desc": "模型切换界面可读性改进",
+            "author": "Petr Houška",
+            "time": "10-24 03:10"
+          },
+          {
+            "title": "fix(tui)：图片渲染边界与全屏裁剪修复",
+            "desc": "滚出视口的 boxed image 裁剪、按最高注册图片限制行搜索",
+            "author": "triagent / Petr Houška",
+            "time": "10-23 15:59 / 10-24 03:51"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 30+ 条提交（触及上限）· 上线 Kimi K3.1 Pro、多家图像生成后端，版本推进至 v2.1.4",
+        "items": [
+          {
+            "title": "feat(go)：以 Kimi K3.1 Pro 取代 Kimi K3（#58510 / #58513）",
+            "desc": "模型目录与 Go 端同步切换，补充 K3 缓存写入价格",
+            "author": "opencode-agent[bot]",
+            "time": "10-24 02:06–02:33"
+          },
+          {
+            "title": "feat(ai)：可移植图片结构，携带宽高比与分辨率（#58528）",
+            "desc": "统一多供应商图片输入/输出的形状描述",
+            "author": "Aiden Cline",
+            "time": "10-24 05:48"
+          },
+          {
+            "title": "feat(ai)：接入 Cloudflare Workers AI、Vercel AI Gateway、阿里图像生成",
+            "desc": "三家图像生成路由与对应评测入口",
+            "author": "Aiden Cline",
+            "time": "10-23 23:20 / 10-23 23:45 / 10-24 00:11"
+          },
+          {
+            "title": "fix(core)：不透明截图先压 JPEG 再转 PNG（#56990）",
+            "desc": "降低截图附带的 token 与体积开销",
+            "author": "Kit Langton",
+            "time": "10-24 05:43"
+          },
+          {
+            "title": "fix(app, client)：接通会话记录保留策略并回收后台会话（#57025）",
+            "desc": "长会话内存与磁盘占用治理",
+            "author": "Kit Langton",
+            "time": "10-24 01:28"
+          },
+          {
+            "title": "fix(console)：注册旧版 MCP OAuth 回调（#58453）",
+            "desc": "兼容历史 MCP 授权流程",
+            "author": "Filip",
+            "time": "10-23 21:16"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": {
+      "daily": 8,
+      "weekly": 12
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "cloudflare/security-audit-skill",
+        "url": "https://github.com/cloudflare/security-audit-skill",
+        "lang": "JavaScript",
+        "stars": "41,984",
+        "delta": "+2,706",
+        "source": "daily",
+        "summary": "把编码 agent 变成安全审计员：一个六阶段的漏洞审计 skill。",
+        "highlight": "六阶段流程为侦察（产出 architecture.md 与 coverage-ledger.json）→ 按覆盖单元派隔离 hunter → 每个候选交新 verifier 尝试证伪 → 结构化写入 findings.json 并按 schema 校验 → 独立 agent 复核记录 → 生成与目标无关的报告；README 称它是 Cloudflare 漏洞挖掘 harness 的起点。"
+      },
+      {
+        "rank": 2,
+        "repo": "php/php-src",
+        "url": "https://github.com/php/php-src",
+        "lang": "C",
+        "stars": "41,540",
+        "delta": "+722",
+        "source": "daily",
+        "summary": "PHP 语言官方解释器源码，主干开发分支。",
+        "highlight": "以 Modified BSD（BSD-3-Clause）分发，仓库带 CI 测试与 OSS-Fuzz 徽章；README 明确 PHP 覆盖从个人博客到大型网站的场景。"
+      },
+      {
+        "rank": 3,
+        "repo": "anthropics/knowledge-work-plugins",
+        "url": "https://github.com/anthropics/knowledge-work-plugins",
+        "lang": "Python",
+        "stars": "32,171",
+        "delta": "+643",
+        "source": "daily",
+        "summary": "Anthropic 开源的 11 个「知识工作」插件，把 Claude 变成岗位专家。",
+        "highlight": "面向 Claude Cowork（兼容 Claude Code），每个插件打包 skills、connectors、slash commands 与 sub-agents；覆盖 productivity、sales、customer-support、product-management、marketing、legal、finance、data、enterprise-search 等 11 个职能，并列出各自可接的 Slack / Notion / Jira / Snowflake 等连接器。"
+      },
+      {
+        "rank": 4,
+        "repo": "NVIDIA/OpenShell",
+        "url": "https://github.com/NVIDIA/OpenShell",
+        "lang": "Rust",
+        "stars": "18,725",
+        "delta": "+1,240",
+        "source": "daily",
+        "summary": "给成群的自主 agent 一个安全、私有的运行时。",
+        "highlight": "两层治理：内核级强制（每次文件访问、系统调用、网络连接都过策略）与策略变更前的形式化验证（如新增凭据访问或新 API 方法会先被标红、等人工复核）；Apache-2.0，需 Linux / Apple Silicon macOS / WSL 2 加 Docker 或 Podman。"
+      },
+      {
+        "rank": 5,
+        "repo": "Renhuai123/ziwei-doushu",
+        "url": "https://github.com/Renhuai123/ziwei-doushu",
+        "lang": "TypeScript",
+        "stars": "6,826",
+        "delta": "+547",
+        "source": "daily",
+        "summary": "紫微斗数开源排盘引擎，含算法、四化系统与古籍数据。",
+        "highlight": "基于倪海厦《天纪》体系；v4.0 解读数据集为 674,976 张命盘、8,774,688 段解读、解压 56.6 GB，覆盖 1950–2026 真实日期；代码 MIT、数据集 CC BY 4.0，仓库带 CI。"
+      },
+      {
+        "rank": 6,
+        "repo": "SnailSploit/Claude-Red",
+        "url": "https://github.com/SnailSploit/Claude-Red",
+        "lang": "Python",
+        "stars": "8,403",
+        "delta": "+209",
+        "source": "daily",
+        "summary": "面向 Claude Skills 的进攻性安全技能库。",
+        "highlight": "78 个 SKILL.md、23 个分类，按对话触发按需加载，不为未用到的技能付上下文成本；README 把用途限定在授权红队、漏洞赏金分诊、安全研究与 CTF。"
+      },
+      {
+        "rank": 7,
+        "repo": "OpenBMB/VoxCPM",
+        "url": "https://github.com/OpenBMB/VoxCPM",
+        "lang": "Python",
+        "stars": "40,216",
+        "delta": "+144",
+        "source": "daily",
+        "summary": "无分词器的多语言 TTS：VoxCPM2 支持声音设计与克隆。",
+        "highlight": "2B 参数、200 万小时以上多语种语音训练，支持 30 种语言、48kHz 输出；RTF 在 RTX 4090 上约 0.3，经 Nano-vLLM / vLLM-Omni 加速可到约 0.13。"
+      },
+      {
+        "rank": 8,
+        "repo": "nodejs/node",
+        "url": "https://github.com/nodejs/node",
+        "lang": "JavaScript",
+        "stars": "122,814",
+        "delta": "+93",
+        "source": "daily",
+        "summary": "Node.js 官方运行时仓库。",
+        "highlight": "OpenJS Foundation 治理、TSC 决策；README 区分 Current、LTS 与 Nightly 三类发布通道，并给出各自支持周期。"
+      },
+      {
+        "rank": 9,
+        "repo": "morluto/rea",
+        "url": "https://github.com/morluto/rea",
+        "lang": "TypeScript",
+        "stars": "372,820",
+        "delta": "+106,341 本周",
+        "source": "weekly",
+        "summary": "一个 MCP，把逆向工程从 App 行为做到原生二进制。",
+        "highlight": "npm 包 rea-agents，一条 npx 命令安装；MCP 工具目录覆盖二进制、应用与运行时行为分析，README 提供 MCP contracts 与 skills.sh 入口；MIT 许可。"
+      },
+      {
+        "rank": 10,
+        "repo": "anthropics/claude-plugins-official",
+        "url": "https://github.com/anthropics/claude-plugins-official",
+        "lang": "Python",
+        "stars": "44,105",
+        "delta": "+5,649 本周",
+        "source": "weekly",
+        "summary": "Anthropic 维护的 Claude Code 官方插件目录。",
+        "highlight": "分 /plugins（Anthropic 自研）与 /external_plugins（合作方与社区）两层；通过 /plugin install {name}@claude-plugins-official 安装，外部插件须过质量与安全审核，README 明确 Anthropic 不担保第三方插件内容。"
+      },
+      {
+        "rank": 11,
+        "repo": "ruvnet/ruflo",
+        "url": "https://github.com/ruvnet/ruflo",
+        "lang": "TypeScript",
+        "stars": "78,758",
+        "delta": "+3,708 本周",
+        "source": "weekly",
+        "summary": "面向 Claude Code 与 Codex 的 agent 元框架（meta-harness）。",
+        "highlight": "拆成 core（基础工具）、console（agent 驾驶舱）、mods（路由与策略执行）三个插件；Claude Code 需 2.1.287 以上，其他 MCP 客户端走 npx 接入；MIT。"
+      },
+      {
+        "rank": 12,
+        "repo": "android/skills",
+        "url": "https://github.com/android/skills",
+        "lang": "Kotlin",
+        "stars": "9,401",
+        "delta": "+1,384 本周",
+        "source": "weekly",
+        "summary": "Android 官方 agent skills 仓库，用 SKILL.md 补 LLM 的 Android 短板。",
+        "highlight": "遵循开放 agent skills 标准（agentskills.io），只做「评测显示 LLM 表现不足」的用例，明确不重复 Jetpack Compose 基础最佳实践；可用 Android CLI 安装到当前目录，并与 Android Studio 的 Gemini 集成。"
+      },
+      {
+        "rank": 13,
+        "repo": "anomalyco/opencode",
+        "url": "https://github.com/anomalyco/opencode",
+        "lang": "TypeScript",
+        "stars": "220,592",
+        "delta": "+6,750 本周",
+        "source": "weekly",
+        "summary": "开源编码 agent，本周仍居周榜前列。",
+        "highlight": "过去 24 小时提交显示其已切到 Kimi K3.1 Pro（#58510/#58513），并新增 Cloudflare Workers AI、Vercel AI Gateway、阿里三家图像生成路由与可移植图片结构，版本同步到 v2.1.4。"
+      },
+      {
+        "rank": 14,
+        "repo": "stablyai/orca",
+        "url": "https://github.com/stablyai/orca",
+        "lang": "TypeScript",
+        "stars": "103,758",
+        "delta": "+9,401 本周",
+        "source": "weekly",
+        "summary": "把 Codex、Claude Code、OpenCode、Pi 并排跑的 agent 编排器。",
+        "highlight": "一条 prompt 可扇出到五个 agent，各自独立 git worktree，比较后合并胜出者；提供 iOS/Android 伴侣端远程盯盘与追问，以及点击 Chromium 元素把 HTML/CSS/截图直接送进 prompt 的 Design Mode。"
+      },
+      {
+        "rank": 15,
+        "repo": "cursor/plugins",
+        "url": "https://github.com/cursor/plugins",
+        "lang": "TypeScript",
+        "stars": "13,773",
+        "delta": "+2,046 本周",
+        "source": "weekly",
+        "summary": "Cursor 官方插件规范与官方插件集合。",
+        "highlight": "每个插件是根目录下带 .cursor-plugin/plugin.json 的独立目录；已收录 orchestrate（并行云 agent 的 planner/worker/verifier 分工）、thermos（并行子 agent 做安全与正确性审计）、cursor-sdk、PR Review Canvas 等。"
+      },
+      {
+        "rank": 16,
+        "repo": "akitaonrails/ai-memory",
+        "url": "https://github.com/akitaonrails/ai-memory",
+        "lang": "Rust",
+        "stars": "13,013",
+        "delta": "+3,322 本周",
+        "source": "weekly",
+        "summary": "给编码 agent 的跨工具长期记忆，换供应商不用重新解释项目。",
+        "highlight": "二十多个 harness（Claude Code、Codex、Cursor、Gemini CLI、OpenCode、Grok、Devin、Kimi、Kiro 等）共享同一份记忆；解决各平台记忆「只在一台机器、只属于一个 agent」的局限；Rust 实现、MIT。"
+      },
+      {
+        "rank": 17,
+        "repo": "HKUDS/CLI-Anything",
+        "url": "https://github.com/HKUDS/CLI-Anything",
+        "lang": "Python",
+        "stars": "56,559",
+        "delta": "+3,275 本周",
+        "source": "weekly",
+        "summary": "为软件生成 CLI，让 agent 能操作一切软件。",
+        "highlight": "一条命令把软件变成 agent 可用的 CLI，兼容 Pi、OpenClaw、nanobot、Cursor、Claude Code；配套 CLI-Hub 注册表（pip install cli-anything-hub）管理社区 CLI，README 列出 CAD、3D 场景、图表、字幕等实测产物。"
+      },
+      {
+        "rank": 18,
+        "repo": "Comfy-Org/ComfyUI",
+        "url": "https://github.com/Comfy-Org/ComfyUI",
+        "lang": "Python",
+        "stars": "142,329",
+        "delta": "+4,375 本周",
+        "source": "weekly",
+        "summary": "节点式扩散模型 GUI / API / 后端，主打本地推理。",
+        "highlight": "以图（graph）与节点组织生成流程，同时提供 API 与后端，可作本地推理引擎；README 将其定位为「内容创作最强大、最模块化的 AI 引擎」。"
+      },
+      {
+        "rank": 19,
+        "repo": "debpalash/VoiceStudio",
+        "url": "https://github.com/debpalash/VoiceStudio",
+        "lang": "Python",
+        "stars": "83,157",
+        "delta": "+13,581 本周",
+        "source": "weekly",
+        "summary": "完全本地的 ElevenLabs 替代：克隆、设计、配音、转写、有声书。",
+        "highlight": "覆盖 646 种语言，默认引擎为 k2-fsa/OmniVoice，可切换其他引擎；提供本地 API 与 MCP 供 agent 调用，支持 watch folder 与可复用 recipes；Electron 桌面端，远程服务可选。"
+      },
+      {
+        "rank": 20,
+        "repo": "heygen-com/hyperframes",
+        "url": "https://github.com/heygen-com/hyperframes",
+        "lang": "TypeScript",
+        "stars": "70,743",
+        "delta": "+5,669 本周",
+        "source": "weekly",
+        "summary": "写 HTML、渲染视频，专为 agent 设计。",
+        "highlight": "把 HTML/CSS/媒体与可 seek 动画确定性渲染成 MP4，可本地 CLI 或作托管创作流程的渲染内核；给编码 agent 提供 skills 与版本化插件（claude plugin marketplace add heygen-com/hyperframes）。"
+      }
+    ]
+  },
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（arXiv 因索引滞后回看至 10-22 提交）· 已单列「智能体/Agent」分类",
+    "sourcesUsed": [
+      "Hacker News",
+      "Simon Willison",
+      "Anthropic Research",
+      "OpenAI Blog",
+      "GitHub Blog",
+      "arXiv",
+      "Sveriges Radio"
+    ],
+    "items": [
+      {
+        "category": "release",
+        "title": "Moonshot 上线 Kimi K3.1 Pro，Artificial Analysis 得分 55",
+        "summary": "Kimi K3.1 Pro 已上 Kimi API，暂未开权重，官方承诺 11 月 4 日前发布全量权重；同步提供快 2–3 倍、价格翻倍的 Highspeed 版。定价 $2/M 输入、$10/M 输出，与 GPT-6.1 Sol 同级、约为 Claude Opus 5.5 的一半；Artificial Analysis 给 55 分，仅次于 Opus 5.5 的 58。",
+        "why": "前沿模型竞争进一步转向「同等能力、更低价格」，而明确的开权重时间表又给自部署留了口子。",
+        "url": "https://www.kimi.ai/blog/kimi-k3-1-pro",
+        "source": "Hacker News / Simon Willison",
+        "time": "10/24 00:59",
+        "heat": "571 分 · 343 评论"
+      },
+      {
+        "category": "research",
+        "title": "Claude 在 RISC-V 汇编层为 123 个开源库写出形式化证明",
+        "summary": "Anthropic 与 Theorem 合作，让 Claude 为 123 个 OSS-Fuzz 库的 239 个入口点生成约 1.8 亿行 Rocq 证明，证明任意小于 64MB 的输入都不会触发崩溃；过程中发现并修复了多年未被 fuzz 命中的 bug。",
+        "why": "把过去需要人年级专家投入的形式化验证压成可规模复制的流水线，为 AI 生成代码提供可机器检验的安全保证。",
+        "url": "https://www.anthropic.com/research/formal-verification",
+        "source": "Hacker News / Anthropic Research",
+        "time": "10/23 06:54",
+        "heat": "437 分 · 280 评论"
+      },
+      {
+        "category": "industry",
+        "title": "OpenAI 公开前沿模型训练环境的隔离做法",
+        "summary": "OpenAI 撰文说明如何强化前沿模型训练与评估环境的隔离（containment）：采用离线环境、高算力红队等手段，降低训练过程被外部或内部误用突破的风险。",
+        "why": "训练环境本身正成为攻击面，官方公开做法为行业提供了可对照的安全基线。",
+        "url": "https://openai.com/index/securing-our-frontier-model-training-environment",
+        "source": "OpenAI Blog",
+        "time": "10/23 18:00",
+        "heat": "官方博客"
+      },
+      {
+        "category": "agent",
+        "title": "GitHub 用量指标 API 开始按名称统计 skills、agents 与 MCP servers",
+        "summary": "Copilot 用量指标 API 现在会列出组织自建的 skills、custom agents、MCP servers、slash commands 与 plugins 的名称，不再把它们统一归入 other。",
+        "why": "agent 资产被纳入可计量口径，企业才可能审计谁在使用哪些 agent 能力、成本落在哪里。",
+        "url": "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api",
+        "source": "GitHub Blog",
+        "time": "10/23 06:19",
+        "heat": "官方变更日志"
+      },
+      {
+        "category": "agent",
+        "title": "EpiSEM-Bench：工具少给一条事实，agent 就可能越权",
+        "summary": "新论文提出可执行基准，测试工具调用 agent 在工具响应遗漏安全相关事实时，是否会执行本应被禁止的动作，并衡量其证据恢复能力；用户请求本身可以是无害的，返回的每条陈述也可以是真的。",
+        "why": "指出 agent 越权不只来自恶意指令，也来自缺失的事实，为 agent 安全评测补上一类此前缺位的场景。",
+        "url": "http://arxiv.org/abs/2610.31650v1",
+        "source": "arXiv (cs.CL)",
+        "time": "10/22 提交 · 10/23 01:57 索引",
+        "heat": "新论文"
+      },
+      {
+        "category": "industry",
+        "title": "瑞典政府办公室将禁用 ChatGPT 与 Claude",
+        "summary": "据瑞典广播（Sveriges Radio）报道，瑞典政府办公室（Regeringskansliet）将禁止使用 ChatGPT 与 Claude。",
+        "why": "公共部门对生成式 AI 的数据边界继续收紧，欧洲政府客户的合规风险随之上升。",
+        "url": "https://www.sverigesradio.se/artikel/chat-gpt-och-claude-forbjuder-regeringskansliet",
+        "source": "Hacker News / Sveriges Radio",
+        "time": "10/23 19:39",
+        "heat": "314 分 · 114 评论"
+      },
+      {
+        "category": "industry",
+        "title": "OpenAI 详解如何为 10 亿 ChatGPT 用户扩展在线存储",
+        "summary": "OpenAI 发布存储系统 Habitat 的第二篇拆解：靠可靠的多租户、全局缓存与 Azure Cosmos DB，把 ChatGPT 的读取速度提升 12 倍。",
+        "why": "十亿用户级产品的瓶颈已从模型推理扩到存储层，这类工程细节少有公开，可供同类系统对照。",
+        "url": "https://openai.com/index/scaling-storage-one-billion-users-part-two",
+        "source": "OpenAI Blog",
+        "time": "10/24 01:00",
+        "heat": "官方博客"
+      }
+    ]
+  },
+  "observation": [
+    "榜单依旧由「agent 技能与插件」主导：20 条里 cloudflare/security-audit-skill、knowledge-work-plugins、claude-plugins-official、android/skills、cursor/plugins、rea、CLI-Anything 都属这一层，分发单位仍是 SKILL.md 目录与插件市场，而不是新框架。",
+    "日榜增量冠军是 cloudflare/security-audit-skill（+2,706），周榜仍是 rea（+106,341）与 VoiceStudio（+13,581）领跑；前三名里两个是「把专业能力封成 agent 接口」的项目，说明这条赛道尚未饱和。",
+    "竞争焦点正从「谁能跑 agent」转向「谁管得住 agent」：NVIDIA OpenShell 用内核策略加形式化验证约束权限，akitaonrails/ai-memory 解决跨 harness 的记忆归属，Orca 把多 agent 拆进独立 worktree——运行时、记忆、编排三个层面同时被产品化。",
+    "大厂开始亲自运营目录：Android 的 skills、Cursor 的 plugins、Cloudflare 的审计 skill 与 Anthropic 的插件市场同日或同周在榜，官方目录正在挤压第三方聚合站的空间。",
+    "传统底座并未退场：php-src 与 node 仍在日榜，说明当日热度不是纯 AI 概念驱动；但两者增量（+722、+93）已远低于 agent 类项目，注意力差距在拉大。"
+  ]
+}
