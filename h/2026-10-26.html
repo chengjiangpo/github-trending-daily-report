@@ -1,0 +1,644 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-10-26 · GitHub Trending 每日分析</title>
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="hero mini">
+    <div>
+      <a class="kicker" href="../">← 返回首页（含全部 36 期）</a>
+      <h1>2026-10-26<span class="wd" style="font-size:15px;font-weight:400;color:var(--muted);margin-left:10px">周一</span></h1>
+      <p>GitHub Trending 每日分析 · 单日页 · 共收录 719 个项目</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>20</b><span>本期项目</span></div>
+    </div>
+  </header>
+
+  <div class="toolbar" style="margin-top:22px">
+    <a class="tbtn" href="../">‹ 返回首页</a>
+    <a class="tbtn" href="2026-10-25.html">2026-10-25 ›</a>
+    <a class="tbtn" href="../#d-2026-10-26">在首页中查看</a>
+  </div>
+
+  <main>
+    <div class="toolbar">
+      <input id="q" type="search" placeholder="筛选：仓库名 / 语言 / 关键词…">
+      <button class="tbtn on" data-f="all" type="button">全部</button>
+      <button class="tbtn" data-f="daily" type="button">仅日榜</button>
+      <button class="tbtn" data-f="weekly" type="button">仅周榜</button>
+      <button class="tbtn" data-f="news" type="button">仅 AI 动态</button>
+      <button class="tbtn" data-f="agent" type="button">仅 Agent</button>
+    </div>
+    <section class="panel active" id="d-2026-10-26" data-date="2026-10-26" data-loaded="1">
+        <div class="day-head">
+          <h2>2026-10-26<span class="wd">周一</span></h2>
+          <span class="day-sub">日榜 11 · 周榜 9 · 20 个 Trending 项目</span>
+        </div>
+        <details class="notes"><summary>数据说明</summary><ul><li>gh CLI 未登录；仓库元数据、star 数与提交全部用 curl 直连 api.github.com 公共 API（未认证，请求成功）。</li><li>github.com/trending 今日首次请求超时（http=000），30 秒后重试成功（HTTP 200）：日榜仅 11 条、周榜 14 条，去重后取日榜 11 条 + 周榜 9 条补足 20 条，source 分别标注 daily / weekly。日榜 delta 为 stars today，周榜 delta 为 stars this week（已标「本周」），两者口径不同未混算；star 总数为榜单页实时值。</li><li>提交窗口 since 2026-10-24T22:00Z（北京时间 10-26 06:00 往前 24 小时）：deepseek-ai/deepseek-harness 0 条、earendil-works/pi 5 条、anomalyco/opencode 57 条（per_page=30 触及上限，已用 per_page=100 复核），只列主要提交，时间已换算为北京时间。</li><li>deepseek-ai/deepseek-harness 过去 24 小时无新提交，最后一条为 10-23 19:48 合并 PR #7075（worktree-chatgap），仓库已静止约 3 天。</li><li>AI 前沿动态 13/13 个源抓取成功（无失败源），共 21 条候选（Hacker News 9 / arXiv 12）。官方大模型博客本轮均无新增：OpenAI Blog 0、Anthropic News 0、Google DeepMind 0、Google AI Blog 0；Simon Willison、量子位、GitHub Blog、Latent Space、CrewAI Blog、GitHub AI/ML Blog、agent 生态 Releases 亦为 0。</li><li>arXiv 本批索引集中在 10-22 / 10-23 提交，故按规则回看至 10-21（未超过 96 小时）；EpiSEM-Bench 已于 10-24 日报覆盖，本轮不重复收录。</li><li>另有一条 HN 高分帖（UC Berkeley 数学教授称 AI 让批改作业失去意义，161 分）正文返回 403，只取到标题，未引用任何细节，故未收录为独立条目。</li></ul></details>
+        
+          <section class="block">
+            <div class="block-head">
+              <h3><span class="ico">🧩</span>仓库提交简报</h3>
+              <span class="block-sub">过去 24 小时（since 2026-10-24T22:00Z，时间已换算为北京时间）</span>
+            </div>
+            <div class="repo-grid">
+              <div class="repo-block" style="--c:#5B9BFF">
+                <div class="rb-head"><h4>deepseek-ai/deepseek-harness</h4><span class="rb-meta">master · 过去 24 小时无新提交</span></div>
+                <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">过去 24 小时无新提交</div>
+                    <div class="c-meta">最后一条提交为 10-23 19:48 合并 PR #7075（worktree-chatgap），此后仓库静止 · imccyu · 10-23 19:48</div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+              <div class="repo-block" style="--c:#A06BFF">
+                <div class="rb-head"><h4>earendil-works/pi</h4><span class="rb-meta">main · 24h 内 5 条提交 · 全部为修复类：durable 思考档位记录 + 4 条 bot 提交的 Windows/软链/环境变量修复</span></div>
+                <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(durable)：在 assistant 消息上记录请求的思考档位</div>
+                    <div class="c-meta">思考档位不再只存在于请求参数，落盘后可回读 · Mario Zechner · 10-25 16:04</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix：check-entry-graphs 在 Windows 上归一化路径分隔符（#11399）</div>
+                    <div class="c-meta">修复 Windows 下入口图检查的路径比较 · robopipi[bot] · 10-25 15:54</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(coding-agent)：provider id 含斜杠时正确解析 provider/id 引用（#11397）</div>
+                    <div class="c-meta">带斜杠的 provider 不再解析错位 · robopipi[bot] · 10-25 15:48</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(coding-agent)：agent 目录是软链时把真实路径作为 npm prefix（#11396）</div>
+                    <div class="c-meta">软链场景下的依赖安装修复 · robopipi[bot] · 10-25 15:47</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix：pi-test.sh --no-env 下清空所有受支持的 provider 环境变量（#11395）</div>
+                    <div class="c-meta">测试脚本行为与其他入口保持一致 · robopipi[bot] · 10-25 15:43</div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+              <div class="repo-block" style="--c:#2FD6A6">
+                <div class="rb-head"><h4>anomalyco/opencode</h4><span class="rb-meta">dev · 24h 内 57 条提交 · 主线是模型/provider 适配、MCP 信息透出、Console 配置层与会话存储重构</span></div>
+                <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">refactor(core)：删除未用的 session_pending 表并固定历史压缩边界（#59020）</div>
+                    <div class="c-meta">会话历史压缩的范围被显式约束 · Kit Langton · 10-26 05:27</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(util)：自带一个 QR 编码器（#59056）</div>
+                    <div class="c-meta">顺手去掉对第三方 QR 库的依赖 · Kit Langton · 10-26 04:47</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">chore：移除 OpenCode GitHub Action（#59032）</div>
+                    <div class="c-meta">下线仓库自带的 CI Action · Dax · 10-26 01:55</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(core)：会话媒体改为 content-addressed blob 表中的 media:&lt;hash&gt; 引用（#58656）</div>
+                    <div class="c-meta">媒体按内容寻址，重复文件只存一份 · Kit Langton · 10-25 23:28</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(cli)：服务关闭加 10 秒上限（#58817）</div>
+                    <div class="c-meta">避免进程退出时无限等待 · Kit Langton · 10-25 22:47</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(session-ui)：用 Pele 渲染图表（#57004）</div>
+                    <div class="c-meta">会话内直接出图 · Kit Langton · 10-25 20:17</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(core)：从 serverInfo 透出 MCP server title（#58950）</div>
+                    <div class="c-meta">MCP 服务器可自带显示名 · opencode-agent[bot] · 10-25 19:02</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(core)：把 Console 配置作为配置层合并（#57703）</div>
+                    <div class="c-meta">配置优先级多了一层 Console · Victor Navarro · 10-25 18:04</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">ci：生产部署与版本发版置于审批环境之后（#58898 / #58885）</div>
+                    <div class="c-meta">发布链增加人工闸门 · Dax · 10-25 13:57</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(ai)：新增 Anthropic fast mode 速度选项（#58870）</div>
+                    <div class="c-meta">可在速度与质量间选档 · Aiden Cline · 10-25 12:23</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(ai)：新增 OpenAI Responses 的 reasoning 模式与上下文选项（#58872）</div>
+                    <div class="c-meta">对齐 Responses API 的推理参数 · Aiden Cline · 10-25 12:22</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(ai)：Messages / Responses 支持视频输入（#58614 / #58615）</div>
+                    <div class="c-meta">多模态输入补齐视频 · Aiden Cline · 10-25 10:13</div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        <section class="block">
+          <div class="block-head">
+            <h3><span class="ico">🚀</span>GitHub Trending 分析</h3>
+            <span class="block-sub">20 个项目</span>
+          </div>
+          <ol class="board">
+            <li class="row" style="--c:#3178C6" data-src="daily" data-text="makecindy/cindy typescript 「想到就能做到」的开源 ai agent 客户端，把多个 harness 与模型合成一个开箱即用的助手。 readme 说明仓库只含客户端（electron 桌面 + expo 移动，pnpm monorepo），apache-2.0；首批支持 claude code 与 codex 两个 harness，模型与 harness 可中途切换而工作区/记忆/skills 保持连续，同一任务能由不同 harness×模型组合并行执行与复核；可复用已付费的 coding plan 或自带 api key。">
+              <span class="rnk g1">1</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/makecindy/cindy" target="_blank" rel="noreferrer">makecindy/cindy</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">「想到就能做到」的开源 AI agent 客户端，把多个 harness 与模型合成一个开箱即用的助手。</p>
+                <p class="row-hl">README 说明仓库只含客户端（Electron 桌面 + Expo 移动，pnpm monorepo），Apache-2.0；首批支持 Claude Code 与 Codex 两个 harness，模型与 harness 可中途切换而工作区/记忆/skills 保持连续，同一任务能由不同 harness×模型组合并行执行与复核；可复用已付费的 Coding Plan 或自带 API key。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#3178C6">TypeScript</span>
+                <span class="stat">★ 4,777</span>
+                <span class="delta">+677</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#563D7C" data-src="daily" data-text="nutlope/hallmark css 拒绝「ai 味」的设计 skill，给 claude code、codex、cursor、opencode 用。 由 together ai 出品；v2 提供 48 套「材质」主题（每套 ≤8kb 单文件）、755 张开放许可照片；sloplint 在真实浏览器按 8 种宽度检查，floor 级门槛（对比度、焦点、减弱动效、编造事实、手机版式）永不放行；npx skills add nutlope/hallmark -g 安装。">
+              <span class="rnk g2">2</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/Nutlope/hallmark" target="_blank" rel="noreferrer">Nutlope/hallmark</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">拒绝「AI 味」的设计 skill，给 Claude Code、Codex、Cursor、OpenCode 用。</p>
+                <p class="row-hl">由 Together AI 出品；v2 提供 48 套「材质」主题（每套 ≤8KB 单文件）、755 张开放许可照片；sloplint 在真实浏览器按 8 种宽度检查，Floor 级门槛（对比度、焦点、减弱动效、编造事实、手机版式）永不放行；npx skills add nutlope/hallmark -g 安装。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#563D7C">CSS</span>
+                <span class="stat">★ 33,599</span>
+                <span class="delta">+1,359</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#4B8BBE" data-src="daily" data-text="debpalash/voicestudio python 完全本地运行的开源 elevenlabs 替代：声音克隆、音色设计、视频配音、听写与有声书，覆盖 646 种语言。 默认引擎为 k2-fsa/omnivoice，也可切换其他引擎；提供本地 api 与 mcp 供 agent 调用，另有可复用 recipes 与 watch folder 批量处理；一条 curl 脚本安装，提供 macos/windows/linux 安装包与 docker。">
+              <span class="rnk g3">3</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/debpalash/VoiceStudio" target="_blank" rel="noreferrer">debpalash/VoiceStudio</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">完全本地运行的开源 ElevenLabs 替代：声音克隆、音色设计、视频配音、听写与有声书，覆盖 646 种语言。</p>
+                <p class="row-hl">默认引擎为 k2-fsa/OmniVoice，也可切换其他引擎；提供本地 API 与 MCP 供 agent 调用，另有可复用 recipes 与 watch folder 批量处理；一条 curl 脚本安装，提供 macOS/Windows/Linux 安装包与 Docker。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#4B8BBE">Python</span>
+                <span class="stat">★ 86,619</span>
+                <span class="delta">+1,588</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#DEA584" data-src="daily" data-text="pbakaus/impeccable rust 给 ai 编码 agent 的设计指导：1 个 skill、24 条命令、62 条确定性检测规则。 readme 自述起点是 anthropic 的 frontend-design skill，针对「处处 inter、紫蓝渐变、卡片套卡片」等通病；确定性规则由 cli 与浏览器扩展本地执行，无需 llm、无需 api key；/impeccable init 把产品事实固化进 product.md 供后续命令复用。">
+              <span class="rnk">4</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/pbakaus/impeccable" target="_blank" rel="noreferrer">pbakaus/impeccable</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">给 AI 编码 agent 的设计指导：1 个 skill、24 条命令、62 条确定性检测规则。</p>
+                <p class="row-hl">README 自述起点是 Anthropic 的 frontend-design skill，针对「处处 Inter、紫蓝渐变、卡片套卡片」等通病；确定性规则由 CLI 与浏览器扩展本地执行，无需 LLM、无需 API key；/impeccable init 把产品事实固化进 PRODUCT.md 供后续命令复用。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#DEA584">Rust</span>
+                <span class="stat">★ 87,574</span>
+                <span class="delta">+1,113</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#DEA584" data-src="daily" data-text="pollen-robotics/microduck rust 25cm、800g 的双足机器鸭，靠强化学习策略走路、自己爬起来。 rk3566 上跑一组 rust 守护进程，50hz 控制循环驱动 15 个舵机；策略在隔壁 microduck_rl 用 mujoco + ppo 训练后导出 onnx；updaterd 负责签名更新、健康检查不过自动回滚；没有实体鸭也能用 scripts/duck-sim 在 mujoco 里跑同一套守护进程。">
+              <span class="rnk">5</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/pollen-robotics/microduck" target="_blank" rel="noreferrer">pollen-robotics/microduck</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">25cm、800g 的双足机器鸭，靠强化学习策略走路、自己爬起来。</p>
+                <p class="row-hl">RK3566 上跑一组 Rust 守护进程，50Hz 控制循环驱动 15 个舵机；策略在隔壁 microduck_rl 用 MuJoCo + PPO 训练后导出 ONNX；updaterd 负责签名更新、健康检查不过自动回滚；没有实体鸭也能用 scripts/duck-sim 在 MuJoCo 里跑同一套守护进程。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#DEA584">Rust</span>
+                <span class="stat">★ 11,575</span>
+                <span class="delta">+657</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#4B8BBE" data-src="daily" data-text="tauricresearch/tradingagents python 多智能体 llm 金融交易框架，模拟真实交易公司的角色分工。 分析师团队（基本面/情绪/新闻/技术）+ 研究员辩论 + 交易员 + 风控，readme 强调仅供研究；2026-10 发布 v0.7.0：可用自己的 chatgpt plus/pro 额度运行，回测按每次决策后第一个收盘价打分，启动时提示新版本。">
+              <span class="rnk">6</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/TauricResearch/TradingAgents" target="_blank" rel="noreferrer">TauricResearch/TradingAgents</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">多智能体 LLM 金融交易框架，模拟真实交易公司的角色分工。</p>
+                <p class="row-hl">分析师团队（基本面/情绪/新闻/技术）+ 研究员辩论 + 交易员 + 风控，README 强调仅供研究；2026-10 发布 v0.7.0：可用自己的 ChatGPT Plus/Pro 额度运行，回测按每次决策后第一个收盘价打分，启动时提示新版本。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#4B8BBE">Python</span>
+                <span class="stat">★ 114,494</span>
+                <span class="delta">+636</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#3178C6" data-src="daily" data-text="renhuai123/ziwei-doushu typescript 紫微斗数开源排盘引擎，含完整排盘算法、四化系统、格局知识库与古籍原文数据。 2026-10-15 发布 v4.0 解读数据集：674,976 张命盘 × 13 维 = 8,774,688 段解读，正文约 204 亿字、解压 56.6gb，覆盖 1950–2026 每个真实日期；代码 mit、数据 cc by 4.0，断语库本身不开源。">
+              <span class="rnk">7</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/Renhuai123/ziwei-doushu" target="_blank" rel="noreferrer">Renhuai123/ziwei-doushu</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">紫微斗数开源排盘引擎，含完整排盘算法、四化系统、格局知识库与古籍原文数据。</p>
+                <p class="row-hl">2026-10-15 发布 v4.0 解读数据集：674,976 张命盘 × 13 维 = 8,774,688 段解读，正文约 204 亿字、解压 56.6GB，覆盖 1950–2026 每个真实日期；代码 MIT、数据 CC BY 4.0，断语库本身不开源。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#3178C6">TypeScript</span>
+                <span class="stat">★ 7,514</span>
+                <span class="delta">+255</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#3178C6" data-src="daily" data-text="jetbrains/thinkrail typescript jetbrains 孵化中的 agentic ide，用 pi 做内核、把每个任务隔离在独立 git worktree。 每个 workspace 是独立 worktree 与分支，可同时跑多个 pi 会话并各自显示 token 与成本；spec.md 图谱作为「活规格」由 agent 通过 spec_* 工具维护；能直接读取你现有的 agent skills，pr 走本机 gh，合并后可自动合并/重跑 ci。">
+              <span class="rnk">8</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/JetBrains/thinkrail" target="_blank" rel="noreferrer">JetBrains/thinkrail</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">JetBrains 孵化中的 agentic IDE，用 pi 做内核、把每个任务隔离在独立 git worktree。</p>
+                <p class="row-hl">每个 workspace 是独立 worktree 与分支，可同时跑多个 pi 会话并各自显示 token 与成本；SPEC.md 图谱作为「活规格」由 agent 通过 spec_* 工具维护；能直接读取你现有的 Agent Skills，PR 走本机 gh，合并后可自动合并/重跑 CI。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#3178C6">TypeScript</span>
+                <span class="stat">★ 1,555</span>
+                <span class="delta">+52</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#4F5D95" data-src="daily" data-text="coollabsio/coolify php 自托管的开源 paas，vercel / heroku / netlify 的替代品。 只需一台能 ssh 的服务器（vps、裸金属、树莓派均可），一条 curl 安装；支持 nixpacks/railpack/dockerfile/compose 与 360+ 一键服务，含 pr 预览、镜像回滚、自动 https；另有 api、cli 与 mcp 入口。">
+              <span class="rnk">9</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/coollabsio/coolify" target="_blank" rel="noreferrer">coollabsio/coolify</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">自托管的开源 PaaS，Vercel / Heroku / Netlify 的替代品。</p>
+                <p class="row-hl">只需一台能 SSH 的服务器（VPS、裸金属、树莓派均可），一条 curl 安装；支持 Nixpacks/Railpack/Dockerfile/Compose 与 360+ 一键服务，含 PR 预览、镜像回滚、自动 HTTPS；另有 API、CLI 与 MCP 入口。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#4F5D95">PHP</span>
+                <span class="stat">★ 64,271</span>
+                <span class="delta">+192</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#F1E05A" data-src="daily" data-text="cloudflare/security-audit-skill javascript 把编码 agent 变成安全审计员的 skill：六阶段流程，输出可机器校验的结论。 侦察 → 覆盖式狩猎 → 候选验证 → 结构化输出 → 独立记录复核 → 报告，findings.json 由 report-schema.json 校验、coverage-ledger 由零依赖脚本校验；自述是 cloudflare 漏洞挖掘 harness 的种子，多次运行对同一仓库可累加覆盖。">
+              <span class="rnk">10</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/cloudflare/security-audit-skill" target="_blank" rel="noreferrer">cloudflare/security-audit-skill</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">把编码 agent 变成安全审计员的 skill：六阶段流程，输出可机器校验的结论。</p>
+                <p class="row-hl">侦察 → 覆盖式狩猎 → 候选验证 → 结构化输出 → 独立记录复核 → 报告，findings.json 由 report-schema.json 校验、coverage-ledger 由零依赖脚本校验；自述是 Cloudflare 漏洞挖掘 harness 的种子，多次运行对同一仓库可累加覆盖。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#F1E05A">JavaScript</span>
+                <span class="stat">★ 46,701</span>
+                <span class="delta">+2,874</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#4B8BBE" data-src="daily" data-text="agricidaniel/claude-seo python claude code 里的免费开源 seo 审计插件，10–15 分钟给出按优先级排序的行动清单。 26 个子 skill + 19 个专职 agent，最多 17 个 agent 并行扫站；覆盖技术 seo、core web vitals、e-e-a-t、schema.org、geo（ai 搜索引用）与本地/电商/国际 seo；mit 协议，readme 称自家站点上线 12 周拿到 10.8k search console 点击。">
+              <span class="rnk">11</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/AgriciDaniel/claude-seo" target="_blank" rel="noreferrer">AgriciDaniel/claude-seo</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">Claude Code 里的免费开源 SEO 审计插件，10–15 分钟给出按优先级排序的行动清单。</p>
+                <p class="row-hl">26 个子 skill + 19 个专职 agent，最多 17 个 agent 并行扫站；覆盖技术 SEO、Core Web Vitals、E-E-A-T、Schema.org、GEO（AI 搜索引用）与本地/电商/国际 SEO；MIT 协议，README 称自家站点上线 12 周拿到 10.8K Search Console 点击。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#4B8BBE">Python</span>
+                <span class="stat">★ 20,748</span>
+                <span class="delta">+179</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#3178C6" data-src="weekly" data-text="ruvnet/ruflo typescript 面向 claude code 与 codex 的 agent 元 harness，带 swarm 编排与可视化控制台。 以 claude code 插件市场方式安装（core/console/mods 三件套，要求 claude code ≥2.1.287）；其他 mcp 客户端用 npx ruflo mcp start 接入；控制台可脱离 claude code 单独跑（npx ruflo tui），显示 overview/cost/swarm/events/missions；mit。">
+              <span class="rnk">12</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/ruvnet/ruflo" target="_blank" rel="noreferrer">ruvnet/ruflo</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">面向 Claude Code 与 Codex 的 agent 元 harness，带 swarm 编排与可视化控制台。</p>
+                <p class="row-hl">以 Claude Code 插件市场方式安装（core/console/mods 三件套，要求 Claude Code ≥2.1.287）；其他 MCP 客户端用 npx ruflo mcp start 接入；控制台可脱离 Claude Code 单独跑（npx ruflo tui），显示 Overview/Cost/Swarm/Events/Missions；MIT。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#3178C6">TypeScript</span>
+                <span class="stat">★ 79,261</span>
+                <span class="delta">+3,241 本周</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#4B8BBE" data-src="weekly" data-text="anthropics/knowledge-work-plugins python anthropic 开源的 11 个知识工作插件，为 claude cowork 打造并兼容 claude code。 每个插件打包对应职能的 skills、连接器、斜杠命令与 sub-agents，覆盖销售、客服、产品、市场、法务、财务、数据、企业搜索、生物研究等；连接器点名 slack、notion、jira、snowflake、pubmed 等；也可作为自建插件的模板。">
+              <span class="rnk">13</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/anthropics/knowledge-work-plugins" target="_blank" rel="noreferrer">anthropics/knowledge-work-plugins</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">Anthropic 开源的 11 个知识工作插件，为 Claude Cowork 打造并兼容 Claude Code。</p>
+                <p class="row-hl">每个插件打包对应职能的 skills、连接器、斜杠命令与 sub-agents，覆盖销售、客服、产品、市场、法务、财务、数据、企业搜索、生物研究等；连接器点名 Slack、Notion、Jira、Snowflake、PubMed 等；也可作为自建插件的模板。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#4B8BBE">Python</span>
+                <span class="stat">★ 32,954</span>
+                <span class="delta">+2,631 本周</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#3178C6" data-src="weekly" data-text="anomalyco/opencode typescript 开源编码 agent（以终端 tui 为主）。 过去 24 小时 57 条提交：透出 mcp server title、console 配置作为新配置层、anthropic fast mode、openai responses reasoning 模式、会话媒体改内容寻址 blob；安装脚本已指向 opencode.ai/v2。">
+              <span class="rnk">14</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/anomalyco/opencode" target="_blank" rel="noreferrer">anomalyco/opencode</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">开源编码 agent（以终端 TUI 为主）。</p>
+                <p class="row-hl">过去 24 小时 57 条提交：透出 MCP server title、Console 配置作为新配置层、Anthropic fast mode、OpenAI Responses reasoning 模式、会话媒体改内容寻址 blob；安装脚本已指向 opencode.ai/v2。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#3178C6">TypeScript</span>
+                <span class="stat">★ 221,485</span>
+                <span class="delta">+6,857 本周</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#3178C6" data-src="weekly" data-text="stablyai/orca typescript 把 codex / claude code / opencode / pi 并排跑的 agent 编排器，每个 agent 一个独立 worktree。 一句 prompt 可分发到 5 个 agent 各跑独立 worktree 再比较结果合并赢家；手机端可接收完成通知并追加指令；design mode 点选真实 chromium 里的 ui 元素，把 html/css 与截图直接塞进 prompt；支持 ssh 远端 worktree。">
+              <span class="rnk">15</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/stablyai/orca" target="_blank" rel="noreferrer">stablyai/orca</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">把 Codex / Claude Code / OpenCode / Pi 并排跑的 agent 编排器，每个 agent 一个独立 worktree。</p>
+                <p class="row-hl">一句 prompt 可分发到 5 个 agent 各跑独立 worktree 再比较结果合并赢家；手机端可接收完成通知并追加指令；Design Mode 点选真实 Chromium 里的 UI 元素，把 HTML/CSS 与截图直接塞进 prompt；支持 SSH 远端 worktree。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#3178C6">TypeScript</span>
+                <span class="stat">★ 105,723</span>
+                <span class="delta">+9,828 本周</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#3178C6" data-src="weekly" data-text="heygen-com/hyperframes typescript 用 html/css 写、渲染成确定性 mp4 的开源框架，明确「为 agent 而设计」。 提供 claude code 插件与 npx skills add 两条安装路径，agent 可直接产出视频；把可 seek 的动画渲染为确定性 mp4，可作 studio / 生产管线的渲染内核，另有 slideshow、figma、remotion 迁移等按需 skill。">
+              <span class="rnk">16</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noreferrer">heygen-com/hyperframes</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">用 HTML/CSS 写、渲染成确定性 MP4 的开源框架，明确「为 agent 而设计」。</p>
+                <p class="row-hl">提供 Claude Code 插件与 npx skills add 两条安装路径，agent 可直接产出视频；把可 seek 的动画渲染为确定性 MP4，可作 Studio / 生产管线的渲染内核，另有 slideshow、figma、remotion 迁移等按需 skill。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#3178C6">TypeScript</span>
+                <span class="stat">★ 72,096</span>
+                <span class="delta">+5,633 本周</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#A97BFF" data-src="weekly" data-text="android/skills kotlin google 官方的 android agent skills 仓库，按开放 agent skills 标准写 skill.md。 readme 明确只做「评测显示 llm 表现不佳」的用例，不重复 jetpack compose 等已擅长的领域；用 android skills add 安装（--all 装全部、--agent 选客户端），未指定时默认装到 gemini 与 antigravity 的技能目录。">
+              <span class="rnk">17</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/android/skills" target="_blank" rel="noreferrer">android/skills</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">Google 官方的 Android agent skills 仓库，按开放 agent skills 标准写 SKILL.md。</p>
+                <p class="row-hl">README 明确只做「评测显示 LLM 表现不佳」的用例，不重复 Jetpack Compose 等已擅长的领域；用 android skills add 安装（--all 装全部、--agent 选客户端），未指定时默认装到 Gemini 与 Antigravity 的技能目录。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#A97BFF">Kotlin</span>
+                <span class="stat">★ 9,708</span>
+                <span class="delta">+1,317 本周</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#4B8BBE" data-src="weekly" data-text="graphify-labs/graphify python claude code 的 /graphify skill：把代码、文档、sql、pdf、截图变成可查询知识图谱。 readme 称同等查询比直接读原始文件省 71.5 倍 token，且图谱常驻可跨会话复用；产出 graph.html、obsidian vault、wiki 与 graph_report.md，sha256 缓存让重跑只处理改动文件；需 python 3.10+。">
+              <span class="rnk">18</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/Graphify-Labs/graphify" target="_blank" rel="noreferrer">Graphify-Labs/graphify</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">Claude Code 的 /graphify skill：把代码、文档、SQL、PDF、截图变成可查询知识图谱。</p>
+                <p class="row-hl">README 称同等查询比直接读原始文件省 71.5 倍 token，且图谱常驻可跨会话复用；产出 graph.html、Obsidian vault、wiki 与 GRAPH_REPORT.md，SHA256 缓存让重跑只处理改动文件；需 Python 3.10+。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#4B8BBE">Python</span>
+                <span class="stat">★ 135,146</span>
+                <span class="delta">+6,868 本周</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#DEA584" data-src="weekly" data-text="akitaonrails/ai-memory rust 面向编码 agent 的长期记忆：换 harness、换项目都能接着干，不用重讲一遍。 20+ harness（claude code、codex、cursor、gemini cli、opencode、grok、devin、kimi 等）共用一份记忆；handoff 是带 owner、只能被认领一次的类型化协议；ai-memory run 可把上一个会话的具体细节投影给下一个 agent，服务端只收 harness 与会话标识。">
+              <span class="rnk">19</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/akitaonrails/ai-memory" target="_blank" rel="noreferrer">akitaonrails/ai-memory</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">面向编码 agent 的长期记忆：换 harness、换项目都能接着干，不用重讲一遍。</p>
+                <p class="row-hl">20+ harness（Claude Code、Codex、Cursor、Gemini CLI、OpenCode、Grok、Devin、Kimi 等）共用一份记忆；handoff 是带 owner、只能被认领一次的类型化协议；ai-memory run 可把上一个会话的具体细节投影给下一个 agent，服务端只收 harness 与会话标识。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#DEA584">Rust</span>
+                <span class="stat">★ 13,499</span>
+                <span class="delta">+3,541 本周</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#4B8BBE" data-src="weekly" data-text="comfy-org/comfyui python 节点式扩散模型 gui / api / 后端，本地跑图像与视频生成。 readme 称凭异步权重流式加载，可在 4gb 显存 + 8gb 内存上较快跑起最大的开源模型；partner nodes 可调 nano banana、seedance、hunyuan3d 等闭源模型；提供桌面版、便携版与云版，工作流可通过 app mode 与 api 进生产管线。">
+              <span class="rnk">20</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/Comfy-Org/ComfyUI" target="_blank" rel="noreferrer">Comfy-Org/ComfyUI</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">节点式扩散模型 GUI / API / 后端，本地跑图像与视频生成。</p>
+                <p class="row-hl">README 称凭异步权重流式加载，可在 4GB 显存 + 8GB 内存上较快跑起最大的开源模型；partner nodes 可调 Nano Banana、Seedance、Hunyuan3D 等闭源模型；提供桌面版、便携版与云版，工作流可通过 App Mode 与 API 进生产管线。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#4B8BBE">Python</span>
+                <span class="stat">★ 142,910</span>
+                <span class="delta">+4,648 本周</span>
+              </div>
+            </li>
+          </ol>
+        </section>
+        
+          <section class="block">
+            <div class="block-head"><h3><span class="ico">🔭</span>趋势观察</h3></div>
+            <ul class="obs"><li style="--c:#5B9BFF"><span class="num">1</span><p>榜单几乎被「agent 的外围工种」占满：security-audit-skill（+2,874，日榜增量第一）、cindy、hallmark、impeccable、claude-seo 全是 skill 或客户端层，竞争点从「谁的模型强」转向「谁的审计、设计、SEO 流程更可交付」。</p></li><li style="--c:#A06BFF"><span class="num">2</span><p>记忆与跨 agent 交接正变成独立品类：ai-memory 用 20+ harness 共用记忆与类型化 handoff，ruflo 做元 harness，orca 把多个 agent 并排跑，opencode 24 小时内 57 条提交补齐 MCP 与各家模型参数——互操作正被工具层接手。</p></li><li style="--c:#2FD6A6"><span class="num">3</span><p>大厂开始把第三方 harness 嵌进自己的产品：JetBrains 的 ThinkRail 直接以 pi 为内核，android/skills 用开放 SKILL.md 标准分发官方知识；agent 生态的分层（内核 / 技能 / 编排）已经很清楚。</p></li><li style="--c:#FFB13B"><span class="num">4</span><p>榜单外也有两条值得盯的信号：2015 年的 Inception v3 在 200 例皮肤病变上以 62% 胜过两个前沿 LLM 的 42%，以及 Barron 等人指出 softmax/cross-entropy 的标准实现存在两个数值 bug——一个质疑通用模型在窄领域的边界，一个提醒基础算子仍能左右训练结果。</p></li>
+            </ul>
+          </section>
+        
+          <section class="block">
+            <div class="block-head">
+              <h3><span class="ico">🧠</span>AI 前沿动态</h3>
+              <span class="block-sub">过去 24 小时（arXiv 因索引滞后回看至 10-21 提交）· 已单列「智能体/Agent」分类 · 源：Hacker News / arXiv (cs.CL/LG)</span>
+            </div>
+            <div class="grid">
+            <article class="card news" style="--c:#FF8A4C" data-src="news" data-text="apollo：ai 在科技业之外还没有财务回报 apollo 首席经济学家 torsten slok 指出，mag 7 的人均营收与利润率在上升，而 s&amp;p 493 基本持平，也看不到 ai 推高生产率增长的迹象；主流企业开始把 token 支出当成本项而非增长来源。 如果收益只集中在少数科技公司，企业级 ai 预算与 agent 采购的叙事会被重新定价。 hacker news">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://www.apollo.com/wealth/insights-news/insights/daily-spark/no-signs-of-ai-payoff-outside-the-tech-sector" target="_blank" rel="noreferrer">Apollo：AI 在科技业之外还没有财务回报</a>
+                  <span class="badge cat">行业动态</span>
+                </div>
+                <p class="summary">Apollo 首席经济学家 Torsten Slok 指出，Mag 7 的人均营收与利润率在上升，而 S&amp;P 493 基本持平，也看不到 AI 推高生产率增长的迹象；主流企业开始把 token 支出当成本项而非增长来源。</p>
+                <p class="hl">为什么重要：如果收益只集中在少数科技公司，企业级 AI 预算与 agent 采购的叙事会被重新定价。</p>
+                <div class="meta"><span>Hacker News</span><span>10/25 03:47</span><span>608 分 · 644 评论</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#A06BFF" data-src="news" data-text="皮肤科医生实测：10 年前的 cnn 打败前沿 llm 诊断皮肤癌 用 200 例病理确诊的病变（含临床照与皮肤镜）对比，2015 年的 inception v3 微调后 6 分类正确 125 例（62%），gpt-6 astra 与 claude fable 5.1 分别只有 84 / 85 例（42%）；一篇黑色素瘤被两个 llm 判成脂溢性角化并建议出院。 通用前沿模型在窄领域未必胜过一个轻量专用模型，医疗等高危场景的选型不能只看 benchmark 排名。 hacker news">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://lynchlab.net/llm-skin-cancer" target="_blank" rel="noreferrer">皮肤科医生实测：10 年前的 CNN 打败前沿 LLM 诊断皮肤癌</a>
+                  <span class="badge cat">研究/论文</span>
+                </div>
+                <p class="summary">用 200 例病理确诊的病变（含临床照与皮肤镜）对比，2015 年的 Inception v3 微调后 6 分类正确 125 例（62%），GPT-6 Astra 与 Claude Fable 5.1 分别只有 84 / 85 例（42%）；一篇黑色素瘤被两个 LLM 判成脂溢性角化并建议出院。</p>
+                <p class="hl">为什么重要：通用前沿模型在窄领域未必胜过一个轻量专用模型，医疗等高危场景的选型不能只看 benchmark 排名。</p>
+                <div class="meta"><span>Hacker News</span><span>10/26 01:15</span><span>321 分 · 165 评论</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#FF8A4C" data-src="news" data-text="cerebras 公开如何在晶圆级芯片上部署万亿参数模型 单片 wse-3t 只有 44gb 片上内存，cerebras 按层把约 3 万亿参数的 kimi k3（69 层线性注意力 + 24 层稠密）切到多片晶圆上，4-bit 权重 + 8-bit kv cache，宣称可跑到 1000–2000+ tokens/s。 前沿模型权重远超单芯片容量，「按层切 wafer + 片上 kv」是把万亿参数模型做成低延迟服务的一条现实工程路径。 hacker news">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://www.cerebras.ai/blog/how-we-deploy-trillion-parameter-frontier-models-on-cerebras" target="_blank" rel="noreferrer">Cerebras 公开如何在晶圆级芯片上部署万亿参数模型</a>
+                  <span class="badge cat">行业动态</span>
+                </div>
+                <p class="summary">单片 WSE-3T 只有 44GB 片上内存，Cerebras 按层把约 3 万亿参数的 Kimi K3（69 层线性注意力 + 24 层稠密）切到多片晶圆上，4-bit 权重 + 8-bit KV cache，宣称可跑到 1000–2000+ tokens/s。</p>
+                <p class="hl">为什么重要：前沿模型权重远超单芯片容量，「按层切 wafer + 片上 KV」是把万亿参数模型做成低延迟服务的一条现实工程路径。</p>
+                <div class="meta"><span>Hacker News</span><span>10/25 09:33</span><span>342 分 · 123 评论</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#A06BFF" data-src="news" data-text="arxiv：softmax 与交叉熵的标准实现有两个数值 bug jonathan t. barron 等人指出 softmax collapse（目标 logit 远大于其他时梯度被舍入为 0）与 softmax cancellation（学生与教师 logit 相等时仍产生非零梯度）两个问题，并给出修复实现：消除「slingshot」现象、加快带 weight decay 的 grokking、防止蒸馏中学生漂移。 改动只在算子实现层却影响所有训练与蒸馏流程，还给出了 logit 增长受 weight decay 与 adam ε 平衡约束的解释。 arxiv (cs.lg)">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="http://arxiv.org/abs/2610.31642v1" target="_blank" rel="noreferrer">arXiv：softmax 与交叉熵的标准实现有两个数值 bug</a>
+                  <span class="badge cat">研究/论文</span>
+                </div>
+                <p class="summary">Jonathan T. Barron 等人指出 Softmax Collapse（目标 logit 远大于其他时梯度被舍入为 0）与 Softmax Cancellation（学生与教师 logit 相等时仍产生非零梯度）两个问题，并给出修复实现：消除「Slingshot」现象、加快带 weight decay 的 grokking、防止蒸馏中学生漂移。</p>
+                <p class="hl">为什么重要：改动只在算子实现层却影响所有训练与蒸馏流程，还给出了 logit 增长受 weight decay 与 Adam ε 平衡约束的解释。</p>
+                <div class="meta"><span>arXiv (cs.LG)</span><span>10/22 提交（索引 10-23）</span><span>新论文</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#A06BFF" data-src="news" data-text="arxiv：为什么 ai 生成的文字更难读——九款前沿模型的心理语言学测量 作者构建跨领域 ai 文本语料，发现九款前沿/准前沿模型都比人类写作更频繁使用无生命主语配生命动词、更多低频 n-gram，多数还有更长的句法依存，这些特征此前已被证明与人类阅读困难相关。 把「ai 味」从主观抱怨变成可量化的心理语言学指标，可用于写作后处理与可读性评测。 hacker news / arxiv (cs.cl)（多源）">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://arxiv.org/abs/2610.29162" target="_blank" rel="noreferrer">arXiv：为什么 AI 生成的文字更难读——九款前沿模型的心理语言学测量</a>
+                  <span class="badge cat">研究/论文</span>
+                </div>
+                <p class="summary">作者构建跨领域 AI 文本语料，发现九款前沿/准前沿模型都比人类写作更频繁使用无生命主语配生命动词、更多低频 n-gram，多数还有更长的句法依存，这些特征此前已被证明与人类阅读困难相关。</p>
+                <p class="hl">为什么重要：把「AI 味」从主观抱怨变成可量化的心理语言学指标，可用于写作后处理与可读性评测。</p>
+                <div class="meta"><span>Hacker News / arXiv (cs.CL)（多源）</span><span>10/21 提交</span><span>238 分 · 196 评论</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#22D3EE" data-src="news" data-text="arxiv：metta 用神经记忆把元强化学习 agent 的适配成本降到线性 metta 把快速适配拆成两个时间尺度：因果神经记忆做回合内的细粒度适配（线性复杂度），紧凑的回合级摘要支撑跨回合任务推断，不必对完整交互历史做注意力。 长期记忆是 agent 落地的核心瓶颈之一，这条「线性成本 + 双层摘要」路线对跨任务推断与记忆设计有直接参考。 arxiv (cs.lg)">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="http://arxiv.org/abs/2610.31656v1" target="_blank" rel="noreferrer">arXiv：METTA 用神经记忆把元强化学习 agent 的适配成本降到线性</a>
+                  <span class="badge cat">智能体/Agent</span>
+                </div>
+                <p class="summary">METTA 把快速适配拆成两个时间尺度：因果神经记忆做回合内的细粒度适配（线性复杂度），紧凑的回合级摘要支撑跨回合任务推断，不必对完整交互历史做注意力。</p>
+                <p class="hl">为什么重要：长期记忆是 agent 落地的核心瓶颈之一，这条「线性成本 + 双层摘要」路线对跨任务推断与记忆设计有直接参考。</p>
+                <div class="meta"><span>arXiv (cs.LG)</span><span>10/22 提交（索引 10-23）</span><span>新论文</span></div>
+              </div>
+            </article>
+            </div>
+          </section>
+    </section>
+  </main>
+
+  <footer>
+    <span>生成时间：2026-10-25T22:03:29.156Z · 数据：<code>../data/2026-10-26.json</code></span>
+    <span>Generated by OpenClaw · <a href="https://github.com/chengjiangpo/github-trending-daily-report">仓库源码</a></span>
+  </footer>
+</div>
+<script>
+(function(){
+
+  var q = document.getElementById('q');
+  var btns = Array.prototype.slice.call(document.querySelectorAll('.tbtn'));
+  var mode = 'all';
+  function applyFilter(){
+    var scope = document.querySelector('.panel.active') || document;
+    var term = (q.value || '').trim().toLowerCase();
+    scope.querySelectorAll('.card, .row').forEach(function(c){
+      var okMode = mode === 'all' || c.getAttribute('data-src') === mode;
+      var okText = !term || (c.getAttribute('data-text') || '').indexOf(term) > -1;
+      c.classList.toggle('hide', !(okMode && okText));
+    });
+    scope.querySelectorAll('.block').forEach(function(sec){
+      var holder = sec.querySelector('.grid, .board');
+      if (!holder) return;
+      sec.style.display = holder.querySelectorAll('.card:not(.hide), .row:not(.hide)').length ? '' : 'none';
+    });
+  }
+  q.addEventListener('input', applyFilter);
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      mode = b.getAttribute('data-f');
+      btns.forEach(function(x){ x.classList.toggle('on', x === b); });
+      applyFilter();
+    });
+  });
+  window.__applyFilter = applyFilter;
+
+  applyFilter();
+})();
+</script>
+</body>
+</html>
