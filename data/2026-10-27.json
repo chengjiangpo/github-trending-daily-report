@@ -1,0 +1,468 @@
+{
+  "date": "2026-10-27",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "github.com/trending 今日 06:00（北京时间）可直接访问并抓取成功（HTTP 200），日榜仅 14 条，不足 20 条，故用周榜前 6 个未重复项目补位（排除 andrej-karpathy-skills、TradingAgents 两个已在日榜的项目），source 标注 weekly，其 delta 为本周新增 star，未做任何换算。",
+    "日榜 14 条自带的 stars today 增量已原样保留；star 总数为抓取页面显示值。",
+    "仓库元数据与提交均走 api.github.com 公共 API（未认证），请求成功；deepseek-ai/deepseek-harness 默认分支 master 的最近 push 为 10-23，过去 24 小时 0 条提交；earendil-works/pi（main）9 条、anomalyco/opencode（dev）30 条（触及 per_page=30 上限，实际可能更多，仅按返回的 30 条筛选）。",
+    "提交窗口 since=2026-10-25T22:00Z 至 2026-10-26T22:00Z（即北京时间 10-26 06:00 至 10-27 06:00）；列表时间已换算为北京时间。pi 有一条提交 author date 为 10-24（rebase 后进入窗口），为避免误导读者未列入。",
+    "AI 前沿动态：抓取脚本 13/13 源返回成功，共 49 条候选；Google DeepMind、Latent Space、CrewAI Blog、GitHub AI/ML Blog 本次均返回 0 条，其余源有产出。arXiv 因索引滞后回看至 10-23（提交日）。",
+    "GPT-6.1 Terra 由 OpenAI Blog（官方发布）、Hacker News 热帖、GitHub Blog（Copilot 上线）三源合并为一条；Anthropic S-1 由 Anthropic News、量子位、Hacker News（SEC 原文）三源合并为一条。",
+    "量子位「OpenAI 断网训练」一条为媒体报道口径，原文以疑问语气讨论模型借 GPU 缓存传递信息的可能，本站按「报道称」转述，未当作已证实事实。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-10-26T06:00+08:00，时间均为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 24h 内 0 条提交",
+        "items": [
+          {
+            "title": "过去 24 小时无新提交",
+            "desc": "该仓库最近一次 push 为 10-23 15:25Z",
+            "author": "",
+            "time": ""
+          }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 9 条提交 · 当日跟进 GPT-6.1 Terra",
+        "items": [
+          {
+            "title": "feat(ai)：新增 GPT-6.1 Terra",
+            "desc": "新模型接入",
+            "author": "Armin Ronacher",
+            "time": "10-27 04:27"
+          },
+          {
+            "title": "feat(durable, chord)：在 adoption 时发布提交、地址跟随 watch、同步 observer",
+            "desc": "durable 执行与观察机制增强",
+            "author": "Mario Zechner",
+            "time": "10-27 04:44"
+          },
+          {
+            "title": "fix：加固不可信 URL、终端文本与流式数据的处理",
+            "desc": "安全加固",
+            "author": "Armin Ronacher",
+            "time": "10-27 03:46"
+          },
+          {
+            "title": "fix(coding-agent)：搜索词就是工具名时把该工具排到最前",
+            "desc": "工具检索排序修复",
+            "author": "Petr Houška",
+            "time": "10-26 21:07"
+          },
+          {
+            "title": "fix(coding-agent)：为安全公告把 undici 升级到 8.12.3",
+            "desc": "依赖安全修复",
+            "author": "triagent",
+            "time": "10-26 10:45"
+          },
+          {
+            "title": "fix(ai)：workspace 测试中从源码解析 pi-telemetry",
+            "desc": "测试修复",
+            "author": "Mario Zechner",
+            "time": "10-27 05:05"
+          },
+          {
+            "title": "ci：测试改为并行 job，移除无用 apt 包",
+            "desc": "CI 提速",
+            "author": "Petr Houška",
+            "time": "10-26 21:03"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 30 条提交（API 上限）· 模型目录与 provider 能力扩展",
+        "items": [
+          {
+            "title": "fix(core)：把 GPT-6.1 Terra 加入 Sign in with ChatGPT 模型（#59359）",
+            "desc": "新模型接入",
+            "author": "opencode-agent[bot]",
+            "time": "10-27 04:47"
+          },
+          {
+            "title": "feat(protocol)：按类型列出模型，与事件过滤一致（#59355）",
+            "desc": "协议能力扩展",
+            "author": "Aiden Cline",
+            "time": "10-27 03:28"
+          },
+          {
+            "title": "feat(ai)：为 catalog provider 增加 image 与 decision 入口（#59380）",
+            "desc": "多模态与服务入口",
+            "author": "Aiden Cline",
+            "time": "10-27 05:50"
+          },
+          {
+            "title": "feat(ai)：LLM 流可选透出原始 provider 事件（#59382）",
+            "desc": "可观测性",
+            "author": "Aiden Cline",
+            "time": "10-27 05:49"
+          },
+          {
+            "title": "feat(core)：从实验性 v2 API 读取 models.dev 目录（#59296）",
+            "desc": "模型目录升级",
+            "author": "Aiden Cline",
+            "time": "10-27 01:17"
+          },
+          {
+            "title": "fix(core)：继续让 codemode 走旧版 MCP 条目（#59126）",
+            "desc": "MCP 兼容修复",
+            "author": "João Pedro Munhoz Pavaneti",
+            "time": "10-27 01:38"
+          },
+          {
+            "title": "fix(core)：下载 ripgrep 后先校验 SHA-256 再运行（#59350）",
+            "desc": "供应链安全",
+            "author": "Ryan Vogel",
+            "time": "10-27 02:44"
+          },
+          {
+            "title": "fix(opencode)：release 构建校验 Bun 运行时 zip 的 checksum（#59360）",
+            "desc": "发布产物校验",
+            "author": "Ryan Vogel",
+            "time": "10-27 03:09"
+          },
+          {
+            "title": "perf(core)：代码搜索不再把巨量匹配行常驻内存（#59205）",
+            "desc": "内存优化",
+            "author": "Kit Langton",
+            "time": "10-27 01:20"
+          },
+          {
+            "title": "fix(core)：修复 GPT patch 编辑把移到自己身上的文件删掉（#59197）",
+            "desc": "补丁应用修复",
+            "author": "Kit Langton",
+            "time": "10-27 01:09"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": {
+      "daily": 14,
+      "weekly": 6
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "Nutlope/hallmark",
+        "url": "https://github.com/Nutlope/hallmark",
+        "lang": "CSS",
+        "stars": "36,060",
+        "delta": "+2,235",
+        "source": "daily",
+        "summary": "拒绝「看起来像 AI 生成」的设计 skill，支持 Claude Code、Codex、Cursor、OpenCode。",
+        "highlight": "README 称从 48 种材质主题里发三张给页面，再用真实浏览器 lint 掉机器感痕迹（每个标题上方的小标签、标题里一个彩色词、结尾必挂订阅框、只放照片的空页面）；另有 755 张开放授权照片，v2 新增 /hallmark redesign 与 audit；作者为 Together AI。"
+      },
+      {
+        "rank": 2,
+        "repo": "TauricResearch/TradingAgents",
+        "url": "https://github.com/TauricResearch/TradingAgents",
+        "lang": "Python",
+        "stars": "115,953",
+        "delta": "+1,376",
+        "source": "daily",
+        "summary": "多智能体 LLM 金融交易框架，复刻真实交易公司的分工与辩论。",
+        "highlight": "配套论文 arXiv:2412.20138；链路为分析师团队→多空研究员结构化辩论→交易员→风险管理团队→组合经理拍板；基于 LangGraph，支持 OpenAI/Anthropic/Google/DeepSeek/Qwen/GLM/Ollama 等；README 明确仅供研究、非投资建议，回测收益不保证复现。"
+      },
+      {
+        "rank": 3,
+        "repo": "JetBrains/thinkrail",
+        "url": "https://github.com/JetBrains/thinkrail",
+        "lang": "TypeScript",
+        "stars": "2,795",
+        "delta": "+1,156",
+        "source": "daily",
+        "summary": "JetBrains 孵化器项目：围绕 pi 编码 agent 打造的 agentic IDE。",
+        "highlight": "README 称把 pi 包进完整界面、把工作隔离进独立 workspace，并用 living specs 与可复用 skills 给 agent 持久项目知识；下一步上完整扩展支持，让 IDE 按你的实际工作方式自造工具；官网 thinkrail.ai，带 Product Hunt 条目。"
+      },
+      {
+        "rank": 4,
+        "repo": "makecindy/cindy",
+        "url": "https://github.com/makecindy/cindy",
+        "lang": "TypeScript",
+        "stars": "6,339",
+        "delta": "+1,268",
+        "source": "daily",
+        "summary": "开箱即用的开源桌面 AI agent，把多个 harness 与模型装进同一个 agent。",
+        "highlight": "在本机跑、用真实文件与已登录应用；首批支持 Claude Code 与 Codex，可任务中途换 harness×模型而保持 workspace、记忆、skills 连续，同一任务还能由不同组合并行执行与复核；能操作浏览器、电脑与手机；Apache-2.0，可直接复用已有的 Coding Plan 订阅。"
+      },
+      {
+        "rank": 5,
+        "repo": "affaan-m/ECC",
+        "url": "https://github.com/affaan-m/ECC",
+        "lang": "JavaScript",
+        "stars": "289,748",
+        "delta": "+987",
+        "source": "daily",
+        "summary": "自称 agent harness 的「操作系统」：skills、instincts、memory、安全与研究优先流程。",
+        "highlight": "README 列 71 个 agents、311 个 skills、97 个命令，外加 hooks、记忆与持续学习；MIT 永久开源，Pro 是面向私有仓库的托管 GitHub App；目前最适配 Claude Code，另有 Codex/Qoder 原生插件与 Cursor/OpenCode/Gemini/Copilot 等适配（README 提醒能力并不对等）；含 AgentShield 安全扫描。"
+      },
+      {
+        "rank": 6,
+        "repo": "pbakaus/impeccable",
+        "url": "https://github.com/pbakaus/impeccable",
+        "lang": "Rust",
+        "stars": "89,072",
+        "delta": "+1,551",
+        "source": "daily",
+        "summary": "给 AI 编码 agent 的设计语言，专治千篇一律的 SaaS 模板感。",
+        "highlight": "1 个 skill、24 条命令、62 条确定性检测规则；起点是 Anthropic 的 frontend-design skill；确定性规则由 CLI 与浏览器扩展本地跑，无需 LLM、无需 API key；/impeccable init 把受众、约束、语气等产品事实写进 PRODUCT.md，避免和视觉方向混为一谈。"
+      },
+      {
+        "rank": 7,
+        "repo": "NVIDIA/SkillSpector",
+        "url": "https://github.com/NVIDIA/SkillSpector",
+        "lang": "Python",
+        "stars": "22,101",
+        "delta": "+203",
+        "source": "daily",
+        "summary": "装 skill 之前先体检：扫描 AI agent skill 的漏洞、恶意模式与提示注入。",
+        "highlight": "README 给出研究数据：在 31,132 个 skill 的子集中 26.1% 含漏洞、5.2% 有疑似恶意意图；覆盖 71 种漏洞模式、17 个类别（提示注入、数据外泄、提权、供应链、MCP 最小权限等）；是 NVIDIA Verified Skills 流水线的一环，通过扫描才进 NVIDIA skills 目录，并提供 Pi 与 OpenCode 扩展。"
+      },
+      {
+        "rank": 8,
+        "repo": "pollen-robotics/microduck",
+        "url": "https://github.com/pollen-robotics/microduck",
+        "lang": "Rust",
+        "stars": "12,352",
+        "delta": "+844",
+        "source": "daily",
+        "summary": "Pollen Robotics 的小型双足机器鸭，靠强化学习策略行走。",
+        "highlight": "约 25cm、800g，Rockchip RK3566 上跑 50Hz 控制环驱动 15 个舵机，另含电台、摄像头与防变砖的更新机制；策略在 microduck_rl 用 MuJoCo + PPO 训练、导出 ONNX 后由本仓库加载；装上轮子可切 roller 模式换一套「大脑」。"
+      },
+      {
+        "rank": 9,
+        "repo": "nightly-labs/openbot",
+        "url": "https://github.com/nightly-labs/openbot",
+        "lang": "TypeScript",
+        "stars": "1,406",
+        "delta": "+312",
+        "source": "daily",
+        "summary": "本地优先的桌面工作台，给每个「常驻 AI 同事」独立工作区与会话。",
+        "highlight": "支持 Codex App Server 与 Claude Code，并经 ACP 接 Grok CLI、OpenCode、Gemini、Cursor CLI、Cline；提供 FIFO 消息队列、agent 间消息/回复/文件传输、内嵌浏览器与上下文自动压缩；README 明确标注开发预览，agent 以 danger-full-access 且从不逐条确认的方式运行，只应跑可信任务。"
+      },
+      {
+        "rank": 10,
+        "repo": "Panniantong/Agent-Reach",
+        "url": "https://github.com/Panniantong/Agent-Reach",
+        "lang": "Python",
+        "stars": "103,438",
+        "delta": "+723",
+        "source": "daily",
+        "summary": "让 agent 够到它自己上不去的互联网：Twitter、Reddit、YouTube、GitHub、B 站、小红书。",
+        "highlight": "README 主打登录墙、风控与视频内容的结构化读取；MIT 协议、Python 3.10+，提供中英日韩文档；Trendshift 徽章标注曾为当日 Trending 第一。"
+      },
+      {
+        "rank": 11,
+        "repo": "debpalash/VoiceStudio",
+        "url": "https://github.com/debpalash/VoiceStudio",
+        "lang": "Python",
+        "stars": "89,016",
+        "delta": "+2,292",
+        "source": "daily",
+        "summary": "完全本地的开源 ElevenLabs 替代：音色克隆、配音、听写、有声书。",
+        "highlight": "README 称覆盖 646 种语言，含声音设计与视频配音（带时间轴对齐的语音）；Electron 桌面应用，AGPL-3.0；提供本地 API 与 MCP，便于 agent 直接调用。"
+      },
+      {
+        "rank": 12,
+        "repo": "gitroomhq/postiz-app",
+        "url": "https://github.com/gitroomhq/postiz-app",
+        "lang": "TypeScript",
+        "stars": "38,372",
+        "delta": "+146",
+        "source": "daily",
+        "summary": "开源社媒排程与自动化平台，自带 agent 入口。",
+        "highlight": "AGPL-3.0，可自托管或用 Postiz Cloud；README 逐个列出 ChatGPT、Claude、Claude Code、Codex、Cursor、OpenClaw、Hermes 的接入入口，并提供 Public API 与文档站。"
+      },
+      {
+        "rank": 13,
+        "repo": "alchaincyf/huashu-design",
+        "url": "https://github.com/alchaincyf/huashu-design",
+        "lang": "HTML",
+        "stars": "26,690",
+        "delta": "+409",
+        "source": "daily",
+        "summary": "一句话拿回可交付设计的 agent skill：网页、App 原型、可编辑 PPTX、动画、信息图。",
+        "highlight": "README 称 3–30 分钟出成品；先出 6 张缩略图挑 3 个方向再做成真稿，风格库 84 种且每种带样张；跨 agent 可用（Claude Code、Cursor、Codex、OpenClaw、Hermes）；自 2026-05-14 起改为 MIT，个人与商用均免费。"
+      },
+      {
+        "rank": 14,
+        "repo": "multica-ai/andrej-karpathy-skills",
+        "url": "https://github.com/multica-ai/andrej-karpathy-skills",
+        "lang": "",
+        "stars": "224,553",
+        "delta": "+702",
+        "source": "daily",
+        "summary": "一个 CLAUDE.md 文件，按 Karpathy 对 LLM 编码毛病的观察约束 Claude Code。",
+        "highlight": "四条原则：先想再写、简单优先、外科手术式改动、目标驱动执行；直接引用 Karpathy 原帖批评模型「替你臆测假设、过度抽象、顺手改掉自己没看懂的代码」；README 同时推广作者的 Multica（运行与管理编码 agent 的开源平台）。"
+      },
+      {
+        "rank": 15,
+        "repo": "cloudflare/security-audit-skill",
+        "url": "https://github.com/cloudflare/security-audit-skill",
+        "lang": "JavaScript",
+        "stars": "48,438",
+        "delta": "+15,072（周）",
+        "source": "weekly",
+        "summary": "把编码 agent 变成安全审计员的 skill，六阶段流水线产出可核验的漏洞发现。",
+        "highlight": "源自 Cloudflare 漏洞挖掘 harness 的单仓库起点（官方博客 Build your own vulnerability harness）；流程为侦察→覆盖账本→隔离 hunter→候选反证→findings.json 结构化→独立复核→报告；用 validate-coverage-ledger.cjs 与 validate-findings.cjs 卡质量，confirmed / needs_validation / rejected 三态分明。"
+      },
+      {
+        "rank": 16,
+        "repo": "anthropics/knowledge-work-plugins",
+        "url": "https://github.com/anthropics/knowledge-work-plugins",
+        "lang": "Python",
+        "stars": "33,185",
+        "delta": "+2,790（周）",
+        "source": "weekly",
+        "summary": "Anthropic 开源 11 个面向知识工作者的 Claude Cowork 插件。",
+        "highlight": "每个插件打包该职能所需的 skills、连接器、斜杠命令与子 agent；覆盖 productivity、sales、customer-support、product-management 等角色，连接 Slack、Notion、Asana、Linear、Jira、HubSpot、Figma 等；同一套插件也兼容 Claude Code。"
+      },
+      {
+        "rank": 17,
+        "repo": "ruvnet/ruflo",
+        "url": "https://github.com/ruvnet/ruflo",
+        "lang": "TypeScript",
+        "stars": "79,510",
+        "delta": "+2,987（周）",
+        "source": "weekly",
+        "summary": "Claude Code / Codex 的「agent 元 harness」，编排多智能体 swarm 与自治工作流。",
+        "highlight": "README 自述为 claude-flow 血脉（首次提交 2025-06-02），npm 包 ruflo 可 npx 直跑，MIT；主打 multi-player swarm、自主工作流与共享记忆；README 内展示的下载计数为脚本动画，同时给出「已验证 97,022,120 次下载事件」的数据文件，引用其热度时需注意口径。"
+      },
+      {
+        "rank": 18,
+        "repo": "anomalyco/opencode",
+        "url": "https://github.com/anomalyco/opencode",
+        "lang": "TypeScript",
+        "stars": "221,930",
+        "delta": "+5,921（周）",
+        "source": "weekly",
+        "summary": "开源编码 agent，同时也是本期提交简报的跟踪对象。",
+        "highlight": "24 小时内 30 条提交（API 上限），含接入 GPT-6.1 Terra、按类型列模型、可选透出原始 provider 事件、models.dev v2 目录；同时在补供应链安全：下载 ripgrep 先校验 SHA-256、发布构建校验 Bun 运行时 checksum。"
+      },
+      {
+        "rank": 19,
+        "repo": "stablyai/orca",
+        "url": "https://github.com/stablyai/orca",
+        "lang": "TypeScript",
+        "stars": "106,970",
+        "delta": "+9,622（周）",
+        "source": "weekly",
+        "summary": "并行运行一支编码 agent 舰队的桌面编排器。",
+        "highlight": "README 称每个 agent 各自一个 worktree、统一在一处跟踪；支持 Codex、Claude Code、OpenCode、Pi 并排跑；配手机伴侣端可远程监控与接管；MIT，macOS/Windows/Linux 三端。"
+      },
+      {
+        "rank": 20,
+        "repo": "Graphify-Labs/graphify",
+        "url": "https://github.com/Graphify-Labs/graphify",
+        "lang": "Python",
+        "stars": "136,071",
+        "delta": "+6,903（周）",
+        "source": "weekly",
+        "summary": "Claude Code skill：把代码、PDF、截图、白板照片变成一张可查询的知识图谱。",
+        "highlight": "一条 /graphify 命令，输出 graph.html 交互图、Obsidian vault、wiki、graph.json 与 SHA256 缓存（只重算改动文件）；README 称每次查询比直接读原始文件少 71.5 倍 token，并区分「找到的」与「猜的」；需 Python 3.10+，PyPI 包名暂为 graphifyy。"
+      }
+    ]
+  },
+  "observation": [
+    "skill 依旧是榜单主轴，但形态在变重：hallmark、impeccable、huashu-design 三个设计 skill 同榜，Cloudflare 的 security-audit-skill 更以周增 +15,072 冲到周榜第一——skill 已从「提示词合集」变成带 CLI、校验脚本与产出格式的工程件。",
+    "安全成了 skill 生态的新战场：NVIDIA SkillSpector 直接给出「26.1% 的 skill 含漏洞、5.2% 疑似恶意」的数据，Cloudflare 则把内部漏洞挖掘 harness 拆成可复用 skill，一攻一防同日上榜，说明「装之前先扫、跑之前先审计」正在变成默认流程。",
+    "IDE 与编排层在吞并 CLI：JetBrains 用 pi 做出 ThinkRail，Orca、Cindy、OpenBot 都在做「每个 agent 独立工作区 + 手机接管 + agent 间通信」，竞争焦点从模型能力转向控制面与协作协议（ACP、MCP）。",
+    "高 stakes 与物理世界同时扩张：TradingAgents 把多空辩论、风控与组合决策做成多智能体流水线，Pollen Robotics 的 microduck 把 RL 策略落到 800g 的双足机器鸭上，agent 不再只写代码。",
+    "新模型的跟进速度已经进入小时级：GPT-6.1 Terra 发布当天，pi 与 opencode 都在 24 小时内完成接入，Copilot 同步上线；配合 OpenAI/Anthropic 把降价主战场放在缓存读取价（占 agent 编码 token 支出 96%–99%），harness 的竞争正同时比「接得快」和「跑得便宜」。"
+  ],
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（arXiv 因索引滞后回看至 10-23 提交）· 已单列「智能体/Agent」分类",
+    "sourcesUsed": [
+      "Hacker News",
+      "arXiv (cs.CL/AI/LG/MA/RO)",
+      "OpenAI Blog",
+      "Anthropic News",
+      "Google AI Blog",
+      "Simon Willison",
+      "量子位",
+      "GitHub Blog",
+      "GitHub Releases(agent 生态)"
+    ],
+    "items": [
+      {
+        "category": "release",
+        "title": "OpenAI 发布 GPT-6.1 Terra，主打「人人都能用的 computer use」",
+        "summary": "OpenAI 推出 GPT-6.1 Terra，官方一句话定位是把快速、可靠的 computer use 带给所有人；GitHub 称其面向日常 agentic 编码与终端任务，价格低于 GPT-6.1 Sol。",
+        "why": "发布当天 pi 与 opencode 即完成接入、Copilot 同步上线，说明它被当作 agent 工作负载的主力性价比档位，成本敏感的长会话可直接换挡。",
+        "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
+        "source": "OpenAI Blog / Hacker News / GitHub Blog（多源）",
+        "time": "10/26 08:00（官方）· HN 10/27 02:01",
+        "heat": "HN 406 分 · 255 评论"
+      },
+      {
+        "category": "industry",
+        "title": "Anthropic 递交 S-1 启动 IPO，招股书 335 页",
+        "summary": "Anthropic 向 SEC 提交 S-1 拟首次公开募股；量子位称招股书共 335 页，7 名联合创始人仍合计持有 50.1% 总投票权。",
+        "why": "前沿实验室第一次把财务、亏损与治理结构摊到公开市场面前，此后估值、安全承诺与商业化的每一步都会被持续审视。",
+        "url": "https://www.anthropic.com/news/s1-sec",
+        "source": "Anthropic News / 量子位 / Hacker News（多源）",
+        "time": "10/26 08:00",
+        "heat": "HN 1,375 分 · 1,349 评论"
+      },
+      {
+        "category": "industry",
+        "title": "OpenAI 与 Anthropic 数月内降价最高 80%，主战场是缓存读取价",
+        "summary": "minimaxir 复盘两家近几个月定价：Fable 5.1 把缓存读取价砍 75%、GPT-5.6 Luna 大幅降价；作者指出 agent 编码时缓存读取占总 token 支出 96%–99%。",
+        "why": "降价的关键不在输出单价而在 cache read，这直接决定长会话 agent 的真实成本，选型时应按缓存价而非标价比较。",
+        "url": "https://minimaxir.com/2026/10/cheap-llms/",
+        "source": "Hacker News",
+        "time": "10/26 05:11",
+        "heat": "407 分 · 416 评论"
+      },
+      {
+        "category": "agent",
+        "title": "Ubicloud：vLLM 工具调用只有 92% 合规，用约束解码修成运行时保证",
+        "summary": "Ubicloud 称以 vLLM 0.28 服务 Kimi K2.6 时仅 92% 的工具调用符合 schema；改用 XGrammar 约束解码后，把「事后校验」变成生成时的运行时保证，并指出 vLLM 上游实现曾出现准确率回落。",
+        "why": "一次畸形工具调用就会把错误写进上下文，推理引擎侧的这类修复对 agent 稳定性的收益往往大于换模型，也解释了「同模型不同服务商效果差很多」。",
+        "url": "https://www.ubicloud.com/blog/fixing-tool-call-accuracy-in-vllm",
+        "source": "Hacker News",
+        "time": "10/26 20:59",
+        "heat": "141 分 · 64 评论"
+      },
+      {
+        "category": "agent",
+        "title": "PaperPilot：纯 Rust、零云端的 PDF 引擎，带 WASM 与 MCP",
+        "summary": "开源 PDF 工具箱，同一引擎可作 MCP server、CLI、浏览器 WASM、Tauri 桌面端与本地 REST API，文件不出本机。",
+        "why": "文档处理是 agent 最常外挂的能力，本地 MCP 意味着合同、病历这类敏感文件不必上传就能接进 Codex、Claude Code、Cursor 的工作流。",
+        "url": "https://github.com/KrushnaVardhanReddy/PaperPilot",
+        "source": "Hacker News",
+        "time": "10/26 11:29",
+        "heat": "226 分 · 81 评论"
+      },
+      {
+        "category": "industry",
+        "title": "量子位：OpenAI 为保证安全，训练最强模型时切断网络",
+        "summary": "量子位报道称 OpenAI 在新模型训练中采用断网环境，文中提到对模型借 GPU 缓存等途径传递信息的担忧。",
+        "why": "「模型自己找外泄通道」从论文里的假想变成工程约束，训练环境隔离与侧信道审计会成为前沿实验室的标配。",
+        "url": "https://www.qbitai.com/2026/10/505529.html",
+        "source": "量子位",
+        "time": "10/26 17:37",
+        "heat": ""
+      },
+      {
+        "category": "research",
+        "title": "arXiv：RynnUnify——16B 统一具身大脑",
+        "summary": "提出 16B 统一具身模型，用交错的视频—语言推理把空间理解、物理预测与长程视觉规划装进同一个骨干。",
+        "why": "具身智能长期把「理解世界」与「规划动作」拆成两套模型，统一骨干是走向通用机器人策略的关键一步。",
+        "url": "http://arxiv.org/abs/2610.32965v1",
+        "source": "arXiv (cs.RO)",
+        "time": "10/23 提交（索引 10/24）",
+        "heat": "新论文"
+      }
+    ]
+  }
+}
