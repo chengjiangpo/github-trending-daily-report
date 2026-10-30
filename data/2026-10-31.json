@@ -1,0 +1,437 @@
+{
+  "date": "2026-10-31",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "gh CLI 未登录、github.com 的 HTTPS 本次不可达（06:00 与 06:02 两次 curl 均返回 http=000 超时）；仓库 metadata 与 commits 全部走 curl 直连 api.github.com 公共 API，未认证但请求成功。",
+    "github.com/trending 同样不可达，故按预案改用 api.github.com Search API 替代口径：q=created:>2026-10-24 stars:>50、按 star 降序取前 30，人工剔除图集类与无说明项后取 20 条。该口径是「近 7 天新建、star 最高」，并非官方 trending 的 24h 增量，故全部条目 source 标 weekly、delta 留空，未做任何估算。",
+    "20 条的一句话功能与亮点均来自各仓库 README（经 raw.githubusercontent.com 获取），未加入仓库之外的推断；star 数与语言取自 Search API 原始返回值。",
+    "deepseek-ai/deepseek-harness 的 master 分支过去 24 小时无新提交（最近一条为 10-29T16:13Z，约 30 小时前）；earendil-works/pi 返回 22 条、anomalyco/opencode 返回 30 条（per_page=30 上限，实际可能更多），已挑功能/修复/发版类主提交，跳过 docs 与格式类噪音。",
+    "AI 前沿动态 13 个源中 12 个成功，CrewAI Blog 抓取失败（fetch failed）；Anthropic News、Google DeepMind、Google AI Blog、GitHub Blog、GitHub AI/ML Blog 本次无新增条目。",
+    "官方大模型博客本次仅 OpenAI 有 4 条新增，保留 2 条（训练偏好表达、青少年保护）；Anthropic 侧的新模型消息来自量子位转述社区爆料，非官方确认，措辞已按「曝光」呈现。",
+    "Claude Code 扩展后门事件为 Phorion 安全公告，另有 DoublePulsar 与 cyberplace 贴文，已合并为一条并标注多源；版本号 2.1.313 与「Cursor 已下架」均取自 Phorion 原文。",
+    "智能体专项：本次保留 2 条 agent 类条目（YC Labs 的 Minecraft/Mindustry agent 集群实验、Claude Duet 个人助理型 harness 评测）。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-10-29T22:00Z，时间已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 过去 24 小时无新提交（最近一次为 10-30 00:13 北京时间）",
+        "items": [
+          {
+            "title": "过去 24 小时无新提交",
+            "desc": "api.github.com commits?since=2026-10-29T22:00Z 返回空数组",
+            "author": "—",
+            "time": "—"
+          }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 22 条提交 · 主攻 coding-agent 自更新与 MCP 登录，Chord v2 插件切片落地",
+        "items": [
+          {
+            "title": "feat(coding-agent): 新增 PI_SELF_UPDATE_COMMAND 与 selfUpdateCommand，支持 pi update（#11629）",
+            "desc": "agent 可在会话内触发自身升级，为自更新流程铺路",
+            "author": "Petr Houška",
+            "time": "10-31 05:30"
+          },
+          {
+            "title": "fix(coding-agent): 工具搜索中工具名权重高于描述（#11625）",
+            "desc": "提升大量工具场景下的检索命中率",
+            "author": "Petr Houška",
+            "time": "10-31 04:56"
+          },
+          {
+            "title": "fix(coding-agent): WSL 互操作辅助进程改从 / 启动，并上报外部编辑器失败（#11627）",
+            "desc": "WSL 环境兼容与错误可见性修复",
+            "author": "Petr Houška",
+            "time": "10-31 04:47"
+          },
+          {
+            "title": "feat(chord): v2 slice 7c，插件组件与 per-plugin 加载/重载",
+            "desc": "插件可按个热加载与重载，Chord v2 架构继续推进",
+            "author": "Mario Zechner",
+            "time": "10-31 02:18"
+          },
+          {
+            "title": "feat(durable): beforeProviderRequest 生成钩子（#11619）",
+            "desc": "在请求模型前插入可控钩子，便于拦截与改写请求",
+            "author": "David Brailovsky",
+            "time": "10-31 01:15"
+          },
+          {
+            "title": "feat(coding-agent): MCP OAuth 优先使用 client ID metadata document",
+            "desc": "跟随 MCP 规范改进 OAuth 客户端注册",
+            "author": "Armin Ronacher",
+            "time": "10-30 17:36"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 30 条提交（per_page 上限）· 发布 v2.2.4，调度默认开启、实验性 artifacts",
+        "items": [
+          {
+            "title": "release: v2.2.4（#60664）",
+            "desc": "版本发布",
+            "author": "github-actions[bot]",
+            "time": "10-31 01:06"
+          },
+          {
+            "title": "feat(core,server): 默认启用 schedules，并在 opencode serve 中运行调度循环（#60478）",
+            "desc": "定时任务从实验特性转为默认能力",
+            "author": "Kit Langton",
+            "time": "10-30 22:22"
+          },
+          {
+            "title": "feat(core): 新增实验性 artifacts，支持可插拔 provider（#60351）",
+            "desc": "为产物存储留出扩展点",
+            "author": "Kit Langton",
+            "time": "10-30 21:19"
+          },
+          {
+            "title": "feat(app): 桌面终端迁移到持久 PTY（#60346）",
+            "desc": "终端会话不再随面板切换丢失",
+            "author": "James Long",
+            "time": "10-30 22:57"
+          },
+          {
+            "title": "fix(core): 绕开 SDK 读缓冲自行成帧 MCP stdio 消息（#60694）",
+            "desc": "MCP stdio 传输稳定性修复",
+            "author": "Aiden Cline",
+            "time": "10-31 05:00"
+          },
+          {
+            "title": "feat(core): compaction.buffer 支持百分比（#60647）",
+            "desc": "上下文压缩阈值可按比例配置",
+            "author": "Aiden Cline",
+            "time": "10-31 02:04"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": {
+      "daily": 0,
+      "weekly": 20
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "unclebob/ub-mode",
+        "url": "https://github.com/unclebob/ub-mode",
+        "lang": "",
+        "stars": "5,354",
+        "delta": "",
+        "source": "weekly",
+        "summary": "把「纪律化的软件工程」做成 agent skill：先让代码跑通，再做对，最后才是实践习惯。",
+        "highlight": "README 说明其源自 poteto 的规则并做了精简，同时把 Uncle Bob 自己的三个工具设成硬门槛：Crapper（CRAP < 10）、Dryer（重复率 < 0.8）、Mutator（杀掉变异体、删除死代码）；还专门写了「守住上下文窗口」与「小步有序提交」两条实践。"
+      },
+      {
+        "rank": 2,
+        "repo": "interplains/Zero-Breach-Toolkit",
+        "url": "https://github.com/interplains/Zero-Breach-Toolkit",
+        "lang": "Python",
+        "stars": "3,846",
+        "delta": "",
+        "source": "weekly",
+        "summary": "免费开源地检查电脑、安卓手机与 iPhone 备份里是否存在 Pegasus、Predator、Graphite 等雇佣兵间谍软件痕迹。",
+        "highlight": "README 明确三条自我约束：只读不改证据、扫描期间零网络请求（Python 网络调用被拦截、重定向路径被拒绝）、每份报告都写明证据强度与「没查到什么」；并强调结果干净不等于你安全，可能被盯上应先找 Access Now 等专业求助渠道。"
+      },
+      {
+        "rank": 3,
+        "repo": "designfuchen/word-atlas",
+        "url": "https://github.com/designfuchen/word-atlas",
+        "lang": "TypeScript",
+        "stars": "3,353",
+        "delta": "",
+        "source": "weekly",
+        "summary": "「词光」：7,298 个雅思词条配原创插画、英美发音与 FSRS 间隔复习。",
+        "highlight": "代码 MIT、数据集 CC BY 4.0；网页版可直接体验，词库在 data/ 目录开放下载，iOS 版正在内测招募。"
+      },
+      {
+        "rank": 4,
+        "repo": "ccch1mneyyy/dsh-Go",
+        "url": "https://github.com/ccch1mneyyy/dsh-Go",
+        "lang": "Dart",
+        "stars": "2,398",
+        "delta": "",
+        "source": "weekly",
+        "summary": "DeepSeek Harness 的 Android 客户端：手机上本机直接跑，也能远程遥控电脑上的 DSH。",
+        "highlight": "要求 Android 8+、AGPL-3.0；项目自带论坛 forum.dshtui.com 与 QQ 群，说明是围绕 DSH 形成的社区向客户端，而非官方仓库。"
+      },
+      {
+        "rank": 5,
+        "repo": "andyhuo520/digital-human-koubo",
+        "url": "https://github.com/andyhuo520/digital-human-koubo",
+        "lang": "TypeScript",
+        "stars": "1,548",
+        "delta": "",
+        "source": "weekly",
+        "summary": "一张照片 + 一句话，由 agent 走完脚本、数字人口播、配音、字幕到成片的整条流水线。",
+        "highlight": "README 附真实案例：27 秒直播带货广告无真人出镜，全部由 Renoise MCP 生成画面加 Remotion 4 剪辑，成本 482 Renoise credits；MIT 协议，以 SKILL.md 形式交付。"
+      },
+      {
+        "rank": 6,
+        "repo": "valentderah/totk-pc-recomp",
+        "url": "https://github.com/valentderah/totk-pc-recomp",
+        "lang": "C",
+        "stars": "1,420",
+        "delta": "",
+        "source": "weekly",
+        "summary": "把《塞尔达传说：王国之泪》静态重编译成原生 Windows x86-64 程序。",
+        "highlight": "不是模拟器而是原生代码；支持 1.2.1 / 1.4.3 更新且存档互通、默认 60fps 可开到 144fps、内置 FSR 1 与自定义分辨率；README 明确不含游戏文件，需自备合法拷贝。"
+      },
+      {
+        "rank": 7,
+        "repo": "qybaihe/bla",
+        "url": "https://github.com/qybaihe/bla",
+        "lang": "TypeScript",
+        "stars": "1,374",
+        "delta": "",
+        "source": "weekly",
+        "summary": "反逆向「防御盾」：让 AI 逆向工程 agent 撞上资源预算、跟着诱饵走、白烧 token。",
+        "highlight": "README 的口号是「让逆向工程破产」——指向你实际发布的构建产物，AI 分析器打开后会耗尽预算，而普通用户的运行时行为不变；提供 MCP 工具目录与 npm 包 bla-agents，要求 Node 22.23.4 或 24.x。"
+      },
+      {
+        "rank": 8,
+        "repo": "DenisSergeevitch/ex-ussr-kinship-research",
+        "url": "https://github.com/DenisSergeevitch/ex-ussr-kinship-research",
+        "lang": "Python",
+        "stars": "1,326",
+        "delta": "",
+        "source": "weekly",
+        "summary": "给 agent 的「证据优先」家谱研究 skill：查苏联、俄罗斯帝国的教区簿、民事与军事档案。",
+        "highlight": "面向 Codex、Claude Code 等 Agent Skills 运行时；README 提供 18 种语言版本（俄、白俄、哈萨克、格鲁吉亚、亚美尼亚等），可见作者刻意覆盖前苏联各共和国的研究者。"
+      },
+      {
+        "rank": 9,
+        "repo": "aschmelyun/print-my-profile-pic",
+        "url": "https://github.com/aschmelyun/print-my-profile-pic",
+        "lang": "",
+        "stars": "1,187",
+        "delta": "",
+        "source": "weekly",
+        "summary": "给这个仓库点 star，作者就把你的 GitHub 头像打印到小票纸上贴在墙上。",
+        "highlight": "实现方式是给仓库配一个 star 事件的 GitHub webhook，触发小票打印机；一次性赞助任意金额会被装进「特殊相框」，README 晒了「Hall of Frame」照片墙。"
+      },
+      {
+        "rank": 10,
+        "repo": "Motionsites-AI/claude-skill",
+        "url": "https://github.com/Motionsites-AI/claude-skill",
+        "lang": "Python",
+        "stars": "1,171",
+        "delta": "",
+        "source": "weekly",
+        "summary": "免费 Claude skill，让 Claude 直接产出电影感落地页，而不是典型的「AI 味」布局。",
+        "highlight": "内置 40 个示例 prompt 与 50+ 视频素材架；skill 的流程是「先定方案 → 选真实素材 → 写构建规格 → 建页面 → 自己截图再修」，直到达到图库级标准。"
+      },
+      {
+        "rank": 11,
+        "repo": "wangzan101/Mika",
+        "url": "https://github.com/wangzan101/Mika",
+        "lang": "Kotlin",
+        "stars": "1,142",
+        "delta": "",
+        "source": "weekly",
+        "summary": "安卓上的端侧 AI 助理：在你看不见的后台屏里替你操作 App、上网把事办完。",
+        "highlight": "要求 Android 13+、arm64 沙箱、Apache-2.0；README 强调「后台屏干活，你照样刷你的手机」，属于端侧 agent 少见的实机形态。"
+      },
+      {
+        "rank": 12,
+        "repo": "smithjohn78390/tongjiang-lab",
+        "url": "https://github.com/smithjohn78390/tongjiang-lab",
+        "lang": "HTML",
+        "stars": "1,094",
+        "delta": "",
+        "source": "weekly",
+        "summary": "「铜匠实验室」：54 节高中物理/化学/生物/地理的可交互 3D 课。",
+        "highlight": "每节课是一个约 1MB 的独立 HTML 文件，双击即开、可离线、可投到投影仪或交互白板；内容对齐中国高中课标与人教版 2019 教材。"
+      },
+      {
+        "rank": 13,
+        "repo": "heydamir/unslop",
+        "url": "https://github.com/heydamir/unslop",
+        "lang": "JavaScript",
+        "stars": "1,037",
+        "delta": "",
+        "source": "weekly",
+        "summary": "Claude skill：把「vibecoded」的 AI 味界面改造成有自己性格的设计。",
+        "highlight": "先定位 slop 的具体症状（紫色渐变、发光、emoji 标签、喊话式文案、错位间距），再按设计师红笔批注的方式逐屏修；支持 Next/React/Vue/Svelte/Tailwind 与纯 HTML，甚至只给一个线上链接也能改。"
+      },
+      {
+        "rank": 14,
+        "repo": "KillaBoi/StealMyBitcoin-PoC",
+        "url": "https://github.com/KillaBoi/StealMyBitcoin-PoC",
+        "lang": "Python",
+        "stars": "1,016",
+        "delta": "",
+        "source": "weekly",
+        "summary": "「Steal My Bitcoin」CTF 的完整 PoC：单文件、纯标准库、一次真实 PHP 回调打穿。",
+        "highlight": "README 标注 Python 3.11+、零依赖、目标为 PHP 8.4.26 Alpine，配 Docker 靶场；全部逻辑收在一个文件里，便于逐步复现。"
+      },
+      {
+        "rank": 15,
+        "repo": "ZiChuanLan/agent-purge",
+        "url": "https://github.com/ZiChuanLan/agent-purge",
+        "lang": "JavaScript",
+        "stars": "913",
+        "delta": "",
+        "source": "weekly",
+        "summary": "一套人设提示词喂给多个编码 agent，替换或注入它们的系统提示。",
+        "highlight": "支持 replace / strict（只发人设）/ append / off 四种模式，可热切换且全程可逆；npm 包 agent-purge，带本地控制台（agent-purge web）。"
+      },
+      {
+        "rank": 16,
+        "repo": "lexifina/global-law",
+        "url": "https://github.com/lexifina/global-law",
+        "lang": "HTML",
+        "stars": "863",
+        "delta": "",
+        "source": "weekly",
+        "summary": "「给全球法律建一个 git」：每个国家一个仓库，每条提交就是一条生效的法律。",
+        "highlight": "是此前美国法典项目（10-28 登 HN 第一）的扩展版；本仓库按司法辖区组织 submodule，项目本身 CC0，可自由 fork 与商用，法条文本遵循各国仓库自身条款。"
+      },
+      {
+        "rank": 17,
+        "repo": "deepopen-com/deepopen-3d-webs",
+        "url": "https://github.com/deepopen-com/deepopen-3d-webs",
+        "lang": "Python",
+        "stars": "854",
+        "delta": "",
+        "source": "weekly",
+        "summary": "「光域造景」：给一张参考图加提示词，生成可沿相机轨迹预览、回放与追溯的 3D 场景。",
+        "highlight": "Web 端以 Docker 镜像交付、默认监听 8090；浏览器里可直接播放颜色/深度动画与高斯点云，属于图像驱动的可交互空间生成方案。"
+      },
+      {
+        "rank": 18,
+        "repo": "mizorewww/gdirect",
+        "url": "https://github.com/mizorewww/gdirect",
+        "lang": "Rust",
+        "stars": "773",
+        "delta": "",
+        "source": "weekly",
+        "summary": "在终端里浏览、下载、上传、挂载 Google Drive，并把流量直连到本网可达的 Google IP。",
+        "highlight": "用 Rust + 固定版 libaria2，支持多连接与断点续传；当携带真实 SNI 的连接被重置时，会改用 g.cn 作为 TLS 名、真实主机名放 Host 头的「伪造身份」重试（同 Sheas-Cealer 思路），并按 IP 记住哪种方式可用。"
+      },
+      {
+        "rank": 19,
+        "repo": "yaojingang/GEOInflow",
+        "url": "https://github.com/yaojingang/GEOInflow",
+        "lang": "TypeScript",
+        "stars": "759",
+        "delta": "",
+        "source": "weekly",
+        "summary": "自托管的网站与 AI 爬虫分析，服务生成式引擎优化（GEO）。",
+        "highlight": "由猎看科技与北京日报社智源 GEO 联合发布；把访客、AI 搜索引荐、服务器爬虫日志与内容清单放进同一份站点上下文，可回答「哪些 AI 爬虫来过、重要页面有没有被抓、请求在哪失败」。"
+      },
+      {
+        "rank": 20,
+        "repo": "OpenBMB/MiniCPM-OCR",
+        "url": "https://github.com/OpenBMB/MiniCPM-OCR",
+        "lang": "TypeScript",
+        "stars": "661",
+        "delta": "",
+        "source": "weekly",
+        "summary": "面壁智能的文档解析模型族：1.3B 的 MiniCPM-OCR 1.0 加 2B 的 Jev 结果质量判定模型。",
+        "highlight": "README 称 1.0 在 Real5-OmniDocBench 拿到 93.68 SOTA、OCRBench v2 为 54.7；DSpark 解码让端到端效率提升 55%，吞吐约 PaddleOCR-VL-1.6 的 1.49 倍、MinerU2.5 Pro 的 3.62 倍；首发即支持 vLLM/SGLang/llama.cpp/Ollama 并提供 pip SDK 与 SKILL.md。"
+      }
+    ]
+  },
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（北京时间 10-30 06:00 → 10-31 06:00）· 已单列「智能体/Agent」分类",
+    "sourcesUsed": [
+      "Hacker News",
+      "OpenAI Blog",
+      "量子位",
+      "Simon Willison",
+      "Latent Space",
+      "GitHub Releases(agent 生态)",
+      "arXiv"
+    ],
+    "items": [
+      {
+        "category": "industry",
+        "title": "官方 Claude Code VS Code 扩展被植入 SSH 后门（2.1.313）",
+        "summary": "Phorion 发现 Cursor Marketplace 上的官方 Claude Code for VS Code 扩展包内藏持久化 SSH 后门，横跨 macOS/Linux/Windows；Cursor 已下架该版本，并从 npm 与 VS Code 注册表撤回 2.1.313。",
+        "why": "扩展以 IDE 与用户权限运行，加载即拿到本地文件、源码与开发工具访问权——这是编码 agent 供应链最直接的一次现实攻击。",
+        "url": "https://phorion.io/blog/offical-claude-code-vsx-compromise/",
+        "source": "Hacker News（Phorion / DoublePulsar / cyberplace 多源）",
+        "time": "10/30 15:09",
+        "heat": "674 分 · 431 评论（另有 397 分、650 分两帖）"
+      },
+      {
+        "category": "release",
+        "title": "OpenAI 官方：让网站更容易表达 AI 训练偏好",
+        "summary": "OpenAI 博客介绍新做法，让网站所有者能更方便地声明其内容在 AI 训练上的偏好。",
+        "why": "把「要不要被训练」从 robots 式的灰色默契推向可声明的机制，直接影响抓取方与内容方的默认规则。",
+        "url": "https://openai.com/index/helping-websites-express-ai-training-preferences",
+        "source": "OpenAI Blog",
+        "time": "10/30 17:30",
+        "heat": ""
+      },
+      {
+        "category": "industry",
+        "title": "OpenAI 发布社区安全报告，并新增青少年保护措施",
+        "summary": "官方发布社区安全报告，同时上线一组面向青少年用户的保护机制。",
+        "why": "监管压力下头部实验室的合规动作，青少年保护已成各家必须公开表态的固定项。",
+        "url": "https://openai.com/index/community-safety-report-and-new-protections-for-teens",
+        "source": "OpenAI Blog",
+        "time": "10/30 17:00",
+        "heat": ""
+      },
+      {
+        "category": "agent",
+        "title": "YC Labs 把 agent 集群放进 Minecraft 与 Mindustry 做多智能体研究",
+        "summary": "YC Labs 与 Olam Labs 合作，在 Minecraft、Mindustry 里跑长期运行的 agent 集群，观察角色分化、层级与协调模式；文中提到正在跑一个 25 个 GPT-6.1 Terra agent 的 Minecraft 殖民地并开直播。",
+        "why": "把「多智能体涌现行为」从形式模型搬到可观测的长时程环境，是当前 agent 对齐研究里最缺的实证数据。",
+        "url": "https://labs.ycombinator.com/projects/games/index.html",
+        "source": "Hacker News",
+        "time": "10/30 05:40",
+        "heat": "389 分 · 162 评论"
+      },
+      {
+        "category": "agent",
+        "title": "Claude Duet 被评「第一个真正好用的个人助理型 harness」",
+        "summary": "fig.blue 的实测文章认为 Claude Duet 是首个让人感到实用的个人助理类 harness，讨论集中在它如何编排任务与工具。",
+        "why": "编码 agent 之外，「个人助理型 harness」正成为下一条产品线，这篇是少见的深度上手评测。",
+        "url": "https://fig.blue/posts/duet-is-the-future/",
+        "source": "Hacker News",
+        "time": "10/30 01:24",
+        "heat": "123 分 · 139 评论"
+      },
+      {
+        "category": "industry",
+        "title": "AI 成本担忧引发美股科技板块大跌",
+        "summary": "BBC 报道美国科技股因 AI 成本担忧显著下跌，同期另有报道称 Google 市值一度蒸发约 5,000 亿美元。",
+        "why": "市场开始给「AI 投入能否回本」定价，这会反过来影响各家明年的算力与模型发布节奏。",
+        "url": "https://www.bbc.co.uk/news/articles/cvwy72e0n72yo",
+        "source": "Hacker News（BBC / BBC News 多源）",
+        "time": "10/31 00:13",
+        "heat": "222 分 · 247 评论（另帖 76 分）"
+      },
+      {
+        "category": "release",
+        "title": "曝料：Claude Fable 5.5 与下一代 Opus 已在早期测试",
+        "summary": "量子位称 Azure 模型目录短暂出现 claude-fable-5-5 条目，另有代号 Obsidian 3 的新 Opus 在基准平台被发现有跑分，消息称最快一两周内发布。",
+        "why": "正值 Anthropic 递交 S-1、推进 IPO，模型连发被解读为上市前的技术肌肉秀；但均属社区爆料，官方未确认。",
+        "url": "https://www.qbitai.com/2026/10/506674.html",
+        "source": "量子位",
+        "time": "10/30 13:50",
+        "heat": ""
+      }
+    ]
+  },
+  "observation": [
+    "今日榜首几乎全是「给 agent 立规矩」的项目：ub-mode 用 CRAP<10、重复率<0.8、变异测试当硬门槛，unslop 与 MotionSites 的 skill 则管审美，agent-purge 直接换人设——竞争焦点已经从「模型会不会写」转向「怎么管住它别乱写」。",
+    "agent 的安全面被同时从两侧打开：一边是 Claude Code 扩展被植入 SSH 后门的真实供应链攻击，一边是 bla 这类「让逆向 agent 烧 token」的防御产品，说明 agent 已进入攻防双方都开始专门下注的阶段。",
+    "端侧与移动端 agent 成形：Mika 在安卓后台虚拟屏里替你操作 App，dsh-Go 把 DeepSeek Harness 搬上手机并能反控电脑，agent 的「运行位置」正在从云端 IDE 扩散到随身设备。",
+    "pi 与 opencode 的同日动作指向同一件事——agent 开始自我运维：pi 加了 selfUpdateCommand 与 beforeProviderRequest 钩子，opencode 把 schedules 设为默认并让 serve 常驻跑调度，长时程、可自更新的 agent 运行时正在标准化。",
+    "数据口径提醒：本次 github.com/trending 不可达，榜单来自 Search API 的「近 7 天新建仓库按 star 排序」，因此偏新项目、缺 24h 增量，star 体量与官方榜不可直接比较。"
+  ]
+}
