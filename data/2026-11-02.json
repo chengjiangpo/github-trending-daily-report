@@ -1,0 +1,430 @@
+{
+  "date": "2026-11-02",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "github.com/trending 本次不可达：curl 日榜与周榜均返回 http=000（HTTPS 连接失败，重试一次仍失败），故改用 api.github.com Search API 的替代口径，并在 source 字段如实标注：daily = created:>2026-10-27（近 6 天新建、star>80）按 star 降序；weekly = created:>2026-10-05 按 star 降序补位。最终 20 条中 daily 10 条、weekly 10 条。",
+    "Search API 不提供「今日/本周 star 增量」，因此 delta 字段一律留空，未做任何估算；stars 为 2026-11-02 06:00（北京时间）前后 API 返回值，语言取自 API 的 language 字段。",
+    "每个项目的一句话功能与亮点均取自该仓库 README（raw.githubusercontent.com 的 HEAD 分支）与仓库 description，未加入仓库之外的推断；README 未写明的能力不写。",
+    "deepseek-ai/deepseek-harness 的 master 分支过去 24 小时无新提交（since=2026-10-31T22:00Z 返回空数组，pushed_at 为 2026-10-30T06:54Z）。",
+    "earendil-works/pi 返回 8 条、anomalyco/opencode 返回 22 条（per_page=30）；已挑功能/修复/架构类主提交，跳过 chore/docs 类噪音。",
+    "AI 动态共 13 个源，12 个抓取成功，CrewAI Blog 失败（fetch failed）；OpenAI Blog、Anthropic News、Google DeepMind、Google AI Blog、GitHub Blog、GitHub AI/ML Blog 本次均为 0 条新增，故本期无官方大模型博客条目。",
+    "巴西法院提示注入案原文发布于 2026-07-01，本次因其在 Hacker News 重新上榜而进入候选，未收录进日报以免时间误标；如需回看可查 jetstream.security 原文。",
+    "智能体专项：本期保留 3 条 agent 类条目（Factorio 长时程通关、Minecraft 50-agent 协同失败、crewAI 1.15.34 发版）。",
+    "所有时间已换算为北京时间（UTC+8）；HN 的 heat 取自 Algolia 返回的 points/comments，未做估算；量子位条目的 heat 源站未提供，留空。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-10-31T22:00Z，即北京时间 11-01 06:00 → 11-02 06:00）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 过去 24 小时无新提交（最近一次 push 为 10-30 14:54 北京时间）",
+        "items": [
+          {
+            "title": "过去 24 小时无新提交",
+            "desc": "api.github.com commits?since=2026-10-31T22:00Z 返回空数组；仓库 pushed_at 为 2026-10-30T06:54Z",
+            "author": "—",
+            "time": "—"
+          }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 8 条提交 · 主线是把 TypeBox 换成自研 pi-schema",
+        "items": [
+          {
+            "title": "feat(ai,agent,coding-agent): validate tool arguments with pi-schema, drop TypeBox",
+            "desc": "工具参数校验改用自研 pi-schema，三处调用路径统一去掉 TypeBox",
+            "author": "Mario Zechner",
+            "time": "11-01 18:08"
+          },
+          {
+            "title": "feat(agent): pi-schema's Static types TypeBox-built schemas too, without depending on TypeBox",
+            "desc": "pi-schema 的 Static 类型也能推导 TypeBox 构建的 schema，但不再依赖 TypeBox",
+            "author": "Mario Zechner",
+            "time": "11-01 19:12"
+          },
+          {
+            "title": "feat(chord): Chord v1 and v2 on pi-schema, drop TypeBox",
+            "desc": "Chord v1/v2 迁移到 pi-schema",
+            "author": "Mario Zechner",
+            "time": "11-01 18:14"
+          },
+          {
+            "title": "feat(schema): benchmark against ata-validator, Ajv and Zod",
+            "desc": "给 pi-schema 补上与 ata-validator、Ajv、Zod 的基准对比",
+            "author": "Mario Zechner",
+            "time": "11-01 18:22"
+          },
+          {
+            "title": "fix(chord): admit a routed host even when the relay that spawned it is gone",
+            "desc": "修复派生它的 relay 已消失时，被路由的 host 无法接入的问题",
+            "author": "Armin Ronacher",
+            "time": "11-01 21:47"
+          },
+          {
+            "title": "fix(coding-agent,tui): reuse syntax highlighting and rendered Markdown blocks",
+            "desc": "TUI 复用高亮与已渲染 Markdown 块，减少重复渲染",
+            "author": "Armin Ronacher",
+            "time": "11-01 21:40"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 22 条提交 · 集中在 Console 工作区、AI 错误重试与 tool loop 拆分",
+        "items": [
+          {
+            "title": "feat(console): redirect old site pages to the console (#61108)",
+            "desc": "旧站点页面统一重定向到 Console",
+            "author": "Dax",
+            "time": "11-02 05:46"
+          },
+          {
+            "title": "fix(cli): allow npm upgrade install scripts (#51554)",
+            "desc": "修复 npm 升级路径下安装脚本被拦截",
+            "author": "Renato Moselli",
+            "time": "11-02 02:59"
+          },
+          {
+            "title": "feat(ai): status, code, isRetryable and retryAfterMs on AIError (#60808)",
+            "desc": "AIError 暴露状态码、错误码与可重试判定、重试等待时间",
+            "author": "Aiden Cline",
+            "time": "11-02 01:04"
+          },
+          {
+            "title": "feat(core): load Console workspace instructions and skills (#60401)",
+            "desc": "支持加载 Console 工作区的 instructions 与 skills",
+            "author": "Adam",
+            "time": "11-02 00:33"
+          },
+          {
+            "title": "feat(core): report Claude Agent plan usage on step metadata (#60879)",
+            "desc": "在 step metadata 上报 Claude Agent 的 plan 用量",
+            "author": "Shoubhit Dash",
+            "time": "11-02 00:04"
+          },
+          {
+            "title": "feat(core): support in-memory skill:// URIs (#60921)",
+            "desc": "支持内存态的 skill:// URI，技能可不落盘直接引用",
+            "author": "Aiden Cline",
+            "time": "11-01 14:07"
+          },
+          {
+            "title": "refactor(ai): split the tool loop into small pieces (#61005)",
+            "desc": "把工具调用循环拆成小块，便于单独测试与替换",
+            "author": "Aiden Cline",
+            "time": "11-01 13:50"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": {
+      "daily": 10,
+      "weekly": 10
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "Gathin23/cleanyourtv",
+        "url": "https://github.com/Gathin23/cleanyourtv",
+        "lang": "Python",
+        "stars": "49,081",
+        "delta": "",
+        "source": "weekly",
+        "summary": "不 root、不接线，通过 Wi-Fi 给 Android TV / Google TV 去预装与广告，并换成类 Apple TV 桌面。",
+        "highlight": "README 强调 no root / no cable / 不卸载任何东西，且提供一行命令还原；文档有简繁、日、越、意、荷等 7 种语言版本，另有官网 cleanyour.tv。"
+      },
+      {
+        "rank": 2,
+        "repo": "deepseek-ai/DeepInfer",
+        "url": "https://github.com/deepseek-ai/DeepInfer",
+        "lang": "Python",
+        "stars": "24,806",
+        "delta": "",
+        "source": "weekly",
+        "summary": "DeepSeek 生产环境在用的高性能推理框架，开源了离线推理部分。",
+        "highlight": "README 列出 FlashMLA 优化内核、Attention DP / 均衡 CP、MoE EP + EPLB、DSpark 与置信度调度验证、SWA 有界重放、batch-invariant 推理与确定性采样；当前支持 DeepSeek-V4.1-Flash。"
+      },
+      {
+        "rank": 3,
+        "repo": "wheresryan22/anatomy",
+        "url": "https://github.com/wheresryan22/anatomy",
+        "lang": "JavaScript",
+        "stars": "23,745",
+        "delta": "",
+        "source": "weekly",
+        "summary": "一个把抽象概念「造出来」的 Claude skill：生成带大量精密零件的等距解剖图。",
+        "highlight": "README 称可在 Antigravity、OpenCode、Codex、MiniMax Code 中运行，输出 SVG / WebGL / 3D；标注 Agent Skills 兼容。"
+      },
+      {
+        "rank": 4,
+        "repo": "google-research/harness2",
+        "url": "https://github.com/google-research/harness2",
+        "lang": "Python",
+        "stars": "21,874",
+        "delta": "",
+        "source": "weekly",
+        "summary": "Google Research 的「递归 agent harnessing」代码与论文，面向开放世界任务。",
+        "highlight": "README 直接挂 arXiv 2610.14224 论文、harness2.github.io 项目页与 docs/BENCHMARKS.md，Apache 2.0。"
+      },
+      {
+        "rank": 5,
+        "repo": "openai/math",
+        "url": "https://github.com/openai/math",
+        "lang": "Lean",
+        "stars": "17,243",
+        "delta": "",
+        "source": "weekly",
+        "summary": "OpenAI 公开内部未命名模型产出的数学手稿与配套 Lean 证明工件。",
+        "highlight": "README 说明这是模型在开放研究问题评测上的产出，且明确「并非全部都有 Lean 形式化、部分未形式化结果可能有问题」，会陆续补 Lean 证明。"
+      },
+      {
+        "rank": 6,
+        "repo": "storytold/wordcraft",
+        "url": "https://github.com/storytold/wordcraft",
+        "lang": "Rust",
+        "stars": "16,944",
+        "delta": "",
+        "source": "weekly",
+        "summary": "纯 Rust 写的开源文字处理器，Microsoft Word 的 clean-room 复刻。",
+        "highlight": "出自 storytold（ArtCraft），同团队另有纯 Rust 的表格 gridcraft 与 CAD cadcraft，README 主打「熟悉的 Word 工作流 + 开源」。"
+      },
+      {
+        "rank": 7,
+        "repo": "Zagitta/gpu-unlock",
+        "url": "https://github.com/Zagitta/gpu-unlock",
+        "lang": "C",
+        "stars": "14,127",
+        "delta": "",
+        "source": "weekly",
+        "summary": "解锁 GeForce RTX 20/30/40 系被限制的 tensor core 吞吐。",
+        "highlight": "README 给出最高 2× FP16/BF16/TF32、LLM prefill +25–55%、微调 +25–50%、图像生成 +30–55% 的对比数字；Linux、GPL-2.0、v2.0.0。"
+      },
+      {
+        "rank": 8,
+        "repo": "deepseek-ai/dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+        "lang": "TypeScript",
+        "stars": "6,993",
+        "delta": "",
+        "source": "daily",
+        "summary": "DeepSeek 放出的 super-agent 研究原型，对应《Exploring Super-agent Design》一文。",
+        "highlight": "README 首行即声明「仅作研究参考、非官方 DeepSeek 产品」，并承认大量工程由 coding agent 完成、公开版与内部版及论文实现并不一致。"
+      },
+      {
+        "rank": 9,
+        "repo": "T-Auto/dsh-ops",
+        "url": "https://github.com/T-Auto/dsh-ops",
+        "lang": "JavaScript",
+        "stars": "5,002",
+        "delta": "",
+        "source": "weekly",
+        "summary": "DSH（DeepSeek Harness）上的底层运维工具箱，目标是降低 token 消耗与任务开销。",
+        "highlight": "README 挂 Trendshift JavaScript 日榜徽章，并提供 npm 包 dsh-ops；中英双语文档。"
+      },
+      {
+        "rank": 10,
+        "repo": "Fei2411/DS-Bot",
+        "url": "https://github.com/Fei2411/DS-Bot",
+        "lang": "JavaScript",
+        "stars": "4,854",
+        "delta": "",
+        "source": "weekly",
+        "summary": "把 DeepSeek Harness 变成多机器人系统的插件：自建 bot，并让 bot 之间互相对话协作。",
+        "highlight": "README 标注 v0.2 preview、适配 DSH 0.2.1-rc.4、Apache 2.0；示例是「对 Chief 说一句话，它就建好一组 bot 和群聊」。"
+      },
+      {
+        "rank": 11,
+        "repo": "zhongerxin/iPhone-use",
+        "url": "https://github.com/zhongerxin/iPhone-use",
+        "lang": "Python",
+        "stars": "4,820",
+        "delta": "",
+        "source": "weekly",
+        "summary": "让 Codex / WorkBuddy / 豆包通过 USB 直接操作真实 iPhone。",
+        "highlight": "基于 Appium WebDriverAgent，自带本地 MCP 服务、安装与使用技能、实时屏幕 widget；控件定位失败时回退到截图 + 坐标点击。"
+      },
+      {
+        "rank": 12,
+        "repo": "heydamir/unslop",
+        "url": "https://github.com/heydamir/unslop",
+        "lang": "JavaScript",
+        "stars": "4,762",
+        "delta": "",
+        "source": "daily",
+        "summary": "把 vibe coding 出来的「AI 味」界面，改成有设计方向感的界面。",
+        "highlight": "README 点名要抓紫色渐变、发光、emoji 标签、喊话式文案与不齐间距，然后像设计师做 redline 一样逐轮修；支持 Claude Code 与 Codex。"
+      },
+      {
+        "rank": 13,
+        "repo": "wangzan101/Mika",
+        "url": "https://github.com/wangzan101/Mika",
+        "lang": "Kotlin",
+        "stars": "3,763",
+        "delta": "",
+        "source": "daily",
+        "summary": "Android 上的端侧 AI agent：说一句话，它在后台隐藏屏里替你操作 App 和网页。",
+        "highlight": "README 提供 Android 11+ 的 APK 下载，强调跑在隐藏的后台屏上、不打断你正在用的前台。"
+      },
+      {
+        "rank": 14,
+        "repo": "valentderah/totk-pc-recomp",
+        "url": "https://github.com/valentderah/totk-pc-recomp",
+        "lang": "C",
+        "stars": "3,146",
+        "delta": "",
+        "source": "daily",
+        "summary": "把《塞尔达传说：王国之泪》静态重编译成 Windows / Linux 原生 x86-64 程序。",
+        "highlight": "README 声明不含任何游戏文件、需自备合法拷贝（本体与 1.1.0 / 1.2.1 / 1.4.3 更新），当前早期开发阶段但已可在两平台游玩。"
+      },
+      {
+        "rank": 15,
+        "repo": "patch-gg/pixelfx",
+        "url": "https://github.com/patch-gg/pixelfx",
+        "lang": "JavaScript",
+        "stars": "2,501",
+        "delta": "",
+        "source": "daily",
+        "summary": "244 个像素风特效动画，每一个都是一小段可读的代码。",
+        "highlight": "README 标注数量 244，可实时播放、换色、镜像，也能导出 sprite sheet 给任意引擎；附一个 Claude Code skill 按像素美术流程产出新特效。"
+      },
+      {
+        "rank": 16,
+        "repo": "Djihads80/Eglantine",
+        "url": "https://github.com/Djihads80/Eglantine",
+        "lang": "C++",
+        "stars": "1,930",
+        "delta": "",
+        "source": "daily",
+        "summary": "实验性的 Nintendo Switch 2 模拟器。",
+        "highlight": "仓库 description 自述 VERY experimental；C++ 实现，属于 Switch 2 早期模拟探索。"
+      },
+      {
+        "rank": 17,
+        "repo": "paipiange/nvzhuang",
+        "url": "https://github.com/paipiange/nvzhuang",
+        "lang": "Go",
+        "stars": "1,861",
+        "delta": "",
+        "source": "daily",
+        "summary": "1407 张 AI 女装参考图集，配一个可虚拟试穿的网站。",
+        "highlight": "支持中英检索，可接 OpenAI Images / Gemini / 豆包，也支持自定义 Base URL、API Key 与模型。"
+      },
+      {
+        "rank": 18,
+        "repo": "lexifina/global-law",
+        "url": "https://github.com/lexifina/global-law",
+        "lang": "HTML",
+        "stars": "1,576",
+        "delta": "",
+        "source": "daily",
+        "summary": "把各国法律做成一条 git 历史：每个词都能追到写下它的那条法，按任意日期查。",
+        "highlight": "README 称是美国法典版本的扩展（该项目曾登 Hacker News 第一），每个司法辖区独立仓库、每次提交对应法律变动，文本 CC0。"
+      },
+      {
+        "rank": 19,
+        "repo": "Arjun-Ingole/hop",
+        "url": "https://github.com/Arjun-Ingole/hop",
+        "lang": "PowerShell",
+        "stars": "1,180",
+        "delta": "",
+        "source": "daily",
+        "summary": "不需要 U 盘，在 Windows 上装一个 Linux 双系统。",
+        "highlight": "单个 Windows 应用：选发行版、选盘、拖拽决定分区大小，点安装即可；README 强调不用找 U 盘。"
+      },
+      {
+        "rank": 20,
+        "repo": "elvarofficial/teardown",
+        "url": "https://github.com/elvarofficial/teardown",
+        "lang": "JavaScript",
+        "stars": "890",
+        "delta": "",
+        "source": "daily",
+        "summary": "一个把任何机器变成可拆解 3D 模拟器的 Claude skill。",
+        "highlight": "生成离线单页 HTML：机器在中间运转、四周面板读真实数值、可点开正在工作的零件，无人操作时页面自动巡览；README 附机器蜂 / 蝎 / 章鱼三个示例。"
+      }
+    ]
+  },
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（北京时间 11-01 06:00 → 11-02 06:00）· 已单列「智能体/Agent」分类",
+    "sourcesUsed": [
+      "Hacker News",
+      "量子位",
+      "GitHub Releases"
+    ],
+    "items": [
+      {
+        "category": "industry",
+        "title": "Anthropic 在 Opus 5.5 系统提示词里加限制，禁止 Claude 复刻他人游戏",
+        "summary": "量子位与 Mashable 报道：有用户发现 Claude Code 不再配合游戏克隆，Anthropic 随后确认在 Opus 5.5 的系统提示词中加了两句话，引导 Claude 不要「重新创建一个属于别人的特定游戏」。",
+        "why": "模型厂商第一次把 IP 边界写进系统提示词，但提示词对本地 harness 与开源模型几乎没有强制力。",
+        "url": "https://www.qbitai.com/2026/11/507038.html",
+        "source": "量子位 / Mashable（多源）",
+        "time": "11/01 21:09",
+        "heat": "HN 402 分"
+      },
+      {
+        "category": "release",
+        "title": "OpenAI 上线「ChatGPT 与 Codex 用量限额」说明页，额度合并",
+        "summary": "OpenAI 帮助中心新增《Understanding ChatGPT and Codex usage limits》页面，Hacker News 讨论普遍解读为两个产品的用量额度将统一计算。",
+        "why": "编码 agent 与聊天订阅的计费边界消失，重度 agent 用户的成本结构会直接被改写。",
+        "url": "https://help.openai.com/en/articles/20001625-understanding-chatgpt-and-codex-usage-limits",
+        "source": "Hacker News",
+        "time": "11/01 05:49",
+        "heat": "211 分 · 159 评论"
+      },
+      {
+        "category": "agent",
+        "title": "GPT-5.6 Sol 在 Codex 里用 13.5 小时游戏时间通关和平模式 Factorio",
+        "summary": "Ryan Madden 让 GPT-5.6 Sol 以低思考档在 Codex 中通过一个 Python 游戏管理库操作 Factorio，遵守玩家射程与战争迷雾等限制，13.5 小时游戏时间内完成和平模式并发射火箭；作者称蓝瓶之后的规模化明显拖慢了进度，收尾仍有大量「手动」干预。",
+        "why": "长时程 agent 的评测从「能不能做一步」推进到「能不能撑住十几小时的资源规划」，同时暴露了规模化阶段的短板。",
+        "url": "https://ryanmadden.net/gpt-56-beats-factorio/",
+        "source": "Hacker News",
+        "time": "11/01 02:50",
+        "heat": "176 分 · 187 评论"
+      },
+      {
+        "category": "agent",
+        "title": "50 个 agent 在 Minecraft 里建「繁荣文明」，先被官僚流程拖死",
+        "summary": "Tom's Hardware 报道一项多智能体社会实验：50 个 agent 组成的团队被放进 Minecraft 试图自建文明，结果陷进无休止的会议、审批与职责扯皮，文明没建起来。",
+        "why": "多智能体系统的失败点正从「单个 agent 能力不足」转向「协调开销吃掉全部产出」，这是编排层设计的直接反例。",
+        "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-agent-swarms-unleashed-in-minecraft-to-build-a-thriving-civilization-50-agent-teams-fail-after-falling-into-paralyzing-bureaucracy",
+        "source": "Hacker News / Tom's Hardware",
+        "time": "11/01 21:47",
+        "heat": "331 分"
+      },
+      {
+        "category": "agent",
+        "title": "crewAI 发布 1.15.34：技能检索、run --inputs 透传、deploy zip",
+        "summary": "crewAI 1.15.34 新增 crewai skill search、把 crewai run --inputs 透传给 Python flow、deploy create --zip 并打印 zip 对应的 commit，同时修复工具调用结束后不请求结构化输出、JSON 与输出模型不匹配等问题。",
+        "why": "主流多智能体框架开始把技能检索与部署打包进 CLI，agent 工程的交付链路正在标准化。",
+        "url": "https://github.com/crewAIInc/crewAI/releases/tag/1.15.34",
+        "source": "GitHub Releases",
+        "time": "11/02 05:21",
+        "heat": "208"
+      },
+      {
+        "category": "research",
+        "title": "清华姚期智、袁洋团队提出「代数世界模型」AWM",
+        "summary": "量子位报道该团队的新工作 AWM：让 AI 从观察与实验出发归纳可验证的代数规律，而不是只记录现象；文中以 ARC-AGI-3 为例，指出顶级模型在「步数根本不够」的关卡上仍会编出错误的最少步数。",
+        "why": "只会拟合现象的世界模型在任务不可行时会给出自信的错误解释，AWM 想补的正是「可证明的规律」这一层。",
+        "url": "https://www.qbitai.com/2026/11/507031.html",
+        "source": "量子位",
+        "time": "11/01 16:02",
+        "heat": ""
+      }
+    ]
+  },
+  "observation": [
+    "今天的榜单是「反 AI 味 + 拆机 + 去广告」三件套：unslop、anatomy、teardown、reanimate 在做同一件事——把 AI 生成的东西变成可检查、可拆解、可复刻的实体，审美与理解被写成可执行的验收标准。",
+    "DeepSeek 生态一天内占了四席（superagent-prototype、DeepInfer、dsh-ops、DS-Bot），从研究原型、推理框架到第三方插件层同时出现，说明 harness 周边的生态位正在被快速填满。",
+    "纯 Rust 的 clean-room 复刻潮还在继续：wordcraft 之后同团队还有 gridcraft、cadcraft，加上 TotK 静态重编译与 Switch 2 模拟器，重写闭源软件成了流量与人才的双重入口。",
+    "成本战已经打到固件与内核层：gpu-unlock 直接解锁被阉割的 tensor 吞吐，DeepInfer 把生产推理栈开源，两者都不是模型侧的优化，却直接决定单位 token 的价格。",
+    "agent 侧今天给了两个互补的反例：单个 agent 能在 Factorio 里撑 13.5 小时通关，50 个 agent 却在 Minecraft 里被自己的流程拖死——规模不等于能力，协调层的设计才是瓶颈。"
+  ]
+}
