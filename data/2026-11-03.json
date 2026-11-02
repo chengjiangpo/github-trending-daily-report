@@ -1,0 +1,428 @@
+{
+  "date": "2026-11-03",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "github.com/trending 本次不可达：curl 返回 http=000（HTTPS 连接失败，--max-time 20 超时），故按预案改用 api.github.com Search API 替代口径，并在每条 source 字段如实标注：daily = created:>2026-10-27（近 6 天新建、star>80）按 star 降序；weekly = created:>2026-10-05 按 star 降序补位。最终 20 条中 daily 10 条、weekly 10 条。",
+    "Search API 不提供「今日/本周 star 增量」，因此 delta 字段一律留空，未做任何估算；stars 为 2026-11-03 06:00（北京时间）前后 API 返回值，语言取自 API 的 language 字段。",
+    "每个项目的一句话功能与亮点均取自该仓库 README（raw.githubusercontent.com 的默认分支）与仓库 description，未加入仓库之外的推断；README 未写明的能力不写。",
+    "deepseek-ai/deepseek-harness 的 master 分支过去 24 小时无新提交（since=2026-11-01T22:00Z 返回空数组，最近一次提交为 2026-10-29T16:13Z）。",
+    "earendil-works/pi（main）与 anomalyco/opencode（dev）的 24 小时提交均达到 per_page=30 上限，实际条数可能更多；已挑功能/修复/架构类主提交，跳过大量 docs(chord)、refactor 类噪音。pi 于 2026-11-02T11:05Z 发布 v1.5.0（北京时间 11-02 19:05，在窗口内）；opencode 最新 release 为 v2.2.5（10-30），不在 24 小时窗口。",
+    "AI 动态共 13 个源，12 个抓取成功，CrewAI Blog 失败（fetch failed）；Anthropic News、GitHub Blog、Latent Space、GitHub AI/ML Blog 本次 0 条新增。",
+    "官方大模型博客本次候选：OpenAI Blog 3 条、Google DeepMind 1 条、Google AI 1 条；按新增判定均在上次日报之后发布。本期保留 OpenAI 2 条；DeepMind 的英国规划审批（10-30）与 Google AI 的 10 月汇总因时效与信息密度让位。",
+    "Anthropic 营收与 S-1 数字来自 CNBC 报道（经 Hacker News 上榜），非 Anthropic 官方博客口径，未做二次核实，引用时请以原文为准。",
+    "智能体专项：本期保留 2 条 agent 类条目（crewAI 1.15.34 发版、RoboArchitect 机器人 agent harness 自动设计）。",
+    "所有时间已换算为北京时间（UTC+8）；HN 的 heat 取自 Algolia 返回的 points/comments，未做估算；OpenAI Blog、arXiv 等无热度字段的条目 heat 标注为「新版发布」「新论文」或留空。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-11-01T22:00Z，即北京时间 11-02 06:00 → 11-03 06:00）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 过去 24 小时无新提交（最近一次提交 10-29 16:13Z / 北京时间 10-30 00:13）",
+        "items": [
+          {
+            "title": "过去 24 小时无新提交",
+            "desc": "api.github.com commits?since=2026-11-01T22:00Z 返回空数组；最近 5 条提交均停留在 10-29，主要为 0.2.1-rc.5 的同步与 webworker/移动端侧栏修复。",
+            "author": "—",
+            "time": "—"
+          }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 ≥30 条提交（per_page 上限）· 发布 v1.5.0 · Chord v2 连续推进 slice 11/12/13",
+        "items": [
+          {
+            "title": "feat(chord): Chord v2 web and terminal surfaces（slice 11）",
+            "desc": "Chord v2 同时落地 Web 与终端两套界面",
+            "author": "Mario Zechner",
+            "time": "11-03 05:15"
+          },
+          {
+            "title": "feat(chord): Chord v2 slice 13, the app kit",
+            "desc": "抽出应用工具包，供各宿主复用",
+            "author": "Mario Zechner",
+            "time": "11-02 23:13"
+          },
+          {
+            "title": "feat(chord): Chord v2 slice 12, the plugin model",
+            "desc": "确定 Chord 的插件模型",
+            "author": "Mario Zechner",
+            "time": "11-02 21:19"
+          },
+          {
+            "title": "feat(coding-agent): list updated packages with version changes in pi update（#11707）",
+            "desc": "pi update 现在列出升级包及版本变化",
+            "author": "Petr Houška",
+            "time": "11-03 04:21"
+          },
+          {
+            "title": "fix(ai): leave room for OpenRouter's input overcount when clamping max tokens（#11712）",
+            "desc": "修正 OpenRouter 输入 token 多计导致的输出截断",
+            "author": "David Brailovsky",
+            "time": "11-03 05:43"
+          },
+          {
+            "title": "feat(ai): add Microsoft-Decision-1 classifier to GitHub Copilot（#11679）",
+            "desc": "Copilot 通道接入新的分类模型",
+            "author": "m3",
+            "time": "11-02 23:12"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 ≥30 条提交（per_page 上限）· 主线是 process-daemon 与 ai 层重构",
+        "items": [
+          {
+            "title": "feat(process-daemon): run commands without a PTY on Unix（#60697）",
+            "desc": "Unix 上可不经 PTY 执行命令，便于无终端环境",
+            "author": "James Long",
+            "time": "11-03 02:27"
+          },
+          {
+            "title": "feat(cli): add --archived to opencode run（#61270）",
+            "desc": "run 子命令支持 --archived 参数",
+            "author": "Dax",
+            "time": "11-03 00:31"
+          },
+          {
+            "title": "feat(codemode): let programs import globals by Node module name（#61151）",
+            "desc": "codemode 程序可按 Node 模块名导入全局",
+            "author": "Aiden Cline",
+            "time": "11-02 11:52"
+          },
+          {
+            "title": "perf(ai): make the response fold internal and stop copying events per chunk（#61194）",
+            "desc": "流式响应不再逐块拷贝事件，降低开销",
+            "author": "Aiden Cline",
+            "time": "11-02 13:33"
+          },
+          {
+            "title": "fix(process-daemon): stop cleanly on SIGTERM and SIGINT（#60691）",
+            "desc": "修复进程守护的优雅退出",
+            "author": "James Long",
+            "time": "11-03 00:59"
+          },
+          {
+            "title": "fix(ai): retry Cohere streams that end early（#61184）",
+            "desc": "Cohere 流式响应提前结束时自动重试",
+            "author": "Aiden Cline",
+            "time": "11-02 12:01"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": { "daily": 10, "weekly": 10 },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "Gathin23/cleanyourtv",
+        "url": "https://github.com/Gathin23/cleanyourtv",
+        "lang": "Python",
+        "stars": "50,336",
+        "delta": "",
+        "source": "weekly",
+        "summary": "不 root、不接线，通过 Wi-Fi 给 Android TV / Google TV 去预装与广告，并换成类 Apple TV 桌面。",
+        "highlight": "README 强调 no root / no cable / 不卸载任何东西，并提供一行命令还原；说明文档覆盖简繁中文、日、越、意、荷、德、乌克兰、土耳其等 10 种语言，另有官网 cleanyour.tv。"
+      },
+      {
+        "rank": 2,
+        "repo": "deepseek-ai/DeepInfer",
+        "url": "https://github.com/deepseek-ai/DeepInfer",
+        "lang": "Python",
+        "stars": "25,023",
+        "delta": "",
+        "source": "weekly",
+        "summary": "DeepSeek 生产环境在用的高性能推理框架，开源了离线推理部分。",
+        "highlight": "README 列出 FlashMLA 优化内核、Attention DP / 均衡 CP、MoE EP + EPLB、DSpark 与置信度调度验证、SWA 有界重放、batch-invariant 推理与确定性采样；当前支持 DeepSeek-V4.1-Flash。"
+      },
+      {
+        "rank": 3,
+        "repo": "wheresryan22/anatomy",
+        "url": "https://github.com/wheresryan22/anatomy",
+        "lang": "JavaScript",
+        "stars": "24,089",
+        "delta": "",
+        "source": "weekly",
+        "summary": "一个把抽象概念「造出来」的 Claude skill：生成带大量精密零件的等距解剖图。",
+        "highlight": "README 称可在 Antigravity、OpenCode、Codex、MiniMax Code 中运行，输出 SVG / WebGL / 3D，标注零依赖、Node ≥20.10；定位是「用可工作的实物来解释一个想法」。"
+      },
+      {
+        "rank": 4,
+        "repo": "google-research/harness2",
+        "url": "https://github.com/google-research/harness2",
+        "lang": "Python",
+        "stars": "22,094",
+        "delta": "",
+        "source": "weekly",
+        "summary": "Google Research 的「递归 agent harness」框架：把 prompt、工具、记忆、技能、编排当作可优化的系统。",
+        "highlight": "README 定义 harness 为模型之外使其成为 agent 的全部系统，Harness² 面向开放世界中未见过任务的递归 harness 优化；附 arXiv 2610.14224、官网与 JobBench 等 benchmark 指南，Apache-2.0。"
+      },
+      {
+        "rank": 5,
+        "repo": "openai/math",
+        "url": "https://github.com/openai/math",
+        "lang": "Lean",
+        "stars": "17,272",
+        "delta": "",
+        "source": "weekly",
+        "summary": "OpenAI 把内部模型产出的数学手稿与 Lean 证明工件集中开源。",
+        "highlight": "README 说明目录含 721 篇手稿、373 个「家族」，由某个未具名内部模型在开放研究问题上生成；并非全部有 Lean 形式化，OpenAI 明确称其为「原始研究数据」而非成熟论文，并把优先权判断交给数学界。"
+      },
+      {
+        "rank": 6,
+        "repo": "storytold/wordcraft",
+        "url": "https://github.com/storytold/wordcraft",
+        "lang": "Rust",
+        "stars": "17,054",
+        "delta": "",
+        "source": "weekly",
+        "summary": "纯 Rust 的 clean-room 文字处理器，读写 .docx，桌面与浏览器都能跑。",
+        "highlight": "README 列出 ribbon、样式、表格、修订追踪、参考文献与邮件合并；原生支持 macOS / Windows / Linux / BSD，并经 WebAssembly 运行在浏览器。"
+      },
+      {
+        "rank": 7,
+        "repo": "Zagitta/gpu-unlock",
+        "url": "https://github.com/Zagitta/gpu-unlock",
+        "lang": "C",
+        "stars": "14,581",
+        "delta": "",
+        "source": "weekly",
+        "summary": "解除 GeForce 显卡在 FP16/BF16/TF32 上的 tensor core 半速限制。",
+        "highlight": "README 称 NVIDIA 在消费卡上把 FP32 累加的 tensor 吞吐锁到一半，本项目在 RTX 20/30/40 系上最高恢复 2× 吞吐，LLM prefill +25–55%、微调 +25–50%、图像生成 +30–55%；仅 Linux，GPL-2.0。"
+      },
+      {
+        "rank": 8,
+        "repo": "tangency-labs/solidcraft",
+        "url": "https://github.com/tangency-labs/solidcraft",
+        "lang": "Rust",
+        "stars": "13,154",
+        "delta": "",
+        "source": "weekly",
+        "summary": "纯 Rust 的参数化 3D CAD，桌面、浏览器都能用，并内置 MCP server 让 agent 建模。",
+        "highlight": "README 强调草图、约束与参数化特征时间线，改一个尺寸模型即重建；除 Windows/macOS/Linux/Web 外，还提供 Snap Store 与在线版，agent 可通过内置 MCP 直接驱动建模。"
+      },
+      {
+        "rank": 9,
+        "repo": "deepseek-ai/dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+        "lang": "TypeScript",
+        "stars": "12,915",
+        "delta": "",
+        "source": "daily",
+        "summary": "DeepSeek 开源的主动式编码 agent 原型：监听 GitHub（可选飞书），自主接活并提 PR。",
+        "highlight": "README 明确这是研究原型、非官方产品；agent 收到许可请求后开工作项，在独立会话与目录中执行，回到原会话交付 PR，另有 Web 面板显示需要人介入的事项；设计原则是「尽量少占人类注意力」。"
+      },
+      {
+        "rank": 10,
+        "repo": "seedds/nxnative",
+        "url": "https://github.com/seedds/nxnative",
+        "lang": "Python",
+        "stars": "11,389",
+        "delta": "",
+        "source": "weekly",
+        "summary": "把 Switch 游戏的原生代码直接跑在 iPhone / iPad 上，产物是可侧载的 IPA。",
+        "highlight": "README 强调不是模拟器：NSO rewriter 重写游戏代码、Horizon HLE 宿主、NVN→Metal 图形层；需自备 NSP 与 prod.keys，仓库不含游戏内容；Switch 2 的《咚奇刚 Bananza》已在 Mac 跑通，iPhone/iPad 未验证。"
+      },
+      {
+        "rank": 11,
+        "repo": "heydamir/unslop",
+        "url": "https://github.com/heydamir/unslop",
+        "lang": "JavaScript",
+        "stars": "6,139",
+        "delta": "",
+        "source": "daily",
+        "summary": "Claude Code / Codex 技能：找出「AI 味」界面并逐轮改成有设计感的成品。",
+        "highlight": "README 点名紫色渐变、发光、emoji 标签、喊话式文案与不齐间距为 slop 特征，先定方向再按设计师 redline 的方式逐屏修；支持 Next.js/React/Vue/Svelte/Tailwind/原生 HTML，只有一个链接的线上站点也能改。"
+      },
+      {
+        "rank": 12,
+        "repo": "wangzan101/Mika",
+        "url": "https://github.com/wangzan101/Mika",
+        "lang": "Kotlin",
+        "stars": "5,232",
+        "delta": "",
+        "source": "daily",
+        "summary": "Android 上的端侧 AI agent，用隐藏的后台界面替你操作 App 与网页。",
+        "highlight": "README 称任务在隐藏后台屏执行，不打断用户当前使用；提供 Android 11+ 的 APK 下载，Apache-2.0。"
+      },
+      {
+        "rank": 13,
+        "repo": "microsoft/TokenEconomizer",
+        "url": "https://github.com/microsoft/TokenEconomizer",
+        "lang": "Python",
+        "stars": "4,444",
+        "delta": "",
+        "source": "weekly",
+        "summary": "微软研究院的编码 agent 黑盒成本控制：用经验驱动的方式压 token 开销。",
+        "highlight": "README 给出的 SWE-Bench 实测为五种 agent–模型组合平均成本降 18.4–30.9%，30 个仓库×组合格子全部更便宜，且 Pass@1 在多数组合上升；附 arXiv 2610.22732 与项目页，Apache-2.0。"
+      },
+      {
+        "rank": 14,
+        "repo": "storytold/craft-anything",
+        "url": "https://github.com/storytold/craft-anything",
+        "lang": "Rust",
+        "stars": "3,776",
+        "delta": "",
+        "source": "daily",
+        "summary": "指向任意网站 / App / 游戏，让编码 agent 用真实检查工具研究后造一个你自己的版本。",
+        "highlight": "README 描述流程为：用检查工具研究原目标 → agent 新建项目 → 与原物逐项比对 → 迭代修正；引擎本身是纯 Rust clean-room 实现，跨 macOS/Windows/Linux/FreeBSD/Web。"
+      },
+      {
+        "rank": 15,
+        "repo": "patch-gg/pixelfx",
+        "url": "https://github.com/patch-gg/pixelfx",
+        "lang": "JavaScript",
+        "stars": "3,444",
+        "delta": "",
+        "source": "daily",
+        "summary": "244 个像素风特效，每个都是一小段代码，另带一个自制特效的 Claude Code 技能。",
+        "highlight": "README 称涉及角色的特效都按「起手—出手—命中定格—收招」演出，12 套完整动作可串成攻击；支持在线调色/镜像、导出 sprite sheet，方法与 Hugo Duprez 的像素特效教程一致。"
+      },
+      {
+        "rank": 16,
+        "repo": "lexifina/global-law",
+        "url": "https://github.com/lexifina/global-law",
+        "lang": "HTML",
+        "stars": "1,695",
+        "delta": "",
+        "source": "daily",
+        "summary": "把各国法律做成一个 git 仓库：每个国家一个 submodule，每条生效法律一次 commit。",
+        "highlight": "README 的定位是「Git for Global Law」，用版本历史呈现法律变更；结构上国家为子模块、commit 对应法律生效，便于 diff 与追溯。"
+      },
+      {
+        "rank": 17,
+        "repo": "kevinraymond/florilegium",
+        "url": "https://github.com/kevinraymond/florilegium",
+        "lang": "Lua",
+        "stars": "1,360",
+        "delta": "",
+        "source": "daily",
+        "summary": "为 LaTeX 页面程序化生成代尔夫特蓝花卉页边，每页花园都不一样。",
+        "highlight": "README 强调无图片、无外部路径：每片花瓣/叶子/茎都是 Lua 在排版时算出的参数曲线并直接写进 PDF；提供 authored 与 grown 两种构图，后者用贪心填充把文字留下的空白长满，浏览器 playground 可导出 SVG/LaTeX/Typst。"
+      },
+      {
+        "rank": 18,
+        "repo": "Verlintas/NOIR",
+        "url": "https://github.com/Verlintas/NOIR",
+        "lang": "Kotlin",
+        "stars": "1,236",
+        "delta": "",
+        "source": "daily",
+        "summary": "用 adb 审计 Android 应用会泄露什么：权限、上报端点、数据流向，并给出可回滚处置。",
+        "highlight": "README 称把「这台手机到底能泄露什么」变成可复现报告；桌面端支持 macOS/Windows/Linux，处置动作可回滚。"
+      },
+      {
+        "rank": 19,
+        "repo": "elvarofficial/teardown",
+        "url": "https://github.com/elvarofficial/teardown",
+        "lang": "JavaScript",
+        "stars": "1,211",
+        "delta": "",
+        "source": "daily",
+        "summary": "Claude Code 技能：把任何机器做成可拆解的 3D 模拟器，输出单页离线 HTML。",
+        "highlight": "README 称机器在中间运转、周围面板读真实数值、按钮打开正在工作的零件，无人操作时页面自动巡演；示例含机器蜂、机器蝎、机器章鱼，可选录制视频。"
+      },
+      {
+        "rank": 20,
+        "repo": "caru-ini/stack-diagram",
+        "url": "https://github.com/caru-ini/stack-diagram",
+        "lang": "TypeScript",
+        "stars": "1,111",
+        "delta": "",
+        "source": "daily",
+        "summary": "一句话描述技术栈，生成带官方 logo 的架构图。",
+        "highlight": "README 示例从 Next.js + Hono + Neon + Clerk + Stripe + GitHub Actions 直接出图；以 agent skill 形式分发（npx skills add），支持 Claude Code、Codex、Cursor 及兼容 agentskills.io 的 agent。"
+      }
+    ]
+  },
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（北京时间 11-02 06:00 → 11-03 06:00）· 官方博客为「上次日报后新增」口径 · arXiv 最多回看 96 小时 · 已单列「智能体/Agent」分类",
+    "sourcesUsed": ["Hacker News", "arXiv", "OpenAI Blog", "GitHub Releases"],
+    "items": [
+      {
+        "category": "research",
+        "title": "MIT CSAIL：GPT-6 Astra 能直接读写神经网络权重，无梯度把 Qwen 数学从 7.9% 修到 48.1%",
+        "summary": "Rikiya Takehi 等人发布「Weight-Space Programming」：Astra 仅凭 17,253 个原始权重就能以 99% 置信判断网络是在 Breakout 上训练的；在不让它写训练循环的前提下，原生编辑 Qwen3.5-0.8B 约 0.016% 的权重，MATH-500 从 7.9% 升到 48.1%，IFEval 提升约 3 倍，并能从零写出打赢 PPO 1 亿步策略的小型游戏网络。",
+        "why": "把「优化器更新权重」换成「模型推理权重」，若可复现，优化与可解释性会共享同一条路径。",
+        "url": "https://rikiyat.github.io/blog/weight-space-programming/",
+        "source": "Hacker News",
+        "time": "11/03 02:21",
+        "heat": "HN 1297 分 · 410 评论"
+      },
+      {
+        "category": "industry",
+        "title": "CNBC：Anthropic 修订版 S-1 披露 Q3 营收 170 亿美元、承诺额 8950 亿美元",
+        "summary": "CNBC 报道 Anthropic 在修订后的 S-1 中给出 Q3 营收 170 亿美元，以及总额 8950 亿美元的长期承诺；Hacker News 同日另一条热帖称其内部 AI 使用按零售价折算已超过员工薪酬。",
+        "why": "收入与承诺同时到千亿美元量级，IPO 定价和「AI 资本开支能否回收」的争论都被推到一个更硬的数字上。",
+        "url": "https://www.cnbc.com/2026/11/02/anthropic-ant-s-1-quarter-financials.html",
+        "source": "Hacker News / CNBC",
+        "time": "11/02 22:38",
+        "heat": "HN 222 分 · 247 评论"
+      },
+      {
+        "category": "research",
+        "title": "OpenAI 发布 LifeVal：用「找托儿、理财务、办政府手续」测 AI 的真实办事能力",
+        "summary": "OpenAI 推出 LifeVal 基准，衡量 AI 在日常生活任务上帮人把事情真正办成的程度，覆盖寻找托儿、管理财务、处理政府文书等场景。",
+        "why": "评测重心从考试题转向多步骤现实流程，正好补上 agent 实用性缺少统一度量的问题。",
+        "url": "https://openai.com/index/lifeval",
+        "source": "OpenAI Blog",
+        "time": "11/02 17:00",
+        "heat": ""
+      },
+      {
+        "category": "industry",
+        "title": "OpenAI 启动 Grid Protectors：让新建算力园区不再推高居民电价",
+        "summary": "OpenAI 宣布 Grid Protectors Program，将与电力公司合作，使未来的算力园区支持电网可靠性，并保护消费者的用电成本。",
+        "why": "算力扩张的瓶颈正从芯片转向电网与社区许可，模型公司开始直接介入能源基础设施。",
+        "url": "https://openai.com/index/grid-protectors-program",
+        "source": "OpenAI Blog",
+        "time": "11/02 23:00",
+        "heat": ""
+      },
+      {
+        "category": "industry",
+        "title": "中国商务部第 48 号公告：首次建立前沿 AI 出口管制",
+        "summary": "Cloud Security Alliance 研究简报解读中国商务部 2026 年第 48 号公告，称这是中国首套针对前沿 AI 的出口管制安排。",
+        "why": "AI 管制从美国单向输出变成双向工具，模型、权重与服务的跨境流动都要重新算合规成本。",
+        "url": "https://labs.cloudsecurityalliance.org/research/csa-research-note-china-ai-export-controls-announcement-48-2/",
+        "source": "Hacker News / Cloud Security Alliance",
+        "time": "11/02 15:27",
+        "heat": "HN 146 分 · 83 评论"
+      },
+      {
+        "category": "agent",
+        "title": "crewAI 发布 1.15.34：技能检索、部署打包与运行断点记录进 CLI",
+        "summary": "crewAI 1.15.34 加入独立 LiteLLM 目录、crewai skill search 检索组织技能、deploy create --zip 打包部署、把 --inputs 传给 Python flow，并记录 crewai run 在 kickoff 前停在哪一步。",
+        "why": "agent 框架的竞争点正从「能不能编排」转向技能分发、部署与可观测性这些工程化能力。",
+        "url": "https://github.com/crewAIInc/crewAI/releases/tag/1.15.34",
+        "source": "GitHub Releases",
+        "time": "11/02 05:21",
+        "heat": "新版发布"
+      },
+      {
+        "category": "agent",
+        "title": "RoboArchitect：把机器人 agent harness 的设计也自动化，并带持久记忆",
+        "summary": "论文指出冻结的机器人策略放进 agent harness（由控制代码决定何时调用策略、查视觉工具或直接驱动机械臂）后表现远好于单独使用，但这些 harness 一直靠手工为每个机器人重写；RoboArchitect 将 harness 设计自动化，作为新平台上替代微调的方案，并为 agent 加入持久记忆。",
+        "why": "「为每个本体手写控制层」是机器人落地的隐性成本，自动化 harness 设计把适配问题从调参变成生成。",
+        "url": "http://arxiv.org/abs/2610.42141v1",
+        "source": "arXiv",
+        "time": "10/31 01:58（提交日）",
+        "heat": "新论文"
+      }
+    ]
+  },
+  "observation": [
+    "今天的榜单被两类东西占满：一类是把闭源软件用纯 Rust 重写一遍（wordcraft、solidcraft、craft-anything），另一类是「agent skill」这种新的分发单位（unslop、anatomy、teardown、stack-diagram、pixelfx）。前者卖的是可审计的实体，后者卖的是可复用的工作方法。",
+    "harness 正式成为研究对象：Google Research 的 Harness² 把 prompt/工具/记忆/技能/编排整体当作可优化系统，RoboArchitect 则把机器人 harness 的设计自动化。agent 的瓶颈不再是模型，而是模型外面那层壳。",
+    "OpenAI 一边把 721 篇模型产出的数学手稿当「原始研究数据」开源，一边展示 Astra 直接改权重；产出与验证（Lean 形式化）之间的落差，正在变成新的基础设施需求。",
+    "成本控制已经分层：TokenEconomizer 在 agent 调用层省 18–30%，DeepInfer 在推理引擎层做 batch-invariant 与确定性采样，gpu-unlock 直接在固件/驱动层解锁被砍半的 tensor 吞吐。三层都不碰模型本身。",
+    "消费端依旧是「去广告 + 隐私 + 本地化」：cleanyourtv 五万星、NOIR 做 adb 隐私审计、nxnative 把主机游戏搬上 iPhone，用户愿意为「拿回自己设备与数据的控制权」付出安装成本。"
+  ]
+}
