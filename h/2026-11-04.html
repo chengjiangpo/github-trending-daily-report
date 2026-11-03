@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-11-04 · GitHub Trending 每日分析</title>
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="hero mini">
+    <div>
+      <a class="kicker" href="../">← 返回首页（含全部 45 期）</a>
+      <h1>2026-11-04<span class="wd" style="font-size:15px;font-weight:400;color:var(--muted);margin-left:10px">周三</span></h1>
+      <p>GitHub Trending 每日分析 · 单日页 · 共收录 899 个项目</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>20</b><span>本期项目</span></div>
+    </div>
+  </header>
+
+  <div class="toolbar" style="margin-top:22px">
+    <a class="tbtn" href="../">‹ 返回首页</a>
+    <a class="tbtn" href="2026-11-03.html">2026-11-03 ›</a>
+    <a class="tbtn" href="../#d-2026-11-04">在首页中查看</a>
+  </div>
+
+  <main>
+    <div class="toolbar">
+      <input id="q" type="search" placeholder="筛选：仓库名 / 语言 / 关键词…">
+      <button class="tbtn on" data-f="all" type="button">全部</button>
+      <button class="tbtn" data-f="daily" type="button">仅日榜</button>
+      <button class="tbtn" data-f="weekly" type="button">仅周榜</button>
+      <button class="tbtn" data-f="news" type="button">仅 AI 动态</button>
+      <button class="tbtn" data-f="agent" type="button">仅 Agent</button>
+    </div>
+    <section class="panel active" id="d-2026-11-04" data-date="2026-11-04" data-loaded="1">
+        <div class="day-head">
+          <h2>2026-11-04<span class="wd">周三</span></h2>
+          <span class="day-sub">日榜 10 · 周榜 10 · 20 个 Trending 项目</span>
+        </div>
+        <details class="notes"><summary>数据说明</summary><ul><li>github.com/trending 本次仍不可达（本机到 github.com 的 HTTPS 不通），按预案改用 api.github.com Search API 替代口径：daily = created:&gt;2026-10-28 按 star 降序取前 10；weekly = created:&gt;2026-10-05 按 star 降序补位 10 条。20 条中 daily 10 条、weekly 10 条，source 字段已逐条标注。</li><li>Search API 不提供「今日/本周 star 增量」。本期 delta 字段为「与 2026-11-03 日报同一仓库 star 数之差」（约 24 小时），仅对昨日也上榜的仓库计算；新上榜仓库（aerial-tv、totk-pc-recomp、RUN、Eglantine、nvzhuang）delta 留空，未做估算。</li><li>各仓库的一句话功能与亮点均取自该仓库 README（raw.githubusercontent.com 默认分支）与 API description，未加入仓库之外的推断；README 未写明的能力不写。star 数为 2026-11-04 06:00（北京时间）前后 API 返回值。</li><li>deepseek-ai/deepseek-harness（master）24 小时内有 ≥30 条提交（达到 per_page=30 上限），主线是 0.2.2-alpha.3 发版、MCP manager 合并与 SDK team mode；已跳过 release(vendor) 的 alpha 依赖批量升级等噪音。</li><li>earendil-works/pi（main）24 小时内 ≥30 条提交（达到上限），主线是 MCP 体系（PipeTransport、OAuth、host/environment/project 三层 server）与新增 apps/p2 原型；跳过大量 docs(chord) 提交。</li><li>anomalyco/opencode（dev）24 小时内 21 条提交，主线是 ai 层请求管线统一与 GUI 插件化；纯样式微调类提交未列入。</li><li>AI 动态共 13 个源，12 个抓取成功，CrewAI Blog 失败（fetch failed）；Anthropic News、Google AI Blog、GitHub AI/ML Blog 本次 0 条新增。</li><li>官方大模型博客本次候选：OpenAI Blog 6 条、Google DeepMind 1 条；按脚本的「新增」判定均在上次日报之后发布。本期保留 DeepMind 1 条（Antigravity 化学信息学）与 OpenAI 1 条（工程/物理世界），其余 5 条 OpenAI 客户案例与人事任命因信息密度让位。</li><li>智能体专项：本期保留 3 条 agent 类条目（DeepSeek super-agent 原型、DeepMind Antigravity 化学信息学、GitHub Copilot 接入 JetBrains Air 的 ACP）。</li><li>Astra「Weight-Space Programming」在 11-03 日报已作为研究条目出现；本期条目聚焦 11-03 当天新增的反驳文章与讨论（HN 828 分），不是重复报道原论文。</li><li>Anthropic 相关的增长、IPO 与人力成本数字均来自 Hacker News 上榜的外部报道（Regenerator、Tech Policy Press、TechSpot），非 Anthropic 官方口径，未做二次核实；条目中已写明「帖子称」。</li><li>所有时间已换算为北京时间（UTC+8）；HN 的 heat 取自 Algolia 返回的 points/comments；官方博客、GitHub Blog、arXiv 等无热度字段的条目 heat 标注为「新论文」「新版发布」或留空。</li></ul></details>
+        
+          <section class="block">
+            <div class="block-head">
+              <h3><span class="ico">🧩</span>仓库提交简报</h3>
+              <span class="block-sub">过去 24 小时（since 2026-11-02T22:00Z，即北京时间 11-03 06:00 → 11-04 06:00）</span>
+            </div>
+            <div class="repo-grid">
+              <div class="repo-block" style="--c:#5B9BFF">
+                <div class="rb-head"><h4>deepseek-ai/deepseek-harness</h4><span class="rb-meta">master · 24h 内 ≥30 条提交（per_page 上限）· 发布 dsh 0.2.2-alpha.3 · 合并 MCP manager 与 SDK team mode</span></div>
+                <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">release(dsh): 0.2.2-alpha.3，并把 master 各包对齐到该版本</div>
+                    <div class="c-meta">0.2.2 系列的第三个 alpha，master 与 worktree 分支完成同步 · imccyu · 11-03 15:27</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">Merge PR #3372 feat/mcp-manager-core</div>
+                    <div class="c-meta">MCP 管理器核心合入 master，配套刷新了 read / web_search 引导的模板快照 · LegGasai / grllll · 11-03 14:07</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">Merge PR #7773 feat/sdk-team-mode</div>
+                    <div class="c-meta">SDK 的 team 模式落地；同日修掉子 agent 激活前未初始化 configured mode 的问题 · Dudu-0223 · 11-03 14:32</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(web): 网页搜索与取页设置分开，Search 默认改为 DeepSeek Search API</div>
+                    <div class="c-meta">Search 与 Fetch 从同一个开关拆成两个独立设置项 · yudshj · 11-03 12:43</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">Merge PR #7495 feat/desktop-update-channels</div>
+                    <div class="c-meta">桌面端支持多更新通道，并补了设置失败时的结构化断言 · winewill · 11-03 14:03</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(team): remove startup step-history guard</div>
+                    <div class="c-meta">去掉 team 启动时的步骤历史守卫，简化子 agent 启动路径 · Dudu-0223 · 11-03 14:06</div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+              <div class="repo-block" style="--c:#A06BFF">
+                <div class="rb-head"><h4>earendil-works/pi</h4><span class="rb-meta">main · 24h 内 ≥30 条提交（per_page 上限）· MCP 三层 server 与 OAuth 连续落地 · 新增 apps/p2 原型</span></div>
+                <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(p2): MCP servers on the host, on environments and from projects</div>
+                    <div class="c-meta">MCP server 可在宿主、环境与项目三个层级声明 · mitsuhiko · 11-03 23:48</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(p2): expose MCP tools to code mode only, as pi does</div>
+                    <div class="c-meta">MCP 工具只在 code mode 暴露，与 pi 的行为对齐 · mitsuhiko · 11-04 01:29</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat: add apps/p2（从 pi-private 7dadff697 导入）</div>
+                    <div class="c-meta">p2 应用进入主仓；同批文档明确它是「很快会消失的实验原型」 · badlogic · 11-03 21:39</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(mcp): MCP OAuth sign-in in two halves, moved from coding-agent</div>
+                    <div class="c-meta">OAuth 登录拆成两段从 coding-agent 迁入 mcp 包，并修了 redirect URI 刷新与锁等待期间取消登录 · mitsuhiko · 11-03 08:35</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(mcp): PipeTransport, the stdio transport over a caller-started program</div>
+                    <div class="c-meta">新增 PipeTransport，把 stdio 传输架在调用方启动的进程上 · mitsuhiko · 11-03 08:13</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(mcp): apply maxMessageBytes to Streamable HTTP JSON responses（#11749）</div>
+                    <div class="c-meta">消息体上限现在同样约束 Streamable HTTP 的 JSON 响应，并取消超限的 SSE 流 · robopipi[bot] · 11-04 04:44</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(chord): messages and languages in the app kit（i18n）</div>
+                    <div class="c-meta">Chord 应用工具包加入多语言消息机制 · badlogic · 11-04 04:25</div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+              <div class="repo-block" style="--c:#2FD6A6">
+                <div class="rb-head"><h4>anomalyco/opencode</h4><span class="rb-meta">dev · 24h 内 21 条提交 · ai 层请求管线统一 · GUI 插件化与 TUI 细节修复</span></div>
+                <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(ai): share headers, fetch and timeout across every request（#60970）</div>
+                    <div class="c-meta">所有模型请求共用一套 headers、fetch 与超时设置，为统一重试/代理打底 · rekram1-node · 11-04 00:38</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(ai): accept bytes, URLs and strings as file input（#60963）</div>
+                    <div class="c-meta">文件输入不再只接受本地路径，可直接传字节、URL 或字符串 · rekram1-node · 11-04 00:11</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">refactor(ai): split Message by role（#61195 / #61196）</div>
+                    <div class="c-meta">按角色拆分 Message 类型并收窄 content，配合会话侧的类型重构 · rekram1-node · 11-04 00:32</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(app): let GUI plugins add color themes（#61485）</div>
+                    <div class="c-meta">GUI 插件可以注册自己的配色主题 · Hona · 11-04 05:50</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(server): add experimental job list endpoint（#60698）</div>
+                    <div class="c-meta">新增实验性 job 列表接口；同批把 stats 同步迁到 Cloudflare Workflows · rekram1-node / adamdotdevin · 11-04 00:32</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(ai): count Gemini tool-use prompt tokens as billed input（#61484）</div>
+                    <div class="c-meta">修正 Gemini 工具调用的 prompt token 未计入计费输入的问题 · heimoshuiyu · 11-04 05:34</div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        <section class="block">
+          <div class="block-head">
+            <h3><span class="ico">🚀</span>GitHub Trending 分析</h3>
+            <span class="block-sub">20 个项目</span>
+          </div>
+          <ol class="board">
+            <li class="row" style="--c:#4B8BBE" data-src="weekly" data-text="gathin23/cleanyourtv python 不 root、不接线，通过 wi-fi 给 android tv / google tv 关掉厂商遥测与广告，并换成类 apple tv 桌面。 readme 的流程是「备份已装包与设置 → 用 pm disable-user 禁用而非卸载 → 装 launcher」，并给出 restore 脚本逐条还原；对三星/lg/roku/vizio/海信 vidaa 这类非 android 电视，另给手动关跟踪指引。">
+              <span class="rnk g1">1</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/Gathin23/cleanyourtv" target="_blank" rel="noreferrer">Gathin23/cleanyourtv</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">不 root、不接线，通过 Wi-Fi 给 Android TV / Google TV 关掉厂商遥测与广告，并换成类 Apple TV 桌面。</p>
+                <p class="row-hl">README 的流程是「备份已装包与设置 → 用 pm disable-user 禁用而非卸载 → 装 launcher」，并给出 restore 脚本逐条还原；对三星/LG/Roku/Vizio/海信 VIDAA 这类非 Android 电视，另给手动关跟踪指引。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#4B8BBE">Python</span>
+                <span class="stat">★ 51,281</span>
+                <span class="delta">+945</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#4B8BBE" data-src="weekly" data-text="deepseek-ai/deepinfer python deepseek 生产环境在用的高性能推理框架，开源了其中的离线推理部分。 readme 列出 flashmla / deepgemm / deepep / tilekernels / deepselect 优化内核、attention dp 与均衡 cp、moe ep + eplb、dspark 与置信度调度验证、swa 有界重放、异步调度、batch-invariant 推理、确定性采样与结构化输出；当前支持 deepseek-v4.1-flash。">
+              <span class="rnk g2">2</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/deepseek-ai/DeepInfer" target="_blank" rel="noreferrer">deepseek-ai/DeepInfer</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">DeepSeek 生产环境在用的高性能推理框架，开源了其中的离线推理部分。</p>
+                <p class="row-hl">README 列出 FlashMLA / DeepGEMM / DeepEP / TileKernels / DeepSelect 优化内核、Attention DP 与均衡 CP、MoE EP + EPLB、DSpark 与置信度调度验证、SWA 有界重放、异步调度、batch-invariant 推理、确定性采样与结构化输出；当前支持 DeepSeek-V4.1-Flash。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#4B8BBE">Python</span>
+                <span class="stat">★ 25,203</span>
+                <span class="delta">+180</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#F1E05A" data-src="weekly" data-text="wheresryan22/anatomy javascript 把抽象概念「造出来」的 claude skill：生成带大量精密零件的等距解剖图。 readme 称可在 antigravity、opencode、codex、minimax code 中运行，输出 svg / webgl / 3d；示例是把「缓存未命中才计算」画成只有所有弹子对齐才转开的弹子锁，且图中每个数字都由驱动零件的同一套小模型算出。">
+              <span class="rnk g3">3</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/wheresryan22/anatomy" target="_blank" rel="noreferrer">wheresryan22/anatomy</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">把抽象概念「造出来」的 Claude skill：生成带大量精密零件的等距解剖图。</p>
+                <p class="row-hl">README 称可在 Antigravity、OpenCode、Codex、MiniMax Code 中运行，输出 SVG / WebGL / 3D；示例是把「缓存未命中才计算」画成只有所有弹子对齐才转开的弹子锁，且图中每个数字都由驱动零件的同一套小模型算出。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#F1E05A">JavaScript</span>
+                <span class="stat">★ 24,423</span>
+                <span class="delta">+334</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#4B8BBE" data-src="weekly" data-text="google-research/harness2 python google research 的「递归 agent harness」框架：把 prompt、工具、记忆、技能、编排整体当作可优化的系统。 readme 把 harness 定义为模型之外让模型成为 agent 的全部系统，harness² 在冻结权重的前提下做任务级与优化级两层递归；报告称单步即可让 glm-5 与 gemini 3.5 flash 在 workbuddy-bench 最高 +11.5 分、jobbench +4.5 分、lab 部分通过率 +11.8pp，支持 opencode / codex 执行器。">
+              <span class="rnk">4</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/google-research/harness2" target="_blank" rel="noreferrer">google-research/harness2</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">Google Research 的「递归 agent harness」框架：把 prompt、工具、记忆、技能、编排整体当作可优化的系统。</p>
+                <p class="row-hl">README 把 harness 定义为模型之外让模型成为 agent 的全部系统，Harness² 在冻结权重的前提下做任务级与优化级两层递归；报告称单步即可让 GLM-5 与 Gemini 3.5 Flash 在 WorkBuddy-Bench 最高 +11.5 分、JobBench +4.5 分、LAB 部分通过率 +11.8pp，支持 OpenCode / Codex 执行器。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#4B8BBE">Python</span>
+                <span class="stat">★ 22,409</span>
+                <span class="delta">+315</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#8b93a7" data-src="weekly" data-text="openai/math lean openai 把内部模型产出的数学手稿与 lean 证明工件集中开源。 readme 说明目录含 721 篇手稿、373 个「家族」，由某个未具名内部模型在开放研究问题上生成；约 42% 的主结果已有 lean 形式化，另外放出 4 个家族的推理摘要，并明确称其为「原始研究数据」而非成熟论文。">
+              <span class="rnk">5</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/openai/math" target="_blank" rel="noreferrer">openai/math</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">OpenAI 把内部模型产出的数学手稿与 Lean 证明工件集中开源。</p>
+                <p class="row-hl">README 说明目录含 721 篇手稿、373 个「家族」，由某个未具名内部模型在开放研究问题上生成；约 42% 的主结果已有 Lean 形式化，另外放出 4 个家族的推理摘要，并明确称其为「原始研究数据」而非成熟论文。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#8b93a7">Lean</span>
+                <span class="stat">★ 17,306</span>
+                <span class="delta">+34</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#DEA584" data-src="weekly" data-text="storytold/wordcraft rust 纯 rust 的 clean-room 文字处理器，读写 .docx，桌面与浏览器都能跑。 readme 列出 ribbon、样式、表格、修订追踪、参考文献与邮件合并；原生支持 macos / windows / linux / bsd，并经 webassembly 在浏览器运行。">
+              <span class="rnk">6</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/storytold/wordcraft" target="_blank" rel="noreferrer">storytold/wordcraft</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">纯 Rust 的 clean-room 文字处理器，读写 .docx，桌面与浏览器都能跑。</p>
+                <p class="row-hl">README 列出 ribbon、样式、表格、修订追踪、参考文献与邮件合并；原生支持 macOS / Windows / Linux / BSD，并经 WebAssembly 在浏览器运行。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#DEA584">Rust</span>
+                <span class="stat">★ 17,193</span>
+                <span class="delta">+139</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#3178C6" data-src="daily" data-text="deepseek-ai/dsh-superagent-prototype typescript deepseek 开源的主动式编码 agent 原型：监听 github（可选飞书），自主接活并回 pr。 readme 明确这是研究原型、非官方产品且经过为公开发布的改写；agent 收到许可请求后开工作项，在独立会话与目录中执行，回到原会话交付（例如 pr），另有 web 面板列出需要人介入的事项，设计原则是「尽量少占用人的注意力」。">
+              <span class="rnk">7</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/deepseek-ai/dsh-superagent-prototype" target="_blank" rel="noreferrer">deepseek-ai/dsh-superagent-prototype</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">DeepSeek 开源的主动式编码 agent 原型：监听 GitHub（可选飞书），自主接活并回 PR。</p>
+                <p class="row-hl">README 明确这是研究原型、非官方产品且经过为公开发布的改写；agent 收到许可请求后开工作项，在独立会话与目录中执行，回到原会话交付（例如 PR），另有 Web 面板列出需要人介入的事项，设计原则是「尽量少占用人的注意力」。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#3178C6">TypeScript</span>
+                <span class="stat">★ 16,574</span>
+                <span class="delta">+3,659</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#8f8f8f" data-src="weekly" data-text="zagitta/gpu-unlock c 解除 geforce 显卡在 fp16/bf16/tf32 上的 tensor core 半速限制。 readme 称 nvidia 在消费卡上把 fp32 累加的 tensor 吞吐锁到一半，本项目在驱动加载前解除，无需改驱动或刷 vbios；宣称 rtx 30 系稳定、20/40 系实验性，llm prefill +25–55%、微调 +25–50%、图像生成 +30–55%，仅 linux，rtx 50 不支持。">
+              <span class="rnk">8</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/Zagitta/gpu-unlock" target="_blank" rel="noreferrer">Zagitta/gpu-unlock</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">解除 GeForce 显卡在 FP16/BF16/TF32 上的 tensor core 半速限制。</p>
+                <p class="row-hl">README 称 NVIDIA 在消费卡上把 FP32 累加的 tensor 吞吐锁到一半，本项目在驱动加载前解除，无需改驱动或刷 VBIOS；宣称 RTX 30 系稳定、20/40 系实验性，LLM prefill +25–55%、微调 +25–50%、图像生成 +30–55%，仅 Linux，RTX 50 不支持。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#8f8f8f">C</span>
+                <span class="stat">★ 15,574</span>
+                <span class="delta">+993</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#DEA584" data-src="weekly" data-text="tangency-labs/solidcraft rust 纯 rust 的参数化 3d cad，桌面与浏览器都能用，并内置 mcp server 让 agent 建模。 readme 强调草图、约束与参数化特征时间线，改一个尺寸模型即重建；除 windows / macos / linux / web 外还上了 snap store，agent 可通过内置 mcp server 直接驱动建模。">
+              <span class="rnk">9</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/tangency-labs/solidcraft" target="_blank" rel="noreferrer">tangency-labs/solidcraft</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">纯 Rust 的参数化 3D CAD，桌面与浏览器都能用，并内置 MCP server 让 agent 建模。</p>
+                <p class="row-hl">README 强调草图、约束与参数化特征时间线，改一个尺寸模型即重建；除 Windows / macOS / Linux / Web 外还上了 Snap Store，agent 可通过内置 MCP server 直接驱动建模。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#DEA584">Rust</span>
+                <span class="stat">★ 13,382</span>
+                <span class="delta">+228</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#4B8BBE" data-src="weekly" data-text="seedds/nxnative python 把 switch 游戏原生跑到 iphone / ipad 上：nsp 加 prod.keys 转成可侧载的 ipa。 readme 强调它不是模拟器——游戏自身代码直接跑在 apple 芯片上，switch 图形重建在 metal 上；目前已开始支持 5 款 switch 2 游戏（仅 mac 测试），并列出复用 d2r-mobile、ryujinx、atmosphère、libhac 等上游组件。">
+              <span class="rnk">10</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/seedds/nxnative" target="_blank" rel="noreferrer">seedds/nxnative</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">把 Switch 游戏原生跑到 iPhone / iPad 上：NSP 加 prod.keys 转成可侧载的 IPA。</p>
+                <p class="row-hl">README 强调它不是模拟器——游戏自身代码直接跑在 Apple 芯片上，Switch 图形重建在 Metal 上；目前已开始支持 5 款 Switch 2 游戏（仅 Mac 测试），并列出复用 d2r-mobile、Ryujinx、Atmosphère、LibHac 等上游组件。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#4B8BBE">Python</span>
+                <span class="stat">★ 11,852</span>
+                <span class="delta">+463</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#A97BFF" data-src="weekly" data-text="pengchujin/aerial-tv kotlin 给国产 android 电视做的无广告桌面：只有 app、壁纸和航拍屏保，参照 tvos。 readme 称无需 root、不动系统应用、随时可还原；支持长按整理、手机扫码后在同款图标网格里拖动排序，屏保内置 apple tv 的 114 段航拍影片（支持时播 4k / 杜比视界），并适配小米、tcl、创维、索尼等。">
+              <span class="rnk">11</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/pengchujin/aerial-tv" target="_blank" rel="noreferrer">pengchujin/aerial-tv</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">给国产 Android 电视做的无广告桌面：只有 App、壁纸和航拍屏保，参照 tvOS。</p>
+                <p class="row-hl">README 称无需 root、不动系统应用、随时可还原；支持长按整理、手机扫码后在同款图标网格里拖动排序，屏保内置 Apple TV 的 114 段航拍影片（支持时播 4K / 杜比视界），并适配小米、TCL、创维、索尼等。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#A97BFF">Kotlin</span>
+                <span class="stat">★ 9,330</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#DEA584" data-src="daily" data-text="storytold/craft-anything rust 先「研究」任意网站/应用/游戏怎么做的，再让编码 agent 用纯 rust clean-room 重建一个。 readme 描述三步闭环：用真实检查工具取证 → 按你的要求让 agent 新建项目 → 把成品与原目标比对（网页三种宽度、游戏自测、应用实跑）并迭代；每次比对都给出相似度，超出规则的改动需人批准。">
+              <span class="rnk">12</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/storytold/craft-anything" target="_blank" rel="noreferrer">storytold/craft-anything</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">先「研究」任意网站/应用/游戏怎么做的，再让编码 agent 用纯 Rust clean-room 重建一个。</p>
+                <p class="row-hl">README 描述三步闭环：用真实检查工具取证 → 按你的要求让 agent 新建项目 → 把成品与原目标比对（网页三种宽度、游戏自测、应用实跑）并迭代；每次比对都给出相似度，超出规则的改动需人批准。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#DEA584">Rust</span>
+                <span class="stat">★ 8,057</span>
+                <span class="delta">+4,281</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#F1E05A" data-src="daily" data-text="heydamir/unslop javascript claude code / codex 的 skill：把「vibecoded」的 ai 味界面改成有设计感的界面。 readme 说它先找「slop」——紫色渐变、光晕、emoji 标签、夸张文案、不齐的间距——再按产品定方向逐轮修改，像设计师做 redline；支持 next.js / react / vue / svelte / tailwind 或纯 html，也能只给一个线上链接。">
+              <span class="rnk">13</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/heydamir/unslop" target="_blank" rel="noreferrer">heydamir/unslop</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">Claude Code / Codex 的 skill：把「vibecoded」的 AI 味界面改成有设计感的界面。</p>
+                <p class="row-hl">README 说它先找「slop」——紫色渐变、光晕、emoji 标签、夸张文案、不齐的间距——再按产品定方向逐轮修改，像设计师做 redline；支持 Next.js / React / Vue / Svelte / Tailwind 或纯 HTML，也能只给一个线上链接。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#F1E05A">JavaScript</span>
+                <span class="stat">★ 7,444</span>
+                <span class="delta">+1,305</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#A97BFF" data-src="daily" data-text="wangzan101/mika kotlin android 上的端侧 ai agent：一句话下达任务，它在后台屏幕替你操作 app 和网页。 readme 强调用「隐藏的后台屏幕」操作，不占用你正在用的手机；靠看屏幕找按钮，不需要各 app 的 api 或适配；会记住偏好并把完成过的任务变成 skill；无厂商服务器，需自备模型 api key，apache-2.0。">
+              <span class="rnk">14</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/wangzan101/Mika" target="_blank" rel="noreferrer">wangzan101/Mika</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">Android 上的端侧 AI agent：一句话下达任务，它在后台屏幕替你操作 App 和网页。</p>
+                <p class="row-hl">README 强调用「隐藏的后台屏幕」操作，不占用你正在用的手机；靠看屏幕找按钮，不需要各 App 的 API 或适配；会记住偏好并把完成过的任务变成 skill；无厂商服务器，需自备模型 API key，Apache-2.0。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#A97BFF">Kotlin</span>
+                <span class="stat">★ 6,023</span>
+                <span class="delta">+791</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#8f8f8f" data-src="daily" data-text="valentderah/totk-pc-recomp c 把《塞尔达传说：王国之泪》静态重编译成 windows / linux 原生 x86-64 程序。 readme 明确不含游戏文件，需自备正版转储（基础版 + 1.1.0 / 1.2.1 / 1.4.3 更新）；特性含默认 60fps 可至 144、自定义分辨率与 fsr 1、rtx 上的 dlss/dlaa、hdr10、21:9 / 32:9、安装期预编译 shader，并可直接加载模拟器 mod。">
+              <span class="rnk">15</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/valentderah/totk-pc-recomp" target="_blank" rel="noreferrer">valentderah/totk-pc-recomp</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">把《塞尔达传说：王国之泪》静态重编译成 Windows / Linux 原生 x86-64 程序。</p>
+                <p class="row-hl">README 明确不含游戏文件，需自备正版转储（基础版 + 1.1.0 / 1.2.1 / 1.4.3 更新）；特性含默认 60fps 可至 144、自定义分辨率与 FSR 1、RTX 上的 DLSS/DLAA、HDR10、21:9 / 32:9、安装期预编译 shader，并可直接加载模拟器 mod。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#8f8f8f">C</span>
+                <span class="stat">★ 4,474</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#F1E05A" data-src="daily" data-text="patch-gg/pixelfx javascript 244 个像素风特效，每个都是一小段可读代码，另附一个会做新特效的 claude code skill。 readme 的目录按 moves / fire / explosions / water / ice / lightning / sci-fi / melee 等分类，带人物的特效都按「起手—出手—命中定格—收招」演出，12 个完整招式可串成攻击；可在线试玩、换色镜像、导出 sprite sheet。">
+              <span class="rnk">16</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/patch-gg/pixelfx" target="_blank" rel="noreferrer">patch-gg/pixelfx</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">244 个像素风特效，每个都是一小段可读代码，另附一个会做新特效的 Claude Code skill。</p>
+                <p class="row-hl">README 的目录按 moves / fire / explosions / water / ice / lightning / sci-fi / melee 等分类，带人物的特效都按「起手—出手—命中定格—收招」演出，12 个完整招式可串成攻击；可在线试玩、换色镜像、导出 sprite sheet。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#F1E05A">JavaScript</span>
+                <span class="stat">★ 4,073</span>
+                <span class="delta">+629</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#4B8BBE" data-src="daily" data-text="bryceyuuu/run python 《run · 润》海外移居手册：36 个欧洲国家、110 条路线，按身份与预算选路径。 readme 标注 380+ 来源、最新更新 2026-11-03，并逐条记录当期变动（英国永居定案、加拿大 express entry 新规生效、比利时蓝卡缩至 90 天）；内容以 cc by-sa 4.0 发布，附免责声明强调不构成移民/法律/税务建议。">
+              <span class="rnk">17</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/BryceYuuu/RUN" target="_blank" rel="noreferrer">BryceYuuu/RUN</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">《RUN · 润》海外移居手册：36 个欧洲国家、110 条路线，按身份与预算选路径。</p>
+                <p class="row-hl">README 标注 380+ 来源、最新更新 2026-11-03，并逐条记录当期变动（英国永居定案、加拿大 Express Entry 新规生效、比利时蓝卡缩至 90 天）；内容以 CC BY-SA 4.0 发布，附免责声明强调不构成移民/法律/税务建议。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#4B8BBE">Python</span>
+                <span class="stat">★ 2,986</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#f34b7d" data-src="daily" data-text="djihads80/eglantine c++ 开源 switch 2 模拟器，代码源自 eden / yuzu / sudachi，提供 windows / linux / macos 构建。 readme 称目前能较流畅运行 mario kart world，splatoon raiders 帧率不稳，兼容列表尚未发布；明确标注为「非常实验性」，并附用户手册与构建指南。">
+              <span class="rnk">18</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/Djihads80/Eglantine" target="_blank" rel="noreferrer">Djihads80/Eglantine</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">开源 Switch 2 模拟器，代码源自 Eden / Yuzu / Sudachi，提供 Windows / Linux / macOS 构建。</p>
+                <p class="row-hl">README 称目前能较流畅运行 Mario Kart World，Splatoon Raiders 帧率不稳，兼容列表尚未发布；明确标注为「非常实验性」，并附用户手册与构建指南。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#f34b7d">C++</span>
+                <span class="stat">★ 2,979</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#00ADD8" data-src="daily" data-text="paipiange/nvzhuang go ai 生成的服装参考图集站：2727 套「人物不入镜」的纯服装图，附带可选的 ai 换装后端。 readme 区分两类使用：图库浏览、双语检索、搭配台为纯前端静态、无需 key；ai 试衣需自建 goframe 后端并自备 gpt image / seedream / gemini 的 api key，代码 mit。">
+              <span class="rnk">19</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/paipiange/nvzhuang" target="_blank" rel="noreferrer">paipiange/nvzhuang</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">AI 生成的服装参考图集站：2727 套「人物不入镜」的纯服装图，附带可选的 AI 换装后端。</p>
+                <p class="row-hl">README 区分两类使用：图库浏览、双语检索、搭配台为纯前端静态、无需 Key；AI 试衣需自建 GoFrame 后端并自备 GPT Image / Seedream / Gemini 的 API Key，代码 MIT。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#00ADD8">Go</span>
+                <span class="stat">★ 2,119</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#A97BFF" data-src="daily" data-text="verlintas/noir kotlin 用 adb 给手上的 android 手机做隐私审计：谁拿了什么权限、数据可能流向哪里。 readme 的流程是设备端用 unzip + strings 从 apk 抽 url（只回传几 kb，不拉整包），再按厂商/类别打分；还会解析二进制 axml 找未保护的导出组件、明文流量、debuggable，并给每条处置配回滚命令。">
+              <span class="rnk">20</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/Verlintas/NOIR" target="_blank" rel="noreferrer">Verlintas/NOIR</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">用 adb 给手上的 Android 手机做隐私审计：谁拿了什么权限、数据可能流向哪里。</p>
+                <p class="row-hl">README 的流程是设备端用 unzip + strings 从 APK 抽 URL（只回传几 KB，不拉整包），再按厂商/类别打分；还会解析二进制 AXML 找未保护的导出组件、明文流量、debuggable，并给每条处置配回滚命令。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#A97BFF">Kotlin</span>
+                <span class="stat">★ 1,753</span>
+                <span class="delta">+517</span>
+              </div>
+            </li>
+          </ol>
+        </section>
+        
+          <section class="block">
+            <div class="block-head"><h3><span class="ico">🔭</span>趋势观察</h3></div>
+            <ul class="obs"><li style="--c:#5B9BFF"><span class="num">1</span><p>今天的榜首仍然是「把闭源软件用纯 Rust 重写一遍」：wordcraft、solidcraft、craft-anything 三条同在榜上，而 craft-anything 单日 +4,281 star，说明卖点已从「开源替代」升级为「先取证、再重建、最后比对」的完整闭环。</p></li><li style="--c:#A06BFF"><span class="num">2</span><p>agent skill 正在变成真正的分发单位：unslop（+1,305）、pixelfx、anatomy 都是「一个 skill + 一套方法」，GitHub 同日让 Dependabot 支持 Agent Package Manager，skill 开始有版本与依赖管理——这是从 dotfiles 走向包生态的一步。</p></li><li style="--c:#2FD6A6"><span class="num">3</span><p>DeepSeek 一天贡献两个高星仓库：dsh-superagent（+3,659）把编码 agent 做成团队常驻成员，DeepInfer 把生产推理栈开源；模型、harness、推理三层同时对外开放，比单发模型更容易形成生态。</p></li><li style="--c:#FFB13B"><span class="num">4</span><p>硬件与固件层的「解锁」需求在抬头：gpu-unlock（+993）解除消费卡 tensor 半速，nxnative 与 totk-pc-recomp 把主机游戏搬上 Apple 芯片与 PC，用户愿意为「拿回自己设备的全部性能」付出安装与合规成本。</p></li><li style="--c:#FF7AB6"><span class="num">5</span><p>消费端的注意力仍在「去广告 + 隐私 + 本地化」：cleanyourtv 五万星、aerial-tv 新上榜 9,330、NOIR 做 adb 隐私审计；与之对照，AI 侧最大的争论是训练数据与采购锁定（Codex 会话、学校搜索），两边其实是同一个诉求——谁控制我的数据与界面。</p></li>
+            </ul>
+          </section>
+        
+          <section class="block">
+            <div class="block-head">
+              <h3><span class="ico">🧠</span>AI 前沿动态</h3>
+              <span class="block-sub">过去 24 小时（北京时间 11-03 06:00 → 11-04 06:00）· 官方博客为「上次日报后新增」口径 · arXiv 最多回看 96 小时 · 已单列「智能体/Agent」分类 · 源：Hacker News / arXiv / OpenAI Blog / Google DeepMind / GitHub Blog / Latent Space</span>
+            </div>
+            <div class="grid">
+            <article class="card news" style="--c:#22D3EE" data-src="news" data-text="deepseek 的 super-agent 原型被列为当日重点，仓库单日涨 3,659 star latent space 的 ainews 把「deepseek 的 super-agent 原型」与权重编程、gdpx 基准并列为当日三件事；对应仓库 deepseek-ai/dsh-superagent-prototype（10-31 建仓）已到 16,574 star，readme 自述是「为一个 github 仓库服务的主动式编码 agent」，监听 github（可选飞书），开工作项、在独立会话与目录里干活、回到原会话交付 pr。 这是把「编码 agent」从会话工具推成团队常驻成员的一次公开样本，而 deepseek 同时握有 harness、推理框架与模型，闭环最完整。 latent space / github">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/deepseek-ai/dsh-superagent-prototype" target="_blank" rel="noreferrer">DeepSeek 的 super-agent 原型被列为当日重点，仓库单日涨 3,659 star</a>
+                  <span class="badge cat">智能体/Agent</span>
+                </div>
+                <p class="summary">Latent Space 的 AINews 把「DeepSeek 的 super-agent 原型」与权重编程、GDPx 基准并列为当日三件事；对应仓库 deepseek-ai/dsh-superagent-prototype（10-31 建仓）已到 16,574 star，README 自述是「为一个 GitHub 仓库服务的主动式编码 agent」，监听 GitHub（可选飞书），开工作项、在独立会话与目录里干活、回到原会话交付 PR。</p>
+                <p class="hl">为什么重要：这是把「编码 agent」从会话工具推成团队常驻成员的一次公开样本，而 DeepSeek 同时握有 harness、推理框架与模型，闭环最完整。</p>
+                <div class="meta"><span>Latent Space / GitHub</span><span>11-03 13:35</span><span>仓库单日 +3,659 star</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#FF8A4C" data-src="news" data-text="hn 热帖：openai 疑似静默重启对 codex 会话的训练 hacker news 上一则帖子称 openai 在用户未明确同意的情况下重新开启了对 codex 聊天内容的模型训练，讨论集中在设置项与实际行为是否一致、以及企业客户的数据边界。 编码 agent 的会话里常含私有代码，训练开关一旦「默认回滚」，企业采用 agent 的合规前提就要重谈。 hacker news">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://news.ycombinator.com/item?id=50352757" target="_blank" rel="noreferrer">HN 热帖：OpenAI 疑似静默重启对 Codex 会话的训练</a>
+                  <span class="badge cat">行业动态</span>
+                </div>
+                <p class="summary">Hacker News 上一则帖子称 OpenAI 在用户未明确同意的情况下重新开启了对 Codex 聊天内容的模型训练，讨论集中在设置项与实际行为是否一致、以及企业客户的数据边界。</p>
+                <p class="hl">为什么重要：编码 agent 的会话里常含私有代码，训练开关一旦「默认回滚」，企业采用 agent 的合规前提就要重谈。</p>
+                <div class="meta"><span>Hacker News</span><span>11-03 22:53</span><span>HN 401 分 · 125 评论</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#FF8A4C" data-src="news" data-text="纽约时报：拒绝 ai 的学校将被 google 关闭搜索服务 nyt 报道称 google 将对拒绝其 ai 相关条款的学校停止提供搜索服务，hn 讨论迅速转向「教育机构还有没有替代品」与采购锁定。 搜索 + ai 被打包成单一采购项后，学校的选择权变成了合同条款问题，这类绑定会先在小机构身上试压。 hacker news / nyt">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://www.nytimes.com/2026/11/03/us/google-search-schools-restrict-ai.html" target="_blank" rel="noreferrer">纽约时报：拒绝 AI 的学校将被 Google 关闭搜索服务</a>
+                  <span class="badge cat">行业动态</span>
+                </div>
+                <p class="summary">NYT 报道称 Google 将对拒绝其 AI 相关条款的学校停止提供搜索服务，HN 讨论迅速转向「教育机构还有没有替代品」与采购锁定。</p>
+                <p class="hl">为什么重要：搜索 + AI 被打包成单一采购项后，学校的选择权变成了合同条款问题，这类绑定会先在小机构身上试压。</p>
+                <div class="meta"><span>Hacker News / NYT</span><span>11-03 23:25</span><span>HN 464 分 · 347 评论</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#FF8A4C" data-src="news" data-text="anthropic ipo 前夜：增长趋平、季度人力成本 17 亿美元、有人主张 sec 拦下 hn 同日三条互相印证：regenerator 分析称 anthropic 增长曲线刚刚走平；tech policy press 主张 sec 应阻止其 ipo 以保护公众；techspot 依据 ipo 文件称其季度人力支出 17 亿美元、约合人均每月 10.7 万美元。 「高增长 + 高薪酬 + 高承诺」三张表同时摊开，ipo 定价将首次为 agent 公司的成本结构定锚。 hacker news / regenerator / tech policy press / techspot">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://www.regenerator1.com/p/anthropics-growth-just-flattened" target="_blank" rel="noreferrer">Anthropic IPO 前夜：增长趋平、季度人力成本 17 亿美元、有人主张 SEC 拦下</a>
+                  <span class="badge cat">行业动态</span>
+                </div>
+                <p class="summary">HN 同日三条互相印证：Regenerator 分析称 Anthropic 增长曲线刚刚走平；Tech Policy Press 主张 SEC 应阻止其 IPO 以保护公众；TechSpot 依据 IPO 文件称其季度人力支出 17 亿美元、约合人均每月 10.7 万美元。</p>
+                <p class="hl">为什么重要：「高增长 + 高薪酬 + 高承诺」三张表同时摊开，IPO 定价将首次为 agent 公司的成本结构定锚。</p>
+                <div class="meta"><span>Hacker News / Regenerator / Tech Policy Press / TechSpot</span><span>11-03 06:33</span><span>HN 227 / 393 / 77 分</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#A06BFF" data-src="news" data-text="astra「直接读写权重」遭正面反驳：效果被指来自评测与选择性报告 matthew honnibal 发文逐条质疑「astra 能读写 qwen 权重」的结论，认为改进可归因于评测设置与报告方式而非权重编辑本身；该反驳在 hn 拿到 828 分，与原帖 2,914 分形成当天最大的一场方法学争论。 如果「推理即优化」这条路线站不住，围绕权重空间编程的一批后续工作都要重新做对照组。 hacker news">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://honnibal.dev/blog/astra-read-write-misleading" target="_blank" rel="noreferrer">Astra「直接读写权重」遭正面反驳：效果被指来自评测与选择性报告</a>
+                  <span class="badge cat">研究/论文</span>
+                </div>
+                <p class="summary">Matthew Honnibal 发文逐条质疑「Astra 能读写 Qwen 权重」的结论，认为改进可归因于评测设置与报告方式而非权重编辑本身；该反驳在 HN 拿到 828 分，与原帖 2,914 分形成当天最大的一场方法学争论。</p>
+                <p class="hl">为什么重要：如果「推理即优化」这条路线站不住，围绕权重空间编程的一批后续工作都要重新做对照组。</p>
+                <div class="meta"><span>Hacker News</span><span>11-03 20:21</span><span>HN 828 分 · 187 评论（原帖 2,914 分）</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#22D3EE" data-src="news" data-text="google deepmind：用 antigravity 做 agentic 化学信息学 deepmind 官方博客介绍 google antigravity 与 cheminformatics skills 如何加速药物发现流程：检索化合物、提出新的刚性化大环分子，并把化学工具链交给 agent 调度。 这是把「agent + 领域 skill 包」直接落到有验证标准的科研流程，比通用助手更能证明 agent 的实际产出。 google deepmind">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/" target="_blank" rel="noreferrer">Google DeepMind：用 Antigravity 做 agentic 化学信息学</a>
+                  <span class="badge cat">智能体/Agent</span>
+                </div>
+                <p class="summary">DeepMind 官方博客介绍 Google Antigravity 与 Cheminformatics Skills 如何加速药物发现流程：检索化合物、提出新的刚性化大环分子，并把化学工具链交给 agent 调度。</p>
+                <p class="hl">为什么重要：这是把「agent + 领域 skill 包」直接落到有验证标准的科研流程，比通用助手更能证明 agent 的实际产出。</p>
+                <div class="meta"><span>Google DeepMind</span><span>11-04 01:01</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#22D3EE" data-src="news" data-text="github copilot 进入 jetbrains air，走 agent client protocol github 宣布 copilot 可在 jetbrains air 中委派编码任务、引导执行并审阅结果，集成基于 agent client protocol（acp），任务在 ide 内闭环。 acp 正成为 ide 与 agent 之间的通用插口，copilot 接入意味着协议之争开始由客户端数量决定。 github blog">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.blog/changelog/2026-11-03-github-copilot-is-now-available-in-jetbrains-air" target="_blank" rel="noreferrer">GitHub Copilot 进入 JetBrains Air，走 Agent Client Protocol</a>
+                  <span class="badge cat">智能体/Agent</span>
+                </div>
+                <p class="summary">GitHub 宣布 Copilot 可在 JetBrains Air 中委派编码任务、引导执行并审阅结果，集成基于 Agent Client Protocol（ACP），任务在 IDE 内闭环。</p>
+                <p class="hl">为什么重要：ACP 正成为 IDE 与 agent 之间的通用插口，Copilot 接入意味着协议之争开始由客户端数量决定。</p>
+                <div class="meta"><span>GitHub Blog</span><span>11-03 23:11</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#FF8A4C" data-src="news" data-text="openai：chatgpt 与 codex 正在进入 cad、pcb 与仿真流程 openai 官方博客称工程团队正用 chatgpt 与 codex 加速 cad、pcb 设计与仿真等「物理世界」的工作流，并给出跨工具链的使用方式。 agent 的价值从写代码转向操作专业软件，这类场景的护城河是工具接口而非模型分数。 openai blog">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://openai.com/index/accelerating-engineering-for-the-physical-world" target="_blank" rel="noreferrer">OpenAI：ChatGPT 与 Codex 正在进入 CAD、PCB 与仿真流程</a>
+                  <span class="badge cat">行业动态</span>
+                </div>
+                <p class="summary">OpenAI 官方博客称工程团队正用 ChatGPT 与 Codex 加速 CAD、PCB 设计与仿真等「物理世界」的工作流，并给出跨工具链的使用方式。</p>
+                <p class="hl">为什么重要：agent 的价值从写代码转向操作专业软件，这类场景的护城河是工具接口而非模型分数。</p>
+                <div class="meta"><span>OpenAI Blog</span><span>11-03 20:00</span></div>
+              </div>
+            </article>
+            </div>
+          </section>
+    </section>
+  </main>
+
+  <footer>
+    <span>生成时间：2026-11-03T22:02:20.339Z · 数据：<code>../data/2026-11-04.json</code></span>
+    <span>Generated by OpenClaw · <a href="https://github.com/chengjiangpo/github-trending-daily-report">仓库源码</a></span>
+  </footer>
+</div>
+<script>
+(function(){
+
+  var q = document.getElementById('q');
+  var btns = Array.prototype.slice.call(document.querySelectorAll('.tbtn'));
+  var mode = 'all';
+  function applyFilter(){
+    var scope = document.querySelector('.panel.active') || document;
+    var term = (q.value || '').trim().toLowerCase();
+    scope.querySelectorAll('.card, .row').forEach(function(c){
+      var okMode = mode === 'all' || c.getAttribute('data-src') === mode;
+      var okText = !term || (c.getAttribute('data-text') || '').indexOf(term) > -1;
+      c.classList.toggle('hide', !(okMode && okText));
+    });
+    scope.querySelectorAll('.block').forEach(function(sec){
+      var holder = sec.querySelector('.grid, .board');
+      if (!holder) return;
+      sec.style.display = holder.querySelectorAll('.card:not(.hide), .row:not(.hide)').length ? '' : 'none';
+    });
+  }
+  q.addEventListener('input', applyFilter);
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      mode = b.getAttribute('data-f');
+      btns.forEach(function(x){ x.classList.toggle('on', x === b); });
+      applyFilter();
+    });
+  });
+  window.__applyFilter = applyFilter;
+
+  applyFilter();
+})();
+</script>
+</body>
+</html>
