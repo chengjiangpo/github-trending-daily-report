@@ -1,0 +1,467 @@
+{
+  "date": "2026-11-05",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "github.com/trending 本次仍不可达（本机到 github.com 的 HTTPS 不通，curl http=000 超时），按预案改用 api.github.com Search API 替代口径：daily = created:>2026-10-28 按 star 降序取前 10；weekly = created:>2026-10-05 按 star 降序补位 10 条。20 条中 daily 10 条、weekly 10 条，source 字段已逐条标注。",
+    "Search API 不提供「今日/本周 star 增量」。本期 delta 为「与 2026-11-04 日报同一仓库 star 数之差」（约 24 小时）；agent-autoloop 为今日新上榜，delta 留空，未做估算。",
+    "各仓库的一句话功能与亮点均取自该仓库 README（raw.githubusercontent.com，main/master 依次尝试）与 API description；README 未写明的能力不写。star 数为 2026-11-05 06:00（北京时间）前后 API 返回值。",
+    "deepseek-ai/deepseek-harness（master）24 小时内 92 条提交，主线是 0.2.2-rc.1 发版（含 vendor 依赖整体对齐 cordis 4.1.0 等）与桌面端发布通道/版本策略；已跳过 Merge remote-tracking 类重复提交。",
+    "earendil-works/pi（main）24 小时内 83 条提交，主线是 p2 原型（子 agent 用 code mode、agent 终端工具、MCP OAuth 登录、TUI 侧栏）与 coding-agent 默认模型切到 Claude Opus 5.5；跳过 docs(chord) 决策记录类提交。",
+    "anomalyco/opencode（dev）24 小时内 78 条提交，几乎全是 app/desktop 的稳定性修复与交互打磨（状态机化、MCP 权限 dock、移动端 touch dock）；纯样式微调未列入。",
+    "AI 动态共 13 个源，12 个抓取成功；CrewAI Blog 失败（fetch failed）；Anthropic News、Google DeepMind、Google AI Blog、GitHub AI/ML Blog 本次 0 条新增。",
+    "官方大模型博客本次候选：OpenAI Blog 2 条（收购 Pierre、Daybreak Red 进 AWS GovCloud），均为上次日报之后新增；本期保留收购 1 条，Daybreak Red 属既有产品的区域扩容，信息密度较低未单列。",
+    "智能体专项：本期保留 3 条 agent 类条目（Ripple-65B 编码 agent 模型、openJiuwen Agent-Memory、以及趋势榜中的 agent-autoloop / harness2 等仓库动态）。",
+    "Anthropic「provable inference」条目来自 Hacker News 指向 anthropic.com/research 的官方研究页，Anthropic News 的 slug 发现本次无新增，故 source 标注为 Hacker News / Anthropic Research。",
+    "所有时间已换算为北京时间（UTC+8）；HN 的 heat 取自 Algolia 返回的 points/comments；官方博客、GitHub Blog、量子位等无热度字段的条目 heat 留空。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-11-03T22:00Z，即北京时间 11-04 06:00 → 11-05 06:00）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 24h 内 92 条提交 · 发布 dsh v0.2.2-rc.1 · 桌面端发布通道与版本策略收敛",
+        "items": [
+          {
+            "title": "release(dsh): 0.2.2-rc.1（PR #7870）",
+            "desc": "0.2.2 进入 rc，随后合并回 master（PR #7873）",
+            "author": "imccyu",
+            "time": "11-04 15:50"
+          },
+          {
+            "title": "release(vendor): cordis 4.1.0 / cosmokit 1.9.0 / group、hmr、include、loader 1.1.0",
+            "desc": "内部依赖整体对齐到 0.2.2 所需版本",
+            "author": "imccyu",
+            "time": "11-04 15:48"
+          },
+          {
+            "title": "fix(web): prompt 重试逻辑（PR #7853）",
+            "desc": "Web 端提示词失败重试修复",
+            "author": "Kexin Liu / liukx0205",
+            "time": "11-04 15:46"
+          },
+          {
+            "title": "feat(desktop): 分阶段放量百分比（PR #7864）",
+            "desc": "桌面端发布可按比例灰度",
+            "author": "winewill",
+            "time": "11-04 15:23"
+          },
+          {
+            "title": "fix(desktop): 产物 zip 的 mtime 问题（PR #7777）",
+            "desc": "修复桌面构建产物时间戳导致的缓存/校验异常",
+            "author": "winewill",
+            "time": "11-04 15:10"
+          },
+          {
+            "title": "fix(inspector): 崩溃修复（PR #7425）",
+            "desc": "Inspector 面板崩溃问题合入",
+            "author": "Turtle",
+            "time": "11-04 15:01"
+          }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 83 条提交 · p2 原型密集迭代 · 默认 Anthropic 模型切至 Claude Opus 5.5",
+        "items": [
+          {
+            "title": "feat(p2): 子 agent 可用 code mode",
+            "desc": "子 agent 与主会话共享代码执行能力",
+            "author": "Armin Ronacher",
+            "time": "11-05 04:53"
+          },
+          {
+            "title": "feat(p2): agent 终端工具，tmux 风格 argv，仅 code mode",
+            "desc": "给 agent 增加受控终端操作能力",
+            "author": "Armin Ronacher",
+            "time": "11-05 04:23"
+          },
+          {
+            "title": "feat(coding-agent): 默认 Anthropic 模型改为 Claude Opus 5.5",
+            "desc": "同时把各 provider 默认模型迁到同价或更低价的新型号",
+            "author": "Armin Ronacher",
+            "time": "11-05 03:00"
+          },
+          {
+            "title": "feat(p2): MCP OAuth 登录、MCP 面板与 TUI 命令",
+            "desc": "MCP 服务器接入从配置走向交互式授权",
+            "author": "Armin Ronacher",
+            "time": "11-05 01:32"
+          },
+          {
+            "title": "feat(p2): 忙碌时可切 /tree 分支，子 agent 汇报到发起分支",
+            "desc": "分支与子 agent 的归属关系修正",
+            "author": "David Brailovsky",
+            "time": "11-05 01:13"
+          },
+          {
+            "title": "feat(p2): TUI 侧栏，/artifacts 在聊天旁打开产物",
+            "desc": "产物查看从独立窗口移入侧栏",
+            "author": "David Brailovsky",
+            "time": "11-05 00:51"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 78 条提交 · app/desktop 稳定性与交互打磨为主 · 无新版本发布",
+        "items": [
+          {
+            "title": "feat(app): 项目组织的侧边标签页与会话预览（PR #61700）",
+            "desc": "侧栏按项目分组，并可直接预览会话",
+            "author": "usrnk1",
+            "time": "11-05 03:38"
+          },
+          {
+            "title": "feat(app): 移动端 composer 增加 touch dock（PR #61773）",
+            "desc": "触屏输入区的操作入口重做",
+            "author": "Luke Parker",
+            "time": "11-05 04:37"
+          },
+          {
+            "title": "fix(app): 权限 dock 显示 MCP 工具名与入参（PR #60548）",
+            "desc": "MCP 工具调用授权时不再只显示通用文案",
+            "author": "Bjarne Kock",
+            "time": "11-05 04:26"
+          },
+          {
+            "title": "fix(tui): 会话标题含换行导致 TUI 崩溃（PR #57523）",
+            "desc": "标题清洗修复",
+            "author": "Wish",
+            "time": "11-05 05:51"
+          },
+          {
+            "title": "fix(core): 连续 zsh q 参数导致 shell 扫描器卡死（PR #60791）",
+            "desc": "命令扫描器死循环修复",
+            "author": "yangguan-xue",
+            "time": "11-05 05:46"
+          },
+          {
+            "title": "feat(go): 新增 Hy4（PR #61709）",
+            "desc": "由 opencode-agent[bot] 提交的 go 侧能力扩展",
+            "author": "opencode-agent[bot]",
+            "time": "11-05 03:27"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": {
+      "daily": 10,
+      "weekly": 10
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "deepseek-ai/dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+        "lang": "TypeScript",
+        "stars": "18,507",
+        "delta": "+1,933",
+        "source": "daily",
+        "summary": "DeepSeek Harness 的「主动式编码 agent」研究原型：监听 GitHub 与飞书，自己开工作项、在独立会话里干活并回原会话交付 PR。",
+        "highlight": "README 明确标注「research prototype, not an official DeepSeek product」，并说明部分论文设计尚未实现；每个工作项有独立目录与会话，网页面板只列需要人介入的事项。"
+      },
+      {
+        "rank": 2,
+        "repo": "storytold/craft-anything",
+        "url": "https://github.com/storytold/craft-anything",
+        "lang": "Rust",
+        "stars": "11,394",
+        "delta": "+3,337",
+        "source": "daily",
+        "summary": "指向任意网站、应用或游戏，先研究它如何运作，再让 AI 复刻一个自己的版本；纯 Rust 的 clean-room 引擎。",
+        "highlight": "README 的用法是「point it at a target, say what you want」，由 AI 观察原实现后重建；与 wordcraft / solidcraft / gridcraft / cadcraft 同属一个「把软件重写一遍」系列。"
+      },
+      {
+        "rank": 3,
+        "repo": "heydamir/unslop",
+        "url": "https://github.com/heydamir/unslop",
+        "lang": "JavaScript",
+        "stars": "8,571",
+        "delta": "+1,127",
+        "source": "daily",
+        "summary": "Claude Code / Codex 技能：把「vibecoded」的 AI 味界面改成有设计感的界面。",
+        "highlight": "README 说它先找紫色渐变、发光、emoji 标签、口号文案与不均匀间距，再按产品定方向逐屏修正；适用于 Next.js / React / Vue / Svelte / Tailwind 或纯 HTML，甚至只给一个线上链接也能改。"
+      },
+      {
+        "rank": 4,
+        "repo": "wangzan101/Mika",
+        "url": "https://github.com/wangzan101/Mika",
+        "lang": "Kotlin",
+        "stars": "6,599",
+        "delta": "+576",
+        "source": "daily",
+        "summary": "Android 端侧 AI agent：说清要做什么，它在隐藏的后台屏幕上操作 App 与网页直到完成。",
+        "highlight": "README 强调 agent 工作在隐藏后台屏幕，用户可继续正常使用手机；仓库提供 APK release 直接安装。"
+      },
+      {
+        "rank": 5,
+        "repo": "valentderah/totk-pc-recomp",
+        "url": "https://github.com/valentderah/totk-pc-recomp",
+        "lang": "C",
+        "stars": "4,815",
+        "delta": "+341",
+        "source": "daily",
+        "summary": "把《塞尔达传说：王国之泪》静态重编译为 Windows / Linux 原生 x86-64 程序。",
+        "highlight": "需自备正版游戏及 1.1.0 / 1.2.1 / 1.4.3 更新，仓库不含游戏文件；原生代码而非模拟器，默认 60fps、可到 144fps，支持 NSP/XCI/NSZ/XCZ 与 AMD FSR 1 放大。"
+      },
+      {
+        "rank": 6,
+        "repo": "patch-gg/pixelfx",
+        "url": "https://github.com/patch-gg/pixelfx",
+        "lang": "JavaScript",
+        "stars": "4,674",
+        "delta": "+601",
+        "source": "daily",
+        "summary": "244 个像素风特效与动画，每个都是一小段可读代码，另附一个按像素画师流程制作新特效的 Claude Code skill。",
+        "highlight": "涉及角色的特效按「起手—出手—接触定格—收招」演出，12 个完整动作可串成连击；支持实时预览、换色镜像，并可导出 sprite sheet 给任意引擎。"
+      },
+      {
+        "rank": 7,
+        "repo": "BryceYuuu/RUN",
+        "url": "https://github.com/BryceYuuu/RUN",
+        "lang": "Python",
+        "stars": "3,618",
+        "delta": "+632",
+        "source": "daily",
+        "summary": "海外移居手册「润」：欧洲 36 国、110 条路线，覆盖数字游民、技术移民、欧盟蓝卡、创业自雇与投资居留。",
+        "highlight": "README 标注 36 国 / 110 条路线 / 13 个目的地 / 380+ 来源，内容按 CC BY-SA 4.0 发布，最近更新日期写明 2026-11-03。"
+      },
+      {
+        "rank": 8,
+        "repo": "Djihads80/Eglantine",
+        "url": "https://github.com/Djihads80/Eglantine",
+        "lang": "C++",
+        "stars": "3,593",
+        "delta": "+614",
+        "source": "daily",
+        "summary": "基于 Eden / Yuzu / Sudachi 的 Switch 2 模拟器，项目自述为「VERY experimental」。",
+        "highlight": "README 说明用 C++ 编写并强调可移植性，构建覆盖 Windows / Linux / macOS / Android / FreeBSD；作者为 Camille LaVey。"
+      },
+      {
+        "rank": 9,
+        "repo": "KKKKhazix/agent-autoloop",
+        "url": "https://github.com/KKKKhazix/agent-autoloop",
+        "lang": "TypeScript",
+        "stars": "2,403",
+        "delta": "",
+        "source": "daily",
+        "summary": "让命令行 Agent 在后台自己接活、自己跟进到底；平时不打扰，遇到拿不准的事才发卡片找人拍板。",
+        "highlight": "零外部依赖内核 + 事件源 / Agent / 通知通道 / 上线流水线四类插件；一行配置即可接入任何「能收提示词并打印最后回复」的 CLI，本机运行、无需公网端口。"
+      },
+      {
+        "rank": 10,
+        "repo": "paipiange/nvzhuang",
+        "url": "https://github.com/paipiange/nvzhuang",
+        "lang": "HTML",
+        "stars": "2,192",
+        "delta": "+73",
+        "source": "daily",
+        "summary": "AI 生成服装参考图集与虚拟试穿网站，2727 套服装、中英双语检索。",
+        "highlight": "README 写明 1407 套写实 + 1320 套动漫，均为 2:3 比例、人物不入镜的纯服装图；换装后端可接 OpenAI Images / Gemini / 豆包或自定义 Base URL、API Key 与模型。"
+      },
+      {
+        "rank": 11,
+        "repo": "Gathin23/cleanyourtv",
+        "url": "https://github.com/Gathin23/cleanyourtv",
+        "lang": "Python",
+        "stars": "51,971",
+        "delta": "+690",
+        "source": "weekly",
+        "summary": "不 root、不接线，通过 Wi-Fi 给 Android / Google TV 去掉厂商遥测与广告，并换成类 Apple TV 桌面。",
+        "highlight": "流程是「备份已装包与设置 → 用 pm disable-user 禁用而非卸载 → 装 launcher」，并附 restore 脚本逐条还原；对三星/LG/Roku/Vizio/海信 VIDAA 等非 Android 电视另给手动关跟踪指引。"
+      },
+      {
+        "rank": 12,
+        "repo": "deepseek-ai/DeepInfer",
+        "url": "https://github.com/deepseek-ai/DeepInfer",
+        "lang": "Python",
+        "stars": "25,377",
+        "delta": "+174",
+        "source": "weekly",
+        "summary": "DeepSeek 生产环境在用的高性能推理框架，开源了其中的离线推理部分。",
+        "highlight": "当前支持 DeepSeek-V4.1-Flash；含 FlashMLA / DeepGEMM / DeepEP / TileKernels / DeepSelect 内核、Attention DP 与均衡 CP、MoE EP + EPLB、batch-invariant 推理、确定性采样与结构化输出。"
+      },
+      {
+        "rank": 13,
+        "repo": "wheresryan22/anatomy",
+        "url": "https://github.com/wheresryan22/anatomy",
+        "lang": "JavaScript",
+        "stars": "24,852",
+        "delta": "+429",
+        "source": "weekly",
+        "summary": "把抽象概念「造出来」的 Claude skill：生成带大量精密零件的等距解剖图。",
+        "highlight": "README 称可在 Antigravity、OpenCode、Codex、MiniMax Code 中运行，输出 SVG / WebGL / 3D；示例中每个数字都由驱动零件的同一套小模型算出。"
+      },
+      {
+        "rank": 14,
+        "repo": "google-research/harness2",
+        "url": "https://github.com/google-research/harness2",
+        "lang": "Python",
+        "stars": "22,647",
+        "delta": "+238",
+        "source": "weekly",
+        "summary": "Google Research 的「递归 agent harness」框架：把 prompt、工具、记忆、技能、编排整体当作可优化的系统。",
+        "highlight": "配套论文 arXiv 2610.14224 与 harness2.github.io；在冻结模型权重的前提下做任务级与优化级两层递归，仓库提供 JobBench 等基准的安装与运行命令。"
+      },
+      {
+        "rank": 15,
+        "repo": "openai/math",
+        "url": "https://github.com/openai/math",
+        "lang": "Lean",
+        "stars": "17,334",
+        "delta": "+28",
+        "source": "weekly",
+        "summary": "OpenAI 把内部模型在开放研究问题上产出的数学手稿与证明工件集中开源。",
+        "highlight": "目录含 721 篇手稿、373 个「家族」；README 明确说部分结果尚未形式化、可能存在问题，并称其为「raw research data」而非成熟论文，优先权交给数学界判断。"
+      },
+      {
+        "rank": 16,
+        "repo": "storytold/wordcraft",
+        "url": "https://github.com/storytold/wordcraft",
+        "lang": "Rust",
+        "stars": "17,306",
+        "delta": "+113",
+        "source": "weekly",
+        "summary": "纯 Rust 的 clean-room 文字处理器，读写 .docx。",
+        "highlight": "包含 ribbon、样式、表格、修订、引用与邮件合并；原生运行于 macOS / Windows / Linux / BSD，也能通过 WebAssembly 在浏览器中使用。"
+      },
+      {
+        "rank": 17,
+        "repo": "Zagitta/gpu-unlock",
+        "url": "https://github.com/Zagitta/gpu-unlock",
+        "lang": "C",
+        "stars": "16,579",
+        "delta": "+1,005",
+        "source": "weekly",
+        "summary": "解除 GeForce RTX 20/30/40 在 FP16/BF16/TF32 上的 tensor core 半速限制。",
+        "highlight": "README 给出最高 2× 张量吞吐、LLM prefill +25–55%、微调 +25–50%、出图 +30–55%；做法是在 NVIDIA 驱动加载前的启动阶段去掉上限，仅支持 Linux。"
+      },
+      {
+        "rank": 18,
+        "repo": "tangency-labs/solidcraft",
+        "url": "https://github.com/tangency-labs/solidcraft",
+        "lang": "Rust",
+        "stars": "13,619",
+        "delta": "+237",
+        "source": "weekly",
+        "summary": "纯 Rust 的参数化 3D CAD，桌面与浏览器都能跑。",
+        "highlight": "草图—约束—实体加一条参数化特征时间线，改一个尺寸即重建模型；内置 MCP server，允许 AI agent 直接建模。"
+      },
+      {
+        "rank": 19,
+        "repo": "seedds/nxnative",
+        "url": "https://github.com/seedds/nxnative",
+        "lang": "Python",
+        "stars": "12,136",
+        "delta": "+284",
+        "source": "weekly",
+        "summary": "把自备的 Switch 游戏 NSP 与 prod.keys 转成可侧载的 IPA，让游戏原生跑在 iPhone / iPad 上。",
+        "highlight": "README 强调不是模拟器：游戏自身代码直接跑在 Apple 芯片上，图形用 Metal 重建；已列出 7 款在跑的 Switch 2 游戏（含 Mario Kart World、Pokémon Pokopia）。"
+      },
+      {
+        "rank": 20,
+        "repo": "pengchujin/aerial-tv",
+        "url": "https://github.com/pengchujin/aerial-tv",
+        "lang": "",
+        "stars": "9,616",
+        "delta": "+286",
+        "source": "weekly",
+        "summary": "参照 tvOS 做的国产电视桌面：没有广告与推荐流，只有 App、壁纸和航拍屏保。",
+        "highlight": "README 点名适配小米、TCL、创维、索尼，也能装在盒子与投影仪；开机自动进入，待机不会被系统清理。"
+      }
+    ]
+  },
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（北京时间 11-04 06:00 → 11-05 06:00）· 官方博客为「上次日报后新增」口径 · arXiv 最多回看 96 小时 · 已单列「智能体/Agent」分类",
+    "sourcesUsed": [
+      "Hacker News",
+      "OpenAI Blog",
+      "GitHub Blog",
+      "量子位"
+    ],
+    "items": [
+      {
+        "category": "release",
+        "title": "Kimi K3.1 Pro 模型权重公开",
+        "summary": "月之暗面在 Hugging Face 放出 Kimi-K3.1-Pro 的模型权重，HN 讨论集中在本地部署成本与许可证条款。",
+        "why": "又一家中国实验室把旗舰权重开放，闭源 API 与自部署之间的能力差距继续收窄。",
+        "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+        "source": "Hacker News / Hugging Face",
+        "time": "11-04 23:30",
+        "heat": "HN 283 分 · 78 评论"
+      },
+      {
+        "category": "agent",
+        "title": "Ripple-65B 预览：自称美国开源权重里 agentic coding 的 SOTA",
+        "summary": "ricursive 发布 Ripple-65B Preview，定位是面向编码 agent 的开源权重模型，并直接对标美国同类开放模型。",
+        "why": "开源权重开始专门为编码 agent 训练，竞争指标从静态 benchmark 转向真实任务完成率。",
+        "url": "https://www.ricursive.com/ripple",
+        "source": "Hacker News",
+        "time": "11-05 02:53",
+        "heat": "HN 143 分 · 55 评论"
+      },
+      {
+        "category": "industry",
+        "title": "OpenAI 宣布收购 Pierre Computer Company",
+        "summary": "OpenAI 将收购 Pierre Computer Company，把其能力并入 Codex，用于代码构建、理解与评审。",
+        "why": "补的是 Codex 的工程链路而非模型本身，编码 agent 的竞争进入工具链整合阶段。",
+        "url": "https://openai.com/index/openai-to-acquire-pierre",
+        "source": "OpenAI Blog / Hacker News",
+        "time": "11-04 22:30",
+        "heat": "HN 128 分 · 47 评论"
+      },
+      {
+        "category": "research",
+        "title": "Anthropic：大模型可证明推理的进展",
+        "summary": "Anthropic 研究博客发布《Progress on provable inference for large language models》，介绍让模型推理过程可被证明与验证的研究路径。",
+        "why": "若推理结果可验证，agent 在高风险流程里的自动执行边界会被重新划定。",
+        "url": "https://www.anthropic.com/research/provable-inference",
+        "source": "Hacker News / Anthropic Research",
+        "time": "11-05 01:17",
+        "heat": "HN 146 分 · 74 评论"
+      },
+      {
+        "category": "industry",
+        "title": "HN 热帖：Gemini 用聊天记录训练，个人订阅用户也不例外",
+        "summary": "帖子称 Gemini 即便对个人付费订阅用户也会使用聊天历史训练模型，讨论集中在设置项说明与实际行为是否一致。",
+        "why": "付费订阅并不等于数据不被使用，普通用户对 AI 产品的信任前提再次被摆上台面。",
+        "url": "https://news.ycombinator.com/item?id=50363461",
+        "source": "Hacker News",
+        "time": "11-04 18:10",
+        "heat": "HN 576 分 · 148 评论"
+      },
+      {
+        "category": "agent",
+        "title": "openJiuwen Agent-Memory：给 agent 加「视听双流」长视频记忆",
+        "summary": "openJiuwen 发布 Agent-Memory，让 agent 同时记住画面与声音两条流，称长视频问答时延最高降低 97%。",
+        "why": "agent 记忆从纯文本扩到音视频流，长上下文之外多了一条可工程的路线。",
+        "url": "https://www.qbitai.com/2026/11/507533.html",
+        "source": "量子位",
+        "time": "11-04 10:49",
+        "heat": ""
+      },
+      {
+        "category": "oss",
+        "title": "GitHub Copilot 进入 Xcode 内置编码助手",
+        "summary": "Copilot 以 public preview 形式接入 Xcode 的 coding assistant，可在原生 Xcode 工作流里直接调用。",
+        "why": "Copilot 补齐苹果开发生态这块主流 IDE 拼图，将与苹果自家助手正面竞争。",
+        "url": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant",
+        "source": "GitHub Blog",
+        "time": "11-05 03:10",
+        "heat": ""
+      }
+    ]
+  },
+  "observation": [
+    "榜首换成了 DeepSeek 的 dsh-superagent-prototype（+1,933），它和 harness2、agent-autoloop 一起说明：竞争焦点已从「模型会不会写代码」转到「agent 如何长期占住一个工作位」——监听事件、独立工作目录、只在需要拍板时才找人。",
+    "「用纯 Rust 把闭源软件重写一遍」仍是最大的造星机器：craft-anything 单日 +3,337，wordcraft、solidcraft 同系列在榜；而 openai/math 这种「把模型产出当 raw data 直接开源」的做法，是另一种更激进的开放姿态。",
+    "agent skill 已经稳定成为分发单位：unslop、pixelfx、anatomy 都是「一个 skill + 一套方法」，且都强调可在 Claude Code 之外的 Codex / OpenCode / Antigravity 运行，跨 harness 兼容成了新的卖点。",
+    "硬件与固件层的「拿回全部性能」需求继续走强：gpu-unlock 单日 +1,005 解除消费卡 tensor 半速，nxnative 与 totk-pc-recomp 把主机游戏搬上 Apple 芯片与 PC——用户愿意为自有设备的使用权付出安装与合规成本。",
+    "AI 侧今天的主线是「边界」：OpenAI 收购工具公司补 Codex 的工程链路，Gemini 的聊天记录训练争议，Anthropic 研究可证明推理——能力、数据与可验证性三条边界同时被推进。"
+  ]
+}
