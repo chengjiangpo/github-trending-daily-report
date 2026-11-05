@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-11-06 · GitHub Trending 每日分析</title>
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="hero mini">
+    <div>
+      <a class="kicker" href="../">← 返回首页（含全部 47 期）</a>
+      <h1>2026-11-06<span class="wd" style="font-size:15px;font-weight:400;color:var(--muted);margin-left:10px">周五</span></h1>
+      <p>GitHub Trending 每日分析 · 单日页 · 共收录 939 个项目</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>20</b><span>本期项目</span></div>
+    </div>
+  </header>
+
+  <div class="toolbar" style="margin-top:22px">
+    <a class="tbtn" href="../">‹ 返回首页</a>
+    <a class="tbtn" href="2026-11-05.html">2026-11-05 ›</a>
+    <a class="tbtn" href="../#d-2026-11-06">在首页中查看</a>
+  </div>
+
+  <main>
+    <div class="toolbar">
+      <input id="q" type="search" placeholder="筛选：仓库名 / 语言 / 关键词…">
+      <button class="tbtn on" data-f="all" type="button">全部</button>
+      <button class="tbtn" data-f="daily" type="button">仅日榜</button>
+      <button class="tbtn" data-f="weekly" type="button">仅周榜</button>
+      <button class="tbtn" data-f="news" type="button">仅 AI 动态</button>
+      <button class="tbtn" data-f="agent" type="button">仅 Agent</button>
+    </div>
+    <section class="panel active" id="d-2026-11-06" data-date="2026-11-06" data-loaded="1">
+        <div class="day-head">
+          <h2>2026-11-06<span class="wd">周五</span></h2>
+          <span class="day-sub">日榜 10 · 周榜 10 · 20 个 Trending 项目</span>
+        </div>
+        <details class="notes"><summary>数据说明</summary><ul><li>github.com/trending 仍不可达（本机到 github.com 的 HTTPS 不通，curl 返回 http=000），按预案改用 api.github.com Search API 替代口径：daily = created:&gt;2026-10-29 按 star 降序取前 10；weekly = created:&gt;2026-10-06 按 star 降序、排除日榜后补位 10 条。20 条中日榜 10 条、周榜 10 条，source 字段已逐条标注。</li><li>Search API 不提供「今日/本周 star 增量」。本期 delta 为「与 2026-11-05 日报同一仓库 star 数之差」（约 24 小时）；昨日不在榜的新上榜仓库 delta 留空，未做估算。</li><li>各仓库的一句话功能与亮点均取自该仓库 README（raw.githubusercontent.com，默认分支/main/master 依次尝试）与 API description；README 未写明的能力不写。star 数为 2026-11-06 06:00（北京时间）前后 API 返回值。</li><li>deepseek-ai/deepseek-harness（master）过去 24 小时 0 条提交；最近一次为 11-04 16:40（北京时间）合并 release-dsh-0.2.2-rc.1，对应 release 发布于 11-04 21:07，均落在 24 小时窗口之外。</li><li>earendil-works/pi（main）24 小时内达 30 条（API 单页上限，实际更多），主线是 p2 原型（Radius TUI、子 agent 消息块、侧栏新建会话）、storage replication 与 coding-agent 的 pi auth 登录/登出。</li><li>anomalyco/opencode（dev）同样达到 30 条上限，主线是把 opencode.ai 站点/文档/schema 拆进独立 worker 并迁到 Cloudflare 部署、process-daemon 0.5.0 发版，以及 app 侧 MCP 登录与审批流程的状态机化修复。</li><li>AI 动态共 13 个源，全部抓取成功（13/13，46 条候选）；Anthropic News 与 CrewAI Blog 本次 0 条新增，GitHub AI/ML Blog 0 条。</li><li>官方大模型博客候选按「上次日报后新增」口径处理：OpenAI Blog 5 条、Google DeepMind 1 条、Google AI Blog 1 条，本期保留 GPT‑6 Cyber、Images 2.6、Gemini Omni 1.2 Flash 三条；Google AI Blog 条目信息密度较低未单列。</li><li>智能体专项：本期保留 3 条 agent 类条目（OpenAI 自动化漏洞挖掘流水线、LangGraph 1.2.20 的 strict resume、以及 SpecCompact 的 agent 上下文压缩研究归入 research）。Ripple-65B 与 Anthropic 可证明推理昨日已报，本期不重复。</li><li>所有时间已换算为北京时间（UTC+8）；HN 的 heat 取自 Algolia 返回的 points/comments；官方博客、GitHub Releases、arXiv、量子位等无热度字段的条目 heat 如实填写或无则留空。</li></ul></details>
+        
+          <section class="block">
+            <div class="block-head">
+              <h3><span class="ico">🧩</span>仓库提交简报</h3>
+              <span class="block-sub">过去 24 小时（2026-11-04T22:00Z → 2026-11-05T22:00Z，时间已换算为北京时间）</span>
+            </div>
+            <div class="repo-grid">
+              <div class="repo-block" style="--c:#5B9BFF">
+                <div class="rb-head"><h4>deepseek-ai/deepseek-harness</h4><span class="rb-meta">master · 24h 内 0 条提交 · 最近提交 11-04 16:40（0.2.2-rc.1 合并）</span></div>
+                <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">过去 24 小时无新提交</div>
+                    <div class="c-meta">最近一次提交为 11-04 16:40 合并 release-dsh-0.2.2-rc.1 · — · —</div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+              <div class="repo-block" style="--c:#A06BFF">
+                <div class="rb-head"><h4>earendil-works/pi</h4><span class="rb-meta">main · 24h 内 30 条提交（API 单页上限）· 无新发版，最近 v1.5.0（11-02）</span></div>
+                <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(ai,coding-agent)：去掉 OpenAI Codex provider 名称里的「(legacy)」标记</div>
+                    <div class="c-meta">provider 命名清理 · mitsuhiko · 11-06 05:50</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat：p2 TUI 走 Radius（npm run tui -- --radius）</div>
+                    <div class="c-meta">TUI 新增渲染/后端通道 · davidbrai · 11-06 03:26</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(p2)：侧栏文件夹加「+」按钮，可直接在该目录新建会话</div>
+                    <div class="c-meta">会话管理交互 · mitsuhiko · 11-05 21:42</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(chord)：reload 会重启所有受影响对象，旧任务在旧代码上跑完</div>
+                    <div class="c-meta">热重载语义 · badlogic · 11-05 20:15</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(storage)：replication 支持（#11696）</div>
+                    <div class="c-meta">存储复制能力 · cristinaponcela · 11-05 19:03</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(schema)：为额外类型补齐 TypeBox 对齐（#11833）</div>
+                    <div class="c-meta">schema 类型兼容 · cristinaponcela · 11-05 18:36</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(p2)：子 agent 消息改为以 &lt;sender kind=&quot;subagent&quot;&gt; 块开头</div>
+                    <div class="c-meta">子 agent 消息可辨识 · badlogic · 11-05 15:23</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(coding-agent)：新增 pi auth login / logout</div>
+                    <div class="c-meta">账号登录登出 · vegarsti · 11-05 01:20</div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+              <div class="repo-block" style="--c:#2FD6A6">
+                <div class="rb-head"><h4>anomalyco/opencode</h4><span class="rb-meta">dev · 24h 内 30 条提交（API 单页上限）· process-daemon 0.5.0 发版</span></div>
+                <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(www)：opencode.ai 站点迁入 services/www，改用 Cloudflare 部署（#62190）</div>
+                    <div class="c-meta">站点架构迁移 · thdxr · 11-06 05:50</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(web)：v1 文档迁到 opencode.ai/docs，接管 zen/go 跳转（#62183）</div>
+                    <div class="c-meta">文档独立托管 · thdxr · 11-06 05:20</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(meta)：配置 schema 与 well-known 文件由独立 worker 提供（#62182）</div>
+                    <div class="c-meta">边缘路由拆分 · thdxr · 11-06 05:05</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(app)：搜索不再加载全部会话（#62170）</div>
+                    <div class="c-meta">搜索性能修复 · thdxr · 11-06 03:25</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(session-ui)：用户消息操作收进气泡上的 chevron 菜单（#60819）</div>
+                    <div class="c-meta">会话界面改版 · opencode-agent[bot] · 11-06 02:52</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">chore(process-daemon)：发布 0.5.0（#62007）</div>
+                    <div class="c-meta">后台进程守护发版 · jlongster · 11-06 00:59</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(app)：修复 MCP 登录与 provider 表单可能卡死（#62102）</div>
+                    <div class="c-meta">MCP 登录恢复 · Hona · 11-06 00:12</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(app)：MCP elicitation 与自动批准请求改为显式状态机（#62111）</div>
+                    <div class="c-meta">审批流程稳定性 · Hona · 11-06 00:05</div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        <section class="block">
+          <div class="block-head">
+            <h3><span class="ico">🚀</span>GitHub Trending 分析</h3>
+            <span class="block-sub">20 个项目</span>
+          </div>
+          <ol class="board">
+            <li class="row" style="--c:#3178C6" data-src="daily" data-text="deepseek-ai/dsh-superagent-prototype typescript deepseek harness 的「超级 agent」研究原型：一个更自主、能长期自己接活的 agent 系统。 readme 顶部明确写着「research prototype for reference only, not an official deepseek product」，并说明代码大量由编码 agent 写成、可能与论文里描述的实现并不一致，部分设计属于未来方向。">
+              <span class="rnk g1">1</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/deepseek-ai/dsh-superagent-prototype" target="_blank" rel="noreferrer">deepseek-ai/dsh-superagent-prototype</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">DeepSeek Harness 的「超级 agent」研究原型：一个更自主、能长期自己接活的 agent 系统。</p>
+                <p class="row-hl">README 顶部明确写着「Research prototype for reference only, not an official DeepSeek product」，并说明代码大量由编码 agent 写成、可能与论文里描述的实现并不一致，部分设计属于未来方向。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#3178C6">TypeScript</span>
+                <span class="stat">★ 19,440</span>
+                <span class="delta">+933</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#DEA584" data-src="daily" data-text="storytold/craft-anything rust 看一眼任何网站/app/游戏是怎么做的，再让 ai 给你造一个自己的版本。 纯 rust 的 clean-room 引擎：把目标交给它后用真实检查工具研究原实现，由编码 agent 建新项目、逐项比对原版并迭代；readme 显示每个检查点都会给出「相似度」，规则外的改动需要你批准。">
+              <span class="rnk g2">2</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/storytold/craft-anything" target="_blank" rel="noreferrer">storytold/craft-anything</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">看一眼任何网站/App/游戏是怎么做的，再让 AI 给你造一个自己的版本。</p>
+                <p class="row-hl">纯 Rust 的 clean-room 引擎：把目标交给它后用真实检查工具研究原实现，由编码 agent 建新项目、逐项比对原版并迭代；README 显示每个检查点都会给出「相似度」，规则外的改动需要你批准。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#DEA584">Rust</span>
+                <span class="stat">★ 14,784</span>
+                <span class="delta">+3,390</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#F1E05A" data-src="daily" data-text="patch-gg/pixelfx javascript 244 个像素风特效与动画，每个都是一小段可直接用的代码。 特效带「表演」逻辑：角色会蓄力、出手、命中定格再收招，12 套完整动作可串成连招；附带 claude code skill 按「起草—渲染—看—改」流程生成新特效，可导出 sprite sheet 给任意引擎。">
+              <span class="rnk g3">3</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/patch-gg/pixelfx" target="_blank" rel="noreferrer">patch-gg/pixelfx</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">244 个像素风特效与动画，每个都是一小段可直接用的代码。</p>
+                <p class="row-hl">特效带「表演」逻辑：角色会蓄力、出手、命中定格再收招，12 套完整动作可串成连招；附带 Claude Code skill 按「起草—渲染—看—改」流程生成新特效，可导出 sprite sheet 给任意引擎。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#F1E05A">JavaScript</span>
+                <span class="stat">★ 5,241</span>
+                <span class="delta">+567</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#3178C6" data-src="daily" data-text="kkkkhazix/agent-autoloop typescript 让命令行 agent 在后台自己接活、自己跟到底，拿不准时才发卡片找你拍板。 零外部依赖内核 + 插件化的「事件源 / agent / 通知通道 / 上线流水线」，一条命令装在本机、不需要公网端口；能接任何「读提示词、打印最后一条回复」的 cli，拍板卡片支持飞书、钉钉、企微、slack、discord。">
+              <span class="rnk">4</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/KKKKhazix/agent-autoloop" target="_blank" rel="noreferrer">KKKKhazix/agent-autoloop</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">让命令行 agent 在后台自己接活、自己跟到底，拿不准时才发卡片找你拍板。</p>
+                <p class="row-hl">零外部依赖内核 + 插件化的「事件源 / Agent / 通知通道 / 上线流水线」，一条命令装在本机、不需要公网端口；能接任何「读提示词、打印最后一条回复」的 CLI，拍板卡片支持飞书、钉钉、企微、Slack、Discord。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#3178C6">TypeScript</span>
+                <span class="stat">★ 3,217</span>
+                <span class="delta">+814</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#A97BFF" data-src="daily" data-text="verlintas/noir kotlin 把「这台手机到底会泄露什么」变成一份可复现的 android 隐私审计报告。 通过 adb 读取已连接设备的应用清单、权限与 apk 内网络端点，给出分类、风险评分和可回滚处置建议；需要时调用 jadx 反编译单个应用做关键字检索，readme 明确限定自有设备与已授权研究。">
+              <span class="rnk">5</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/Verlintas/NOIR" target="_blank" rel="noreferrer">Verlintas/NOIR</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">把「这台手机到底会泄露什么」变成一份可复现的 Android 隐私审计报告。</p>
+                <p class="row-hl">通过 adb 读取已连接设备的应用清单、权限与 APK 内网络端点，给出分类、风险评分和可回滚处置建议；需要时调用 jadx 反编译单个应用做关键字检索，README 明确限定自有设备与已授权研究。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#A97BFF">Kotlin</span>
+                <span class="stat">★ 2,446</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#4B8BBE" data-src="daily" data-text="worldonlyu/google_ai_pro_2year_zerocost_auto python 自动化控制台脚本，号称零成本拿到 google ai pro（5tb）两年订阅。 readme 要求 windows + chrome + python 3.10、本机开美区代理，并在网页里填写自己的 visa/mastercard 卡号、有效期、cvc 和持卡人姓名，免税邮编预填美国俄勒冈州 97201；属于需要交出支付信息的第三方脚本，使用前请自行评估风险与合规性。">
+              <span class="rnk">6</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/worldonlyu/Google_AI_Pro_2Year_ZeroCost_Auto" target="_blank" rel="noreferrer">worldonlyu/Google_AI_Pro_2Year_ZeroCost_Auto</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">自动化控制台脚本，号称零成本拿到 Google AI Pro（5TB）两年订阅。</p>
+                <p class="row-hl">README 要求 Windows + Chrome + Python 3.10、本机开美区代理，并在网页里填写自己的 Visa/Mastercard 卡号、有效期、CVC 和持卡人姓名，免税邮编预填美国俄勒冈州 97201；属于需要交出支付信息的第三方脚本，使用前请自行评估风险与合规性。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#4B8BBE">Python</span>
+                <span class="stat">★ 2,251</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#F1E05A" data-src="daily" data-text="elvarofficial/teardown javascript 一个 claude code skill：把任意机器做成可以拆开的 3d 模拟器。 问「这东西怎么工作的」，claude 会生成一个离线 html 页面：机器在中间运转、四周面板读真实数值，点按钮打开正在工作的部件，没人操作时页面自己巡演；安装为 npx skills add，运行需要 node 20+ 与 playwright chromium。">
+              <span class="rnk">7</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/elvarofficial/teardown" target="_blank" rel="noreferrer">elvarofficial/teardown</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">一个 Claude Code skill：把任意机器做成可以拆开的 3D 模拟器。</p>
+                <p class="row-hl">问「这东西怎么工作的」，Claude 会生成一个离线 HTML 页面：机器在中间运转、四周面板读真实数值，点按钮打开正在工作的部件，没人操作时页面自己巡演；安装为 npx skills add，运行需要 Node 20+ 与 Playwright Chromium。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#F1E05A">JavaScript</span>
+                <span class="stat">★ 2,165</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#f34b7d" data-src="daily" data-text="zortos293/lichii c++ 实验性的开源 switch / switch 2 模拟器，基于 eglantine、eden、yuzu、sudachi 的分支。 readme 明确是独立分支、与任天堂无关，仓库沿用历史名 eglantine（桌面程序已改名 lichii），构建产物发布在该 fork 的 releases 页；作者自述重点在游戏兼容性与渲染修复。">
+              <span class="rnk">8</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/zortos293/Lichii" target="_blank" rel="noreferrer">zortos293/Lichii</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">实验性的开源 Switch / Switch 2 模拟器，基于 Eglantine、Eden、yuzu、Sudachi 的分支。</p>
+                <p class="row-hl">README 明确是独立分支、与任天堂无关，仓库沿用历史名 Eglantine（桌面程序已改名 Lichii），构建产物发布在该 fork 的 releases 页；作者自述重点在游戏兼容性与渲染修复。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#f34b7d">C++</span>
+                <span class="stat">★ 2,095</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#F05138" data-src="daily" data-text="govijr/terminal-mac swift 给 computer-use agent 准备的独立 macos 桌面，用终端查看和操作。 用 apple virtualization 跑真实 macos 虚拟机，guest 内的 helper 抓屏并注入输入事件，终端通过 kitty/iterm2 图形协议串流；agent 操作不会移动你物理 mac 的指针、也不改剪贴板，虚拟机不继承宿主已登录的账号。">
+              <span class="rnk">9</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/govijr/terminal-mac" target="_blank" rel="noreferrer">govijr/terminal-mac</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">给 computer-use agent 准备的独立 macOS 桌面，用终端查看和操作。</p>
+                <p class="row-hl">用 Apple Virtualization 跑真实 macOS 虚拟机，guest 内的 helper 抓屏并注入输入事件，终端通过 Kitty/iTerm2 图形协议串流；agent 操作不会移动你物理 Mac 的指针、也不改剪贴板，虚拟机不继承宿主已登录的账号。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#F05138">Swift</span>
+                <span class="stat">★ 1,932</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#3178C6" data-src="daily" data-text="caru-ini/stack-diagram typescript 一句话描述你的技术栈，得到一张带官方 logo 的架构图。 以 agent skill 形式分发（npx skills add），readme 称可在 claude code、codex、cursor 等支持 skills 的 agent 中运行；claude 应用里则上传 releases 的 stack-diagram.zip 作为 skill 使用。">
+              <span class="rnk">10</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/caru-ini/stack-diagram" target="_blank" rel="noreferrer">caru-ini/stack-diagram</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">一句话描述你的技术栈，得到一张带官方 logo 的架构图。</p>
+                <p class="row-hl">以 agent skill 形式分发（npx skills add），README 称可在 Claude Code、Codex、Cursor 等支持 skills 的 agent 中运行；Claude 应用里则上传 Releases 的 stack-diagram.zip 作为 skill 使用。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#3178C6">TypeScript</span>
+                <span class="stat">★ 1,863</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#4B8BBE" data-src="weekly" data-text="gathin23/cleanyourtv python 通过 wi-fi 给 android tv / google tv 瘦身，换成 apple tv 风格桌面。 readme 首页标注覆盖 442 个电视型号、117 个品牌、31 种语言，启动器体积 572 kb；宣称被 techcrunch、techradar、tom's guide 报道（属项目自述，未逐条核实）。">
+              <span class="rnk">11</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/Gathin23/cleanyourtv" target="_blank" rel="noreferrer">Gathin23/cleanyourtv</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">通过 Wi-Fi 给 Android TV / Google TV 瘦身，换成 Apple TV 风格桌面。</p>
+                <p class="row-hl">README 首页标注覆盖 442 个电视型号、117 个品牌、31 种语言，启动器体积 572 KB；宣称被 TechCrunch、TechRadar、Tom's Guide 报道（属项目自述，未逐条核实）。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#4B8BBE">Python</span>
+                <span class="stat">★ 52,610</span>
+                <span class="delta">+639</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#4B8BBE" data-src="weekly" data-text="deepseek-ai/deepinfer python deepseek 生产环境在用的高性能推理框架，开源了离线推理部分。 readme 写明当前只支持 deepseek-v4.1-flash，特性含 attention dp / balanced cp、moe ep + eplb、dspark 与置信度调度验证、异步零开销批调度、batch-invariant 推理与确定性采样。">
+              <span class="rnk">12</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/deepseek-ai/DeepInfer" target="_blank" rel="noreferrer">deepseek-ai/DeepInfer</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">DeepSeek 生产环境在用的高性能推理框架，开源了离线推理部分。</p>
+                <p class="row-hl">README 写明当前只支持 DeepSeek-V4.1-Flash，特性含 Attention DP / balanced CP、MoE EP + EPLB、DSpark 与置信度调度验证、异步零开销批调度、batch-invariant 推理与确定性采样。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#4B8BBE">Python</span>
+                <span class="stat">★ 25,464</span>
+                <span class="delta">+87</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#F1E05A" data-src="weekly" data-text="wheresryan22/anatomy javascript 一个 claude skill：把抽象概念做成能真正运转的等距剖面图。 产出的是 svg/webgl/3d 交互图解，零件数量多且位置精确；readme 称除 claude code 外还可在 antigravity、opencode、codex、minimax code 中运行。">
+              <span class="rnk">13</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/wheresryan22/anatomy" target="_blank" rel="noreferrer">wheresryan22/anatomy</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">一个 Claude skill：把抽象概念做成能真正运转的等距剖面图。</p>
+                <p class="row-hl">产出的是 SVG/WebGL/3D 交互图解，零件数量多且位置精确；README 称除 Claude Code 外还可在 Antigravity、OpenCode、Codex、MiniMax Code 中运行。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#F1E05A">JavaScript</span>
+                <span class="stat">★ 25,213</span>
+                <span class="delta">+361</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#DEA584" data-src="weekly" data-text="storytold/wordcraft rust 纯 rust 重写的现代文字处理器，走熟悉的 office 工作流。 具备 ribbon、样式、表格、修订痕迹、引用与邮件合并，读写 .docx，原生跑 macos/windows/linux/bsd，也能通过 webassembly 在浏览器里用；出自 craft-anything 同一团队 artcraft。">
+              <span class="rnk">14</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/storytold/wordcraft" target="_blank" rel="noreferrer">storytold/wordcraft</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">纯 Rust 重写的现代文字处理器，走熟悉的 Office 工作流。</p>
+                <p class="row-hl">具备 ribbon、样式、表格、修订痕迹、引用与邮件合并，读写 .docx，原生跑 macOS/Windows/Linux/BSD，也能通过 WebAssembly 在浏览器里用；出自 craft-anything 同一团队 ArtCraft。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#DEA584">Rust</span>
+                <span class="stat">★ 17,394</span>
+                <span class="delta">+88</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#8f8f8f" data-src="weekly" data-text="zagitta/gpu-unlock c 解除 geforce 消费卡被锁掉一半的 tensor 吞吐，主打「你的显卡在跑半速 ai」。 readme 说明 nvidia 把 geforce 的 fp16/bf16/tf32（fp32 累加）张量核心锁在半速，同硅片的 rtx a 系列是全速；工具在开机时、驱动加载前解除限制，自报 fp16/bf16/tf32 最高 2×、llm prefill +25–55%。">
+              <span class="rnk">15</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/Zagitta/gpu-unlock" target="_blank" rel="noreferrer">Zagitta/gpu-unlock</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">解除 GeForce 消费卡被锁掉一半的 tensor 吞吐，主打「你的显卡在跑半速 AI」。</p>
+                <p class="row-hl">README 说明 NVIDIA 把 GeForce 的 FP16/BF16/TF32（FP32 累加）张量核心锁在半速，同硅片的 RTX A 系列是全速；工具在开机时、驱动加载前解除限制，自报 FP16/BF16/TF32 最高 2×、LLM prefill +25–55%。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#8f8f8f">C</span>
+                <span class="stat">★ 17,193</span>
+                <span class="delta">+614</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#DEA584" data-src="weekly" data-text="tangency-labs/solidcraft rust 纯 rust 的开源参数化 3d cad，改一个尺寸整个模型跟着重建。 桌面、浏览器、snap 多端可用；内置 mcp server，readme 明确写着可以「让 ai agent 通过 mcp 来建模」。">
+              <span class="rnk">16</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/tangency-labs/solidcraft" target="_blank" rel="noreferrer">tangency-labs/solidcraft</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">纯 Rust 的开源参数化 3D CAD，改一个尺寸整个模型跟着重建。</p>
+                <p class="row-hl">桌面、浏览器、Snap 多端可用；内置 MCP server，README 明确写着可以「让 AI agent 通过 MCP 来建模」。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#DEA584">Rust</span>
+                <span class="stat">★ 14,133</span>
+                <span class="delta">+514</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#4B8BBE" data-src="weekly" data-text="seedds/nxnative python 把自购 switch 游戏原生跑在 iphone / ipad 上，一个脚本打成可侧载的 ipa。 readme 强调它不是模拟器：游戏自身代码直接跑在 apple 芯片上、图形用 metal 重建；需要自备 nsp 与 prod.keys，仓库不含任何游戏内容，并称已开始尝试 switch 2 游戏。">
+              <span class="rnk">17</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/seedds/nxnative" target="_blank" rel="noreferrer">seedds/nxnative</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">把自购 Switch 游戏原生跑在 iPhone / iPad 上，一个脚本打成可侧载的 IPA。</p>
+                <p class="row-hl">README 强调它不是模拟器：游戏自身代码直接跑在 Apple 芯片上、图形用 Metal 重建；需要自备 NSP 与 prod.keys，仓库不含任何游戏内容，并称已开始尝试 Switch 2 游戏。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#4B8BBE">Python</span>
+                <span class="stat">★ 12,476</span>
+                <span class="delta">+340</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#00B4AB" data-src="weekly" data-text="ccch1mneyyy/dsh-go dart deepseek harness 的 android 客户端：手机上本机跑，也能遥控电脑上的 dsh。 readme 自述曾登 trendshift 全语言日榜第一（2026-10-30）；带桌面宠物式角色，干活时写代码、完成后空翻、等你确认会举手，可设置「app 外显示」跟到桌面。">
+              <span class="rnk">18</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/ccch1mneyyy/dsh-Go" target="_blank" rel="noreferrer">ccch1mneyyy/dsh-Go</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">DeepSeek Harness 的 Android 客户端：手机上本机跑，也能遥控电脑上的 DSH。</p>
+                <p class="row-hl">README 自述曾登 Trendshift 全语言日榜第一（2026-10-30）；带桌面宠物式角色，干活时写代码、完成后空翻、等你确认会举手，可设置「App 外显示」跟到桌面。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#00B4AB">Dart</span>
+                <span class="stat">★ 11,374</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#A97BFF" data-src="weekly" data-text="pengchujin/aerial-tv kotlin 给国产电视的一块干净桌面：参照 tvos、无广告无推荐流。 首页玻璃底板放常用 app，长按 ok 可移动/隐藏/卸载或设为开机启动；手机扫码即可整理电视桌面，屏保可播 apple tv 的 114 段航拍影片（电视支持时 4k/杜比视界）。">
+              <span class="rnk">19</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/pengchujin/aerial-tv" target="_blank" rel="noreferrer">pengchujin/aerial-tv</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">给国产电视的一块干净桌面：参照 tvOS、无广告无推荐流。</p>
+                <p class="row-hl">首页玻璃底板放常用 App，长按 OK 可移动/隐藏/卸载或设为开机启动；手机扫码即可整理电视桌面，屏保可播 Apple TV 的 114 段航拍影片（电视支持时 4K/杜比视界）。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#A97BFF">Kotlin</span>
+                <span class="stat">★ 9,955</span>
+                <span class="delta">+339</span>
+              </div>
+            </li>
+            <li class="row" style="--c:#F1E05A" data-src="weekly" data-text="heydamir/unslop javascript 把「一眼 ai 味」的 vibecoded 界面改成有设计感的界面。 先识别紫渐变、光晕、emoji 标签、喊话式文案、间距不齐这些「slop」，再按产品定方向、像设计师做 redline 一样逐屏修；支持 next.js、react、vue、svelte、tailwind 与纯 html/css。">
+              <span class="rnk">20</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/heydamir/unslop" target="_blank" rel="noreferrer">heydamir/unslop</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">把「一眼 AI 味」的 vibecoded 界面改成有设计感的界面。</p>
+                <p class="row-hl">先识别紫渐变、光晕、emoji 标签、喊话式文案、间距不齐这些「slop」，再按产品定方向、像设计师做 redline 一样逐屏修；支持 Next.js、React、Vue、Svelte、Tailwind 与纯 HTML/CSS。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#F1E05A">JavaScript</span>
+                <span class="stat">★ 9,709</span>
+                <span class="delta">+1,138</span>
+              </div>
+            </li>
+          </ol>
+        </section>
+        
+          <section class="block">
+            <div class="block-head"><h3><span class="ico">🔭</span>趋势观察</h3></div>
+            <ul class="obs"><li style="--c:#5B9BFF"><span class="num">1</span><p>今日榜单几乎是「agent 工作位」的连续剧：dsh-superagent-prototype（+933）、agent-autoloop（+814）都在解决同一个问题——agent 如何自己接活、长期占住一个工作位、只在需要拍板时找人；差别只是前者是研究原型，后者是可插拔的调度中台。</p></li><li style="--c:#A06BFF"><span class="num">2</span><p>「纯 Rust 重写闭源软件」仍是最大造星机器：craft-anything 单日 +3,390 冲到第二，wordcraft、solidcraft 同门在榜；而 craft-anything 的做法本身已经写着答案——让编码 agent 去研究原实现、建替代品、逐项比对。</p></li><li style="--c:#2FD6A6"><span class="num">3</span><p>agent skill 继续是最轻的分发单位：pixelfx、teardown、stack-diagram、anatomy、unslop 全是「一个 skill + 一套方法」，且都强调跨 Claude Code / Codex / Cursor / OpenCode 可用，兼容多 harness 已成标配卖点。</p></li><li style="--c:#FFB13B"><span class="num">4</span><p>硬件与自有设备的使用权需求走强：gpu-unlock 单日 +614 解除消费卡 tensor 半速，terminal-mac 给 computer-use agent 单独开一台 macOS 虚拟机，nxnative 把 Switch 游戏搬上 Apple 芯片——都是「在我的硬件上跑满」。</p></li><li style="--c:#FF7AB6"><span class="num">5</span><p>AI 侧今天的主线是「闭环」：OpenAI 用 agent 流水线把 Linux 内核漏洞从发现做到补丁（948 个），LangGraph 把人类介入的恢复语义做严，DeepMind 与 OpenAI 则把生成的价格与时长继续压下来——能力、可控性、成本三条线同时推进。</p></li>
+            </ul>
+          </section>
+        
+          <section class="block">
+            <div class="block-head">
+              <h3><span class="ico">🧠</span>AI 前沿动态</h3>
+              <span class="block-sub">过去 24 小时（北京时间 11-05 06:00 → 11-06 06:00）· 官方博客为「上次日报后新增」口径 · arXiv 最多回看 96 小时 · 已单列「智能体/Agent」分类 · 源：OpenAI Blog / Google DeepMind / 量子位 / GitHub Releases / Hacker News / arXiv</span>
+            </div>
+            <div class="grid">
+            <article class="card news" style="--c:#5B9BFF" data-src="news" data-text="openai 发布 gpt‑6 cyber：面向对齐的网络安全 agent 模型 openai 推出专门做漏洞发现与修复的网络安全模型 gpt‑6 cyber，宣称只在授权范围内行动，用于找出可利用漏洞并给出修补方案。 把「安全 agent」做成独立模型，等于给自主渗透/防御能力划了一条授权边界，也意味着 agent 的红线开始由模型层而不是提示词层承担。 openai blog">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://openai.com/index/introducing-gpt-6-cyber" target="_blank" rel="noreferrer">OpenAI 发布 GPT‑6 Cyber：面向对齐的网络安全 agent 模型</a>
+                  <span class="badge cat">模型/产品</span>
+                </div>
+                <p class="summary">OpenAI 推出专门做漏洞发现与修复的网络安全模型 GPT‑6 Cyber，宣称只在授权范围内行动，用于找出可利用漏洞并给出修补方案。</p>
+                <p class="hl">为什么重要：把「安全 agent」做成独立模型，等于给自主渗透/防御能力划了一条授权边界，也意味着 agent 的红线开始由模型层而不是提示词层承担。</p>
+                <div class="meta"><span>OpenAI Blog</span><span>11-05 17:00</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#22D3EE" data-src="news" data-text="openai：自动化流水线在 linux 内核挖出 948 个提权漏洞并生成补丁 openai 称用自动化 agent 流水线完成发现、验证、出补丁的闭环，在 linux 内核中找到 948 个本地提权漏洞；量子位同期报道该项目耗资约 120 万美元。 agent 第一次在真实核心基础设施上跑完「挖洞→验证→修」全流程，安全研究的产能与披露节奏都会被重估。 openai blog / 量子位">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://openai.com/index/a-thousand-fewer-paths-to-root" target="_blank" rel="noreferrer">OpenAI：自动化流水线在 Linux 内核挖出 948 个提权漏洞并生成补丁</a>
+                  <span class="badge cat">智能体/Agent</span>
+                </div>
+                <p class="summary">OpenAI 称用自动化 agent 流水线完成发现、验证、出补丁的闭环，在 Linux 内核中找到 948 个本地提权漏洞；量子位同期报道该项目耗资约 120 万美元。</p>
+                <p class="hl">为什么重要：agent 第一次在真实核心基础设施上跑完「挖洞→验证→修」全流程，安全研究的产能与披露节奏都会被重估。</p>
+                <div class="meta"><span>OpenAI Blog / 量子位</span><span>11-05 09:54</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#5B9BFF" data-src="news" data-text="openai 上线 images 2.6：更快出图，直接生成 gif 与 svg images 2.6 在 chatgpt、codex 与 api 同步上线，主打更快的生成、gif 创作、更精确的编辑与新的 api 控制；量子位实测称最快 6 秒出图。 图像模型开始把「动图/矢量」当一等输出，设计类 agent 的工作流可以少掉一层外部转换工具。 openai blog / 量子位">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://openai.com/index/introducing-images-2-6" target="_blank" rel="noreferrer">OpenAI 上线 Images 2.6：更快出图，直接生成 GIF 与 SVG</a>
+                  <span class="badge cat">模型/产品</span>
+                </div>
+                <p class="summary">Images 2.6 在 ChatGPT、Codex 与 API 同步上线，主打更快的生成、GIF 创作、更精确的编辑与新的 API 控制；量子位实测称最快 6 秒出图。</p>
+                <p class="hl">为什么重要：图像模型开始把「动图/矢量」当一等输出，设计类 agent 的工作流可以少掉一层外部转换工具。</p>
+                <div class="meta"><span>OpenAI Blog / 量子位</span><span>11-05 09:59</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#5B9BFF" data-src="news" data-text="google deepmind 发布 gemini omni 1.2 flash：更快更便宜、支持更长片段 gemini omni 1.2 flash 定位快速且低成本的多模态生成，官方称可在同等价格下处理更长片段。 视频/多模态生成的价格与时长同时下探，「一次生成完整片段」开始成为默认能力而非旗舰特权。 google deepmind">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://deepmind.google/blog/gemini-omni-12-flash-fast-and-cost-effective-with-longer-clips/" target="_blank" rel="noreferrer">Google DeepMind 发布 Gemini Omni 1.2 Flash：更快更便宜、支持更长片段</a>
+                  <span class="badge cat">模型/产品</span>
+                </div>
+                <p class="summary">Gemini Omni 1.2 Flash 定位快速且低成本的多模态生成，官方称可在同等价格下处理更长片段。</p>
+                <p class="hl">为什么重要：视频/多模态生成的价格与时长同时下探，「一次生成完整片段」开始成为默认能力而非旗舰特权。</p>
+                <div class="meta"><span>Google DeepMind</span><span>11-06 01:05</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#5B9BFF" data-src="news" data-text="百度开源文心 5.5 flash base 基座模型 百度开源最新基座模型文心 5.5 flash base，官方称在同尺寸模型的多个基准上刷新 sota。 国内头部实验室继续把「flash 档」基座开放权重，中小团队自部署的性价比基线又被抬高一次。 量子位">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://www.qbitai.com/2026/11/507787.html" target="_blank" rel="noreferrer">百度开源文心 5.5 Flash Base 基座模型</a>
+                  <span class="badge cat">模型/产品</span>
+                </div>
+                <p class="summary">百度开源最新基座模型文心 5.5 Flash Base，官方称在同尺寸模型的多个基准上刷新 SOTA。</p>
+                <p class="hl">为什么重要：国内头部实验室继续把「Flash 档」基座开放权重，中小团队自部署的性价比基线又被抬高一次。</p>
+                <div class="meta"><span>量子位</span><span>11-05 15:15</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#22D3EE" data-src="news" data-text="langgraph 1.2.20：interrupt 独立 id + strict resume 模式 langgraph 发布 1.2.20，给任务内每个 interrupt() 分配独立 id，新增严格恢复模式以拒绝过期的中断答复，并修正多中断报错的文档指向。 人类介入（human-in-the-loop）从「能暂停」走向「能安全恢复」，这是 agent 长流程落地的关键工程细节。 github releases">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/langchain-ai/langgraph/releases/tag/1.2.20" target="_blank" rel="noreferrer">LangGraph 1.2.20：interrupt 独立 id + strict resume 模式</a>
+                  <span class="badge cat">智能体/Agent</span>
+                </div>
+                <p class="summary">LangGraph 发布 1.2.20，给任务内每个 interrupt() 分配独立 id，新增严格恢复模式以拒绝过期的中断答复，并修正多中断报错的文档指向。</p>
+                <p class="hl">为什么重要：人类介入（human-in-the-loop）从「能暂停」走向「能安全恢复」，这是 agent 长流程落地的关键工程细节。</p>
+                <div class="meta"><span>GitHub Releases</span><span>11-05 10:20</span><span>新版发布</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#A06BFF" data-src="news" data-text="speccompact：用槽位并行的语义推测验证加速 agent 上下文压缩 论文提出 speccompact，利用结构化摘要槽位可独立生成的性质做并行推测验证，在保留信息的同时压低长历史压缩的延迟。 上下文压缩是长任务 agent 的固定开销，把它从串行改成可验证的并行，直接换来更短的每轮等待。 arxiv">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="http://arxiv.org/abs/2611.06876v1" target="_blank" rel="noreferrer">SpecCompact：用槽位并行的语义推测验证加速 agent 上下文压缩</a>
+                  <span class="badge cat">研究/论文</span>
+                </div>
+                <p class="summary">论文提出 SpecCompact，利用结构化摘要槽位可独立生成的性质做并行推测验证，在保留信息的同时压低长历史压缩的延迟。</p>
+                <p class="hl">为什么重要：上下文压缩是长任务 agent 的固定开销，把它从串行改成可验证的并行，直接换来更短的每轮等待。</p>
+                <div class="meta"><span>arXiv</span><span>11-05 02:34（提交 11-04）</span><span>新论文</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#FF8A4C" data-src="news" data-text="纳斯达克单日跌 5%，选举后资金撤离 ai 交易 wsj 报道纳指单日下跌 5%，投资者在选举后集体撤出 ai 相关交易，hn 讨论集中在估值与资本开支的可持续性。 ai 叙事第一次被当成可交易的宏观风险定价，融资环境收紧会先反映在算力采购与 agent 创业公司的现金流上。 hacker news / wsj">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-11-05-2026" target="_blank" rel="noreferrer">纳斯达克单日跌 5%，选举后资金撤离 AI 交易</a>
+                  <span class="badge cat">行业动态</span>
+                </div>
+                <p class="summary">WSJ 报道纳指单日下跌 5%，投资者在选举后集体撤出 AI 相关交易，HN 讨论集中在估值与资本开支的可持续性。</p>
+                <p class="hl">为什么重要：AI 叙事第一次被当成可交易的宏观风险定价，融资环境收紧会先反映在算力采购与 agent 创业公司的现金流上。</p>
+                <div class="meta"><span>Hacker News / WSJ</span><span>11-06 02:00</span><span>HN 140 分 · 165 评论</span></div>
+              </div>
+            </article>
+            </div>
+          </section>
+    </section>
+  </main>
+
+  <footer>
+    <span>生成时间：2026-11-05T22:02:39.011Z · 数据：<code>../data/2026-11-06.json</code></span>
+    <span>Generated by OpenClaw · <a href="https://github.com/chengjiangpo/github-trending-daily-report">仓库源码</a></span>
+  </footer>
+</div>
+<script>
+(function(){
+
+  var q = document.getElementById('q');
+  var btns = Array.prototype.slice.call(document.querySelectorAll('.tbtn'));
+  var mode = 'all';
+  function applyFilter(){
+    var scope = document.querySelector('.panel.active') || document;
+    var term = (q.value || '').trim().toLowerCase();
+    scope.querySelectorAll('.card, .row').forEach(function(c){
+      var okMode = mode === 'all' || c.getAttribute('data-src') === mode;
+      var okText = !term || (c.getAttribute('data-text') || '').indexOf(term) > -1;
+      c.classList.toggle('hide', !(okMode && okText));
+    });
+    scope.querySelectorAll('.block').forEach(function(sec){
+      var holder = sec.querySelector('.grid, .board');
+      if (!holder) return;
+      sec.style.display = holder.querySelectorAll('.card:not(.hide), .row:not(.hide)').length ? '' : 'none';
+    });
+  }
+  q.addEventListener('input', applyFilter);
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      mode = b.getAttribute('data-f');
+      btns.forEach(function(x){ x.classList.toggle('on', x === b); });
+      applyFilter();
+    });
+  });
+  window.__applyFilter = applyFilter;
+
+  applyFilter();
+})();
+</script>
+</body>
+</html>
