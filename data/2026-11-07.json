@@ -1,0 +1,498 @@
+{
+  "date": "2026-11-07",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "github.com/trending 仍不可达：HEAD 探测曾返回 200，但两次正文抓取均超时/失败（curl http=000，size=0），按预案改用 api.github.com Search API 近似口径：daily = created:>2026-10-29 且 stars>150、按总 star 降序取前 10；weekly = created:>2026-10-06 同条件、排除日榜后补 10 条。因此 source 的 daily/weekly 只表示筛查窗口，不是真实 Trending 排名。",
+    "Search API 不提供「今日/本周 star 增量」。本期 delta 为「与 2026-11-06 日报同一仓库 star 数之差」（约 24 小时）；昨日不在榜的 claude-animated-shorts 留空，未做估算。",
+    "各仓库的一句话功能与亮点取自该仓库 README（raw.githubusercontent.com）与 API description；README 未写明的能力不写。star 数为 2026-11-07 06:00（北京时间）前后的 API 返回值。",
+    "deepseek-ai/deepseek-harness（master）过去 24 小时 0 条提交；最近一次为 11-04 16:40（北京时间）合并 release-dsh-0.2.2-rc.1 到 master，落在窗口之外。",
+    "earendil-works/pi（main）与 anomalyco/opencode（dev）均达到 API 单页 30 条上限，实际提交更多：pi 的主线是 p2 原型的 projects/会话分组、持久化沙箱磁盘与工具调用活动视图；opencode 的主线是 Code Mode 接入 bytecode VM、V2 文档迁到 /docs 并下线旧站。",
+    "AI 动态共 13 个源，全部抓取成功（13/13，53 条候选）；Anthropic News、Google DeepMind、Google AI Blog、CrewAI Blog、GitHub AI/ML Blog 本期 0 条新增。",
+    "官方大模型博客按「上次日报后新增」口径：OpenAI Blog 本期 6 条新增，多为客户案例与生态合作，仅保留信息密度最高的 BioBasicsBench 一条；Google 两家本期无新增。",
+    "智能体专项：本期保留 3 条 agent 类条目（Claude Code User-Agent 泄露邮箱、OpenAI BioBasicsBench、CrewAI 对话式会话），另有 XStack 与 Jev/Opus 混合方案两条研究向 agent 证据。",
+    "所有时间已换算为北京时间（UTC+8）；HN 的 heat 取自 Algolia 返回的 points/comments，官方博客与 arXiv 等无热度字段的条目 heat 如实留空或写「新论文/新版发布」。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（2026-11-05T22:00Z → 2026-11-06T22:00Z，时间已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 24h 内 0 条提交 · 最近提交 11-04 16:40（release-dsh-0.2.2-rc.1 合并进 master）",
+        "items": [
+          {
+            "title": "过去 24 小时无新提交",
+            "desc": "仓库自 11-04 起安静，24 小时窗口内无任何提交",
+            "author": "—",
+            "time": "—"
+          }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 30 条提交（API 单页上限，实际更多）· p2 原型继续扩张与 ai/coding-agent 修复",
+        "items": [
+          {
+            "title": "feat(p2)：TUI 里的 projects——每台机器上的代码库位置、会话按项目分组、/move",
+            "desc": "p2 开始有「项目」这一层结构",
+            "author": "davidbrai",
+            "time": "11-07 01:14"
+          },
+          {
+            "title": "feat(p2)：持久化的沙箱磁盘",
+            "desc": "沙箱环境可跨会话保留状态",
+            "author": "badlogic",
+            "time": "11-06 17:59"
+          },
+          {
+            "title": "feat(p2)：把工具调用画成一「轮」的活动——转轮、步骤抽屉、回答之后再给结果",
+            "desc": "agent 执行过程可视化",
+            "author": "dgtlntv",
+            "time": "11-06 22:50"
+          },
+          {
+            "title": "feat(durable)：按会话设置 compaction 策略",
+            "desc": "上下文压缩可按会话调",
+            "author": "badlogic",
+            "time": "11-06 19:54"
+          },
+          {
+            "title": "feat(p2)：工具的聊天外观由拥有它的插件决定",
+            "desc": "插件化 UI",
+            "author": "badlogic",
+            "time": "11-07 00:05"
+          },
+          {
+            "title": "fix(ai)：openai-completions 的工具历史不再发送空 tools 数组（#11891）",
+            "desc": "兼容性修复",
+            "author": "petrroll",
+            "time": "11-07 03:47"
+          },
+          {
+            "title": "fix(coding-agent)：编辑保留未改动行的行尾、只在改动处出 diff（#11751）",
+            "desc": "编辑不再污染整个文件",
+            "author": "petrroll",
+            "time": "11-07 04:10"
+          },
+          {
+            "title": "fix(coding-agent)：在每次提问前把当前 thinking level 记到分支上（#11888）",
+            "desc": "推理档位随会话落盘",
+            "author": "petrroll",
+            "time": "11-07 03:07"
+          },
+          {
+            "title": "fix(ai)：回复已开始后断掉的流会重试（#11885）",
+            "desc": "流式稳定性",
+            "author": "robopipi[bot]",
+            "time": "11-07 01:30"
+          },
+          {
+            "title": "fix(acp)：修复 grep glob 相对路径匹配（#11895）",
+            "desc": "工具行为修复",
+            "author": "petrroll",
+            "time": "11-07 04:56"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 30 条提交（API 单页上限，实际更多）· Code Mode 上 bytecode VM + 官网/文档整体迁移",
+        "items": [
+          {
+            "title": "feat(codemode)：新增 bytecode VM 引擎，走 CodeMode.make({ engine: \"vm\" })（#62357，jlongster）",
+            "desc": "Code Mode 多了一个执行后端",
+            "author": "jlongster",
+            "time": "11-07 01:37"
+          },
+          {
+            "title": "feat(core)：把 Code Mode 跑在 VM 上，藏于 experimental.codemodeVm（#62358）",
+            "desc": "实验开关先落地",
+            "author": "jlongster",
+            "time": "11-07 01:56"
+          },
+          {
+            "title": "feat(site)：V2 文档迁到 /docs（#62389）",
+            "desc": "文档站并入主站",
+            "author": "adamdotdevin",
+            "time": "11-07 01:57"
+          },
+          {
+            "title": "chore(console)：下线旧的 opencode.ai 站点（#62388）",
+            "desc": "旧站清理",
+            "author": "thdxr",
+            "time": "11-07 01:02"
+          },
+          {
+            "title": "feat(site)：browse 变成独立产品页，桌面页聚焦四个功能（#62419 / #62433）",
+            "desc": "官网信息架构重排",
+            "author": "thdxr",
+            "time": "11-07 05:28"
+          },
+          {
+            "title": "fix(core)：模型调用前等待 MCP 启动最多 2 秒（#62386）",
+            "desc": "MCP 不再阻塞首字",
+            "author": "rekram1-node",
+            "time": "11-07 00:58"
+          },
+          {
+            "title": "fix(acp)：关闭时不再主动新建会话（#62189）",
+            "desc": "ACP 生命周期修复",
+            "author": "neriousy",
+            "time": "11-07 04:57"
+          },
+          {
+            "title": "fix(core)：不再在提问前等 Console，配置请求 5 秒超时（#62397 / #62404）",
+            "desc": "启动卡顿修复",
+            "author": "rekram1-node",
+            "time": "11-07 02:34"
+          },
+          {
+            "title": "fix(session-ui)：review 展开模式下渲染局部 diff（#62241）",
+            "desc": "审阅体验",
+            "author": "Tarquinen",
+            "time": "11-07 04:47"
+          },
+          {
+            "title": "fix(core)：只设置了部分 limit 的自定义 provider 不再被丢弃（#62240）",
+            "desc": "自定义模型兼容",
+            "author": "Tarquinen",
+            "time": "11-07 04:39"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": {
+      "daily": 10,
+      "weekly": 10
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "deepseek-ai/dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+        "lang": "TypeScript",
+        "stars": "20,217",
+        "delta": "+777",
+        "source": "daily",
+        "summary": "DeepSeek Harness 的「超级 agent」研究原型：一个更自主、能长期自己接活的 agent 系统。",
+        "highlight": "README 顶部明确写着「Research prototype for reference only, not an official DeepSeek product」，并说明代码大量由编码 agent 写成、可能与论文里描述的实现并不一致，部分设计属于未来方向。"
+      },
+      {
+        "rank": 2,
+        "repo": "storytold/craft-anything",
+        "url": "https://github.com/storytold/craft-anything",
+        "lang": "Rust",
+        "stars": "17,815",
+        "delta": "+3,031",
+        "source": "daily",
+        "summary": "看一眼任何网站/App/游戏是怎么做的，再让 AI 给你造一个自己的版本。",
+        "highlight": "纯 Rust 的 clean-room 引擎：把目标交给它后用真实检查工具研究原实现，由编码 agent 建新项目、逐项比对原版并迭代；README 显示每个检查点都会给出「相似度」，规则外的改动需要你批准。"
+      },
+      {
+        "rank": 3,
+        "repo": "patch-gg/pixelfx",
+        "url": "https://github.com/patch-gg/pixelfx",
+        "lang": "JavaScript",
+        "stars": "5,583",
+        "delta": "+342",
+        "source": "daily",
+        "summary": "244 个像素风特效与动画，每个都是一小段可直接用的代码。",
+        "highlight": "特效带「表演」逻辑：角色会蓄力、出手、命中定格再收招，12 套完整动作可串成连招；附带 Claude Code skill 按「起草—渲染—看—改」流程生成新特效，可导出 sprite sheet 给任意引擎。"
+      },
+      {
+        "rank": 4,
+        "repo": "zortos293/Lichii",
+        "url": "https://github.com/zortos293/Lichii",
+        "lang": "C++",
+        "stars": "3,820",
+        "delta": "+1,725",
+        "source": "daily",
+        "summary": "实验性的开源 Switch / Switch 2 模拟器，基于 Eglantine、Eden、yuzu、Sudachi 的分支。",
+        "highlight": "README 明确是独立分支、与任天堂无关，仓库沿用历史名 Eglantine（桌面程序已改名 Lichii），构建产物发布在该 fork 的 releases 页；作者自述重点在游戏兼容性与渲染修复。"
+      },
+      {
+        "rank": 5,
+        "repo": "KKKKhazix/agent-autoloop",
+        "url": "https://github.com/KKKKhazix/agent-autoloop",
+        "lang": "TypeScript",
+        "stars": "3,652",
+        "delta": "+435",
+        "source": "daily",
+        "summary": "让命令行 agent 在后台自己接活、自己跟到底，拿不准时才发卡片找你拍板。",
+        "highlight": "零外部依赖内核 + 插件化的「事件源 / Agent / 通知通道 / 上线流水线」，一条命令装在本机、不需要公网端口；能接任何「读提示词、打印最后一条回复」的 CLI，拍板卡片支持飞书、钉钉、企微、Slack、Discord。"
+      },
+      {
+        "rank": 6,
+        "repo": "worldonlyu/Google_AI_Pro_2Year_ZeroCost_Auto",
+        "url": "https://github.com/worldonlyu/Google_AI_Pro_2Year_ZeroCost_Auto",
+        "lang": "Python",
+        "stars": "2,869",
+        "delta": "+618",
+        "source": "daily",
+        "summary": "自动化控制台脚本，号称零成本拿到 Google AI Pro（5TB）两年订阅。",
+        "highlight": "README 要求 Windows + Chrome + Python 3.10、本机开美区代理，并在网页里填写自己的 Visa/Mastercard 卡号、有效期、CVC 和持卡人姓名，免税邮编预填美国俄勒冈州 97201；属于需要交出支付信息的第三方脚本，使用前请自行评估风险与合规性。"
+      },
+      {
+        "rank": 7,
+        "repo": "Verlintas/NOIR",
+        "url": "https://github.com/Verlintas/NOIR",
+        "lang": "Kotlin",
+        "stars": "2,743",
+        "delta": "+297",
+        "source": "daily",
+        "summary": "把「这台手机到底会泄露什么」变成一份可复现的 Android 隐私审计报告。",
+        "highlight": "通过 adb 读取已连接设备的应用清单、权限与 APK 内网络端点，给出分类、风险评分和可回滚处置建议；需要时调用 jadx 反编译单个应用做关键字检索，README 明确限定自有设备与已授权研究。"
+      },
+      {
+        "rank": 8,
+        "repo": "elvarofficial/teardown",
+        "url": "https://github.com/elvarofficial/teardown",
+        "lang": "JavaScript",
+        "stars": "2,409",
+        "delta": "+244",
+        "source": "daily",
+        "summary": "一个 Claude Code skill：把任意机器做成可以拆开的 3D 模拟器。",
+        "highlight": "问「这东西怎么工作的」，Claude 会生成一个离线 HTML 页面：机器在中间运转、四周面板读真实数值，点按钮打开正在工作的部件，没人操作时页面自己巡演；安装为 npx skills add，运行需要 Node 20+ 与 Playwright Chromium。"
+      },
+      {
+        "rank": 9,
+        "repo": "govijr/terminal-mac",
+        "url": "https://github.com/govijr/terminal-mac",
+        "lang": "Swift",
+        "stars": "2,133",
+        "delta": "+201",
+        "source": "daily",
+        "summary": "给 computer-use agent 准备的独立 macOS 桌面，用终端查看和操作。",
+        "highlight": "用 Apple Virtualization 跑真实 macOS 虚拟机，guest 内的 helper 抓屏并注入输入事件，终端通过 Kitty/iTerm2 图形协议串流；agent 操作不会移动你物理 Mac 的指针、也不改剪贴板，虚拟机不继承宿主已登录的账号。"
+      },
+      {
+        "rank": 10,
+        "repo": "mromidev/claude-animated-shorts",
+        "url": "https://github.com/mromidev/claude-animated-shorts",
+        "lang": "TypeScript",
+        "stars": "2,020",
+        "delta": "",
+        "source": "daily",
+        "summary": "一个免费的 Claude skill：把一个题目做成 55–70 秒竖屏动画短片（2D 角色 + 3D 场景）。",
+        "highlight": "全部在本机用 three.js + Remotion 渲染，不调用 AI 视频生成器；仓库附 67 秒成片《The Bridge That Fell for a Song》的完整工程、合成音效脚本、7 份量化风格报告与 1,200 帧参考图，并给出逐帧 QA 流程。"
+      },
+      {
+        "rank": 11,
+        "repo": "Gathin23/cleanyourtv",
+        "url": "https://github.com/Gathin23/cleanyourtv",
+        "lang": "Python",
+        "stars": "53,263",
+        "delta": "+653",
+        "source": "weekly",
+        "summary": "通过 Wi-Fi 给 Android TV / Google TV 瘦身，换成 Apple TV 风格桌面。",
+        "highlight": "README 首页标注覆盖 442 个电视型号、117 个品牌、31 种语言，启动器体积 572 KB；宣称被 TechCrunch、TechRadar、Tom's Guide 报道（属项目自述，未逐条核实）。"
+      },
+      {
+        "rank": 12,
+        "repo": "deepseek-ai/DeepInfer",
+        "url": "https://github.com/deepseek-ai/DeepInfer",
+        "lang": "Python",
+        "stars": "25,550",
+        "delta": "+86",
+        "source": "weekly",
+        "summary": "DeepSeek 生产环境在用的高性能推理框架，开源了离线推理部分。",
+        "highlight": "README 写明当前只支持 DeepSeek-V4.1-Flash，特性含 Attention DP / balanced CP、MoE EP + EPLB、DSpark 与置信度调度验证、异步零开销批调度、batch-invariant 推理与确定性采样。"
+      },
+      {
+        "rank": 13,
+        "repo": "wheresryan22/anatomy",
+        "url": "https://github.com/wheresryan22/anatomy",
+        "lang": "JavaScript",
+        "stars": "25,532",
+        "delta": "+319",
+        "source": "weekly",
+        "summary": "一个 Claude skill：把抽象概念做成能真正运转的等距剖面图。",
+        "highlight": "产出的是 SVG/WebGL/3D 交互图解，零件数量多且位置精确；README 称除 Claude Code 外还可在 Antigravity、OpenCode、Codex、MiniMax Code 中运行。"
+      },
+      {
+        "rank": 14,
+        "repo": "Zagitta/gpu-unlock",
+        "url": "https://github.com/Zagitta/gpu-unlock",
+        "lang": "C",
+        "stars": "17,580",
+        "delta": "+387",
+        "source": "weekly",
+        "summary": "解除 GeForce 消费卡被锁掉一半的 tensor 吞吐，主打「你的显卡在跑半速 AI」。",
+        "highlight": "README 说明 NVIDIA 把 GeForce 的 FP16/BF16/TF32（FP32 累加）张量核心锁在半速，同硅片的 RTX A 系列是全速；工具在开机时、驱动加载前解除限制，自报 FP16/BF16/TF32 最高 2×、LLM prefill +25–55%。"
+      },
+      {
+        "rank": 15,
+        "repo": "storytold/wordcraft",
+        "url": "https://github.com/storytold/wordcraft",
+        "lang": "Rust",
+        "stars": "17,470",
+        "delta": "+76",
+        "source": "weekly",
+        "summary": "纯 Rust 重写的现代文字处理器，走熟悉的 Office 工作流。",
+        "highlight": "具备 ribbon、样式、表格、修订痕迹、引用与邮件合并，读写 .docx，原生跑 macOS/Windows/Linux/BSD，也能通过 WebAssembly 在浏览器里用；出自 craft-anything 同一团队 ArtCraft。"
+      },
+      {
+        "rank": 16,
+        "repo": "tangency-labs/solidcraft",
+        "url": "https://github.com/tangency-labs/solidcraft",
+        "lang": "Rust",
+        "stars": "14,500",
+        "delta": "+367",
+        "source": "weekly",
+        "summary": "纯 Rust 的开源参数化 3D CAD，改一个尺寸整个模型跟着重建。",
+        "highlight": "桌面、浏览器、Snap 多端可用；内置 MCP server，README 明确写着可以「让 AI agent 通过 MCP 来建模」。"
+      },
+      {
+        "rank": 17,
+        "repo": "seedds/nxnative",
+        "url": "https://github.com/seedds/nxnative",
+        "lang": "Python",
+        "stars": "12,918",
+        "delta": "+442",
+        "source": "weekly",
+        "summary": "把自购 Switch 游戏原生跑在 iPhone / iPad 上，一个脚本打成可侧载的 IPA。",
+        "highlight": "README 强调它不是模拟器：游戏自身代码直接跑在 Apple 芯片上、图形用 Metal 重建；需要自备 NSP 与 prod.keys，仓库不含任何游戏内容，并称已开始尝试 Switch 2 游戏。"
+      },
+      {
+        "rank": 18,
+        "repo": "ccch1mneyyy/dsh-Go",
+        "url": "https://github.com/ccch1mneyyy/dsh-Go",
+        "lang": "Dart",
+        "stars": "12,894",
+        "delta": "+1,520",
+        "source": "weekly",
+        "summary": "DeepSeek Harness 的 Android 客户端：手机上本机跑，也能遥控电脑上的 DSH。",
+        "highlight": "README 自述曾登 Trendshift 全语言日榜第一（2026-10-30）；带桌面宠物式角色，干活时写代码、完成后空翻、等你确认会举手，可设置「App 外显示」跟到桌面。"
+      },
+      {
+        "rank": 19,
+        "repo": "heydamir/unslop",
+        "url": "https://github.com/heydamir/unslop",
+        "lang": "JavaScript",
+        "stars": "10,681",
+        "delta": "+972",
+        "source": "weekly",
+        "summary": "把「一眼 AI 味」的 vibecoded 界面改成有设计感的界面。",
+        "highlight": "先识别紫渐变、光晕、emoji 标签、喊话式文案、间距不齐这些「slop」，再按产品定方向、像设计师做 redline 一样逐屏修；支持 Next.js、React、Vue、Svelte、Tailwind 与纯 HTML/CSS。"
+      },
+      {
+        "rank": 20,
+        "repo": "pengchujin/aerial-tv",
+        "url": "https://github.com/pengchujin/aerial-tv",
+        "lang": "Kotlin",
+        "stars": "10,334",
+        "delta": "+379",
+        "source": "weekly",
+        "summary": "给国产电视的一块干净桌面：参照 tvOS、无广告无推荐流。",
+        "highlight": "首页玻璃底板放常用 App，长按 OK 可移动/隐藏/卸载或设为开机启动；手机扫码即可整理电视桌面，屏保可播 Apple TV 的 114 段航拍影片（电视支持时 4K/杜比视界）。"
+      }
+    ]
+  },
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（北京时间 11-06 06:00 → 11-07 06:00）· 官方博客为「上次日报后新增」口径 · arXiv 最多回看 96 小时 · 已单列「智能体/Agent」分类",
+    "sourcesUsed": [
+      "Latent Space",
+      "Hacker News",
+      "GitHub",
+      "Bloomberg",
+      "WSJ",
+      "OpenAI Blog",
+      "GitHub Releases",
+      "量子位",
+      "arXiv"
+    ],
+    "items": [
+      {
+        "category": "release",
+        "title": "Thinking Machines 发布 Inkling 2 Small：594B 总参 / 17B 激活，68 小时训完",
+        "summary": "Thinking Machines 推出 Inkling 2 Small，594B 总参数、17B 激活的多模态 MoE，官方称从零预训练用不到 3 天、约 12T token，Artificial Analysis 智能指数 31；现已在 Tinker 上可用，Apache 2.0 权重称在外部安全测试完成后于下周放出。",
+        "why": "开放权重阵营多了一个接近前沿的西方模型，「小激活 + 可定制」的路线直接把自部署的算力门槛压了下来。",
+        "url": "https://latent.space/p/ainews-inkling-2-small-17a-594b-trained-in-68-hours-on-12t-tokens-beating-muse-spark/",
+        "source": "Latent Space",
+        "time": "11-06 18:35",
+        "heat": ""
+      },
+      {
+        "category": "agent",
+        "title": "Claude Code 被指把用户邮箱写进 User-Agent 发给任意网站",
+        "summary": "开发者在 claude-code 仓库提交 issue #107757：Claude Code 联网搜索时在 User-Agent 里带上用户邮箱，第三方站点因此拿到身份、有人称每天收到大量诈骗邮件，要求彻底移除而不是提供开关；该帖在 HN 获 1537 分、486 条评论。",
+        "why": "agent 的默认出站请求头成了身份泄漏面，这类框架级指纹一旦默认开启，会在所有使用者身上无声重复。",
+        "url": "https://github.com/anthropics/claude-code/issues/107757",
+        "source": "Hacker News / GitHub",
+        "time": "11-06 06:17",
+        "heat": "1537 分 · 486 评论"
+      },
+      {
+        "category": "industry",
+        "title": "Anthropic IPO 估值预期承压：从 1.5 万亿一路谈到 1.1–1.3 万亿",
+        "summary": "AI 交易回调后，多家媒体给出相互印证的口径：WSJ 称大投资者怀疑 Anthropic 能否撑到 1.5 万亿美元估值，Bloomberg 称部分买方看到的估值低至 1.1 万亿，另有报道称定价讨论已降至 1.3 万亿。",
+        "why": "一级市场对 frontier lab 的定价开始跟着二级市场 AI 板块走，融资节奏与算力承诺都可能被重估。",
+        "url": "https://www.bloomberg.com/news/articles/2026-11-06/anthropic-ipo-valuation-expectations-pressured-after-ai-rout",
+        "source": "Bloomberg / WSJ / Hacker News",
+        "time": "11-07 01:21",
+        "heat": "147 分 · 352 评论（Bloomberg 帖）"
+      },
+      {
+        "category": "agent",
+        "title": "OpenAI 发布 BioBasicsBench：100 个任务考 agent 做湿实验",
+        "summary": "OpenAI 推出 BioBasicsBench，用 100 个任务衡量 AI agent 解读原始实验数据、处理日常湿实验室工作的能力。",
+        "why": "把 agent 评测从「写代码、答问答」推进到真实实验台操作，这是生物实验室自动化的准入测试。",
+        "url": "https://openai.com/index/measuring-how-ai-agents-handle-everyday-wet-lab-science",
+        "source": "OpenAI Blog",
+        "time": "11-06 08:00",
+        "heat": ""
+      },
+      {
+        "category": "agent",
+        "title": "crewAI 1.15.36：实验性「对话式 Agent 会话」",
+        "summary": "crewAI 发布 1.15.36，新增实验性的 conversational Agent sessions，并改进 crewai run 缺 API key 时的提示、项目载入失败的错误分类、AMP 无法解析的应用名提示，同时修复异步调用执行。",
+        "why": "多 agent 框架开始把「长期对话会话」当一等对象，从跑一次性 crew 转向常驻协作者。",
+        "url": "https://github.com/crewAIInc/crewAI/releases",
+        "source": "GitHub Releases",
+        "time": "11-06 12:40",
+        "heat": "新版发布"
+      },
+      {
+        "category": "industry",
+        "title": "腾讯 Hy4 调用量激增，WorkBuddy 十倍扩容",
+        "summary": "量子位报道，腾讯称因 Hy4 调用激增，WorkBuddy 已扩容十倍；报道标题称 Hy4 的 Agent 能力在开源模型中排名第一。",
+        "why": "国内 agent 产品的真实调用量开始倒逼推理容量，模型竞争转向「agent 任务能不能扛住量」。",
+        "url": "https://www.qbitai.com/2026/11/507967.html",
+        "source": "量子位",
+        "time": "11-06 10:00",
+        "heat": ""
+      },
+      {
+        "category": "research",
+        "title": "XStack：把 ML 仓库从 PyTorch 迁到 JAX 做成 agent 基准",
+        "summary": "论文提出 XStack，给 agent 一个 PyTorch 仓库和一台干净的 TPU 机器，要求交付可跑通的 JAX 仓库；实测 Claude Opus 5 通过率 75%、GPT-5.6-sol 45%，其余 agent 均不超过 40%。",
+        "why": "长周期、跨框架、跨硬件的整仓迁移被标准化，编码 agent 的能力评估终于不只盯着修 bug。",
+        "url": "https://arxiv.org/abs/2611.08472",
+        "source": "arXiv",
+        "time": "11-05 提交（11-06 索引）",
+        "heat": "新论文"
+      },
+      {
+        "category": "research",
+        "title": "便宜的 Jev 先判、拿不准再问 Opus：拿到 Opus 精度，成本低 4 倍",
+        "summary": "Hightouch 在身份解析评分任务上做实验：决策模型 Jev 与 GPT-6 Luna 单跑为 88.8–97.3% 准确率，而「Jev 先判、置信度低时升级给 Claude Opus」的混合方案接近 Opus 精度，成本降低 4 倍以上；Jev 的置信度校准明显好于 Luna。",
+        "why": "「小模型先跑、把握不足再升级」被验证为可落地的成本结构，agent 的模型路由不必在便宜和准确之间二选一。",
+        "url": "https://hightouch.com/blog/llm-judges-identity-resolution",
+        "source": "Hacker News / Hightouch Blog",
+        "time": "11-07 03:48",
+        "heat": "171 分 · 40 评论"
+      }
+    ]
+  },
+  "observation": [
+    "今天的日榜几乎是「给 agent 用的工具」的连续剧：榜首还是 DeepSeek 的超级 agent 原型（+777），第 5 名 agent-autoloop 解决「后台自己接活、拿不准再找人」，第 8 名 teardown、第 10 名 claude-animated-shorts 都是单个 skill 交付一条完整生产线——能力正在被切成可安装的小块。",
+    "clean-room 重写仍是最大造星机器：craft-anything 单日 +3,031，同一团队的 wordcraft、solidcraft 继续在周榜上，craft 系已经从一个仓库长成一条产品线，而它的方法本身就是让编码 agent 去研究原实现再逐项比对。",
+    "本期最值得记的一条不是模型发布而是默认值：Claude Code 把邮箱写进 User-Agent 被 1537 分顶上 HN 首页。agent 的隐私问题不在它说了什么，而在它每次出门都顺手带上了谁的身份。",
+    "评测在往「整仓、整台机器」走：XStack 要求 agent 把 PyTorch 仓库迁成能跑的 JAX 仓库，最好的模型也只有 75%；OpenAI 则把湿实验搬进 benchmark。agent 的考卷从函数题变成了工程交付。",
+    "成本结构继续被拆开：Inkling 2 Small 用 17B 激活打到前沿附近，Hightouch 证明「便宜模型先判、拿不准再升级」能省 4 倍成本——一头压训练，一头压推理，中间层（路由与置信度）开始比模型本身更值钱。"
+  ]
+}
