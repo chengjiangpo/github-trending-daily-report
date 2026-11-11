@@ -1,0 +1,515 @@
+{
+  "date": "2026-11-12",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "仓库数据全部走 curl 直连 api.github.com 公共 API（未认证），先取 metadata 得 default_branch，再按 since=2026-11-10T22:00Z 拉 24h 提交；deepseek-ai/deepseek-harness=master、earendil-works/pi=main、anomalyco/opencode=dev。pi 与 opencode 均返回 30 条（per_page 上限，实际提交数更多）。",
+    "github.com/trending 今日 06:00（北京时间）抓取成功：日榜仅 10 条，按既定口径用周榜（since=weekly）补位 10 条凑满 20，重复出现的 vercel-labs/agent-browser 只保留日榜那一条；每条 delta 为页面上的 stars today / stars this week 原值。",
+    "raw.githubusercontent.com 今日 HTTPS 不通（http=000 超时），项目亮点改由 api.github.com 的 /readme 接口（Accept: application/vnd.github.raw）读取各仓库 README 正文，20 个仓库全部取到。",
+    "AI 前沿动态来源：Hacker News(Algolia，按 AI 相关性+热度过滤)、arXiv(cs.CL/AI/LG/MA/RO)、OpenAI Blog、Google DeepMind、Google AI Blog、Simon Willison、量子位、GitHub Blog、Latent Space、GitHub Releases(agent 生态)；本轮 Anthropic News 与 CrewAI Blog 候选为 0（无新增 slug/文章），GitHub AI/ML Blog 亦为 0。",
+    "Gemini 4 Carbon 昨日日报已单条覆盖（Gemini 4 Carbon 全面开放 + 进入 GitHub Copilot），今日候选中的同名条目不再重复成条，仅在「趋势观察」与其他条目中作为背景提及。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-11-10T22:00Z，时间已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 24h 内 12 条提交 · 发布 0.2.2-rc.2",
+        "items": [
+          {
+            "title": "release(dsh): 0.2.2-rc.2",
+            "desc": "切出 0.2.2 第二个候选版本",
+            "author": "imccyu",
+            "time": "11-11 10:18"
+          },
+          {
+            "title": "Merge PR #8278 from worktree-sync-release-dsh-0.2.2-rc.2-to-master",
+            "desc": "把 0.2.2-rc.2 同步回 master",
+            "author": "imccyu",
+            "time": "11-11 10:49"
+          },
+          {
+            "title": "Merge release/dsh-0.2.2 (0.2.2-rc.2) into master",
+            "desc": "发版分支合入主干",
+            "author": "imccyu",
+            "time": "11-11 10:34"
+          },
+          {
+            "title": "Merge PR #8265 from saafo/duo-text-autosizing",
+            "desc": "移动端文本自适应尺寸",
+            "author": "imccyu",
+            "time": "11-11 10:14"
+          },
+          {
+            "title": "fix: Preserve authored text sizes on mobile Safari",
+            "desc": "修复移动 Safari 上文本字号被改写的问题",
+            "author": "Saafo",
+            "time": "11-10 20:55"
+          },
+          {
+            "title": "Merge PR #8225 from turtle/add-desktop-ua-suffix",
+            "desc": "桌面端 UA 后缀调整",
+            "author": "turtle1999",
+            "time": "11-11 09:28"
+          },
+          {
+            "title": "Merge PR #8213 from split-exports-test-fixtures",
+            "desc": "拆分导出的测试夹具",
+            "author": "imccyu",
+            "time": "11-11 10:13"
+          },
+          {
+            "title": "refactor(exports): internalize test helpers and type fixtures",
+            "desc": "把测试辅助与类型夹具收进内部导出，收敛公共 API 面",
+            "author": "imccyu",
+            "time": "11-10 12:06"
+          }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 ≥30 条提交（per_page 上限）· 主线为 p2 rooms / chord 多端协作模型",
+        "items": [
+          {
+            "title": "feat(p2): rooms with events — room.emit/onEvent、motion outbox、流水线发送与单调 ack",
+            "desc": "房间模型加入事件流，为多端共享状态打底",
+            "author": "badlogic",
+            "time": "11-11 23:43"
+          },
+          {
+            "title": "feat(chord): events（fire-and-forget 成员）与按信任度划分的调用窗口",
+            "desc": "chord 协作层的事件与权限模型",
+            "author": "badlogic",
+            "time": "11-11 23:08"
+          },
+          {
+            "title": "docs(p2): rooms v3 working model（串行输入、检查点、对等状态、事件）",
+            "desc": "一天内连写 v2/v3 多版设计稿，规格仍在收敛",
+            "author": "badlogic",
+            "time": "11-12 04:02"
+          },
+          {
+            "title": "feat(p2-mac): 每个 Pi 一个标签页，本地直连与经 Radius 远程统一",
+            "desc": "桌面端多实例与远程连接体验",
+            "author": "mitsuhiko",
+            "time": "11-11 22:24"
+          },
+          {
+            "title": "feat(p2): 服务器名设置，重命名后同步到 Radius",
+            "desc": "多设备身份同步",
+            "author": "mitsuhiko",
+            "time": "11-11 22:25"
+          },
+          {
+            "title": "feat(p2): 在侧边栏显示子智能体的当前步骤（rwachtler）",
+            "desc": "subagent 运行过程可视化",
+            "author": "rwachtler",
+            "time": "11-11 22:42"
+          },
+          {
+            "title": "feat(p2): backup coordinator（#12042）",
+            "desc": "备份协调器",
+            "author": "cristinaponcela",
+            "time": "11-11 22:32"
+          },
+          {
+            "title": "fix(coding-agent): 扩展只隐藏自己的工具时，保留已恢复的 MCP 工具（#12054）",
+            "desc": "MCP 工具恢复回归修复",
+            "author": "robopipi[bot]",
+            "time": "11-11 21:46"
+          },
+          {
+            "title": "fix(durable,env): 跳过 listDir 枚举期间被删除的条目（#12055）",
+            "desc": "持久化层并发删除崩溃修复",
+            "author": "robopipi[bot]",
+            "time": "11-11 21:49"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 ≥30 条提交（per_page 上限）· 子智能体全面转后台 + 接入 Google Decisions",
+        "items": [
+          {
+            "title": "feat(core): always run subagents in the background（#63382）",
+            "desc": "子智能体一律后台运行，前台路径被移除",
+            "author": "jlongster",
+            "time": "11-12 03:49"
+          },
+          {
+            "title": "feat(core): report subagent results to the parent every time a child goes idle（#63209）",
+            "desc": "子智能体空闲即回报父会话",
+            "author": "jlongster",
+            "time": "11-12 02:09"
+          },
+          {
+            "title": "fix(acp): stream the parent's reaction to background subagent reports（#63395）",
+            "desc": "ACPI 通道流式回传父级反馈",
+            "author": "jlongster",
+            "time": "11-12 05:04"
+          },
+          {
+            "title": "feat(ai): add Google Decisions（#63369）",
+            "desc": "新增 Google Decisions 供应商接入",
+            "author": "rekram1-node",
+            "time": "11-12 04:40"
+          },
+          {
+            "title": "feat(process-daemon): pipe mode on Windows（#63196）",
+            "desc": "Windows 下的管道模式",
+            "author": "jlongster",
+            "time": "11-12 01:09"
+          },
+          {
+            "title": "chore(process-daemon): release 0.5.1 / 0.5.2",
+            "desc": "进程守护连发两个补丁版",
+            "author": "jlongster",
+            "time": "11-12 02:27"
+          },
+          {
+            "title": "refactor(codemode): 移除旧解释器，VM 成为唯一引擎（#62642）",
+            "desc": "code mode 执行栈收敛",
+            "author": "jlongster",
+            "time": "11-12 00:25"
+          },
+          {
+            "title": "fix(session): 用首个流式 token 计算 tps（#63321）",
+            "desc": "吞吐统计口径修正",
+            "author": "thdxr",
+            "time": "11-11 23:32"
+          },
+          {
+            "title": "fix(update): 管理端路由校验访问身份（#63340）",
+            "desc": "更新通道鉴权修复",
+            "author": "thdxr",
+            "time": "11-12 01:13"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": {
+      "daily": 10,
+      "weekly": 10
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "meta/astryx",
+        "url": "https://github.com/meta/astryx",
+        "lang": "TypeScript",
+        "stars": "24,802",
+        "delta": "+2,842",
+        "source": "daily",
+        "summary": "Meta 把内部用了八年的设计系统 Astryx 开源：150+ 可访问组件 + 主题 / 暗色 / CLI 一套齐。",
+        "highlight": "README 写明它已是 Meta 内部「使用最广、规模最大的设计系统」，支撑 13,000+ 应用；基于 React 19+ 与 StyleX，npm 包 @astryxdesign/core，文档写「为人与并肩工作的 agent 而建」，当前为 Beta、MIT 协议。"
+      },
+      {
+        "rank": 2,
+        "repo": "ZhuLinsen/daily_stock_analysis",
+        "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+        "lang": "Python",
+        "stars": "70,122",
+        "delta": "+429",
+        "source": "daily",
+        "summary": "LLM 驱动的多市场股票分析系统，每天自动生成「决策仪表盘」并推送到飞书/企微/Telegram 等。",
+        "highlight": "覆盖 A 股、港股、美股、日股、韩股、台股，README 标注配套 arXiv 论文 2608.26990；支持 GitHub Actions 定时零成本运行与 Docker 部署，MIT 协议、Python 3.10+。"
+      },
+      {
+        "rank": 3,
+        "repo": "GoogleChrome/modern-web-guidance-src",
+        "url": "https://github.com/GoogleChrome/modern-web-guidance-src",
+        "lang": "TypeScript",
+        "stars": "1,679",
+        "delta": "+133",
+        "source": "daily",
+        "summary": "把 Web 平台最佳实践与兼容性数据做成 coding agent 的 skills，专门把 agent 从 2019 年的老写法里拽出来。",
+        "highlight": "由 Chrome、Edge、Firefox、MDN 团队共同维护；README 给出 npx modern-web-guidance install，还支持 search / retrieve / 扫描代码库中的过时写法，并带一份公开的评测看板。"
+      },
+      {
+        "rank": 4,
+        "repo": "shadcn/improve",
+        "url": "https://github.com/shadcn/improve",
+        "lang": "",
+        "stars": "10,782",
+        "delta": "+333",
+        "source": "daily",
+        "summary": "只用最强的模型做「审计 + 写实施计划」，把执行交给便宜模型——这个 skill 自己从不改代码。",
+        "highlight": "README 明确分工：贵模型跑 /improve 产出 plans/001-*.md 自包含规格，便宜 agent 负责实现与测试；提供 quick/deep/security/branch/next/execute/reconcile 等子命令，计划是纯 markdown，任何兼容 Agent Skills 的客户端都能接手。"
+      },
+      {
+        "rank": 5,
+        "repo": "addyosmani/agent-skills",
+        "url": "https://github.com/addyosmani/agent-skills",
+        "lang": "JavaScript",
+        "stars": "115,865",
+        "delta": "+788",
+        "source": "daily",
+        "summary": "把资深工程师的流程与质量门槛打包成 9 个斜杠命令的生产级 coding agent skills。",
+        "highlight": "README 用 DEFINE→PLAN→BUILD→VERIFY→REVIEW→SHIP 六阶段对应 /spec、/plan、/build、/test、/constraints、/review、/ship 等命令，每个命令自动激活对应 skill。"
+      },
+      {
+        "rank": 6,
+        "repo": "vercel-labs/agent-browser",
+        "url": "https://github.com/vercel-labs/agent-browser",
+        "lang": "Rust",
+        "stars": "49,805",
+        "delta": "+712",
+        "source": "daily",
+        "summary": "给 agent 一个命令行就能驱动的浏览器：snapshot 返回带 @e1 引用的紧凑文本，agent 按引用点击再复查。",
+        "highlight": "原生 Rust CLI，浏览器在命令之间保持打开，每一步只是一次短 shell 调用；支持 npm / Homebrew / npx 安装，Apache-2.0，同时出现在日榜与周榜（本周 +3,606）。"
+      },
+      {
+        "rank": 7,
+        "repo": "we-promise/sure",
+        "url": "https://github.com/we-promise/sure",
+        "lang": "Ruby",
+        "stars": "12,859",
+        "delta": "+1,079",
+        "source": "daily",
+        "summary": "开源个人理财应用，带 AI 助手可直接就现金流与净资产提问。",
+        "highlight": "README 明确这是已停止维护的 Maybe Finance 的社区 fork；提供多语言界面、Skylight 性能面板与安全扫描 CI 徽章，主打「人人的个人财务」。"
+      },
+      {
+        "rank": 8,
+        "repo": "homeassistant-ai/ha-mcp",
+        "url": "https://github.com/homeassistant-ai/ha-mcp",
+        "lang": "Python",
+        "stars": "7,280",
+        "delta": "+640",
+        "source": "daily",
+        "summary": "把 Home Assistant 交给 AI 助手管理：87 个 MCP 工具，覆盖配置、自动化与排障。",
+        "highlight": "README 徽章直接标注 87 tools，基于 FastMCP 构建，带端到端测试 workflow；v7.3.0 起把 ha_config_set_yaml 迁到 beta 通道，属于明确的破坏性变更。"
+      },
+      {
+        "rank": 9,
+        "repo": "openai/codex-security",
+        "url": "https://github.com/openai/codex-security",
+        "lang": "TypeScript",
+        "stars": "11,652",
+        "delta": "+20",
+        "source": "daily",
+        "summary": "OpenAI 官方的安全审计工具链：在 Codex 里跑安全工作流，或用 CLI / TS SDK 自动化。",
+        "highlight": "功能含扫描仓库与 Git 变更、验证候选漏洞、生成补丁、起草 SECURITY.md、保存威胁模型，并支持导出 SARIF/JSON/CSV 与 Linear、Jira、GitHub 集成；提供 GitHub Action。"
+      },
+      {
+        "rank": 10,
+        "repo": "TheAlgorithms/Java",
+        "url": "https://github.com/TheAlgorithms/Java",
+        "lang": "Java",
+        "stars": "66,979",
+        "delta": "+108",
+        "source": "daily",
+        "summary": "用 Java 实现的各种算法合集，面向教学与学习。",
+        "highlight": "README 说明实现仅供学习、性能可能不如 JDK 标准库；提供 DIRECTORY.md 全量索引与 Gitpod 一键在线环境，长期靠社区贡献维护。"
+      },
+      {
+        "rank": 11,
+        "repo": "NVIDIA/auto-ontology",
+        "url": "https://github.com/NVIDIA/auto-ontology",
+        "lang": "Python",
+        "stars": "11,805",
+        "delta": "+9,621",
+        "source": "weekly",
+        "summary": "从企业元数据自动生成「本体层」，让 agent 查数前先知道数据在哪、什么意思、能不能用。",
+        "highlight": "README 的核心论点：agent 分析的可信度是硬门槛，「算得快但算错」毫无价值；提供 MCP / CLI / API 三种暴露方式，可校验生成 SQL 并附带血缘溯源，BIRD 等 text-to-SQL 评测另有独立仓库；Apache-2.0，且明确暂不接受外部贡献。"
+      },
+      {
+        "rank": 12,
+        "repo": "anthropics/skills",
+        "url": "https://github.com/anthropics/skills",
+        "lang": "Python",
+        "stars": "193,080",
+        "delta": "+5,014",
+        "source": "weekly",
+        "summary": "Anthropic 官方的 Agent Skills 示例仓库，覆盖创意、技术与企业工作流。",
+        "highlight": "README 说明每个 skill 是独立文件夹 + SKILL.md，其中 docx / pdf / pptx 等文档技能正是 Claude 文档能力的底层实现；多数以 Apache-2.0 开源，并指向 agentskills.io 标准。"
+      },
+      {
+        "rank": 13,
+        "repo": "vercel-labs/agent-desktop",
+        "url": "https://github.com/vercel-labs/agent-desktop",
+        "lang": "Rust",
+        "stars": "22,009",
+        "delta": "+9,502",
+        "source": "weekly",
+        "summary": "让 agent 操作桌面应用：读操作系统无障碍树返回 JSON，不靠截图与像素匹配。",
+        "highlight": "README 强调「内部没有模型」，循环跑在 agent 侧；以 CLI + C 库发布，支持 macOS / Windows / Linux，并明确警告快照与剪贴板可能含隐私内容、勿进公开日志。"
+      },
+      {
+        "rank": 14,
+        "repo": "milind-soni/OpenMausBot",
+        "url": "https://github.com/milind-soni/OpenMausBot",
+        "lang": "TypeScript",
+        "stars": "21,203",
+        "delta": "+8,951",
+        "source": "weekly",
+        "summary": "开源的「Grok Bot 替代品」：聊天列表里每个 bot 都是本地跑 Claude / Codex 的真 agent。",
+        "highlight": "README 自称对标 Meta Muse、OpenAI dots、Cue by Manus，主打 bring-your-own-agent + local-first；每个 bot 有独立人格、模型、云电脑与已连接应用，Electron 三平台分发、TypeScript strict。"
+      },
+      {
+        "rank": 15,
+        "repo": "cloudflare/security-audit-skill",
+        "url": "https://github.com/cloudflare/security-audit-skill",
+        "lang": "JavaScript",
+        "stars": "70,279",
+        "delta": "+10,967",
+        "source": "weekly",
+        "summary": "把 coding agent 变成安全审计员：六阶段编排侦察、猎取、验证与独立复核。",
+        "highlight": "README 说明它就是 Cloudflare 漏洞发现 harness 的种子版本；用 coverage-ledger.json 管理覆盖面、findings.json + report-schema.json 约束输出，confirmed / needs_validation / rejected 三态判定，并有 validate-*.cjs 脚本强制校验。"
+      },
+      {
+        "rank": 16,
+        "repo": "mattpocock/skills",
+        "url": "https://github.com/mattpocock/skills",
+        "lang": "Shell",
+        "stars": "321,943",
+        "delta": "+9,872",
+        "source": "weekly",
+        "summary": "来自作者 .agents 目录的「真工程师 skills」，刻意保持小而可拆改可组合。",
+        "highlight": "README 明确反对 GSD / BMAD / Spec-Kit 这类「接管流程」的方案，主张保留控制权；提供 Claude Code 插件（自动更新）与 skills.sh（拷入项目手改）两条互斥路径，作者 newsletter 约 6 万开发者订阅。"
+      },
+      {
+        "rank": 17,
+        "repo": "D4Vinci/Scrapling",
+        "url": "https://github.com/D4Vinci/Scrapling",
+        "lang": "Python",
+        "stars": "101,611",
+        "delta": "+7,291",
+        "source": "weekly",
+        "summary": "自适应网页抓取框架：从单次请求到大规模爬取都覆盖。",
+        "highlight": "README 主打「Effortless Web Scraping for the Modern Web」，提供多语言文档（含简中），并带 MCP 标识（io.github.D4Vinci/Scrapling），可直接作为 MCP 服务给 agent 调用。"
+      },
+      {
+        "rank": 18,
+        "repo": "zed-industries/zed",
+        "url": "https://github.com/zed-industries/zed",
+        "lang": "Rust",
+        "stars": "94,698",
+        "delta": "+2,262",
+        "source": "weekly",
+        "summary": "Atom 与 Tree-sitter 作者打造的高性能多人协作代码编辑器。",
+        "highlight": "macOS / Linux / Windows 三平台可下载或用系统包管理器安装，Web 版仍在讨论中（discussion #26195）；主仓以 GPL-3.0-or-later 授权、部分组件 Apache-2.0，CI 用 cargo-about 强制第三方许可证合规。"
+      },
+      {
+        "rank": 19,
+        "repo": "Donchitos/Claude-Code-Game-Studios",
+        "url": "https://github.com/Donchitos/Claude-Code-Game-Studios",
+        "lang": "Shell",
+        "stars": "38,435",
+        "delta": "+3,730",
+        "source": "weekly",
+        "summary": "把 Claude Code 变成游戏工作室：说一句想法，问几轮、写一页 brief，然后直接产出可玩的浏览器游戏。",
+        "highlight": "README 的 /prototype 流程很具体：一轮提问定风格与难度 → design/game-brief.md → prototypes/<name>/ 下双击即玩的成品，明确要求「不用 emoji 当美术、不抄现成游戏、不能太简单」，MIT 协议。"
+      },
+      {
+        "rank": 20,
+        "repo": "google/skills",
+        "url": "https://github.com/google/skills",
+        "lang": "Python",
+        "stars": "23,927",
+        "delta": "+2,024",
+        "source": "weekly",
+        "summary": "Google 官方的 Agent Skills 仓库，让 agent 会用 Google Cloud 等产品。",
+        "highlight": "npx skills add google/skills 一条命令可选具体 skill 与目标 agent；README 已列出 IAM 鉴权授权、Google Cloud 上手、方案架构工作流等技能条目。"
+      }
+    ]
+  },
+  "observation": [
+    "榜单彻底被「agent 的能力外包」占据：日榜 10 条里有 6 条是给编码 agent 用的 skills / 浏览器 / 桌面操作 / 安全审计，周榜更是被 skills 仓库包场（anthropics/skills、mattpocock/skills、google/skills、addyosmani/agent-skills、cloudflare/security-audit-skill）。竞争焦点已经从「模型多强」转到「给 agent 装什么可复用的专业能力」。",
+    "「贵模型只做大脑、便宜模型做手脚」开始成为显式方法论：shadcn/improve 明确只产出计划、把执行派给更便宜的 agent；ReTrace 一类论文则把 SOP 从「每步调 LLM」蒸馏成代码工作流，成本与延迟是同一条主线。",
+    "大厂把内部基础设施直接开源成 agent 工具：Meta 开源用了八年、支撑 13,000+ 应用的 Astryx 设计系统，Cloudflare 把漏洞发现 harness 的种子版放出来，NVIDIA 把企业本体层做成 MCP/CLI/API 三通道——开源正从「单个 SDK」变成「整套公司级 agent 底座」。",
+    "Vercel Labs 一周内两个项目同时上榜（agent-browser 日榜 +712、agent-desktop 周榜 +9,502），一个给 agent 浏览器、一个给 agent 桌面（走无障碍树而非截图），「计算机使用」这条赛道正在被拆成可复用的底层原语。",
+    "增量冠军 NVIDIA/auto-ontology（周榜 +9,621）指向一个被低估的痛点：agent 分析的瓶颈不是算力而是「可信」——它把数据含义、定义一致性、血缘溯源做成 agent 的前置上下文层，而不是继续堆检索。"
+  ],
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（arXiv 因索引滞后回看至 11-09）· 已单列「智能体/Agent」分类",
+    "sourcesUsed": [
+      "Hacker News",
+      "arXiv",
+      "OpenAI Blog",
+      "Google DeepMind",
+      "Google AI Blog",
+      "Simon Willison",
+      "量子位",
+      "GitHub Blog",
+      "Latent Space",
+      "GitHub Releases(agent 生态)"
+    ],
+    "items": [
+      {
+        "category": "release",
+        "title": "Google 推出 Gemini Decisions API，opencode 同日接入",
+        "summary": "Google 在开发者博客发布 Gemini Decisions API，HN 当日 142 分 45 评论；同一天 coding agent opencode 以 feat(ai): add Google Decisions 完成接入。",
+        "why": "Gemini 侧新增一个独立 API 入口且第三方 harness 当日就跟进，说明厂商正在把 agent 相关的调用形态单独产品化，值得关注它与现有工具调用协议的分工。",
+        "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+        "source": "Hacker News / GitHub（anomalyco/opencode，多源）",
+        "time": "11/12 02:32",
+        "heat": "142 分 · 45 评论"
+      },
+      {
+        "category": "research",
+        "title": "DeepMind 发布 AlphaGenome 2：预测 DNA 变异如何影响具体细胞类型",
+        "summary": "AlphaGenome 2 用于解读细胞如何「读取」DNA，预测序列变异对特定人类细胞类型与疾病的影响。",
+        "why": "这是 DeepMind 在基因组学方向的主力模型迭代，直接关系到疾病机理研究与靶点发现，也是「AI for science」少有的持续落地线。",
+        "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/",
+        "source": "Google DeepMind",
+        "time": "11/11 23:00",
+        "heat": ""
+      },
+      {
+        "category": "agent",
+        "title": "OpenAI 与 Cogent 共建企业「网络防御工厂」，用 agent 自动修漏洞",
+        "summary": "Cogent 把 OpenAI 模型与企业上下文结合，用 agent 自动完成漏洞修复；OpenAI 官方将其定位为企业级 cyber defense factories。",
+        "why": "安全运维是 agent 最容易证明 ROI 的场景之一：任务可验证、结果可量化，这类落地会直接影响企业 agent 的采购决策。",
+        "url": "https://openai.com/index/cogent-security",
+        "source": "OpenAI Blog",
+        "time": "11/10 08:00",
+        "heat": ""
+      },
+      {
+        "category": "agent",
+        "title": "AWS 官方模拟器 aws-emulator：三周 29,684 次提交，由一大群 agent 写成",
+        "summary": "AWS 开源 Rust 写的 aws-emulator，可在本地跑多家 AWS 服务的克隆用于测试、无需付费 API key；Simon Willison 指出它由 agent 集群在三周内提交近 3 万次，AWS CTO Swami 另发文谈「agent 写代码后工程师的工作」。",
+        "why": "这是目前最有说服力的「agent 大规模产出生产级代码」案例，同时引出工程师角色转变的公开讨论，比单纯的效率宣称更有实据。",
+        "url": "https://simonwillison.net/2026/Nov/11/aws-emulator/",
+        "source": "Simon Willison / Hacker News（多源）",
+        "time": "11/12 05:18",
+        "heat": "HN 108 分 · 2 评论"
+      },
+      {
+        "category": "industry",
+        "title": "Anthropic 启动 IPO 路演，视频首次公开算力策略",
+        "summary": "Anthropic 昨日开启 IPO 路演并放出路演视频，其中联合创始人 Tom Brown 讲「算力获取策略」的部分含此前未公开的信息。",
+        "why": "前沿实验室走向公开市场，意味着训练成本、算力合同与毛利结构会被摊到阳光下，对整个行业的定价与融资环境都有传导效应。",
+        "url": "https://simonwillison.net/2026/Nov/11/anthropic-ipo-roadshow/",
+        "source": "Simon Willison",
+        "time": "11/11 23:11",
+        "heat": ""
+      },
+      {
+        "category": "research",
+        "title": "arXiv：ReTrace 把「会用工具的 agent」蒸馏成无规划器的固定工作流",
+        "summary": "针对在企业 SOP 上反复跑的 agent 任务，ReTrace 用 SOP 加少量日志把流程编译成代码工作流，不再每一步都调用 LLM 选动作。",
+        "why": "点出 agent 规模化的真实成本结构：重复流程里 LLM 的逐步决策是纯开销，把它「编译掉」是降本增效的直接路径。",
+        "url": "http://arxiv.org/abs/2611.14492v1",
+        "source": "arXiv (cs.AI)",
+        "time": "11/11 02:49 提交",
+        "heat": "新论文"
+      },
+      {
+        "category": "agent",
+        "title": "Atuin Threads：把所有机器上的 agent 会话汇总到一处",
+        "summary": "Atuin 推出 Threads，把分散在不同机器上的 agent 会话统一记录与检索，HN 168 分 62 评论。",
+        "why": "多机、多 agent 并行已是日常，会话历史不可搜索是普遍痛点；这类「agent 可观测性」工具会像 shell history 一样变成基础设施。",
+        "url": "https://blog.atuin.sh/threads-agent-sessions/",
+        "source": "Hacker News",
+        "time": "11/11 22:10",
+        "heat": "168 分 · 62 评论"
+      }
+    ]
+  }
+}
