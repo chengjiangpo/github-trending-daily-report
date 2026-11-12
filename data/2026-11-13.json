@@ -1,0 +1,467 @@
+{
+  "date": "2026-11-13",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "仓库数据全部走 curl 直连 api.github.com 公共 API（未认证），先取 metadata 得 default_branch，再按 since=2026-11-11T22:00:00Z 拉 24h 提交；deepseek-ai/deepseek-harness=master（0 条，最近一条为 11-11 10:49 的 0.2.2-rc.2 发版合并）、earendil-works/pi=main（47 条）、anomalyco/opencode=dev（48 条）。",
+    "github.com/trending 今日 06:00（北京时间）日榜与周榜均不可达（HTTPS 超时，http=000），改用 api.github.com Search API 替代口径：created:>2026-10-14、stars:>150、按 star 降序取 30 条，剔除已宣布停止维护的 Minireel/HGhub 后取前 20；因此榜单反映的是「近 30 天新建且累计 star 高」的项目，不是当日 star 增量榜，delta 全部留空，stars 为累计值；页面徽章显示「周榜」仅为模板占位，不代表周榜数据。",
+    "raw.githubusercontent.com 不可直接访问，项目亮点改由 api.github.com 的 /readme 接口（Accept: application/vnd.github.raw）读取 README 正文，20 个仓库全部取到。",
+    "AI 前沿动态共抓取 53 条候选，13/13 源均请求成功；其中 Anthropic News、CrewAI Blog、GitHub AI/ML Blog 本轮新增为 0，其余源计数：HN 18、arXiv 12、GitHub Releases 5、OpenAI Blog 3、Google DeepMind 1、Google AI Blog 1、Simon Willison 4、量子位 7、GitHub Blog 1、Latent Space 2。",
+    "Gemini 4 Carbon 昨日日报已覆盖，今日 Gemini 4 Hydrogen 为新发布，按新增条目单列；英伟达黄仁勋相关报道来自 WSJ、Reuters 与 HN 多帖，候选来源中未见英伟达官方声明，事态仍在快速变化。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-11-11T22:00Z，时间已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 过去 24 小时无新提交（最近一条 11-11 10:49，0.2.2-rc.2 发版合并）",
+        "items": []
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 47 条提交 · 重心在 Chord/telemetry 与 AI 适配层",
+        "items": [
+          {
+            "title": "feat(p2)：页面与 agent 侧的 traces（plugins/telemetry）",
+            "desc": "agent 可观测性",
+            "author": "Mario Zechner",
+            "time": "11-13 03:39"
+          },
+          {
+            "title": "feat(p2)：会话分支在侧栏以树形展示",
+            "desc": "多分支会话可视化",
+            "author": "Ramiz Wachtler",
+            "time": "11-12 21:26"
+          },
+          {
+            "title": "feat(p2)：会话命令加入命令菜单",
+            "desc": "交互增强",
+            "author": "Ramiz Wachtler",
+            "time": "11-13 02:39"
+          },
+          {
+            "title": "docs(p2)：工具很多时的 code mode，含 MCP 的方案文档",
+            "desc": "设计提案",
+            "author": "Mario Zechner",
+            "time": "11-12 23:17"
+          },
+          {
+            "title": "fix(ai)：非严格 Anthropic 工具 schema 保留根级 additionalProperties（#12100）",
+            "desc": "工具调用兼容性修复",
+            "author": "robopipi[bot]",
+            "time": "11-12 22:59"
+          },
+          {
+            "title": "fix(ai)：Google GenAI SDK 适配器透传 custom fetch（#12103/#12108）",
+            "desc": "网络层修复",
+            "author": "rometi / Petr Houška",
+            "time": "11-13 05:09"
+          },
+          {
+            "title": "fix(coding-agent)：被信号终止的 pi.exec 命令按失败上报（#12089）",
+            "desc": "执行结果准确性",
+            "author": "Gangqiang Yao",
+            "time": "11-12 21:14"
+          },
+          {
+            "title": "feat(p2)：通过 Chord 的 web surface 交付 web 客户端",
+            "desc": "Web 端接入",
+            "author": "Mario Zechner",
+            "time": "11-12 21:55"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 48 条提交 · TUI/session 修复为主",
+        "items": [
+          {
+            "title": "fix(core)：重启后恢复直接驱动的子会话（#63415）",
+            "desc": "会话恢复",
+            "author": "James Long",
+            "time": "11-13 03:23"
+          },
+          {
+            "title": "fix(core)：Claude Agent 的 prompt 或工具变化时丢弃过期 thinking（#63592）",
+            "desc": "推理状态一致性",
+            "author": "Aiden Cline",
+            "time": "11-13 03:56"
+          },
+          {
+            "title": "fix(codemode)：跨 chunk 边界解码 UTF-8（#63600）",
+            "desc": "code mode 正确性",
+            "author": "Aiden Cline",
+            "time": "11-13 04:30"
+          },
+          {
+            "title": "fix(tui)：未开启图片预览时不保留工具结果里的图片字节（#63577）",
+            "desc": "内存占用",
+            "author": "Adam",
+            "time": "11-13 05:17"
+          },
+          {
+            "title": "feat(app)：搜索会话消息并跳回早期 prompt（#63585）",
+            "desc": "长会话导航",
+            "author": "usrnk1",
+            "time": "11-13 02:41"
+          },
+          {
+            "title": "feat(session-ui)：Mermaid 图可最大化并缩放拖拽（#59250）",
+            "desc": "图表查看",
+            "author": "opencode-agent[bot]",
+            "time": "11-12 23:02"
+          },
+          {
+            "title": "feat(app)：在输入框位置展示免费额度面板（#63531）",
+            "desc": "额度提示",
+            "author": "Aarav Sareen",
+            "time": "11-13 02:31"
+          },
+          {
+            "title": "fix(core)：插件清理失败时继续完成替换（#63548）",
+            "desc": "插件稳定性",
+            "author": "Filip",
+            "time": "11-12 23:15"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": {
+      "daily": 0,
+      "weekly": 20
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "Gathin23/cleanyourtv",
+        "url": "https://github.com/Gathin23/cleanyourtv",
+        "lang": "Python",
+        "stars": "56,983",
+        "delta": "",
+        "source": "weekly",
+        "summary": "通过 Wi-Fi 给 Android / Google TV 去臃肿，换成 Apple TV 风格的干净桌面。",
+        "highlight": "README 把用户分成三条路径：有 Android TV 就让编码助手约 15 分钟装好；三星/LG/Roku 等电视跑不了，只能用遥控器关掉追踪；还明确 cleanyourtv.com 等域名并非官方、项目不在任何应用商店上架。"
+      },
+      {
+        "rank": 2,
+        "repo": "storytold/craft-anything",
+        "url": "https://github.com/storytold/craft-anything",
+        "lang": "Rust",
+        "stars": "29,754",
+        "delta": "",
+        "source": "weekly",
+        "summary": "用纯 Rust 的净室引擎拆解任意网站/App/游戏，再让 AI 造一个你自己的版本。",
+        "highlight": "流程是「指向目标 → 用真实检查工具研究原作 → 编码 agent 新建项目 → 与原作比对并迭代」，每个检查会给出相似度，超出规则的改动需你批准；README 提供 10 种语言版本。"
+      },
+      {
+        "rank": 3,
+        "repo": "deepseek-ai/DeepInfer",
+        "url": "https://github.com/deepseek-ai/DeepInfer",
+        "lang": "Python",
+        "stars": "25,903",
+        "delta": "",
+        "source": "weekly",
+        "summary": "DeepSeek 生产环境在用的大规模推理框架，开源了离线推理核心能力。",
+        "highlight": "支持 DeepSeek-V4.1-Flash；README 列出 FlashMLA、DeepGEMM、DeepEP、TileKernels 等优化内核，Attention DP/平衡 CP、MoE EP+EPLB、DSpark 置信度调度验证、异步零开销批调度、批不变推理与确定性采样。"
+      },
+      {
+        "rank": 4,
+        "repo": "deepseek-ai/dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+        "lang": "TypeScript",
+        "stars": "22,732",
+        "delta": "",
+        "source": "weekly",
+        "summary": "面向单个 GitHub 仓库的主动型编码 agent 研究原型，打包成 DeepSeek Harness 的 bundle。",
+        "highlight": "它监听 GitHub（可选飞书），有人派活就开工作项、在独立 agent 会话与目录里干活，最后回到原对话用 PR 答复；README 明确这是研究代码、非官方产品，部分设计与论文描述并不一致。"
+      },
+      {
+        "rank": 5,
+        "repo": "ccch1mneyyy/dsh-Go",
+        "url": "https://github.com/ccch1mneyyy/dsh-Go",
+        "lang": "Dart",
+        "stars": "20,688",
+        "delta": "",
+        "source": "weekly",
+        "summary": "DeepSeek Harness 的第三方 Android 客户端：手机本机跑，也能遥控电脑上的 DSH。",
+        "highlight": "内置 Linux 环境，免 Root、免 Termux；支持 SSH 或 DSHarness Remote 连电脑、回复中途插话、对话回放链接端到端加密；README 自称 2026-10-30 登 Trendshift 全语言日榜第一，并说明这是第三方项目。"
+      },
+      {
+        "rank": 6,
+        "repo": "Zagitta/gpu-unlock",
+        "url": "https://github.com/Zagitta/gpu-unlock",
+        "lang": "C",
+        "stars": "18,940",
+        "delta": "",
+        "source": "weekly",
+        "summary": "在驱动加载前解除 GeForce 显卡的 Tensor Core 半速限制，让 AI 算力回到专业卡水平。",
+        "highlight": "README 称 NVIDIA 在消费卡上把 FP16/BF16/TF32（FP32 累加）限到半速，本项目在启动时解锁，宣称最高 2 倍张量吞吐、LLM prefill +25–55%；不需要改驱动或刷 VBIOS，Ampere 世代标注稳定、100+ 用户报告。"
+      },
+      {
+        "rank": 7,
+        "repo": "heydamir/unslop",
+        "url": "https://github.com/heydamir/unslop",
+        "lang": "JavaScript",
+        "stars": "15,078",
+        "delta": "",
+        "source": "weekly",
+        "summary": "把「vibecoded」的 AI 味界面改成有设计感的成品，支持 Claude Code、Codex、Antigravity。",
+        "highlight": "它先找出紫色渐变、光晕、emoji 标签、喊话式文案、间距不齐这些「slop」，再按产品定方向逐屏修；适用于 Next.js、React、Vue、Svelte、Tailwind 或纯 HTML/CSS，只有链接时也能改线上站点。"
+      },
+      {
+        "rank": 8,
+        "repo": "pengchujin/aerial-tv",
+        "url": "https://github.com/pengchujin/aerial-tv",
+        "lang": "Kotlin",
+        "stars": "11,435",
+        "delta": "",
+        "source": "weekly",
+        "summary": "给国产电视的 tvOS 风格 Android TV 桌面：无广告、无推荐流，只有 App、壁纸和航拍屏保。",
+        "highlight": "内置 Apple TV 的 114 段航拍影片，电视支持时可播 4K 或 4K 杜比视界；安装只需 ADB、不用 root，可随时还原；手机扫码后能在手机上拖拽整理图标与 HDMI 信号源。"
+      },
+      {
+        "rank": 9,
+        "repo": "amosblomqvist/learnharness",
+        "url": "https://github.com/amosblomqvist/learnharness",
+        "lang": "TypeScript",
+        "stars": "8,995",
+        "delta": "",
+        "source": "weekly",
+        "summary": "用 agent 当私教：先测出你懂到哪，再规划依赖路径、逐步教学并安排练习。",
+        "highlight": "流程分 Measure / Plan / Teach / Practice 四步，每步都基于你的回答与推理而非直接给解释；持久化知识图谱跨会话保留学习状态，混淆点要在继续之前修好。"
+      },
+      {
+        "rank": 10,
+        "repo": "l0ng-ai/openidea",
+        "url": "https://github.com/l0ng-ai/openidea",
+        "lang": "TypeScript",
+        "stars": "8,746",
+        "delta": "",
+        "source": "weekly",
+        "summary": "用 Rust 重写 IntelliJ IDEA 式体验的 IDE，覆盖编辑器、调试器、Git、终端、数据库。",
+        "highlight": "官方基准（freqtrade，约 770 个文件、Windows 11 32 核）：打开项目 0.9s vs IDEA 3.1s，就绪 1.1s vs 13.2s，内存 169MB vs 2011MB；支持 60+ 语言、macOS/Windows/Linux，并附可复跑的 perf/compare。"
+      },
+      {
+        "rank": 11,
+        "repo": "zortos293/Lichii",
+        "url": "https://github.com/zortos293/Lichii",
+        "lang": "C++",
+        "stars": "8,741",
+        "delta": "",
+        "source": "weekly",
+        "summary": "实验性开源 Switch / Switch 2 模拟器，基于 Eglantine、Eden、yuzu、Sudachi 的血统继续做兼容与渲染修复。",
+        "highlight": "README 用醒目警告说明项目没有官网，只能从本仓库 Releases 下载，lichii.org 等站点非官方且有一个被举报植入恶意软件；兼容性报告集中在 lichii.zortos.me。"
+      },
+      {
+        "rank": 12,
+        "repo": "NotRexed/Hookshot",
+        "url": "https://github.com/NotRexed/Hookshot",
+        "lang": "C++",
+        "stars": "8,693",
+        "delta": "",
+        "source": "weekly",
+        "summary": "把《塞尔达传说：时之笛》（Switch 2 版）静态重编译成 Windows/Linux 原生程序，不用模拟器。",
+        "highlight": "做法是把游戏代码翻译成 C、重实现主机系统软件、在 Vulkan 上重建 Switch 2 图形，全部在你自己的 PC 上用自备游戏完成；仓库不含游戏、密钥或可执行文件，作者还专门说明 Releases 被误报为木马。"
+      },
+      {
+        "rank": 13,
+        "repo": "wangzan101/Mika",
+        "url": "https://github.com/wangzan101/Mika",
+        "lang": "Kotlin",
+        "stars": "8,392",
+        "delta": "",
+        "source": "weekly",
+        "summary": "Android 上的端侧 AI agent：说一句话，它在后台替你操作 App 和网页把事情做完。",
+        "highlight": "跑在隐藏的后台屏幕上，不占用你正在用的界面；示例包括翻完群聊做总结、按「30 美元内 4.5 星以上」加购充电器并在结账前停下、在招聘站逐个打招呼；付款等敏感步骤会先问你。"
+      },
+      {
+        "rank": 14,
+        "repo": "xiaoyang111222/cn-math-taxonomy",
+        "url": "https://github.com/xiaoyang111222/cn-math-taxonomy",
+        "lang": "Python",
+        "stars": "7,849",
+        "delta": "",
+        "source": "weekly",
+        "summary": "对齐课标的中国中小学知识图谱：数学、英语、物理、化学等学科的 1644 个知识点与先修关系。",
+        "highlight": "描述给出 1644 个知识点、2403 条先修边、6723 道题；数学答错会沿先修边从高中、初中一路回溯到具体小学知识点做自适应诊断，英语/物理等各自成图并注明与数学的连线规则。"
+      },
+      {
+        "rank": 15,
+        "repo": "unclebob/ub-mode",
+        "url": "https://github.com/unclebob/ub-mode",
+        "lang": "None",
+        "stars": "7,834",
+        "delta": "",
+        "source": "weekly",
+        "summary": "Uncle Bob 出的 agent skill：用纪律约束 agent 写代码，先能跑、再写对。",
+        "highlight": "规则分「First Make it Work」与「Then Make it Right」，含 TDD、根因修复、按可验证单元排序等；配套 unclebob/mutator 做变异测试暴露未被覆盖代码，uml-viewer 可视化覆盖率、CRAP 与依赖方向，SKILL.md 可直接拷进 agent 技能目录。"
+      },
+      {
+        "rank": 16,
+        "repo": "anefzaoui/misterdownloadmanager",
+        "url": "https://github.com/anefzaoui/misterdownloadmanager",
+        "lang": "Rust",
+        "stars": "7,791",
+        "delta": "",
+        "source": "weekly",
+        "summary": "纯 Rust 从零写的开源下载管理器，主打比 IDM 更快、免费无广告。",
+        "highlight": "README 对比 IDM 6.42：1GB 文件 1 秒 vs 5.5 秒、小文件即时完成、弱网 1.6 秒；支持磁力与 .torrent 做种、86 种语言、Windows 10/11 与多种 Linux 发行版，macOS 仅实验性。"
+      },
+      {
+        "rank": 17,
+        "repo": "janestreet/agent_skills",
+        "url": "https://github.com/janestreet/agent_skills",
+        "lang": "None",
+        "stars": "7,710",
+        "delta": "",
+        "source": "weekly",
+        "summary": "Jane Street 开源的 agent skills 集合，目前只有苏格拉底式私教一个技能。",
+        "highlight": "socratic-tutor 用诊断、0–5 级技能地图、一次一问、间隔复习和最终评估把 LLM 变成严格私教；每个技能就是一个含 SKILL.md 的目录，可放进支持该格式的编码 agent，也可直接粘进普通聊天机器人。"
+      },
+      {
+        "rank": 18,
+        "repo": "rddmwmddr/android-ad-cleaner",
+        "url": "https://github.com/rddmwmddr/android-ad-cleaner",
+        "lang": "Python",
+        "stars": "7,709",
+        "delta": "",
+        "source": "weekly",
+        "summary": "关掉国产安卓手机系统里的广告、热搜、资讯推荐和营销推送，不 root、可还原。",
+        "highlight": "v0.4.3（2026-11-11）修掉 0.4.2 手机版打开即闪退的问题；提供 Mac（已签名公证）、Windows 与 Android APK 客户端，从 0.4.2 起支持应用内检查更新，0.4.2 起 Mac/Windows 也能连纯血鸿蒙手机（作者注明未在鸿蒙真机复测）。"
+      },
+      {
+        "rank": 19,
+        "repo": "ly05010419/MacNativeGames",
+        "url": "https://github.com/ly05010419/MacNativeGames",
+        "lang": "C",
+        "stars": "7,656",
+        "delta": "",
+        "source": "weekly",
+        "summary": "技术探索：把 Switch 游戏的 NVN 图形移植到 Metal，让游戏 ARM64 代码在 Apple 芯片上原生跑。",
+        "highlight": "已在自备的《王国之泪》《旷野之息》（Mac/iPhone/iPad）与《时之笛》Switch 2 版（Mac）上测试；强调不是模拟器，仓库不含任何游戏内容，构建产物含游戏、仅限自用。"
+      },
+      {
+        "rank": 20,
+        "repo": "JuneYaooo/rea-video",
+        "url": "https://github.com/JuneYaooo/rea-video",
+        "lang": "Python",
+        "stars": "7,471",
+        "delta": "",
+        "source": "weekly",
+        "summary": "逐镜头逆向拆解任意视频：是实拍、AI 生成还是代码做的，以及怎么复刻。",
+        "highlight": "为 AI agent 设计，在 Claude Code / Codex 里说一句「装好并拆这个视频」即可跑完；产出给人看的 report.html/PDF 和给 AI 分层阅读的 VIDEO.md（按问题只读需要的层，省 token），依赖 ffmpeg 与 Python 3.10+。"
+      }
+    ]
+  },
+  "observation": [
+    "「给 agent 装技能」仍是新项目最大的入口：unslop、ub-mode、Jane Street 的 socratic-tutor 都是单个 SKILL.md，说明 skill 已成为比插件更轻的分发单位，连量化机构也开始按这个格式发布内部方法论。",
+    "DeepSeek 生态一天内占据三席：DeepInfer 把生产推理栈开源，dsh-superagent 演示「主动接活」的仓库级 agent，dsh-Go 把 harness 搬上手机——竞争从模型转向 harness、推理基础设施与端侧入口。",
+    "消费端「反臃肿」情绪集中爆发：电视去广告/去推荐（cleanyourtv、aerial-tv）与安卓系统广告清理同榜，说明用户愿意用 ADB、装第三方桌面来换一个干净界面，这是一条与 AI 无关但极稳定的需求。",
+    "Rust 重写潮继续：craft-anything、openidea、misterdownloadmanager 分别重做逆向工程、IDE 与下载器，卖点统一是启动快、内存小、无广告，且都给出了可复跑的对比基准。",
+    "游戏重编译/模拟器形成小簇：Lichii、Hookshot、MacNativeGames 同榜，但三者都在 README 顶部写了法律与恶意软件警告，说明这类项目热度高、风险也高。"
+  ],
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（arXiv 因索引滞后回看至 11-11 提交）· 已单列「智能体/Agent」分类",
+    "sourcesUsed": [
+      "Hacker News",
+      "arXiv",
+      "OpenAI Blog",
+      "Anthropic News",
+      "Google DeepMind",
+      "Google AI Blog",
+      "Simon Willison",
+      "量子位",
+      "GitHub Blog",
+      "Latent Space",
+      "CrewAI Blog",
+      "GitHub AI/ML Blog",
+      "GitHub Releases(agent 生态)"
+    ],
+    "items": [
+      {
+        "category": "release",
+        "title": "Google 发布 Gemini 4 Hydrogen，并全面接入搜索",
+        "summary": "Gemini 4 Hydrogen 发布：Artificial Analysis 智能指数 51（最高档 54）、Terminal-Bench 4.1 得 57%，提供 low/medium/high/xhigh 四档推理深度，同日进入 Google 搜索与 Antigravity。",
+        "why": "这是 Google 面向日常编码与 agent 工作的新一代主力模型，直接决定其全线产品与开发者工具的能力上限。",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
+        "source": "Google DeepMind / Google AI Blog / Hacker News（多源）",
+        "time": "11/13 02:00",
+        "heat": "HN 385 分 · 253 评论"
+      },
+      {
+        "category": "agent",
+        "title": "Antigravity Orchestrator：Carbon 与 Hydrogen 在同一轨迹内动态接力",
+        "summary": "Orchestrator 让 Carbon 先规划、Hydrogen 执行，受阻时交回 Carbon 重规划再继续；官方称 Terminal-Bench 4.1 上接近 Carbon 的成功率，平均少用 24% 配额、快 19%。",
+        "why": "把静态「模型路由」换成按轨迹阶段动态调度，是多模型 agent 降本增效的可复用范式。",
+        "url": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/",
+        "source": "Google Antigravity Blog / Hacker News（多源）",
+        "time": "11/13 02:52",
+        "heat": "HN 176 分 · 37 评论"
+      },
+      {
+        "category": "industry",
+        "title": "Anthropic 启动 IPO 路演：Q3 营收 170 亿美元，净亏损 233 亿",
+        "summary": "招股材料显示 Q3'26 营收 17.0B 美元、同比超 12 倍，年付超 10 万美元客户 11,900 家；净亏损 23.3B（含 21.9B 非现金项目），调整后运营利润率 15%。",
+        "why": "前沿实验室把完整财务摊开，AI 商业化的收入规模与真实成本结构第一次有了公开参照。",
+        "url": "https://ipo.anthropic.com/us/",
+        "source": "Anthropic IPO / Hacker News / 量子位（多源）",
+        "time": "11/12 19:46",
+        "heat": "HN 736 分 · 745 评论"
+      },
+      {
+        "category": "industry",
+        "title": "英伟达 CEO 黄仁勋去职：罢免与辞职报道接连出现",
+        "summary": "WSJ 报道英伟达准备罢免 CEO 黄仁勋，随后 Reuters 直播与 HN 多帖称其已立即辞职，起因涉及绯闻调查；候选来源中未见英伟达官方声明。",
+        "why": "全球最关键的 AI 算力公司突遇治理危机，供应链与市场预期都可能被重新定价。",
+        "url": "https://www.reuters.com/live/nvidia-live-board-meets-fate-ceo-jensen-huang-after-affair-reports-2026-11-12/",
+        "source": "WSJ / Reuters / Hacker News（多源）",
+        "time": "11/12 21:56",
+        "heat": "HN 首帖 1210 分 · 1621 评论"
+      },
+      {
+        "category": "agent",
+        "title": "美联航禁止 AI 智能体代客订票",
+        "summary": "CBS 报道美联航更新条款，禁止第三方 AI agent 代替旅客订票；HN 讨论集中在 agent 身份、授权与责任归属。",
+        "why": "航司明确拒绝「agent 代为执行交易」，agent 落地的合规与身份认证问题被摆上台面。",
+        "url": "https://www.cbsnews.com/news/united-airlines-bans-ai-agents-booking-flights/",
+        "source": "Hacker News",
+        "time": "11/12 05:24",
+        "heat": "656 分 · 680 评论"
+      },
+      {
+        "category": "release",
+        "title": "MiniMax 开源 SOTA 生图模型：原生 4K、单张约两毛",
+        "summary": "量子位报道 MiniMax 开源新的 SOTA 图像生成模型，支持原生 4K，报道称单张成本约 0.2 元。",
+        "why": "开源生图继续卷向「原生高分辨率 + 低成本」，对闭源图像 API 定价形成直接压力。",
+        "url": "https://www.qbitai.com/2026/11/509440.html",
+        "source": "量子位",
+        "time": "11/12 19:36",
+        "heat": ""
+      },
+      {
+        "category": "release",
+        "title": "Google 推出 Gemini Decisions API",
+        "summary": "Google 发布面向决策场景的 Gemini Decisions API，Latent Space 将其称为 Google 正式进入「决策模型」市场。",
+        "why": "决策类 API 可能成为企业把模型嵌入风控、运营等流程的标准入口。",
+        "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+        "source": "Hacker News / Latent Space（多源）",
+        "time": "11/12 02:32",
+        "heat": "552 分 · 157 评论"
+      },
+      {
+        "category": "research",
+        "title": "ReTrace：把工具调用 agent 蒸馏成无规划器的固定工作流",
+        "summary": "论文提出从 SOP 与少量 agent 运行日志生成可复用工作流，让代码而不是 LLM 决定每一步，从而降低重复流程的延迟与成本。",
+        "why": "为「重复性流程该不该每步都调模型」给出可落地方案，是 agent 降本的重要方向。",
+        "url": "http://arxiv.org/abs/2611.14492v1",
+        "source": "arXiv",
+        "time": "11/11 提交",
+        "heat": "新论文"
+      }
+    ]
+  }
+}
