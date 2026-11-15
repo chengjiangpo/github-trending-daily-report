@@ -1,0 +1,444 @@
+{
+  "date": "2026-11-16",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "仓库提交全部走 curl 直连 api.github.com（本机 gh 未登录、github.com HTTPS 不通）：先取 metadata 得 default_branch（deepseek-ai/deepseek-harness=master、earendil-works/pi=main、anomalyco/opencode=dev），再按 since=2026-11-14T22:00:00Z、per_page=30 拉 24h 提交，三仓库分别 0 / 26 / 7 条。deepseek-harness 最新 push 停在 2026-11-13T07:56Z（北京 11-13 15:56），故过去 24 小时无新提交。",
+    "Trending 部分为替代口径：github.com/trending 本轮连续三次请求失败（45s/70s 超时，最终 code=000，未拿到任何字节），因此改用 api.github.com Search API——日榜取 created:>=2026-11-09 按 star 降序前 15，周榜取 created:>=2026-10-16 中未重复的前 5 补到 20 条，source 分别标 daily/weekly。该口径只覆盖「新仓库」，且 Search API 不提供 stars today / stars this week 增量，故 delta 字段留空，star 数为仓库总量。与 github.com/trending 原榜会有系统性出入，请勿按当日星增解读。",
+    "20 个项目的亮点均来自 api.github.com 的 /readme 接口（Accept: application/vnd.github.raw）读取 README 正文，全部取到；描述与数字均照原文，未做估算。",
+    "AI 前沿动态本轮共 22 条候选，13/13 源请求成功；有产出的源：Hacker News 4、arXiv 12、GitHub Releases 5（实为 4 条 langchain 发版）、Simon Willison 2；新增为 0 的源：OpenAI Blog、Anthropic News、Google DeepMind、Google AI Blog、量子位、GitHub Blog、Latent Space、CrewAI Blog、GitHub AI/ML Blog——即今日官方大模型博客无新增条目，故无官方发布类收录。",
+    "英伟达「循环融资自造稀缺」报道（TechSpot，442 分）已在 11-15 日报收录过同一事件（TechPowerUp 版本），本轮按去重跳过，未重复上榜。",
+    "4 条 langchain 发版（core 1.8.1、xai 1.4.0、groq 1.2.0、deepseek 1.2.0）为同一批改动，已合并为 1 条 agent 类条目，url 取 core 的 release 页。",
+    "arXiv 条目均为 2026-11-12 提交、11-13 索引，落在 96 小时回看窗口内，time 字段照实标注提交日。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-11-14T22:00Z，时间已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 过去 24 小时无新提交 · 最新 push 停在 11-13 15:56",
+        "items": []
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 26 条提交 · p3 插件体系开始落地（plugin guide 由 agent 实测），p2 收口新会话目录与 Stop 语义",
+        "items": [
+          {
+            "title": "feat(p3): slice 1 —— base 与 sessions；chord app kit 导出 start-data facets",
+            "desc": "p3 第一块落地",
+            "author": "Mario Zechner",
+            "time": "11-15 15:36"
+          },
+          {
+            "title": "docs(p3): 面向 agent 的插件指南，由一个新 agent 真实写插件验证过",
+            "desc": "文档即可执行规范",
+            "author": "Mario Zechner",
+            "time": "11-15 16:03"
+          },
+          {
+            "title": "feat(chord): 具名 live query、列集、exists 与 join、列表（slice 14 上半）",
+            "desc": "Chord 查询能力",
+            "author": "Mario Zechner",
+            "time": "11-15 15:31"
+          },
+          {
+            "title": "fix(chord,p2): worker 退出须在其 link 关闭且排队提交落定后才发布；useVariant",
+            "desc": "并发退出时序",
+            "author": "Armin Ronacher",
+            "time": "11-16 03:14"
+          },
+          {
+            "title": "feat(p2): 新会话可从最近文件夹里选目录",
+            "desc": "新会话入口",
+            "author": "Armin Ronacher",
+            "time": "11-16 02:18"
+          },
+          {
+            "title": "fix(p2): 子 agent 与 peer 消息在 Stop 时继续排队（另加 durable onAbort=keep）",
+            "desc": "中断不丢输入",
+            "author": "Armin Ronacher",
+            "time": "11-15 23:27"
+          },
+          {
+            "title": "feat(p2-mac): cmd+, 打开 p2 设置",
+            "desc": "桌面端快捷键",
+            "author": "cjpais",
+            "time": "11-15 21:04"
+          },
+          {
+            "title": "fix(p2-mac): 关掉触控板缩放，页面缩放交还 cmd+/-",
+            "desc": "桌面端交互回归",
+            "author": "Armin Ronacher",
+            "time": "11-16 04:23"
+          },
+          {
+            "title": "feat(p2): composer 里按序排列的文件 pill，模型侧就地标记文件",
+            "desc": "输入区文件引用",
+            "author": "Armin Ronacher",
+            "time": "11-15 08:27"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 7 条提交 · 全部围绕 subagent 状态与文本/输出切分，无新功能发布",
+        "items": [
+          {
+            "title": "refactor(ai): 生成状态统一为 running / completed / error（#64109）",
+            "desc": "状态机收敛",
+            "author": "rekram1-node",
+            "time": "11-16 04:37"
+          },
+          {
+            "title": "fix(core): 按未完成工作量上报 subagent 状态（#64026）",
+            "desc": "子 agent 状态准确度",
+            "author": "rekram1-node",
+            "time": "11-16 04:15"
+          },
+          {
+            "title": "fix(core): 阻止 Claude Agent 模型回退到 200k 上下文（#64107）",
+            "desc": "上下文窗口回归",
+            "author": "Tarquinen",
+            "time": "11-16 02:01"
+          },
+          {
+            "title": "feat(app): 新时间线给 subagent 行加状态 chip（#64102）",
+            "desc": "子 agent 可视化",
+            "author": "thdxr",
+            "time": "11-16 00:45"
+          },
+          {
+            "title": "fix(core): shell 输出分页保留 UTF-8 完整性（#63984）",
+            "desc": "多字节字符截断",
+            "author": "rekram1-node",
+            "time": "11-15 11:49"
+          },
+          {
+            "title": "fix(app): 新时间线不再把 subagent 计入条数（#64017）",
+            "desc": "计数口径修正",
+            "author": "thdxr",
+            "time": "11-15 11:49"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": {
+      "daily": 15,
+      "weekly": 5
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "huamidev/GestaltX",
+        "url": "https://github.com/huamidev/GestaltX",
+        "lang": "Swift",
+        "stars": "7,730",
+        "delta": "",
+        "source": "daily",
+        "summary": "iOS 27.x 的 MobileGestalt 编辑器：按预设改动态岛、AOD、充电上限等系统能力。",
+        "highlight": "README 按「显示 / 设备 / iPad」分组列出预设：动态岛能力与布局、Always-On 亮度、HDR 照片显示、壁纸视差、PWM 与 DisplayPort 实验开关、充电上限、Action Button、Apple Pencil 与台前调度能力；版本 1.0.6，GPLv3，提供中/日/韩多语言 README。"
+      },
+      {
+        "rank": 2,
+        "repo": "deepseek-ai/chat-demo",
+        "url": "https://github.com/deepseek-ai/chat-demo",
+        "lang": "TypeScript",
+        "stars": "2,874",
+        "delta": "",
+        "source": "daily",
+        "summary": "DeepSeek 官方静态聊天 demo：浏览器直连 API，不需要应用后端。",
+        "highlight": "可从 Releases 下压缩包解压后双击 index.html 离线使用（首次在设置里填 API key）；开发用 Node 22.12+ 与 pnpm，构建产物 dist/ 可直接丢到任意静态服务器；支持多会话自动起标题、重命名删除、编辑 prompt 与重新生成。"
+      },
+      {
+        "rank": 3,
+        "repo": "apex-compute/ANR",
+        "url": "https://github.com/apex-compute/ANR",
+        "lang": "C++",
+        "stars": "2,165",
+        "delta": "",
+        "source": "daily",
+        "summary": "Apex Compute 的神经渲染三件套：帧生成 ANR FG、超分 ANR SR、光线重建 ANR RR。",
+        "highlight": "ANR FG 已进入 beta 并发出两种包（游戏原版用 anr-fg-full，已用 OptiScaler 的用 addon）；仓库里的 nr-record 可录下游戏的帧生成/超分输入，用来和 DLSS-G、DLSS、FSR、XeSS 逐帧对比；Linux 与 Steam Deck 走 WINEDLLOVERRIDES 注入。SR/RR 与源码均标注 coming soon。"
+      },
+      {
+        "rank": 4,
+        "repo": "Kianuni/Erosion-CN",
+        "url": "https://github.com/Kianuni/Erosion-CN",
+        "lang": "Swift",
+        "stars": "2,124",
+        "delta": "",
+        "source": "daily",
+        "summary": "基于 worse_query 的 iOS 系统配置/MobileGestalt 工具箱，中文加固版。",
+        "highlight": "主打「改完重启不反弹」：pwrite + F_FULLFSYNC 原位覆盖、保留 inode 与属主；零硬编码偏移，运行时解析本机 libMobileGestalt.dylib 算槽位；应用前逐项预览、写后全量读回校验、不一致自动回滚；沙盒与系统金库双 SHA-256 备份，可一键还原原厂参数。支持 iOS 27.0–27.2 与 27.3 beta 1。"
+      },
+      {
+        "rank": 5,
+        "repo": "FrigadeHQ/yogurt",
+        "url": "https://github.com/FrigadeHQ/yogurt",
+        "lang": "TypeScript",
+        "stars": "1,627",
+        "delta": "",
+        "source": "daily",
+        "summary": "本地优先的私密会议纪要：不往会议里塞机器人，转写与摘要都留在本机。",
+        "highlight": "仓库 topics 直接写明 llama.cpp + whisper.cpp + MCP；实时转写、会后摘要、多语言模式覆盖 99 种语言；回答会附上出自哪场会议的来源链接；Mac 版能识别 Zoom/Teams/Meet 的说话人；8GB 内存起步，MIT，免账号。"
+      },
+      {
+        "rank": 6,
+        "repo": "HybridRobotics/supermimic",
+        "url": "https://github.com/HybridRobotics/supermimic",
+        "lang": "Python",
+        "stars": "1,551",
+        "delta": "",
+        "source": "daily",
+        "summary": "用人形机器人做全身动作跟踪，靠一个可微世界模型端到端训练。",
+        "highlight": "构建在 mjlab 之上，任务 ID 区分广义坐标与最大坐标两种表示（均针对 G1 机器人）；训练与回放脚本用 uv 直接跑，配套论文 arXiv 2610.28480 与项目页 supermimic.github.io。"
+      },
+      {
+        "rank": 7,
+        "repo": "agentes-chat/agentes-chat",
+        "url": "https://github.com/agentes-chat/agentes-chat",
+        "lang": "TypeScript",
+        "stars": "1,493",
+        "delta": "",
+        "source": "daily",
+        "summary": "自托管的 Slack 替代品，让团队和 AI agent 在同一个频道与私信里干活。",
+        "highlight": "agent 是 workspace 的成员而不是侧边栏机器人，带角色、owner 和预算；可跑 Claude、Codex、Gemini、Grok 或任意 OpenRouter 模型，配 MCP 工具、自己的电脑与浏览器、routines 和记忆；合并、部署等敏感动作必须在聊天里等人批准；AGPL-3.0，Docker Compose + Postgres，可自托管也可用其 Cloud。"
+      },
+      {
+        "rank": 8,
+        "repo": "HolyArrs/HolyArrs",
+        "url": "https://github.com/HolyArrs/HolyArrs",
+        "lang": "Go",
+        "stars": "1,251",
+        "delta": "",
+        "source": "daily",
+        "summary": "把追剧、电影、音乐六个自托管应用合成一个的媒体中心。",
+        "highlight": "1.1.4 修掉「发起请求后好友 Plex watchlist 读不出来」，并让文件夹质量直接显示在卡片上；README 说明所有海报、预告与评分都由作者自费维护的服务器提供，因此对所有人免费；界面和文档已翻成十余种语言。"
+      },
+      {
+        "rank": 9,
+        "repo": "DevedevT/FFmpeg-GUI-Editor-Windows",
+        "url": "https://github.com/DevedevT/FFmpeg-GUI-Editor-Windows",
+        "lang": "Visual Basic .NET",
+        "stars": "1,227",
+        "delta": "",
+        "source": "daily",
+        "summary": "Windows 上免安装的 FFmpeg 图形界面：裁剪、压缩、转码，主打无损剪切。",
+        "highlight": "Release 只有两个文件，必须同时下载 exe 与 libvlc.dll 才能播片；不写 PATH、不装 Python、无水印；支持英/俄/中/德/法/意六种界面语言，GPLv3。"
+      },
+      {
+        "rank": 10,
+        "repo": "adriadam10/mkw-recomp",
+        "url": "https://github.com/adriadam10/mkw-recomp",
+        "lang": "C",
+        "stars": "1,201",
+        "delta": "",
+        "source": "daily",
+        "summary": "把《马力欧赛车世界》（Switch 2）静态重编译成 PC 原生程序。",
+        "highlight": "明确不是模拟器：AArch64 代码提前翻译成 C 再为本机 CPU 编译，没有解释器也没有 JIT；GPU 也不模拟，NVN2 在 Vulkan 之上按 API 重实现，SM86 shader 预转 SPIR-V，nn::* SDK 函数按名替换；支持游戏 1.0.0 与 1.8.0，必须自备从自己主机 dump 的副本，仓库与 Release 不含游戏内容。"
+      },
+      {
+        "rank": 11,
+        "repo": "Noniv/abyssal-garden",
+        "url": "https://github.com/Noniv/abyssal-garden",
+        "lang": "JavaScript",
+        "stars": "1,016",
+        "delta": "",
+        "source": "daily",
+        "summary": "一个 96KB 单文件的海底世界，全部用代码生成，可直接在浏览器里游。",
+        "highlight": "没有图片、3D 模型和音频文件：海藻林、水面光柱与焦散、沉船、石鲸尾、蝠鲼都由 WebGPU 现算；下载 index.html 双击即可，离线可玩，需 Chrome/Edge 的 WebGPU 支持。"
+      },
+      {
+        "rank": 12,
+        "repo": "duwqijlk/muse-protocol",
+        "url": "https://github.com/duwqijlk/muse-protocol",
+        "lang": "Python",
+        "stars": "979",
+        "delta": "",
+        "source": "daily",
+        "summary": "muse.ai 注册与邀请码兑换的纯 HTTP 协议还原，不用浏览器。",
+        "highlight": "按抓包逐字段比对写出全链路（restart → send-otp → confirm-otp → register-completion），处理了动态 TOS 版本与 OTP 轮询幂等；附带多账号调度 runner（sticky 代理/预算/停止语义）与 mock 网络的离线冒烟测试。"
+      },
+      {
+        "rank": 13,
+        "repo": "Eynnzerr/TelemetryCleaner",
+        "url": "https://github.com/Eynnzerr/TelemetryCleaner",
+        "lang": "Kotlin",
+        "stars": "961",
+        "delta": "",
+        "source": "daily",
+        "summary": "靠 Shizuku 免 Root 清掉国产 Android 固件预置的运营商数据采集组件。",
+        "highlight": "针对 SystemHelper、RegService 这类无桌面入口、常规手段禁不掉的组件；README 引用 WiSec 2023 的流量测量（小米与 ColorOS 样机上中国移动组件上报已装应用列表），并附作者 OPPO 真机上 SystemHelper 读取定位/设备与 SIM 标识、按应用统计流量后上传的分析；可查看各空间安装状态与权限、批量卸载与恢复，明确声明仅供学习。"
+      },
+      {
+        "rank": 14,
+        "repo": "kolbicz/WQFiles",
+        "url": "https://github.com/kolbicz/WQFiles",
+        "lang": "Objective-C",
+        "stars": "917",
+        "delta": "",
+        "source": "daily",
+        "summary": "免越狱的 iOS 文件浏览器、应用数据管理与缓存清理工具。",
+        "highlight": "建立在 worse_query 沙盒技术之上，不越狱、不用内核漏洞，实测覆盖 iOS 26.5 到 27.3 beta；iOS 26 上够不到 System Data 与系统组，因此直接隐藏这两项、缓存清理也不带崩溃日志区；为了避开全盘 inode 扫描（iOS 26 上要近一小时），应用与扩展数据改从 LaunchServices 数据库列。"
+      },
+      {
+        "rank": 15,
+        "repo": "alexeyw/lot-map",
+        "url": "https://github.com/alexeyw/lot-map",
+        "lang": "TypeScript",
+        "stars": "882",
+        "delta": "",
+        "source": "daily",
+        "summary": "Claude Code 旁边的实时工作地图：工具调用、模型步、钩子、技能、子 agent 逐个亮起。",
+        "highlight": "每次工具调用都会从中心向对应站点发一道脉冲，看得见 memory/文件/shell/web/agents 在动，而不是读命令列表；以插件形式安装（/plugin install lot-map --marketplace alexeyw/lot-map）；完全本机运行不外传，读取边界写在 PRIVACY.md、约束写在 PRINCIPLES.md；界面 7 种语言。"
+      },
+      {
+        "rank": 16,
+        "repo": "Gathin23/cleanyourtv",
+        "url": "https://github.com/Gathin23/cleanyourtv",
+        "lang": "Python",
+        "stars": "58,256",
+        "delta": "",
+        "source": "weekly",
+        "summary": "通过 Wi-Fi 给 Android/Google TV 去预装去广告，换一套 Apple TV 风格桌面。",
+        "highlight": "主打「让 coding assistant 十五分钟干完」，仓库 topics 里直接写着 claude-code 与 vibe-coding；对三星/LG/Roku/Vizio/海信 VIDAA 这类非 Android 电视，另给一份用遥控器关追踪的指南；README 特别声明只有 cleanyour.tv 与本仓库是官方，cleanyourtv.com 等域名与项目无关。"
+      },
+      {
+        "rank": 17,
+        "repo": "storytold/craft-anything",
+        "url": "https://github.com/storytold/craft-anything",
+        "lang": "Rust",
+        "stars": "33,657",
+        "delta": "",
+        "source": "weekly",
+        "summary": "先用真实检查工具搞懂任意软件怎么运作，再让 coding agent 造一个你自己的版本。",
+        "highlight": "纯 Rust 的 clean-room 引擎，流程是「指向目标 → 说想要什么 → agent 用检查工具研究原版 → 建新项目 → 与原版比对校验 → 迭代」；网站类项目每轮检查都会给出相似度，越界改动需人工批准，计划里显示还剩什么没做。"
+      },
+      {
+        "rank": 18,
+        "repo": "deepseek-ai/DeepInfer",
+        "url": "https://github.com/deepseek-ai/DeepInfer",
+        "lang": "Python",
+        "stars": "26,072",
+        "delta": "",
+        "source": "weekly",
+        "summary": "DeepSeek 生产环境在用的推理框架开源版，先放离线推理与规模化服务的核心能力。",
+        "highlight": "目前只支持 DeepSeek-V4.1-Flash；并行上是 Attention DP / 均衡 CP、MoE EP + EPLB，另带 DSpark 与置信度调度验证、SWA 有界重放、零开销批调度、batch-invariant 推理与确定性采样；kernel 复用自家 FlashMLA、DeepGEMM、DeepEP、TileKernels、DeepSelect 与 TileLang 自定义算子。"
+      },
+      {
+        "rank": 19,
+        "repo": "ccch1mneyyy/dsh-Go",
+        "url": "https://github.com/ccch1mneyyy/dsh-Go",
+        "lang": "Dart",
+        "stars": "23,715",
+        "delta": "",
+        "source": "weekly",
+        "summary": "把 DeepSeek Harness 装进口袋：手机上本机跑，也能一键遥控电脑上的 DSH。",
+        "highlight": "Flutter 写的第三方客户端，Android 已发 APK，iOS 需自己在 Mac 上签名编译；内置免 Root 免 Termux 的 Linux 环境，与官方网页版可一键切换且停在同一条对话；支持回复中途插话、排队消息立即发送、整段对话生成端到端加密的回放链接；README 标注 2026-10-30 拿过 Trendshift 全语言日榜 #1。"
+      },
+      {
+        "rank": 20,
+        "repo": "deepseek-ai/dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+        "lang": "TypeScript",
+        "stars": "23,285",
+        "delta": "",
+        "source": "weekly",
+        "summary": "DeepSeek 的「超级 agent」研究原型：面向单个 GitHub 仓库的主动式编码 agent。",
+        "highlight": "打包成 DeepSeek Harness 的 bundle 插件，监听 GitHub（可选飞书）；有人派活就开一个 work item，在独立 agent 会话与目录里做，再回到原对话答复；README 顶部声明这是研究代码、非官方产品，且与论文《Exploring Super-agent Design》的内部实现并不完全一致，部分设计只是未来方向。"
+      }
+    ]
+  },
+  "observation": [
+    "今天的新仓库榜被两头占住：一头是 iOS 系统层工具（GestaltX、Erosion-CN、WQFiles、TelemetryCleaner 全在改系统配置或清预装），说明 worse_query 这类沙盒写入通道加上 Shizuku 的「合法提权」已经熟到能把过去必须越狱的事做成消费级 GUI；另一头是 DeepSeek 生态（DeepInfer、chat-demo、dsh-superagent-prototype、第三方 dsh-Go 四个同期上榜）。",
+    "agent 的周边正在分成两派：一派让它可见（lot-map 把每次工具调用、子 agent 画成实时地图），一派让它可管（agentes-chat 把 agent 当有 owner、有预算的同事放进频道，合并部署必须等人批准）——「看得见」和「管得住」同时成了产品卖点。",
+    "本周最硬的工程味不在应用层：DeepInfer 把 EPLB、batch-invariant 推理、确定性采样这些纯系统层能力开源，mkw-recomp 用静态重编译而不是模拟器跑 Switch 2 游戏，abyssal-garden 把整个海底世界压进 96KB 单文件——热度并非只属于 AI 应用。",
+    "诚信声明在这批 README 里出现的频率明显变高：dsh-superagent 自标「研究代码、非官方产品」，ANR 直接写「源码 coming soon」，TelemetryCleaner 与 cleanyourtv 都在首屏划清用途与官方域名边界。",
+    "需要提醒的是本期榜单来自 Search API 的新仓库口径（github.com/trending 抓取失败），star 数是总量而非当日增量，因此更偏「新项目爆发」而非「存量项目回温」，与官方 Trending 榜会有系统性出入。"
+  ],
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "近 30 小时抓取窗口（arXiv 因索引滞后回看至 11-12 提交；今日官方大模型博客无新增条目）· 已单列「智能体/Agent」分类",
+    "sourcesUsed": [
+      "Hacker News",
+      "arXiv",
+      "GitHub Releases(agent 生态)",
+      "Simon Willison"
+    ],
+    "items": [
+      {
+        "category": "agent",
+        "title": "CoReMem：给编码 agent 一套会算成本的仓库记忆",
+        "summary": "论文把编码 agent 在连续任务间的记忆选择建模为「未来有用性 vs 写入与读取成本」的权衡，提出面向代码仓库的记忆框架 CoReMem。",
+        "why": "编码 agent 的记忆长期只有「全塞上下文」和「全丢掉」两个极端，把读写成本显式内化后，长仓库上的连续任务才有可能既稳又省。",
+        "url": "http://arxiv.org/abs/2611.17316v1",
+        "source": "arXiv",
+        "time": "11/12 提交 · 11/13 索引",
+        "heat": "新论文"
+      },
+      {
+        "category": "agent",
+        "title": "AgentSSL：MLE agent 能不能用上无标注数据",
+        "summary": "论文首次在「标注稀缺、无标注充足」的真实设定下评测自动机器学习（MLE）agent，并让 agent 主动利用未标注数据。",
+        "why": "现有 MLE agent 几乎都在全监督设定下被评测，这一步把半监督学习接进 agent 工作流，也把评测拉回真实数据条件。",
+        "url": "http://arxiv.org/abs/2611.17323v1",
+        "source": "arXiv",
+        "time": "11/12 提交 · 11/13 索引",
+        "heat": "新论文"
+      },
+      {
+        "category": "agent",
+        "title": "LangChain 1.8.1 起把模型调用统一收口到 LangSmith gateway",
+        "summary": "langchain-core 1.8.1 与 xai/groq/deepseek 三个 partner 包同日发版：ChatXAI、ChatGroq、ChatDeepSeek 全部改为经 LangSmith gateway 路由，并支持按上下文覆盖 gateway 配置。",
+        "why": "agent 框架的模型调用开始收口到自家网关，「换模型、换 key、加观测」从改代码退化成改路由配置，也顺带把可观测性做成默认项。",
+        "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D1.8.1",
+        "source": "GitHub Releases",
+        "time": "11/15 22:57",
+        "heat": "新版发布"
+      },
+      {
+        "category": "research",
+        "title": "经典能量下降比循环模型快 1000 倍学会推理",
+        "summary": "论文指出在能量函数上做下降、而不是堆循环层，就能解 Sudoku-Extreme、Maze-Unique 这类推理题，且自带早停、算力随难度自适应，速度约快 1000 倍。",
+        "why": "「多想几遍」的循环模型路线遇到一个便宜得多的对手，推理期算力该花在哪里的性价比被重新标定。",
+        "url": "http://arxiv.org/abs/2611.17309v1",
+        "source": "arXiv",
+        "time": "11/12 提交 · 11/13 索引",
+        "heat": "新论文"
+      },
+      {
+        "category": "research",
+        "title": "Raschka 拆解现代 LLM 的位置编码",
+        "summary": "Sebastian Raschka 发文系统讲现代 LLM 位置编码（含 RoPE 一类方案）的设计与取舍，在 Hacker News 拿到 178 分。",
+        "why": "长上下文仍是各家主战场，而位置编码是少数「改这一处就影响整条 scaling 曲线」的部件。",
+        "url": "https://magazine.sebastianraschka.com/p/understanding-positional-embeddings",
+        "source": "Hacker News",
+        "time": "11/15 20:14",
+        "heat": "178 分 · 20 评论"
+      },
+      {
+        "category": "industry",
+        "title": "「AI 生成的代码都该开源」引 539 条评论激辩",
+        "summary": "一篇主张 AI 生成代码应默认开源的文章在 Hacker News 登顶，968 分、539 条评论。",
+        "why": "若这条规范被接受，AI 编码工具的商业模型与开源许可证的边界都要重写，是当下最实际的工程与法律交叉问题。",
+        "url": "https://jakub.jankiewicz.org/blog/ai-code-open-source/",
+        "source": "Hacker News",
+        "time": "11/15 22:46",
+        "heat": "968 分 · 539 评论"
+      },
+      {
+        "category": "research",
+        "title": "拆开多模态视觉编码的三个设计选择",
+        "summary": "论文把视觉编码器拆成「上游预训练带来的视觉先验、专用视觉容量、融合前的位置」三个可独立取舍的选择，分别检验各自贡献。",
+        "why": "多模态模型该不该留独立视觉编码器一直靠经验拍板，拆解之后可以按能力需求挑组件，而不是整套照抄别人的配方。",
+        "url": "http://arxiv.org/abs/2611.17334v1",
+        "source": "arXiv",
+        "time": "11/12 提交 · 11/13 索引",
+        "heat": "新论文"
+      }
+    ]
+  }
+}

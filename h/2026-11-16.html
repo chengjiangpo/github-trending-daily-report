@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-11-16 · GitHub Trending 每日分析</title>
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="hero mini">
+    <div>
+      <a class="kicker" href="../">← 返回首页（含全部 55 期）</a>
+      <h1>2026-11-16<span class="wd" style="font-size:15px;font-weight:400;color:var(--muted);margin-left:10px">周一</span></h1>
+      <p>GitHub Trending 每日分析 · 单日页 · 共收录 1099 个项目</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>20</b><span>本期项目</span></div>
+    </div>
+  </header>
+
+  <div class="toolbar" style="margin-top:22px">
+    <a class="tbtn" href="../">‹ 返回首页</a>
+    <a class="tbtn" href="2026-11-15.html">2026-11-15 ›</a>
+    <a class="tbtn" href="../#d-2026-11-16">在首页中查看</a>
+  </div>
+
+  <main>
+    <div class="toolbar">
+      <input id="q" type="search" placeholder="筛选：仓库名 / 语言 / 关键词…">
+      <button class="tbtn on" data-f="all" type="button">全部</button>
+      <button class="tbtn" data-f="daily" type="button">仅日榜</button>
+      <button class="tbtn" data-f="weekly" type="button">仅周榜</button>
+      <button class="tbtn" data-f="news" type="button">仅 AI 动态</button>
+      <button class="tbtn" data-f="agent" type="button">仅 Agent</button>
+    </div>
+    <section class="panel active" id="d-2026-11-16" data-date="2026-11-16" data-loaded="1">
+        <div class="day-head">
+          <h2>2026-11-16<span class="wd">周一</span></h2>
+          <span class="day-sub">日榜 15 · 周榜 5 · 20 个 Trending 项目</span>
+        </div>
+        <details class="notes"><summary>数据说明</summary><ul><li>仓库提交全部走 curl 直连 api.github.com（本机 gh 未登录、github.com HTTPS 不通）：先取 metadata 得 default_branch（deepseek-ai/deepseek-harness=master、earendil-works/pi=main、anomalyco/opencode=dev），再按 since=2026-11-14T22:00:00Z、per_page=30 拉 24h 提交，三仓库分别 0 / 26 / 7 条。deepseek-harness 最新 push 停在 2026-11-13T07:56Z（北京 11-13 15:56），故过去 24 小时无新提交。</li><li>Trending 部分为替代口径：github.com/trending 本轮连续三次请求失败（45s/70s 超时，最终 code=000，未拿到任何字节），因此改用 api.github.com Search API——日榜取 created:&gt;=2026-11-09 按 star 降序前 15，周榜取 created:&gt;=2026-10-16 中未重复的前 5 补到 20 条，source 分别标 daily/weekly。该口径只覆盖「新仓库」，且 Search API 不提供 stars today / stars this week 增量，故 delta 字段留空，star 数为仓库总量。与 github.com/trending 原榜会有系统性出入，请勿按当日星增解读。</li><li>20 个项目的亮点均来自 api.github.com 的 /readme 接口（Accept: application/vnd.github.raw）读取 README 正文，全部取到；描述与数字均照原文，未做估算。</li><li>AI 前沿动态本轮共 22 条候选，13/13 源请求成功；有产出的源：Hacker News 4、arXiv 12、GitHub Releases 5（实为 4 条 langchain 发版）、Simon Willison 2；新增为 0 的源：OpenAI Blog、Anthropic News、Google DeepMind、Google AI Blog、量子位、GitHub Blog、Latent Space、CrewAI Blog、GitHub AI/ML Blog——即今日官方大模型博客无新增条目，故无官方发布类收录。</li><li>英伟达「循环融资自造稀缺」报道（TechSpot，442 分）已在 11-15 日报收录过同一事件（TechPowerUp 版本），本轮按去重跳过，未重复上榜。</li><li>4 条 langchain 发版（core 1.8.1、xai 1.4.0、groq 1.2.0、deepseek 1.2.0）为同一批改动，已合并为 1 条 agent 类条目，url 取 core 的 release 页。</li><li>arXiv 条目均为 2026-11-12 提交、11-13 索引，落在 96 小时回看窗口内，time 字段照实标注提交日。</li></ul></details>
+        
+          <section class="block">
+            <div class="block-head">
+              <h3><span class="ico">🧩</span>仓库提交简报</h3>
+              <span class="block-sub">过去 24 小时（since 2026-11-14T22:00Z，时间已换算为北京时间）</span>
+            </div>
+            <div class="repo-grid">
+              <div class="repo-block" style="--c:#5B9BFF">
+                <div class="rb-head"><h4>deepseek-ai/deepseek-harness</h4><span class="rb-meta">master · 过去 24 小时无新提交 · 最新 push 停在 11-13 15:56</span></div>
+                <ul class="timeline">
+                </ul>
+              </div>
+              <div class="repo-block" style="--c:#A06BFF">
+                <div class="rb-head"><h4>earendil-works/pi</h4><span class="rb-meta">main · 24h 内 26 条提交 · p3 插件体系开始落地（plugin guide 由 agent 实测），p2 收口新会话目录与 Stop 语义</span></div>
+                <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(p3): slice 1 —— base 与 sessions；chord app kit 导出 start-data facets</div>
+                    <div class="c-meta">p3 第一块落地 · Mario Zechner · 11-15 15:36</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">docs(p3): 面向 agent 的插件指南，由一个新 agent 真实写插件验证过</div>
+                    <div class="c-meta">文档即可执行规范 · Mario Zechner · 11-15 16:03</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(chord): 具名 live query、列集、exists 与 join、列表（slice 14 上半）</div>
+                    <div class="c-meta">Chord 查询能力 · Mario Zechner · 11-15 15:31</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(chord,p2): worker 退出须在其 link 关闭且排队提交落定后才发布；useVariant</div>
+                    <div class="c-meta">并发退出时序 · Armin Ronacher · 11-16 03:14</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(p2): 新会话可从最近文件夹里选目录</div>
+                    <div class="c-meta">新会话入口 · Armin Ronacher · 11-16 02:18</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(p2): 子 agent 与 peer 消息在 Stop 时继续排队（另加 durable onAbort=keep）</div>
+                    <div class="c-meta">中断不丢输入 · Armin Ronacher · 11-15 23:27</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(p2-mac): cmd+, 打开 p2 设置</div>
+                    <div class="c-meta">桌面端快捷键 · cjpais · 11-15 21:04</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(p2-mac): 关掉触控板缩放，页面缩放交还 cmd+/-</div>
+                    <div class="c-meta">桌面端交互回归 · Armin Ronacher · 11-16 04:23</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(p2): composer 里按序排列的文件 pill，模型侧就地标记文件</div>
+                    <div class="c-meta">输入区文件引用 · Armin Ronacher · 11-15 08:27</div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+              <div class="repo-block" style="--c:#2FD6A6">
+                <div class="rb-head"><h4>anomalyco/opencode</h4><span class="rb-meta">dev · 24h 内 7 条提交 · 全部围绕 subagent 状态与文本/输出切分，无新功能发布</span></div>
+                <ul class="timeline">
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">refactor(ai): 生成状态统一为 running / completed / error（#64109）</div>
+                    <div class="c-meta">状态机收敛 · rekram1-node · 11-16 04:37</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(core): 按未完成工作量上报 subagent 状态（#64026）</div>
+                    <div class="c-meta">子 agent 状态准确度 · rekram1-node · 11-16 04:15</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(core): 阻止 Claude Agent 模型回退到 200k 上下文（#64107）</div>
+                    <div class="c-meta">上下文窗口回归 · Tarquinen · 11-16 02:01</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">feat(app): 新时间线给 subagent 行加状态 chip（#64102）</div>
+                    <div class="c-meta">子 agent 可视化 · thdxr · 11-16 00:45</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(core): shell 输出分页保留 UTF-8 完整性（#63984）</div>
+                    <div class="c-meta">多字节字符截断 · rekram1-node · 11-15 11:49</div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <div class="c-title">fix(app): 新时间线不再把 subagent 计入条数（#64017）</div>
+                    <div class="c-meta">计数口径修正 · thdxr · 11-15 11:49</div>
+                  </div>
+                </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        <section class="block">
+          <div class="block-head">
+            <h3><span class="ico">🚀</span>GitHub Trending 分析</h3>
+            <span class="block-sub">20 个项目</span>
+          </div>
+          <ol class="board">
+            <li class="row" style="--c:#F05138" data-src="daily" data-text="huamidev/gestaltx swift ios 27.x 的 mobilegestalt 编辑器：按预设改动态岛、aod、充电上限等系统能力。 readme 按「显示 / 设备 / ipad」分组列出预设：动态岛能力与布局、always-on 亮度、hdr 照片显示、壁纸视差、pwm 与 displayport 实验开关、充电上限、action button、apple pencil 与台前调度能力；版本 1.0.6，gplv3，提供中/日/韩多语言 readme。">
+              <span class="rnk g1">1</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/huamidev/GestaltX" target="_blank" rel="noreferrer">huamidev/GestaltX</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">iOS 27.x 的 MobileGestalt 编辑器：按预设改动态岛、AOD、充电上限等系统能力。</p>
+                <p class="row-hl">README 按「显示 / 设备 / iPad」分组列出预设：动态岛能力与布局、Always-On 亮度、HDR 照片显示、壁纸视差、PWM 与 DisplayPort 实验开关、充电上限、Action Button、Apple Pencil 与台前调度能力；版本 1.0.6，GPLv3，提供中/日/韩多语言 README。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#F05138">Swift</span>
+                <span class="stat">★ 7,730</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#3178C6" data-src="daily" data-text="deepseek-ai/chat-demo typescript deepseek 官方静态聊天 demo：浏览器直连 api，不需要应用后端。 可从 releases 下压缩包解压后双击 index.html 离线使用（首次在设置里填 api key）；开发用 node 22.12+ 与 pnpm，构建产物 dist/ 可直接丢到任意静态服务器；支持多会话自动起标题、重命名删除、编辑 prompt 与重新生成。">
+              <span class="rnk g2">2</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/deepseek-ai/chat-demo" target="_blank" rel="noreferrer">deepseek-ai/chat-demo</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">DeepSeek 官方静态聊天 demo：浏览器直连 API，不需要应用后端。</p>
+                <p class="row-hl">可从 Releases 下压缩包解压后双击 index.html 离线使用（首次在设置里填 API key）；开发用 Node 22.12+ 与 pnpm，构建产物 dist/ 可直接丢到任意静态服务器；支持多会话自动起标题、重命名删除、编辑 prompt 与重新生成。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#3178C6">TypeScript</span>
+                <span class="stat">★ 2,874</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#f34b7d" data-src="daily" data-text="apex-compute/anr c++ apex compute 的神经渲染三件套：帧生成 anr fg、超分 anr sr、光线重建 anr rr。 anr fg 已进入 beta 并发出两种包（游戏原版用 anr-fg-full，已用 optiscaler 的用 addon）；仓库里的 nr-record 可录下游戏的帧生成/超分输入，用来和 dlss-g、dlss、fsr、xess 逐帧对比；linux 与 steam deck 走 winedlloverrides 注入。sr/rr 与源码均标注 coming soon。">
+              <span class="rnk g3">3</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/apex-compute/ANR" target="_blank" rel="noreferrer">apex-compute/ANR</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">Apex Compute 的神经渲染三件套：帧生成 ANR FG、超分 ANR SR、光线重建 ANR RR。</p>
+                <p class="row-hl">ANR FG 已进入 beta 并发出两种包（游戏原版用 anr-fg-full，已用 OptiScaler 的用 addon）；仓库里的 nr-record 可录下游戏的帧生成/超分输入，用来和 DLSS-G、DLSS、FSR、XeSS 逐帧对比；Linux 与 Steam Deck 走 WINEDLLOVERRIDES 注入。SR/RR 与源码均标注 coming soon。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#f34b7d">C++</span>
+                <span class="stat">★ 2,165</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#F05138" data-src="daily" data-text="kianuni/erosion-cn swift 基于 worse_query 的 ios 系统配置/mobilegestalt 工具箱，中文加固版。 主打「改完重启不反弹」：pwrite + f_fullfsync 原位覆盖、保留 inode 与属主；零硬编码偏移，运行时解析本机 libmobilegestalt.dylib 算槽位；应用前逐项预览、写后全量读回校验、不一致自动回滚；沙盒与系统金库双 sha-256 备份，可一键还原原厂参数。支持 ios 27.0–27.2 与 27.3 beta 1。">
+              <span class="rnk">4</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/Kianuni/Erosion-CN" target="_blank" rel="noreferrer">Kianuni/Erosion-CN</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">基于 worse_query 的 iOS 系统配置/MobileGestalt 工具箱，中文加固版。</p>
+                <p class="row-hl">主打「改完重启不反弹」：pwrite + F_FULLFSYNC 原位覆盖、保留 inode 与属主；零硬编码偏移，运行时解析本机 libMobileGestalt.dylib 算槽位；应用前逐项预览、写后全量读回校验、不一致自动回滚；沙盒与系统金库双 SHA-256 备份，可一键还原原厂参数。支持 iOS 27.0–27.2 与 27.3 beta 1。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#F05138">Swift</span>
+                <span class="stat">★ 2,124</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#3178C6" data-src="daily" data-text="frigadehq/yogurt typescript 本地优先的私密会议纪要：不往会议里塞机器人，转写与摘要都留在本机。 仓库 topics 直接写明 llama.cpp + whisper.cpp + mcp；实时转写、会后摘要、多语言模式覆盖 99 种语言；回答会附上出自哪场会议的来源链接；mac 版能识别 zoom/teams/meet 的说话人；8gb 内存起步，mit，免账号。">
+              <span class="rnk">5</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/FrigadeHQ/yogurt" target="_blank" rel="noreferrer">FrigadeHQ/yogurt</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">本地优先的私密会议纪要：不往会议里塞机器人，转写与摘要都留在本机。</p>
+                <p class="row-hl">仓库 topics 直接写明 llama.cpp + whisper.cpp + MCP；实时转写、会后摘要、多语言模式覆盖 99 种语言；回答会附上出自哪场会议的来源链接；Mac 版能识别 Zoom/Teams/Meet 的说话人；8GB 内存起步，MIT，免账号。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#3178C6">TypeScript</span>
+                <span class="stat">★ 1,627</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#4B8BBE" data-src="daily" data-text="hybridrobotics/supermimic python 用人形机器人做全身动作跟踪，靠一个可微世界模型端到端训练。 构建在 mjlab 之上，任务 id 区分广义坐标与最大坐标两种表示（均针对 g1 机器人）；训练与回放脚本用 uv 直接跑，配套论文 arxiv 2610.28480 与项目页 supermimic.github.io。">
+              <span class="rnk">6</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/HybridRobotics/supermimic" target="_blank" rel="noreferrer">HybridRobotics/supermimic</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">用人形机器人做全身动作跟踪，靠一个可微世界模型端到端训练。</p>
+                <p class="row-hl">构建在 mjlab 之上，任务 ID 区分广义坐标与最大坐标两种表示（均针对 G1 机器人）；训练与回放脚本用 uv 直接跑，配套论文 arXiv 2610.28480 与项目页 supermimic.github.io。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#4B8BBE">Python</span>
+                <span class="stat">★ 1,551</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#3178C6" data-src="daily" data-text="agentes-chat/agentes-chat typescript 自托管的 slack 替代品，让团队和 ai agent 在同一个频道与私信里干活。 agent 是 workspace 的成员而不是侧边栏机器人，带角色、owner 和预算；可跑 claude、codex、gemini、grok 或任意 openrouter 模型，配 mcp 工具、自己的电脑与浏览器、routines 和记忆；合并、部署等敏感动作必须在聊天里等人批准；agpl-3.0，docker compose + postgres，可自托管也可用其 cloud。">
+              <span class="rnk">7</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/agentes-chat/agentes-chat" target="_blank" rel="noreferrer">agentes-chat/agentes-chat</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">自托管的 Slack 替代品，让团队和 AI agent 在同一个频道与私信里干活。</p>
+                <p class="row-hl">agent 是 workspace 的成员而不是侧边栏机器人，带角色、owner 和预算；可跑 Claude、Codex、Gemini、Grok 或任意 OpenRouter 模型，配 MCP 工具、自己的电脑与浏览器、routines 和记忆；合并、部署等敏感动作必须在聊天里等人批准；AGPL-3.0，Docker Compose + Postgres，可自托管也可用其 Cloud。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#3178C6">TypeScript</span>
+                <span class="stat">★ 1,493</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#00ADD8" data-src="daily" data-text="holyarrs/holyarrs go 把追剧、电影、音乐六个自托管应用合成一个的媒体中心。 1.1.4 修掉「发起请求后好友 plex watchlist 读不出来」，并让文件夹质量直接显示在卡片上；readme 说明所有海报、预告与评分都由作者自费维护的服务器提供，因此对所有人免费；界面和文档已翻成十余种语言。">
+              <span class="rnk">8</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/HolyArrs/HolyArrs" target="_blank" rel="noreferrer">HolyArrs/HolyArrs</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">把追剧、电影、音乐六个自托管应用合成一个的媒体中心。</p>
+                <p class="row-hl">1.1.4 修掉「发起请求后好友 Plex watchlist 读不出来」，并让文件夹质量直接显示在卡片上；README 说明所有海报、预告与评分都由作者自费维护的服务器提供，因此对所有人免费；界面和文档已翻成十余种语言。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#00ADD8">Go</span>
+                <span class="stat">★ 1,251</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#8b93a7" data-src="daily" data-text="devedevt/ffmpeg-gui-editor-windows visual basic .net windows 上免安装的 ffmpeg 图形界面：裁剪、压缩、转码，主打无损剪切。 release 只有两个文件，必须同时下载 exe 与 libvlc.dll 才能播片；不写 path、不装 python、无水印；支持英/俄/中/德/法/意六种界面语言，gplv3。">
+              <span class="rnk">9</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/DevedevT/FFmpeg-GUI-Editor-Windows" target="_blank" rel="noreferrer">DevedevT/FFmpeg-GUI-Editor-Windows</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">Windows 上免安装的 FFmpeg 图形界面：裁剪、压缩、转码，主打无损剪切。</p>
+                <p class="row-hl">Release 只有两个文件，必须同时下载 exe 与 libvlc.dll 才能播片；不写 PATH、不装 Python、无水印；支持英/俄/中/德/法/意六种界面语言，GPLv3。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#8b93a7">Visual Basic .NET</span>
+                <span class="stat">★ 1,227</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#8f8f8f" data-src="daily" data-text="adriadam10/mkw-recomp c 把《马力欧赛车世界》（switch 2）静态重编译成 pc 原生程序。 明确不是模拟器：aarch64 代码提前翻译成 c 再为本机 cpu 编译，没有解释器也没有 jit；gpu 也不模拟，nvn2 在 vulkan 之上按 api 重实现，sm86 shader 预转 spir-v，nn::* sdk 函数按名替换；支持游戏 1.0.0 与 1.8.0，必须自备从自己主机 dump 的副本，仓库与 release 不含游戏内容。">
+              <span class="rnk">10</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/adriadam10/mkw-recomp" target="_blank" rel="noreferrer">adriadam10/mkw-recomp</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">把《马力欧赛车世界》（Switch 2）静态重编译成 PC 原生程序。</p>
+                <p class="row-hl">明确不是模拟器：AArch64 代码提前翻译成 C 再为本机 CPU 编译，没有解释器也没有 JIT；GPU 也不模拟，NVN2 在 Vulkan 之上按 API 重实现，SM86 shader 预转 SPIR-V，nn::* SDK 函数按名替换；支持游戏 1.0.0 与 1.8.0，必须自备从自己主机 dump 的副本，仓库与 Release 不含游戏内容。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#8f8f8f">C</span>
+                <span class="stat">★ 1,201</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#F1E05A" data-src="daily" data-text="noniv/abyssal-garden javascript 一个 96kb 单文件的海底世界，全部用代码生成，可直接在浏览器里游。 没有图片、3d 模型和音频文件：海藻林、水面光柱与焦散、沉船、石鲸尾、蝠鲼都由 webgpu 现算；下载 index.html 双击即可，离线可玩，需 chrome/edge 的 webgpu 支持。">
+              <span class="rnk">11</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/Noniv/abyssal-garden" target="_blank" rel="noreferrer">Noniv/abyssal-garden</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">一个 96KB 单文件的海底世界，全部用代码生成，可直接在浏览器里游。</p>
+                <p class="row-hl">没有图片、3D 模型和音频文件：海藻林、水面光柱与焦散、沉船、石鲸尾、蝠鲼都由 WebGPU 现算；下载 index.html 双击即可，离线可玩，需 Chrome/Edge 的 WebGPU 支持。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#F1E05A">JavaScript</span>
+                <span class="stat">★ 1,016</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#4B8BBE" data-src="daily" data-text="duwqijlk/muse-protocol python muse.ai 注册与邀请码兑换的纯 http 协议还原，不用浏览器。 按抓包逐字段比对写出全链路（restart → send-otp → confirm-otp → register-completion），处理了动态 tos 版本与 otp 轮询幂等；附带多账号调度 runner（sticky 代理/预算/停止语义）与 mock 网络的离线冒烟测试。">
+              <span class="rnk">12</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/duwqijlk/muse-protocol" target="_blank" rel="noreferrer">duwqijlk/muse-protocol</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">muse.ai 注册与邀请码兑换的纯 HTTP 协议还原，不用浏览器。</p>
+                <p class="row-hl">按抓包逐字段比对写出全链路（restart → send-otp → confirm-otp → register-completion），处理了动态 TOS 版本与 OTP 轮询幂等；附带多账号调度 runner（sticky 代理/预算/停止语义）与 mock 网络的离线冒烟测试。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#4B8BBE">Python</span>
+                <span class="stat">★ 979</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#A97BFF" data-src="daily" data-text="eynnzerr/telemetrycleaner kotlin 靠 shizuku 免 root 清掉国产 android 固件预置的运营商数据采集组件。 针对 systemhelper、regservice 这类无桌面入口、常规手段禁不掉的组件；readme 引用 wisec 2023 的流量测量（小米与 coloros 样机上中国移动组件上报已装应用列表），并附作者 oppo 真机上 systemhelper 读取定位/设备与 sim 标识、按应用统计流量后上传的分析；可查看各空间安装状态与权限、批量卸载与恢复，明确声明仅供学习。">
+              <span class="rnk">13</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/Eynnzerr/TelemetryCleaner" target="_blank" rel="noreferrer">Eynnzerr/TelemetryCleaner</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">靠 Shizuku 免 Root 清掉国产 Android 固件预置的运营商数据采集组件。</p>
+                <p class="row-hl">针对 SystemHelper、RegService 这类无桌面入口、常规手段禁不掉的组件；README 引用 WiSec 2023 的流量测量（小米与 ColorOS 样机上中国移动组件上报已装应用列表），并附作者 OPPO 真机上 SystemHelper 读取定位/设备与 SIM 标识、按应用统计流量后上传的分析；可查看各空间安装状态与权限、批量卸载与恢复，明确声明仅供学习。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#A97BFF">Kotlin</span>
+                <span class="stat">★ 961</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#8b93a7" data-src="daily" data-text="kolbicz/wqfiles objective-c 免越狱的 ios 文件浏览器、应用数据管理与缓存清理工具。 建立在 worse_query 沙盒技术之上，不越狱、不用内核漏洞，实测覆盖 ios 26.5 到 27.3 beta；ios 26 上够不到 system data 与系统组，因此直接隐藏这两项、缓存清理也不带崩溃日志区；为了避开全盘 inode 扫描（ios 26 上要近一小时），应用与扩展数据改从 launchservices 数据库列。">
+              <span class="rnk">14</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/kolbicz/WQFiles" target="_blank" rel="noreferrer">kolbicz/WQFiles</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">免越狱的 iOS 文件浏览器、应用数据管理与缓存清理工具。</p>
+                <p class="row-hl">建立在 worse_query 沙盒技术之上，不越狱、不用内核漏洞，实测覆盖 iOS 26.5 到 27.3 beta；iOS 26 上够不到 System Data 与系统组，因此直接隐藏这两项、缓存清理也不带崩溃日志区；为了避开全盘 inode 扫描（iOS 26 上要近一小时），应用与扩展数据改从 LaunchServices 数据库列。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#8b93a7">Objective-C</span>
+                <span class="stat">★ 917</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#3178C6" data-src="daily" data-text="alexeyw/lot-map typescript claude code 旁边的实时工作地图：工具调用、模型步、钩子、技能、子 agent 逐个亮起。 每次工具调用都会从中心向对应站点发一道脉冲，看得见 memory/文件/shell/web/agents 在动，而不是读命令列表；以插件形式安装（/plugin install lot-map --marketplace alexeyw/lot-map）；完全本机运行不外传，读取边界写在 privacy.md、约束写在 principles.md；界面 7 种语言。">
+              <span class="rnk">15</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/alexeyw/lot-map" target="_blank" rel="noreferrer">alexeyw/lot-map</a>
+                  <span class="badge src-daily">日榜</span>
+                </div>
+                <p class="row-sub">Claude Code 旁边的实时工作地图：工具调用、模型步、钩子、技能、子 agent 逐个亮起。</p>
+                <p class="row-hl">每次工具调用都会从中心向对应站点发一道脉冲，看得见 memory/文件/shell/web/agents 在动，而不是读命令列表；以插件形式安装（/plugin install lot-map --marketplace alexeyw/lot-map）；完全本机运行不外传，读取边界写在 PRIVACY.md、约束写在 PRINCIPLES.md；界面 7 种语言。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#3178C6">TypeScript</span>
+                <span class="stat">★ 882</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#4B8BBE" data-src="weekly" data-text="gathin23/cleanyourtv python 通过 wi-fi 给 android/google tv 去预装去广告，换一套 apple tv 风格桌面。 主打「让 coding assistant 十五分钟干完」，仓库 topics 里直接写着 claude-code 与 vibe-coding；对三星/lg/roku/vizio/海信 vidaa 这类非 android 电视，另给一份用遥控器关追踪的指南；readme 特别声明只有 cleanyour.tv 与本仓库是官方，cleanyourtv.com 等域名与项目无关。">
+              <span class="rnk">16</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/Gathin23/cleanyourtv" target="_blank" rel="noreferrer">Gathin23/cleanyourtv</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">通过 Wi-Fi 给 Android/Google TV 去预装去广告，换一套 Apple TV 风格桌面。</p>
+                <p class="row-hl">主打「让 coding assistant 十五分钟干完」，仓库 topics 里直接写着 claude-code 与 vibe-coding；对三星/LG/Roku/Vizio/海信 VIDAA 这类非 Android 电视，另给一份用遥控器关追踪的指南；README 特别声明只有 cleanyour.tv 与本仓库是官方，cleanyourtv.com 等域名与项目无关。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#4B8BBE">Python</span>
+                <span class="stat">★ 58,256</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#DEA584" data-src="weekly" data-text="storytold/craft-anything rust 先用真实检查工具搞懂任意软件怎么运作，再让 coding agent 造一个你自己的版本。 纯 rust 的 clean-room 引擎，流程是「指向目标 → 说想要什么 → agent 用检查工具研究原版 → 建新项目 → 与原版比对校验 → 迭代」；网站类项目每轮检查都会给出相似度，越界改动需人工批准，计划里显示还剩什么没做。">
+              <span class="rnk">17</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/storytold/craft-anything" target="_blank" rel="noreferrer">storytold/craft-anything</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">先用真实检查工具搞懂任意软件怎么运作，再让 coding agent 造一个你自己的版本。</p>
+                <p class="row-hl">纯 Rust 的 clean-room 引擎，流程是「指向目标 → 说想要什么 → agent 用检查工具研究原版 → 建新项目 → 与原版比对校验 → 迭代」；网站类项目每轮检查都会给出相似度，越界改动需人工批准，计划里显示还剩什么没做。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#DEA584">Rust</span>
+                <span class="stat">★ 33,657</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#4B8BBE" data-src="weekly" data-text="deepseek-ai/deepinfer python deepseek 生产环境在用的推理框架开源版，先放离线推理与规模化服务的核心能力。 目前只支持 deepseek-v4.1-flash；并行上是 attention dp / 均衡 cp、moe ep + eplb，另带 dspark 与置信度调度验证、swa 有界重放、零开销批调度、batch-invariant 推理与确定性采样；kernel 复用自家 flashmla、deepgemm、deepep、tilekernels、deepselect 与 tilelang 自定义算子。">
+              <span class="rnk">18</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/deepseek-ai/DeepInfer" target="_blank" rel="noreferrer">deepseek-ai/DeepInfer</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">DeepSeek 生产环境在用的推理框架开源版，先放离线推理与规模化服务的核心能力。</p>
+                <p class="row-hl">目前只支持 DeepSeek-V4.1-Flash；并行上是 Attention DP / 均衡 CP、MoE EP + EPLB，另带 DSpark 与置信度调度验证、SWA 有界重放、零开销批调度、batch-invariant 推理与确定性采样；kernel 复用自家 FlashMLA、DeepGEMM、DeepEP、TileKernels、DeepSelect 与 TileLang 自定义算子。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#4B8BBE">Python</span>
+                <span class="stat">★ 26,072</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#00B4AB" data-src="weekly" data-text="ccch1mneyyy/dsh-go dart 把 deepseek harness 装进口袋：手机上本机跑，也能一键遥控电脑上的 dsh。 flutter 写的第三方客户端，android 已发 apk，ios 需自己在 mac 上签名编译；内置免 root 免 termux 的 linux 环境，与官方网页版可一键切换且停在同一条对话；支持回复中途插话、排队消息立即发送、整段对话生成端到端加密的回放链接；readme 标注 2026-10-30 拿过 trendshift 全语言日榜 #1。">
+              <span class="rnk">19</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/ccch1mneyyy/dsh-Go" target="_blank" rel="noreferrer">ccch1mneyyy/dsh-Go</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">把 DeepSeek Harness 装进口袋：手机上本机跑，也能一键遥控电脑上的 DSH。</p>
+                <p class="row-hl">Flutter 写的第三方客户端，Android 已发 APK，iOS 需自己在 Mac 上签名编译；内置免 Root 免 Termux 的 Linux 环境，与官方网页版可一键切换且停在同一条对话；支持回复中途插话、排队消息立即发送、整段对话生成端到端加密的回放链接；README 标注 2026-10-30 拿过 Trendshift 全语言日榜 #1。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#00B4AB">Dart</span>
+                <span class="stat">★ 23,715</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+            <li class="row" style="--c:#3178C6" data-src="weekly" data-text="deepseek-ai/dsh-superagent-prototype typescript deepseek 的「超级 agent」研究原型：面向单个 github 仓库的主动式编码 agent。 打包成 deepseek harness 的 bundle 插件，监听 github（可选飞书）；有人派活就开一个 work item，在独立 agent 会话与目录里做，再回到原对话答复；readme 顶部声明这是研究代码、非官方产品，且与论文《exploring super-agent design》的内部实现并不完全一致，部分设计只是未来方向。">
+              <span class="rnk">20</span>
+              <div class="row-main">
+                <div class="row-title">
+                  <a class="repo" href="https://github.com/deepseek-ai/dsh-superagent-prototype" target="_blank" rel="noreferrer">deepseek-ai/dsh-superagent-prototype</a>
+                  <span class="badge src-weekly">周榜</span>
+                </div>
+                <p class="row-sub">DeepSeek 的「超级 agent」研究原型：面向单个 GitHub 仓库的主动式编码 agent。</p>
+                <p class="row-hl">打包成 DeepSeek Harness 的 bundle 插件，监听 GitHub（可选飞书）；有人派活就开一个 work item，在独立 agent 会话与目录里做，再回到原对话答复；README 顶部声明这是研究代码、非官方产品，且与论文《Exploring Super-agent Design》的内部实现并不完全一致，部分设计只是未来方向。</p>
+              </div>
+              <div class="row-stats">
+                <span class="lang-chip" style="--c:#3178C6">TypeScript</span>
+                <span class="stat">★ 23,285</span>
+                <span class="delta"></span>
+              </div>
+            </li>
+          </ol>
+        </section>
+        
+          <section class="block">
+            <div class="block-head"><h3><span class="ico">🔭</span>趋势观察</h3></div>
+            <ul class="obs"><li style="--c:#5B9BFF"><span class="num">1</span><p>今天的新仓库榜被两头占住：一头是 iOS 系统层工具（GestaltX、Erosion-CN、WQFiles、TelemetryCleaner 全在改系统配置或清预装），说明 worse_query 这类沙盒写入通道加上 Shizuku 的「合法提权」已经熟到能把过去必须越狱的事做成消费级 GUI；另一头是 DeepSeek 生态（DeepInfer、chat-demo、dsh-superagent-prototype、第三方 dsh-Go 四个同期上榜）。</p></li><li style="--c:#A06BFF"><span class="num">2</span><p>agent 的周边正在分成两派：一派让它可见（lot-map 把每次工具调用、子 agent 画成实时地图），一派让它可管（agentes-chat 把 agent 当有 owner、有预算的同事放进频道，合并部署必须等人批准）——「看得见」和「管得住」同时成了产品卖点。</p></li><li style="--c:#2FD6A6"><span class="num">3</span><p>本周最硬的工程味不在应用层：DeepInfer 把 EPLB、batch-invariant 推理、确定性采样这些纯系统层能力开源，mkw-recomp 用静态重编译而不是模拟器跑 Switch 2 游戏，abyssal-garden 把整个海底世界压进 96KB 单文件——热度并非只属于 AI 应用。</p></li><li style="--c:#FFB13B"><span class="num">4</span><p>诚信声明在这批 README 里出现的频率明显变高：dsh-superagent 自标「研究代码、非官方产品」，ANR 直接写「源码 coming soon」，TelemetryCleaner 与 cleanyourtv 都在首屏划清用途与官方域名边界。</p></li><li style="--c:#FF7AB6"><span class="num">5</span><p>需要提醒的是本期榜单来自 Search API 的新仓库口径（github.com/trending 抓取失败），star 数是总量而非当日增量，因此更偏「新项目爆发」而非「存量项目回温」，与官方 Trending 榜会有系统性出入。</p></li>
+            </ul>
+          </section>
+        
+          <section class="block">
+            <div class="block-head">
+              <h3><span class="ico">🧠</span>AI 前沿动态</h3>
+              <span class="block-sub">近 30 小时抓取窗口（arXiv 因索引滞后回看至 11-12 提交；今日官方大模型博客无新增条目）· 已单列「智能体/Agent」分类 · 源：Hacker News / arXiv / GitHub Releases(agent 生态) / Simon Willison</span>
+            </div>
+            <div class="grid">
+            <article class="card news" style="--c:#22D3EE" data-src="news" data-text="coremem：给编码 agent 一套会算成本的仓库记忆 论文把编码 agent 在连续任务间的记忆选择建模为「未来有用性 vs 写入与读取成本」的权衡，提出面向代码仓库的记忆框架 coremem。 编码 agent 的记忆长期只有「全塞上下文」和「全丢掉」两个极端，把读写成本显式内化后，长仓库上的连续任务才有可能既稳又省。 arxiv">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="http://arxiv.org/abs/2611.17316v1" target="_blank" rel="noreferrer">CoReMem：给编码 agent 一套会算成本的仓库记忆</a>
+                  <span class="badge cat">智能体/Agent</span>
+                </div>
+                <p class="summary">论文把编码 agent 在连续任务间的记忆选择建模为「未来有用性 vs 写入与读取成本」的权衡，提出面向代码仓库的记忆框架 CoReMem。</p>
+                <p class="hl">为什么重要：编码 agent 的记忆长期只有「全塞上下文」和「全丢掉」两个极端，把读写成本显式内化后，长仓库上的连续任务才有可能既稳又省。</p>
+                <div class="meta"><span>arXiv</span><span>11/12 提交 · 11/13 索引</span><span>新论文</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#22D3EE" data-src="news" data-text="agentssl：mle agent 能不能用上无标注数据 论文首次在「标注稀缺、无标注充足」的真实设定下评测自动机器学习（mle）agent，并让 agent 主动利用未标注数据。 现有 mle agent 几乎都在全监督设定下被评测，这一步把半监督学习接进 agent 工作流，也把评测拉回真实数据条件。 arxiv">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="http://arxiv.org/abs/2611.17323v1" target="_blank" rel="noreferrer">AgentSSL：MLE agent 能不能用上无标注数据</a>
+                  <span class="badge cat">智能体/Agent</span>
+                </div>
+                <p class="summary">论文首次在「标注稀缺、无标注充足」的真实设定下评测自动机器学习（MLE）agent，并让 agent 主动利用未标注数据。</p>
+                <p class="hl">为什么重要：现有 MLE agent 几乎都在全监督设定下被评测，这一步把半监督学习接进 agent 工作流，也把评测拉回真实数据条件。</p>
+                <div class="meta"><span>arXiv</span><span>11/12 提交 · 11/13 索引</span><span>新论文</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#22D3EE" data-src="news" data-text="langchain 1.8.1 起把模型调用统一收口到 langsmith gateway langchain-core 1.8.1 与 xai/groq/deepseek 三个 partner 包同日发版：chatxai、chatgroq、chatdeepseek 全部改为经 langsmith gateway 路由，并支持按上下文覆盖 gateway 配置。 agent 框架的模型调用开始收口到自家网关，「换模型、换 key、加观测」从改代码退化成改路由配置，也顺带把可观测性做成默认项。 github releases">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D1.8.1" target="_blank" rel="noreferrer">LangChain 1.8.1 起把模型调用统一收口到 LangSmith gateway</a>
+                  <span class="badge cat">智能体/Agent</span>
+                </div>
+                <p class="summary">langchain-core 1.8.1 与 xai/groq/deepseek 三个 partner 包同日发版：ChatXAI、ChatGroq、ChatDeepSeek 全部改为经 LangSmith gateway 路由，并支持按上下文覆盖 gateway 配置。</p>
+                <p class="hl">为什么重要：agent 框架的模型调用开始收口到自家网关，「换模型、换 key、加观测」从改代码退化成改路由配置，也顺带把可观测性做成默认项。</p>
+                <div class="meta"><span>GitHub Releases</span><span>11/15 22:57</span><span>新版发布</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#A06BFF" data-src="news" data-text="经典能量下降比循环模型快 1000 倍学会推理 论文指出在能量函数上做下降、而不是堆循环层，就能解 sudoku-extreme、maze-unique 这类推理题，且自带早停、算力随难度自适应，速度约快 1000 倍。 「多想几遍」的循环模型路线遇到一个便宜得多的对手，推理期算力该花在哪里的性价比被重新标定。 arxiv">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="http://arxiv.org/abs/2611.17309v1" target="_blank" rel="noreferrer">经典能量下降比循环模型快 1000 倍学会推理</a>
+                  <span class="badge cat">研究/论文</span>
+                </div>
+                <p class="summary">论文指出在能量函数上做下降、而不是堆循环层，就能解 Sudoku-Extreme、Maze-Unique 这类推理题，且自带早停、算力随难度自适应，速度约快 1000 倍。</p>
+                <p class="hl">为什么重要：「多想几遍」的循环模型路线遇到一个便宜得多的对手，推理期算力该花在哪里的性价比被重新标定。</p>
+                <div class="meta"><span>arXiv</span><span>11/12 提交 · 11/13 索引</span><span>新论文</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#A06BFF" data-src="news" data-text="raschka 拆解现代 llm 的位置编码 sebastian raschka 发文系统讲现代 llm 位置编码（含 rope 一类方案）的设计与取舍，在 hacker news 拿到 178 分。 长上下文仍是各家主战场，而位置编码是少数「改这一处就影响整条 scaling 曲线」的部件。 hacker news">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://magazine.sebastianraschka.com/p/understanding-positional-embeddings" target="_blank" rel="noreferrer">Raschka 拆解现代 LLM 的位置编码</a>
+                  <span class="badge cat">研究/论文</span>
+                </div>
+                <p class="summary">Sebastian Raschka 发文系统讲现代 LLM 位置编码（含 RoPE 一类方案）的设计与取舍，在 Hacker News 拿到 178 分。</p>
+                <p class="hl">为什么重要：长上下文仍是各家主战场，而位置编码是少数「改这一处就影响整条 scaling 曲线」的部件。</p>
+                <div class="meta"><span>Hacker News</span><span>11/15 20:14</span><span>178 分 · 20 评论</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#FF8A4C" data-src="news" data-text="「ai 生成的代码都该开源」引 539 条评论激辩 一篇主张 ai 生成代码应默认开源的文章在 hacker news 登顶，968 分、539 条评论。 若这条规范被接受，ai 编码工具的商业模型与开源许可证的边界都要重写，是当下最实际的工程与法律交叉问题。 hacker news">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="https://jakub.jankiewicz.org/blog/ai-code-open-source/" target="_blank" rel="noreferrer">「AI 生成的代码都该开源」引 539 条评论激辩</a>
+                  <span class="badge cat">行业动态</span>
+                </div>
+                <p class="summary">一篇主张 AI 生成代码应默认开源的文章在 Hacker News 登顶，968 分、539 条评论。</p>
+                <p class="hl">为什么重要：若这条规范被接受，AI 编码工具的商业模型与开源许可证的边界都要重写，是当下最实际的工程与法律交叉问题。</p>
+                <div class="meta"><span>Hacker News</span><span>11/15 22:46</span><span>968 分 · 539 评论</span></div>
+              </div>
+            </article>
+            <article class="card news" style="--c:#A06BFF" data-src="news" data-text="拆开多模态视觉编码的三个设计选择 论文把视觉编码器拆成「上游预训练带来的视觉先验、专用视觉容量、融合前的位置」三个可独立取舍的选择，分别检验各自贡献。 多模态模型该不该留独立视觉编码器一直靠经验拍板，拆解之后可以按能力需求挑组件，而不是整套照抄别人的配方。 arxiv">
+              <div class="card-body">
+                <div class="card-top">
+                  <a class="repo" href="http://arxiv.org/abs/2611.17334v1" target="_blank" rel="noreferrer">拆开多模态视觉编码的三个设计选择</a>
+                  <span class="badge cat">研究/论文</span>
+                </div>
+                <p class="summary">论文把视觉编码器拆成「上游预训练带来的视觉先验、专用视觉容量、融合前的位置」三个可独立取舍的选择，分别检验各自贡献。</p>
+                <p class="hl">为什么重要：多模态模型该不该留独立视觉编码器一直靠经验拍板，拆解之后可以按能力需求挑组件，而不是整套照抄别人的配方。</p>
+                <div class="meta"><span>arXiv</span><span>11/12 提交 · 11/13 索引</span><span>新论文</span></div>
+              </div>
+            </article>
+            </div>
+          </section>
+    </section>
+  </main>
+
+  <footer>
+    <span>生成时间：2026-11-15T22:05:05.674Z · 数据：<code>../data/2026-11-16.json</code></span>
+    <span>Generated by OpenClaw · <a href="https://github.com/chengjiangpo/github-trending-daily-report">仓库源码</a></span>
+  </footer>
+</div>
+<script>
+(function(){
+
+  var q = document.getElementById('q');
+  var btns = Array.prototype.slice.call(document.querySelectorAll('.tbtn'));
+  var mode = 'all';
+  function applyFilter(){
+    var scope = document.querySelector('.panel.active') || document;
+    var term = (q.value || '').trim().toLowerCase();
+    scope.querySelectorAll('.card, .row').forEach(function(c){
+      var okMode = mode === 'all' || c.getAttribute('data-src') === mode;
+      var okText = !term || (c.getAttribute('data-text') || '').indexOf(term) > -1;
+      c.classList.toggle('hide', !(okMode && okText));
+    });
+    scope.querySelectorAll('.block').forEach(function(sec){
+      var holder = sec.querySelector('.grid, .board');
+      if (!holder) return;
+      sec.style.display = holder.querySelectorAll('.card:not(.hide), .row:not(.hide)').length ? '' : 'none';
+    });
+  }
+  q.addEventListener('input', applyFilter);
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      mode = b.getAttribute('data-f');
+      btns.forEach(function(x){ x.classList.toggle('on', x === b); });
+      applyFilter();
+    });
+  });
+  window.__applyFilter = applyFilter;
+
+  applyFilter();
+})();
+</script>
+</body>
+</html>
