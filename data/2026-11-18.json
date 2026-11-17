@@ -1,0 +1,451 @@
+{
+  "date": "2026-11-18",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "gh CLI 未登录，仓库提交与 Trending 元数据全部改用 curl 直连 api.github.com（未认证，请求成功，剩余配额充足）。",
+    "github.com/trending 本次直接抓取成功：日榜 15 条（含 stars today）；不足 20 条，另抓周榜（?since=weekly）并按仓库去重后补入 5 条，标注 source=weekly。star 总数、语言、描述均取自榜单页面原文，delta 保留榜单原始数字。",
+    "提交窗口：since 2026-11-16T22:00Z（北京时间 11-17 06:00 起 24 小时）。deepseek-ai/deepseek-harness(default=master) 138 条提交、earendil-works/pi(default=main) 13 条、anomalyco/opencode(default=dev) 90 条；接口 per_page=30，故各仓库只读取最近 30 条后筛选主要提交，依赖升级、release 同步 merge、docs/CI 噪音已跳过。",
+    "AI 新闻抓取 13/13 源成功，共 44 条候选；OpenAI Blog 今日 6 条新增，Anthropic News、Google DeepMind、CrewAI Blog、GitHub AI/ML Blog 今日 0 条新增。",
+    "openai.com 原文页与 deploymentsafety 系统卡均返回 403（需 JS），GPT-6.2 的定价与跑分细节改取自 GitHub Blog changelog、Hacker News 讨论与 Artificial Analysis 评测文章，均为公开可核实信息，未做推测。",
+    "智能体（Agent）专项：今日候选充足，保留 2 条（Claude Code 团队的验证方法论、材料科研智能体 MatOS 开源）。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-11-16T22:00Z，即北京时间 11-17 06:00 至 11-18 06:00）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 24h 内 138 条提交 · 发布 0.2.2-rc.4，MCP 工具按需加载落地",
+        "items": [
+          {
+            "title": "feat(mcp): 支持按 agent 按需加载 MCP 工具（PR #5916）",
+            "desc": "MCP 工具不再全量注入，改为按 agent 需要加载，压缩上下文与启动开销",
+            "author": "grllll",
+            "time": "11-17 21:43"
+          },
+          {
+            "title": "feat(upstream-skills): 新增 CLI 应用插件共用的上游技能下载库（PR #7491）",
+            "desc": "把上游 skills 的分发/下载抽成公共库，供各 CLI 应用插件共用",
+            "author": "grllll",
+            "time": "11-17 21:40"
+          },
+          {
+            "title": "feat(working-directory): Host 侧可迁移的工作区根目录，移除 working_directory 工具（PR #7817）",
+            "desc": "工作目录改由 Host 管理，agent 少一个可调用工具、边界更清晰",
+            "author": "LegGasai",
+            "time": "11-17 20:23"
+          },
+          {
+            "title": "release(dsh): 0.2.2-rc.4（PR #8666）",
+            "desc": "新候选版本发布，随后同步回 master",
+            "author": "imccyu",
+            "time": "11-17 21:19"
+          },
+          {
+            "title": "feat(client): 保留最近会话，未渲染时跳过对话折叠（#8502）",
+            "desc": "最近会话按访问顺序保留、上限可配置，减少来回切换时的重载",
+            "author": "imccyu",
+            "time": "11-17 20:51"
+          },
+          {
+            "title": "feat(web): 文件右键菜单增加「添加到对话」",
+            "desc": "文件可直接带入当前对话上下文",
+            "author": "std4453",
+            "time": "11-17 19:37"
+          }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 13 条提交 · 首日接入 GPT-6.2 Astra / Sol",
+        "items": [
+          {
+            "title": "feat(ai,coding-agent): 新增 GPT-6.2 Astra 与 GPT-6.2 Sol",
+            "desc": "OpenAI 新模型发布当天即接入 pi 的模型清单",
+            "author": "mitsuhiko",
+            "time": "11-18 03:07"
+          },
+          {
+            "title": "fix(ai): 采用 Codex 的上下文窗口——GPT-6.2 Sol 500K、Astra 272K",
+            "desc": "按 Codex 实际窗口修正两档模型的上下文上限",
+            "author": "mitsuhiko",
+            "time": "11-18 03:10"
+          },
+          {
+            "title": "feat(p3): slice 1 重做与 slice 26——release 构建与 p3 命令",
+            "desc": "p3 分支的发布构建链路成形",
+            "author": "badlogic",
+            "time": "11-17 22:25"
+          },
+          {
+            "title": "feat(p2): 转录区旁的树形面板",
+            "desc": "桌面端新增树形浏览面板",
+            "author": "christianklotz",
+            "time": "11-17 07:57"
+          },
+          {
+            "title": "fix(coding-agent): 交互式 TUI 运行期间仍能捕获 git / npm 输出（#12236）",
+            "desc": "修掉 TUI 占用终端时命令输出丢失的问题",
+            "author": "petrroll",
+            "time": "11-17 06:33"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 90 条提交 · full Code Mode 大面积铺开，插件更新可在设置内安装",
+        "items": [
+          {
+            "title": "feat(core): full_codemode 开关后把 shell 移入 Code Mode（#64284）",
+            "desc": "shell 执行改走 Code Mode 通道，工具调用统一到同一运行时",
+            "author": "jlongster",
+            "time": "11-17 12:42"
+          },
+          {
+            "title": "feat(core): 在 full Code Mode 下固定 read / edit / write / patch（#64497）",
+            "desc": "文件类工具在 Code Mode 中行为固定、可预测",
+            "author": "rekram1-node",
+            "time": "11-18 04:39"
+          },
+          {
+            "title": "feat(core): 在 full Code Mode 下开启 websearch（#64475）",
+            "desc": "联网检索也纳入 Code Mode 运行时",
+            "author": "rekram1-node",
+            "time": "11-18 00:54"
+          },
+          {
+            "title": "feat(app): 在设置 › 扩展中检查并安装插件更新（#64511）",
+            "desc": "插件更新从命令行搬进 GUI",
+            "author": "opencode-agent[bot]",
+            "time": "11-18 04:58"
+          },
+          {
+            "title": "feat(core): ChatGPT 模型清单加入 GPT 6.2 Sol 与 Astra（#64508）",
+            "desc": "新模型同步进可选列表",
+            "author": "yhibo",
+            "time": "11-18 05:14"
+          },
+          {
+            "title": "fix(core): 无 AGENTS.md 时回退读取 CLAUDE.md（#64474）",
+            "desc": "兼容 Claude Code 生态的既有约定",
+            "author": "opencode-agent[bot]",
+            "time": "11-18 01:05"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": {
+      "daily": 15,
+      "weekly": 5
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "elementalsouls/Claude-BugHunter",
+        "url": "https://github.com/elementalsouls/Claude-BugHunter",
+        "lang": "Python",
+        "stars": "9,088",
+        "delta": "+1,007",
+        "source": "daily",
+        "summary": "给 Claude Code 装上一整套漏洞挖掘 / 红队作业的 skill 包。",
+        "highlight": "README 写明 83 个 skills、15 个 slash 命令、681 条已披露报告模式（其中 433 条逐条引用可审计）、覆盖 24 类核心漏洞，并集成 Burp MCP；作者称在授权红队项目与 DVWA、OWASP Juice Shop、Hacker101 等公开靶场验证过。"
+      },
+      {
+        "rank": 2,
+        "repo": "mvanhorn/last30days-skill",
+        "url": "https://github.com/mvanhorn/last30days-skill",
+        "lang": "Python",
+        "stars": "68,947",
+        "delta": "+772",
+        "source": "daily",
+        "summary": "由 agent 主导的「搜索引擎」：按点赞、热度与真金白银排序，而不是编辑推荐。",
+        "highlight": "覆盖 Reddit、X、YouTube、HN、Polymarket 与网页，再合成有出处的摘要；README 同时给出 Claude Code 插件市场与 npx skills add 两条安装路径，宣称兼容 50+ Agent Skills 宿主。"
+      },
+      {
+        "rank": 3,
+        "repo": "alibaba/open-code-review",
+        "url": "https://github.com/alibaba/open-code-review",
+        "lang": "Go",
+        "stars": "53,669",
+        "delta": "+764",
+        "source": "daily",
+        "summary": "阿里内部用了两年的 AI 代码评审助手，现在开源成 CLI。",
+        "highlight": "走「确定性工程 + LLM agent」混合路线：确定性的文件筛选、文件打包、规则匹配保证不漏审、不漂移，agent 只做动态决策；官方基准用 50 个仓库、200 个真实 PR、10 种语言、80+ 资深工程师标注的 1,505 条问题，称同模型下 Precision/F1 明显高于通用 agent，token 约为其 1/9。"
+      },
+      {
+        "rank": 4,
+        "repo": "Tencent/LoopForge",
+        "url": "https://github.com/Tencent/LoopForge",
+        "lang": "Go",
+        "stars": "3,064",
+        "delta": "+590",
+        "source": "daily",
+        "summary": "腾讯开源的编码 agent 交付工作台：沙箱 + SOP + 人工审批。",
+        "highlight": "Main Bot 在聊天里接需求，自动开 Docker 沙箱、检出仓库、分派角色并提 PR；把跑通的做法存成 SOP（agent、脚本、人工门节点），可复用可回滚。支持 CodeBuddy、Codex、Claude Code、OpenCode、Cursor CLI、Antigravity、Kimi Code、Pi、DeepSeek Harness 等十个 CLI，MIT 协议、可自托管。"
+      },
+      {
+        "rank": 5,
+        "repo": "dream-num/univer",
+        "url": "https://github.com/dream-num/univer",
+        "lang": "TypeScript",
+        "stars": "28,858",
+        "delta": "+1,776",
+        "source": "daily",
+        "summary": "把表格 / 文档 / 幻灯片能力嵌进自己产品的 Office SDK。",
+        "highlight": "核心仓库以 Apache-2.0 开源内容模型、命令系统、公式与渲染引擎、Facade API 与 Sheets/Docs 编辑能力；另有 AI SDK 把 Office 能力接到已有 agent，README 强调「不依赖 AI SDK 也能完成编辑—计算—保存」的引用示例。"
+      },
+      {
+        "rank": 6,
+        "repo": "getarcaneapp/arcane",
+        "url": "https://github.com/getarcaneapp/arcane",
+        "lang": "Go",
+        "stars": "9,275",
+        "delta": "+654",
+        "source": "daily",
+        "summary": "面向所有人的现代 Docker 管理面板。",
+        "highlight": "main 分支已是 v3，上一版维护在 release/2.x.x；BSD-3-Clause，Go 实现，README 提供多语言（Crowdin）与 Snyk 漏洞徽章。"
+      },
+      {
+        "rank": 7,
+        "repo": "google-labs-code/stitch-skills",
+        "url": "https://github.com/google-labs-code/stitch-skills",
+        "lang": "TypeScript",
+        "stars": "10,061",
+        "delta": "+350",
+        "source": "daily",
+        "summary": "Google Stitch 的 Agent Skills 库：让编码 agent 按 Stitch 规范做设计到代码。",
+        "highlight": "遵循 agentskills.io 的 Agent Skills 开放标准，拆成 stitch-design / stitch-build / stitch-utilities 三个插件；README 给出 Codex 插件市场（含 --sparse 精简拉取）、Claude Code 与 Cursor 的安装方式，并声明兼容 Antigravity、Gemini CLI、OpenCode。"
+      },
+      {
+        "rank": 8,
+        "repo": "cursor/plugins",
+        "url": "https://github.com/cursor/plugins",
+        "lang": "TypeScript",
+        "stars": "16,862",
+        "delta": "+196",
+        "source": "daily",
+        "summary": "Cursor 官方插件规范与官方插件集合。",
+        "highlight": "每个插件是根目录下独立目录、自带 .cursor-plugin/plugin.json 清单；已收录 thermos（并行子 agent 深审）、orchestrate（云端并行 fan-out）、ralph-loop、advisor（卡住时咨询更强模型）以及 Gmail / Drive / Calendar / Docs / Sheets / Slides 等办公插件。"
+      },
+      {
+        "rank": 9,
+        "repo": "obra/superpowers",
+        "url": "https://github.com/obra/superpowers",
+        "lang": "Shell",
+        "stars": "319,253",
+        "delta": "+598",
+        "source": "daily",
+        "summary": "建立在可组合 skills 之上的编码 agent 开发方法论。",
+        "highlight": "README 目录列出 16+ 客户端的安装入口：Claude Code、Codex App/CLI、Cursor、Devin CLI、Factory Droid、Gemini CLI、GitHub Copilot CLI、Grok Build CLI、Kimi Code、OpenCode 等，覆盖面在同类框架里少见。"
+      },
+      {
+        "rank": 10,
+        "repo": "ag-ui-protocol/ag-ui",
+        "url": "https://github.com/ag-ui-protocol/ag-ui",
+        "lang": "TypeScript",
+        "stars": "19,950",
+        "delta": "+1,444",
+        "source": "daily",
+        "summary": "把任意 agent 接到任意前端应用的开放事件协议。",
+        "highlight": "AG-UI 1.0 已发布：规范冻结、附 JSON Schema，TypeScript / Python / .NET SDK 由规范生成，且与 0.x 双向兼容；用一条双向事件流替代各家自定义接线，同一个 agent 可同时驱动 Web、移动端、终端或 Slack。"
+      },
+      {
+        "rank": 11,
+        "repo": "backnotprop/plannotator",
+        "url": "https://github.com/backnotprop/plannotator",
+        "lang": "TypeScript",
+        "stars": "13,029",
+        "delta": "+691",
+        "source": "daily",
+        "summary": "本地浏览器里的 agent 评审面板：圈注、批注，再把意见一键送回 agent。",
+        "highlight": "支持 Claude Code、Codex、Copilot CLI、Gemini CLI、OpenCode、DeepSeek Harness、Pi 等十余个 agent；可评审计划/HTML/消息与本地改动或远程 PR（Git、Jujutsu、Perforce、GitHub、GitLab），「guided review」让 agent 把大 diff 拆成章节按重要性排序。"
+      },
+      {
+        "rank": 12,
+        "repo": "sveltejs/svelte",
+        "url": "https://github.com/sveltejs/svelte",
+        "lang": "JavaScript",
+        "stars": "89,552",
+        "delta": "+533",
+        "source": "daily",
+        "summary": "编译期把组件编译成高效原生 JS 的前端框架。",
+        "highlight": "榜单描述即官方口号「web development for the rest of us」；README 精简，开发与贡献指引在外链文档站。"
+      },
+      {
+        "rank": 13,
+        "repo": "affaan-m/ECC",
+        "url": "https://github.com/affaan-m/ECC",
+        "lang": "JavaScript",
+        "stars": "305,409",
+        "delta": "+902",
+        "source": "daily",
+        "summary": "给 agent 装一套「计划—测试—实现—评审—验证—记忆—改进」的工程系统。",
+        "highlight": "README 给出具体规模：72 个 agents、327 个 skills、98 个命令，外加 hooks、规则、持续学习与 AgentShield（扫描 prompt、hooks、MCP 配置、权限、密钥）；MIT 协议，Claude Code 支持最完整，另有 Codex、Qoder 原生插件路径与 Cursor、OpenCode、Gemini、Zed、Copilot 等适配。"
+      },
+      {
+        "rank": 14,
+        "repo": "jingyaogong/minimind",
+        "url": "https://github.com/jingyaogong/minimind",
+        "lang": "Python",
+        "stars": "65,893",
+        "delta": "+188",
+        "source": "daily",
+        "summary": "3 块钱、2 小时，从零训一个 64M 的小语言模型。",
+        "highlight": "开源极简结构与完整训练链路：MoE、数据清洗、预训练、SFT、LoRA、DPO、PPO/GRPO/CISPO、Tool Use、Agentic RL、自适应思考与蒸馏，全部用 PyTorch 原生实现；README 注明「2 小时」是单卡 3090 跑完 1 epoch 的实测、「3 块钱」是对应租卡成本。"
+      },
+      {
+        "rank": 15,
+        "repo": "google-research/paper-orchestra",
+        "url": "https://github.com/google-research/paper-orchestra",
+        "lang": "Python",
+        "stars": "2,872",
+        "delta": "+1,175",
+        "source": "daily",
+        "summary": "Google Research 的多智能体论文写作流水线。",
+        "highlight": "把大纲、文献综述、章节撰写、内容打磨、绘图拆成专职 agent 依次接力，输入只要想法与实验日志，输出是符合会议模板的 LaTeX 稿；文献部分需 Semantic Scholar API key。"
+      },
+      {
+        "rank": 16,
+        "repo": "GoogleChrome/modern-web-guidance-src",
+        "url": "https://github.com/GoogleChrome/modern-web-guidance-src",
+        "lang": "TypeScript",
+        "stars": "8,408",
+        "delta": "+6,542",
+        "source": "weekly",
+        "summary": "把现代 Web 最佳实践与兼容性数据做成 skills，塞进编码 agent。",
+        "highlight": "由 Chrome、Edge、Firefox 与 MDN 团队共同维护；CLI 支持 search / retrieve / legacy-scan，能扫出代码库里的过时写法并给出替代方案，仓库同时公开内容编写、校准与评测（Eval Dashboard）流程。"
+      },
+      {
+        "rank": 17,
+        "repo": "meta/astryx",
+        "url": "https://github.com/meta/astryx",
+        "lang": "TypeScript",
+        "stars": "30,104",
+        "delta": "+10,939",
+        "source": "weekly",
+        "summary": "Meta 内部用了八年、支撑 13,000+ 应用的设计系统，现已开源。",
+        "highlight": "150+ 无障碍组件、品牌级主题、暗色模式与 CLI；基于 React 19 + StyleX，但对外不锁定样式（可用 Tailwind、CSS Modules 覆盖），swizzle 可把组件源码弹出到项目里；README 明说 API、文档与 CLI 一起设计，让人和 AI 助手用同一套参考。目前处于 Beta。"
+      },
+      {
+        "rank": 18,
+        "repo": "we-promise/sure",
+        "url": "https://github.com/we-promise/sure",
+        "lang": "Ruby",
+        "stars": "16,250",
+        "delta": "+4,679",
+        "source": "weekly",
+        "summary": "被放弃的 Maybe Finance 由社区接手，继续做自托管个人财务应用。",
+        "highlight": "README 交代来历：Maybe 团队投入近百万美元开发后在 2023 年中停更并开源，本项目是社区 fork；Docker 自托管，可经浏览器、macOS 桌面端、移动端、API 客户端以及 LLM agent 访问。"
+      },
+      {
+        "rank": 19,
+        "repo": "ZhuLinsen/daily_stock_analysis",
+        "url": "https://github.com/ZhuLinsen/daily_stock_analysis",
+        "lang": "Python",
+        "stars": "73,066",
+        "delta": "+4,355",
+        "source": "weekly",
+        "summary": "LLM 驱动的多市场自选股分析，每天自动推「决策仪表盘」到飞书等渠道。",
+        "highlight": "覆盖 A 股、港股、美股、日股、韩股、台股与 ETF 的行情、K 线、技术指标、新闻、公告与基本面；内置 15 种策略（均线、缠论、波浪、趋势、热点等）做多轮问股；支持 GitHub Actions 与 Docker 零成本定时运行，推送企业微信/飞书/Telegram/Discord/Slack/邮箱。"
+      },
+      {
+        "rank": 20,
+        "repo": "anthropics/skills",
+        "url": "https://github.com/anthropics/skills",
+        "lang": "Python",
+        "stars": "196,674",
+        "delta": "+5,666",
+        "source": "weekly",
+        "summary": "Anthropic 官方的 Agent Skills 示例仓库，含 Claude 文档能力背后的实现。",
+        "highlight": "每个 skill 是独立目录 + SKILL.md；仓库同时提供 Agent Skills 规范与模板，并开源了 Claude 生成 docx / pdf / pptx / xlsx 所用的 skill（Apache-2.0），README 注明这些示例仅作演示、需自行测试后再用于关键任务。"
+      }
+    ]
+  },
+  "observation": [
+    "榜单仍是「agent 的供给侧」在爆发：Claude-BugHunter、last30days-skill、stitch-skills、cursor/plugins、superpowers、ECC、anthropics/skills 七个项目都在给 agent 灌技能、插件或方法论，竞争点已经从「模型会不会」变成「有没有人把流程打包好」。",
+    "把 agent 从个人玩具变成团队流水线是本周新主线：腾讯 LoopForge 用 SOP + 人工审批门把十个 CLI 编成可复用的交付流程，阿里 open-code-review 用确定性工程压住通用 agent 的漏审与漂移，plannotator 则补上「人审」这一环。",
+    "协议与界面层同步标准化：AG-UI 1.0 冻结规范并由 schema 生成三语言 SDK，让同一个 agent 驱动 Web/移动/终端；Univer 与 Astryx 分别把 Office 与设计系统做成「人和 agent 共用」的接口。",
+    "大厂开源继续下沉到内部系统：阿里把用了两年的代码评审助手、腾讯把交付工作台、Meta 把八年历史的设计系统、Google 把 Web 最佳实践 skills 一次性放出，开源正在替代「内部平台只对内」的旧惯例。",
+    "榜单外的信号同样一致：GPT-6.2 同日同时出现在 pi 与 opencode 的模型清单里，模型迭代到落地之间只剩小时级；而 Artificial Analysis 指出新模型的 Coding Agent 指数并未提升，说明当前瓶颈更多在 harness 与验证，而非参数。"
+  ],
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（arXiv 因索引滞后回看至 11-16 提交）· 已单列「智能体/Agent」分类",
+    "sourcesUsed": [
+      "Hacker News",
+      "arXiv",
+      "OpenAI Blog",
+      "Google AI Blog",
+      "GitHub Blog",
+      "量子位",
+      "Latent Space",
+      "Simon Willison",
+      "GitHub Releases(agent 生态)"
+    ],
+    "items": [
+      {
+        "category": "release",
+        "title": "OpenAI 发布 GPT-6.2 Astra 与 GPT-6.2 Sol",
+        "summary": "OpenAI 同日推出两档新模型：Astra 主打专业输出、编码与 computer use，Sol 走低成本路线，ChatGPT Work、Codex 与 API 同步上线。",
+        "why": "Astra 定价 $8/$40（比 GPT-6 低 20%）、Sol 维持 $2/$10，Artificial Analysis 称其拿下情报指数第 2 并占据大部分「每任务成本」帕累托前沿——能力与价格同时压向竞品。",
+        "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+        "source": "OpenAI Blog / Hacker News / GitHub Blog（多源）",
+        "time": "11/18 01:45",
+        "heat": "HN 907 分 · 547 评论"
+      },
+      {
+        "category": "agent",
+        "title": "Claude Code 团队：我们如何让 agent 自己验证工作",
+        "summary": "团队披露内部约 90% 代码由 Claude 编写与评审，经验是把 E2E、属性测试与差分测试做成 agent 可自证的回路，并配独立评分器按 rubric 打分。",
+        "why": "官方实测显示独立评分器让结构化文件生成任务成功率最多提升 10 个百分点；更关键的是「有验证回路才能同时跑几十上百个 agent」，这直接决定并行规模。",
+        "url": "https://claude.dev/blog/how-the-claude-code-team-thinks-about-verification/",
+        "source": "Hacker News / claude.dev Blog",
+        "time": "11/17 18:20",
+        "heat": "HN 233 分 · 179 评论"
+      },
+      {
+        "category": "agent",
+        "title": "材料科研智能体 MatOS 开源",
+        "summary": "中关村两院把材料研发智能体 MatOS 开源：数据、工具、技能、角色、工作流统一为「科学资产」，用有状态工作流执行研究并沉淀可复用经验。",
+        "why": "资产库已有 3,135 个数据集、386 项技能、104 个工作流、51 个专家角色并集成 48 款材料软件；在 MatTools 上完整问题成功率 97.96%，并从 3,000 万候选结构中筛出 97 个固态电解质候选——科研 agent 正从「查文献」走向端到端研究。",
+        "url": "https://www.qbitai.com/2026/11/510652.html",
+        "source": "量子位",
+        "time": "11/17 14:09",
+        "heat": ""
+      },
+      {
+        "category": "research",
+        "title": "arXiv：ScaleVLA 把视觉-语言-动作模型推到 552B 参数",
+        "summary": "论文追问「前沿 VLM 的表征能否直接用于机器人动作」，把 VLA 策略的骨干从常见的小模型直接放大到 552B 量级做验证。",
+        "why": "多数 VLA 仍绑在很小的 VLM 骨干上，规模红利没吃到；这条给出「更大的通用表征能否换来更强控制」的正面实验，是具身智能 scaling 路线的关键数据点。",
+        "url": "http://arxiv.org/abs/2611.21607v1",
+        "source": "arXiv (cs.RO)",
+        "time": "11/16 提交",
+        "heat": "新论文"
+      },
+      {
+        "category": "industry",
+        "title": "英伟达季度收入达 1,040 亿美元，同时停止单列新加坡销售",
+        "summary": "英伟达营收创下 1,040 亿美元新高，但不再单独披露新加坡地区的销售数据，引发对区域收入口径的讨论。",
+        "why": "在新加坡被视作转口与算力流向观察窗口的背景下，口径变化会削弱外界对出口管制实际效果的可见度，也影响对 AI 资本开支真实分布的判断。",
+        "url": "https://www.ft.com/content/dbde7a30-548c-4f9d-a4be-7898a0c24dcf",
+        "source": "Hacker News / Financial Times",
+        "time": "11/18 01:12",
+        "heat": "HN 237 分 · 121 评论"
+      },
+      {
+        "category": "industry",
+        "title": "Gemini 的 Tasks 在六国免费开放",
+        "summary": "Google 宣布 Tasks in Gemini 在六个国家免费，美国先行上线新功能，并加深与 Google Workspace 的集成，让 Gemini 直接替用户办事。",
+        "why": "助手正从「回答问题」转向「代为执行」；免费铺开意味着任务型 agent 的入口之争从订阅制转向规模与生态绑定。",
+        "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+        "source": "Google AI Blog",
+        "time": "11/18 01:00",
+        "heat": ""
+      }
+    ]
+  }
+}
