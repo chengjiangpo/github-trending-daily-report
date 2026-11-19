@@ -1,0 +1,480 @@
+{
+  "date": "2026-11-20",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "gh CLI 未登录，仓库提交与 Trending 元数据全部走 curl 直连 api.github.com（未认证，本次请求均成功，未触发限流）。",
+    "github.com/trending 本次抓取成功（页面完整返回），日榜正好 20 条，无需周榜补位；star 总数、语言、描述与「stars today」均取自榜单页面原文，未做换算。",
+    "提交窗口：since 2026-11-18T22:00Z（即北京时间 11-19 06:00 至 11-20 06:00）。deepseek-ai/deepseek-harness(default=master) 过去 24 小时 0 条（最后一条为 11-18 18:58 北京时间），按实际情况记为无新提交；earendil-works/pi(default=main) 24 条、anomalyco/opencode(default=dev) 72 条，接口按 per_page=100 计数，页面只列筛选后的主要提交，依赖升级、纯格式/文档与重复 release 噪音已跳过。",
+    "AI 新闻抓取 13/13 源成功，共 56 条候选；OpenAI Blog 3 条新增、Anthropic News 1 条、Google AI Blog 2 条；Google DeepMind、CrewAI Blog、GitHub AI/ML Blog 今日 0 条新增（Anthropic 无官方 RSS，脚本按 /news 新 slug 发现）。",
+    "Anthropic IPO 细节取自 anthropic.com 官方公告（$83/股、9.8 亿股、代码 ANT、11-19 开始在纳斯达克交易）；「首日估值 2 万亿美元」来自路透社报道标题（HN 681 分），reuters.com 正文本机抓取被拦（返回空），故未引用正文内其他数字。",
+    "openai.com 文章页为 JS 渲染，正文无法抓取，摘要仅依据官方 RSS 的 description 原文，未做推测；arXiv 条目时间为其提交日，因索引滞后允许回看至 96 小时。",
+    "智能体（Agent）专项：今日候选充足，单列 3 条（Gemini API Tool Retrieval、GitHub CLI Event Streams、arXiv Agentic Harness Engineering）。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-11-18T22:00Z，即北京时间 11-19 06:00 至 11-20 06:00）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 过去 24 小时无新提交",
+        "items": []
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 24 条提交 · coding-agent 一批交互修复，p2 侧边栏改项目分组、显示子 agent",
+        "items": [
+          {
+            "title": "fix(coding-agent)：外部 SIGTSTP 按 Ctrl+Z 处理（#12283）",
+            "desc": "终端挂起信号与 TUI 行为对齐",
+            "author": "haoqixu",
+            "time": "11-20 05:53"
+          },
+          {
+            "title": "fix(coding-agent)：停止 TUI 后退出前先 flush stdout（#12336）",
+            "desc": "修复退出时输出丢失",
+            "author": "petrroll",
+            "time": "11-20 05:36"
+          },
+          {
+            "title": "fix(coding-agent)：把图片送给 llama.cpp 决策分类器（#12335）",
+            "desc": "本地模型路径支持图像输入",
+            "author": "petrroll",
+            "time": "11-20 05:01"
+          },
+          {
+            "title": "feat(ai)：在 GitHub Copilot 上向 Claude 发送 strict tools（#12332）",
+            "desc": "工具 schema 严格模式打通 Copilot 通道",
+            "author": "petrroll",
+            "time": "11-20 03:52"
+          },
+          {
+            "title": "feat(p2)：会话侧边栏在任一对话运行时显示 working 状态",
+            "desc": "状态按主对话聚合",
+            "author": "mitsuhiko",
+            "time": "11-19 17:26"
+          },
+          {
+            "title": "feat(p2)：在主对话输入框上方显示运行中的子 agent",
+            "desc": "子 agent 可见性",
+            "author": "mitsuhiko",
+            "time": "11-19 17:07"
+          },
+          {
+            "title": "feat(p2)：项目改为所有者自定义分组，新增位置选择器",
+            "desc": "侧边栏信息结构重做",
+            "author": "badlogic",
+            "time": "11-19 07:35"
+          },
+          {
+            "title": "feat(p3)：要求 Node 26.3.1+，不再依赖 /proc 子进程查找（Android）",
+            "desc": "移动端 worker 进程发现",
+            "author": "badlogic",
+            "time": "11-19 07:16"
+          },
+          {
+            "title": "feat(p3)：Node 26 session worker 自行管理 V8 zone 内存",
+            "desc": "长会话内存优化",
+            "author": "badlogic",
+            "time": "11-19 06:08"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 72 条提交 · Code Mode 转正为默认，新增实验性视频生成工具，插件可 name@latest 自动更新",
+        "items": [
+          {
+            "title": "feat(core)：dev 构建默认开启 full_codemode（#64761）",
+            "desc": "Code Mode 从实验特性转为默认路径",
+            "author": "jlongster",
+            "time": "11-19 06:00"
+          },
+          {
+            "title": "feat(core)：新增实验性视频生成工具（#63666）",
+            "desc": "工具集扩展到视频生成",
+            "author": "rekram1-node",
+            "time": "11-19 06:23"
+          },
+          {
+            "title": "feat(core)：成员可读取自己的 MCP server 事件（#63563）",
+            "desc": "多租户下 MCP 事件归属修正",
+            "author": "adamdotdevin",
+            "time": "11-19 06:20"
+          },
+          {
+            "title": "feat(core)：name@latest 形式的插件自动更新（#64764）",
+            "desc": "插件生态的升级体验",
+            "author": "rekram1-node",
+            "time": "11-19 13:14"
+          },
+          {
+            "title": "feat(core)：Code Mode 脚本可阻塞 2 分钟再转入后台（#64957）",
+            "desc": "长任务不再被迫立即后台化",
+            "author": "jlongster",
+            "time": "11-20 03:05"
+          },
+          {
+            "title": "feat(core)：console watch 可持续唤醒无人值守会话（#64895）",
+            "desc": "无人值守任务的唤醒机制",
+            "author": "adamdotdevin",
+            "time": "11-20 00:19"
+          },
+          {
+            "title": "feat(app)：Code Mode 脚本与子 agent 的后台工作统一显示为运行中（#64790）",
+            "desc": "运行态可视化",
+            "author": "jlongster",
+            "time": "11-20 01:07"
+          },
+          {
+            "title": "feat(tui)：composer 选择器新增 Scripts 标签页（#64956）",
+            "desc": "脚本入口前置",
+            "author": "jlongster",
+            "time": "11-20 04:24"
+          },
+          {
+            "title": "feat(core)：登出时撤销 ChatGPT 登录态（#64947）",
+            "desc": "凭证清理",
+            "author": "rekram1-node",
+            "time": "11-20 05:19"
+          },
+          {
+            "title": "Opentui 0.9.0（#63989）",
+            "desc": "TUI 依赖大版本升级",
+            "author": "simonklee",
+            "time": "11-19 21:41"
+          },
+          {
+            "title": "docs(console)：Zen 模型下线 GLM 5/5.1/5.2，新增 Gemini 4 Neon",
+            "desc": "模型目录随厂商发布调整",
+            "author": "opencode-agent[bot]",
+            "time": "11-19 18:21"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": {
+      "daily": 20,
+      "weekly": 0
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "elementalsouls/Claude-BugHunter",
+        "url": "https://github.com/elementalsouls/Claude-BugHunter",
+        "lang": "Python",
+        "stars": "11,245",
+        "delta": "+2,322",
+        "source": "daily",
+        "summary": "面向漏洞挖掘与外网 red-team 的 Claude 技能包，主打「开箱即用的渗透工作流」。",
+        "highlight": "README 自述含 83 个 skills、15 个 slash 命令、681 条披露报告模式（其中 433 条逐条引用可审计），覆盖 24 类核心漏洞，并集成 Burp MCP 与项目目录脚手架；声称已在 DVWA、OWASP Juice Shop、Hacker101 等公共靶场验证。"
+      },
+      {
+        "rank": 2,
+        "repo": "cursor/plugins",
+        "url": "https://github.com/cursor/plugins",
+        "lang": "TypeScript",
+        "stars": "17,167",
+        "delta": "+315",
+        "source": "daily",
+        "summary": "Cursor 官方插件仓库，每个插件是带 .cursor-plugin/plugin.json 清单的独立目录。",
+        "highlight": "清单里已列 Teaching、continual-learning（只用高信号 bullet 增量更新 AGENTS.md）、thermos（安全/正确性深度审计 + 并行 subagent + 可选 merge-ready PR 流）、create-plugin、ralph-loop 等插件，等于把「agent 怎么干活」做成了可分发单元。"
+      },
+      {
+        "rank": 3,
+        "repo": "HKUDS/CLI-Anything",
+        "url": "https://github.com/HKUDS/CLI-Anything",
+        "lang": "Python",
+        "stars": "59,654",
+        "delta": "+384",
+        "source": "daily",
+        "summary": "一条命令把任意软件包装成 agent 可直接调用的 CLI。",
+        "highlight": "README 写明目标 harness 包括 Pi、OpenClaw、nanobot、Cursor、Claude Code；所有 SKILL.md 已统一到顶层 skills/ 目录，可用 npx skills add HKUDS/CLI-Anything --skill <name> 安装；配套 CLI-Hub 注册表支持 pip/npm/brew 等多种安装来源。"
+      },
+      {
+        "rank": 4,
+        "repo": "mvanhorn/last30days-skill",
+        "url": "https://github.com/mvanhorn/last30days-skill",
+        "lang": "Python",
+        "stars": "69,926",
+        "delta": "+1,062",
+        "source": "daily",
+        "summary": "agent 技能：跨 Reddit、X、YouTube、HN、Polymarket 检索近 30 天信息并写成有据可查的总结。",
+        "highlight": "README 强调排序由 upvote、点赞与「真金白银」（Polymarket 概率）决定而非编辑挑选；新增「专利信号」「招聘页信号」两类推断玩法；对比工具时会实时从 GitHub API 拉 star 数，而不是引用博客旧数据。"
+      },
+      {
+        "rank": 5,
+        "repo": "getarcaneapp/arcane",
+        "url": "https://github.com/getarcaneapp/arcane",
+        "lang": "Go",
+        "stars": "9,769",
+        "delta": "+547",
+        "source": "daily",
+        "summary": "现代的 Docker 管理面板，面向团队自托管。",
+        "highlight": "main 分支已是 v3，2.x 保留在 release/2.x.x；BSD-3-Clause 许可，公开 SBOM 页面（getarcane.app/sbom），文档与 Crowdin 多语言翻译分离维护。"
+      },
+      {
+        "rank": 6,
+        "repo": "NVIDIA/SkillEvaluator",
+        "url": "https://github.com/NVIDIA/SkillEvaluator",
+        "lang": "Python",
+        "stars": "3,670",
+        "delta": "+323",
+        "source": "daily",
+        "summary": "评估并改进 agent skills / 插件的多层框架：质量、安全、重叠度与真实增益。",
+        "highlight": "第一层为 500+ 静态规则与检测模式，无需 LLM key 即可跑；skillevaluator ci init 可向仓库自动提交接入 PR；有配套 arXiv 论文（2608.20614），并属于 NVIDIA Verified Skills 流水线。"
+      },
+      {
+        "rank": 7,
+        "repo": "nvm-sh/nvm",
+        "url": "https://github.com/nvm-sh/nvm",
+        "lang": "Shell",
+        "stars": "96,147",
+        "delta": "+111",
+        "source": "daily",
+        "summary": "POSIX 兼容的 bash 脚本版 Node 版本管理器。",
+        "highlight": "当前版本 v0.41.0，安装脚本显式支持用 curl、wget 或 git 下载，并允许通过 NVM_DIR 指定安装目录。"
+      },
+      {
+        "rank": 8,
+        "repo": "astral-sh/uv",
+        "url": "https://github.com/astral-sh/uv",
+        "lang": "Rust",
+        "stars": "92,203",
+        "delta": "+260",
+        "source": "daily",
+        "summary": "Rust 写的极快 Python 包与项目管理器。",
+        "highlight": "README 称单个工具替代 pip、pip-tools、pipx、poetry、pyenv、twine、virtualenv，并引用自家 BENCHMARKS.md 给出「比 pip 快 10–100 倍」的口径。"
+      },
+      {
+        "rank": 9,
+        "repo": "google-research/paper-orchestra",
+        "url": "https://github.com/google-research/paper-orchestra",
+        "lang": "Python",
+        "stars": "4,201",
+        "delta": "+1,529",
+        "source": "daily",
+        "summary": "Google Cloud AI Research 的多智能体框架：把想法与实验日志写成可投稿的 AI 论文。",
+        "highlight": "拆成 Outline、Literature Review、Section Writing、Content Refinement、Plotting 五个专职 agent，直接产出投稿级 LaTeX 与图表；README 明确数据集暂不随仓库发布。"
+      },
+      {
+        "rank": 10,
+        "repo": "google-labs-code/stitch-skills",
+        "url": "https://github.com/google-labs-code/stitch-skills",
+        "lang": "TypeScript",
+        "stars": "10,376",
+        "delta": "+369",
+        "source": "daily",
+        "summary": "Google Stitch 的 agent skills 与插件集，走 Agent Skills 开放标准。",
+        "highlight": "拆成 stitch-design / stitch-build / stitch-utilities 三个插件包，README 写明兼容 Codex、Antigravity、Gemini CLI、Claude Code、Cursor 与 OpenCode；可用 codex plugin marketplace add 配合 sparse checkout 只拉需要的目录。"
+      },
+      {
+        "rank": 11,
+        "repo": "sveltejs/svelte",
+        "url": "https://github.com/sveltejs/svelte",
+        "lang": "JavaScript",
+        "stars": "89,696",
+        "delta": "+694",
+        "source": "daily",
+        "summary": "编译器式前端框架：把声明式组件编译成精准更新 DOM 的 JS。",
+        "highlight": "README 的定位是「a compiler that takes your declarative components and converts them into efficient JavaScript that surgically updates the DOM」，MIT 许可。"
+      },
+      {
+        "rank": 12,
+        "repo": "jquery/jquery",
+        "url": "https://github.com/jquery/jquery",
+        "lang": "JavaScript",
+        "stars": "60,000",
+        "delta": "+268",
+        "source": "daily",
+        "summary": "经典 DOM 操作与兼容层库，仍在维护 4.x。",
+        "highlight": "版本支持表写明：4.x（main）完整支持、3.x（3.x-stable）仅关键修复、2.x/1.x 已停止支持；jQuery 4.0.0 已于 2026-01-17 发布，官方建议全部升级。"
+      },
+      {
+        "rank": 13,
+        "repo": "appwrite/appwrite",
+        "url": "https://github.com/appwrite/appwrite",
+        "lang": "TypeScript",
+        "stars": "58,210",
+        "delta": "+239",
+        "source": "daily",
+        "summary": "MCP 与 agent 优先的开源后端平台，覆盖 Auth、数据库、存储、函数、托管等。",
+        "highlight": "README 首句即「MCP 已内置」，Cursor、Claude Code、Codex 等可直接通过托管 MCP server 操作线上 Appwrite 项目；也可自托管，模块化产品从原型到生产保持一套。"
+      },
+      {
+        "rank": 14,
+        "repo": "openvinotoolkit/openvino",
+        "url": "https://github.com/openvinotoolkit/openvino",
+        "lang": "C++",
+        "stars": "11,302",
+        "delta": "+18",
+        "source": "daily",
+        "summary": "Intel 主导的开源推理优化与部署工具包。",
+        "highlight": "可直接吃 PyTorch、TensorFlow、ONNX、Keras、PaddlePaddle、JAX/Flax 模型，也能经 Optimum Intel 直接拉 Hugging Face Hub 上的 transformers/diffusers 模型；推理覆盖 CPU（x86/ARM）、Intel 集显/独显与 NPU，文档已切到 2026 版。"
+      },
+      {
+        "rank": 15,
+        "repo": "obra/superpowers",
+        "url": "https://github.com/obra/superpowers",
+        "lang": "Shell",
+        "stars": "321,274",
+        "delta": "+823",
+        "source": "daily",
+        "summary": "给编码 agent 的一整套开发方法论，由可组合 skills 与初始指令驱动。",
+        "highlight": "流程是「先问清你到底要做什么 → 分段确认 spec → 写出连新手都能照做的实施计划 → 用 subagent 逐任务开发并互审」，强调真正的 red/green TDD；README 列出 17 个可安装 harness，含 Claude Code、Codex、Cursor、Gemini CLI、OpenCode、Pi。"
+      },
+      {
+        "rank": 16,
+        "repo": "affaan-m/ECC",
+        "url": "https://github.com/affaan-m/ECC",
+        "lang": "JavaScript",
+        "stars": "306,428",
+        "delta": "+1,109",
+        "source": "daily",
+        "summary": "自称「agent harness 操作系统」：skills、instincts、memory、安全与研究优先流程打包。",
+        "highlight": "提供引导式一键安装，并按 harness 只选一条路径（Claude Code / Codex / Qoder 等）；另有「低上下文 / 无 hooks」的轻量安装模式，以及组件查找、重置与卸载流程。"
+      },
+      {
+        "rank": 17,
+        "repo": "DeanChensj/jiangshan-map",
+        "url": "https://github.com/DeanChensj/jiangshan-map",
+        "lang": "JavaScript",
+        "stars": "7,908",
+        "delta": "+280",
+        "source": "daily",
+        "summary": "中国历史交互地图时间轴，从战国（前 403 年）一路刷到今天。",
+        "highlight": "README 称覆盖 18 个朝代、198 个疆域快照，可拖动时间轴并追踪古地名；提供中/繁/英/日多语 README 与在线 demo（deanchen.me/jiangshan-map）。"
+      },
+      {
+        "rank": 18,
+        "repo": "n8n-io/n8n",
+        "url": "https://github.com/n8n-io/n8n",
+        "lang": "TypeScript",
+        "stars": "211,024",
+        "delta": "+315",
+        "source": "daily",
+        "summary": "fair-code 的工作流自动化平台，主打 AI agent 与可视化编排。",
+        "highlight": "README 定位为「The Platform for AI Agents and Workflow Automation」，可视化画布 + 自定义代码混合，自托管或云均可，宣称 1500+ 集成。"
+      },
+      {
+        "rank": 19,
+        "repo": "solidjs/solid",
+        "url": "https://github.com/solidjs/solid",
+        "lang": "TypeScript",
+        "stars": "36,542",
+        "delta": "+37",
+        "source": "daily",
+        "summary": "声明式、细粒度响应的 JavaScript UI 库，无虚拟 DOM。",
+        "highlight": "README 顶部 banner 已标注 version=2.0，npm 包为 solid-js，CI 与覆盖率徽章分别指向 main 分支工作流与 Coveralls。"
+      },
+      {
+        "rank": 20,
+        "repo": "punkpeye/awesome-mcp-servers",
+        "url": "https://github.com/punkpeye/awesome-mcp-servers",
+        "lang": "",
+        "stars": "97,993",
+        "delta": "+52",
+        "source": "daily",
+        "summary": "MCP server 大全，模型上下文协议生态的索引页。",
+        "highlight": "仓库维护泰语、英语、繁体中文、简体中文、日语、韩语等多语言 README 版本，是 MCP 生态里被引用最多的清单之一。"
+      }
+    ]
+  },
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（官方博客为「上次日报之后新增」条目，arXiv 可回看 96 小时）",
+    "sourcesUsed": [
+      "Hacker News (Algolia)",
+      "arXiv (cs.CL/AI/LG/MA/RO)",
+      "GitHub Releases (agent 生态)",
+      "OpenAI Blog",
+      "Anthropic News",
+      "Google AI Blog",
+      "Simon Willison",
+      "量子位",
+      "GitHub Blog",
+      "Latent Space"
+    ],
+    "items": [
+      {
+        "category": "industry",
+        "title": "Anthropic 以 $83 定价 IPO，首日估值冲上 2 万亿美元",
+        "summary": "Anthropic 以每股 83 美元发行 9.8 亿股 A 类股，11 月 19 日以代码 ANT 在纳斯达克开始交易；路透报道称其首日估值达到 2 万亿美元。",
+        "why": "第一家以万亿级估值登陆公开市场的前沿模型公司，把「AI 泡沫还是基建」的争论直接交给二级市场定价。",
+        "url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering",
+        "source": "Reuters / Anthropic News / Hacker News",
+        "time": "11-20 01:02",
+        "heat": "681 分（HN）"
+      },
+      {
+        "category": "agent",
+        "title": "Google 给 Gemini API 加 Tool Retrieval：工具 schema 按需加载",
+        "summary": "Interactions API 上线预览版 Tool Retrieval，请求里加 tool_search 并给工具设 defer_loading=true，模型只看到工具名与描述，需要时才拉取完整参数并在同一请求内调用。",
+        "why": "工具上百个时，全量 schema 是输入 token 与「选错工具」的主要来源，这是 agent 规模化最直接的瓶颈之一。",
+        "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/",
+        "source": "Google AI Blog",
+        "time": "11-20 02:00",
+        "heat": "156"
+      },
+      {
+        "category": "release",
+        "title": "Gemini 4 Neon 在 GitHub Copilot 正式可用",
+        "summary": "Copilot 全面上线 Gemini 4 Neon，官方定位为 agentic coding、多步工具调用与知识工作场景。",
+        "why": "昨天刚发布的模型 24 小时内进入主流 IDE agent 的模型下拉框，模型竞争开始按「周」而不是「季度」传导到开发者手里。",
+        "url": "https://github.blog/changelog/2026-11-18-gemini-4-neon-in-github-copilot",
+        "source": "GitHub Blog",
+        "time": "11-19 05:49",
+        "heat": "104"
+      },
+      {
+        "category": "agent",
+        "title": "GitHub CLI 2.105.0 支持 Event Streams：agent 等 PR 事件不用再轮询",
+        "summary": "gh 新增对 GitHub Event Streams 的支持，agent 用一条命令即可等待某个 pull request 发生变化，替代循环轮询接口。",
+        "why": "轮询是 agent 工作流里最典型的无效开销，官方把它收成阻塞原语，长任务编排会明显省 token 与请求配额。",
+        "url": "https://github.blog/changelog/2026-11-18-wait-for-pull-request-events-with-github-cli",
+        "source": "GitHub Blog",
+        "time": "11-19 08:00",
+        "heat": "104"
+      },
+      {
+        "category": "research",
+        "title": "OpenAI 自评：coding agent 加速 AI 研究，但能力是「锯齿状」的",
+        "summary": "OpenAI 度量了 coding agent 在自家研究工作中的提效情况，指出其表现在不同任务上极不均衡，并讨论了这对「递归自我改进」意味着什么。",
+        "why": "厂商首次公开自评「AI 做 AI 研究」的真实边界，比任何 benchmark 分数都更接近能力上限问题。",
+        "url": "https://openai.com/index/research-acceleration-jagged-frontier",
+        "source": "OpenAI Blog",
+        "time": "11-18 16:00",
+        "heat": "221"
+      },
+      {
+        "category": "agent",
+        "title": "arXiv：以需求为中心的 agent harness 演化方法",
+        "summary": "论文提出 Agentic Harness Engineering Beta，把显式与隐式用户需求一起纳入 harness 的演化与验证，替代「单个演化 agent + benchmark 打分」的旧做法。",
+        "why": "直指当前 harness 自演化的通病——只产出窄补丁、对 benchmark 过拟合，而忽略真实交互需求。",
+        "url": "http://arxiv.org/abs/2611.24924v1",
+        "source": "arXiv",
+        "time": "11-19 02:52（提交日）",
+        "heat": "145.6"
+      },
+      {
+        "category": "research",
+        "title": "Claude 解出黑洞物理两个开放问题",
+        "summary": "Anthropic 称 Claude 完成了一个物理学家 20 多年前搭好却始终未解出的计算，并给出「模 bootstrap」最简版本的精确极限，两篇预印本已同步放出。",
+        "why": "从「会做竞赛题」到「推进未解科研问题」，这是一个可被同行核查的案例，而不只是跑分。",
+        "url": "https://www.anthropic.com/research/claude-black-hole-physics",
+        "source": "Anthropic Research / Hacker News",
+        "time": "11-18（发布于 11-17）",
+        "heat": "295 分（HN）"
+      }
+    ]
+  },
+  "observation": [
+    "今天的榜单几乎是「agent 供给侧」的集体展出：20 个项目里至少 10 个在给 agent 灌技能、插件或方法论（Claude-BugHunter、cursor/plugins、CLI-Anything、last30days-skill、SkillEvaluator、stitch-skills、superpowers、ECC、paper-orchestra、awesome-mcp-servers），竞争焦点已经从「模型会不会」变成「流程有没有被打包成可安装单元」。",
+    "更关键的是配套的「质检与分发」层同时长出来了：NVIDIA SkillEvaluator 用 500+ 静态规则加 CI 门禁给 skills 打分，Cursor 用 plugin.json 定义插件形态，CLI-Anything 用 CLI-Hub 做注册表——生态正从堆数量走向可评估、可安装、可升级。",
+    "模型侧的分发速度被压到了天级：Gemini 4 Neon 昨天发布今天就在 GitHub Copilot 正式可用，opencode 同一天把 Zen 模型目录里的 GLM 5 系列下线、补上 Neon；模型切换已经变成一次目录更新，而不是一次迁移项目。",
+    "基础设施层的动作也都指向同一个方向——把 agent 的「运行时摩擦」抹平：Gemini API 用 Tool Retrieval 让上百个工具只按需加载 schema，GitHub CLI 用 Event Streams 把 PR 轮询换成阻塞等待，opencode 则把 Code Mode 转正、让脚本可阻塞 2 分钟再转后台。",
+    "资本侧同一天给出另一重注脚：Anthropic 以 $83 定价上市、首日估值被报到 2 万亿美元，而 OpenAI 自己的研究却说 coding agent 的提效是「锯齿状」的——估值曲线与能力曲线之间的落差，会是接下来几个季度最值得盯的地方。"
+  ]
+}
