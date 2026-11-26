@@ -1,0 +1,436 @@
+{
+  "date": "2026-11-27",
+  "title": "GitHub 每日情报日报",
+  "dataNotes": [
+    "gh CLI 未登录；仓库 metadata、24h 提交与 Trending 页均改用 curl 直连 api.github.com / github.com 公共入口，全部请求成功。",
+    "github.com/trending 今日可直连：日榜只有 16 条（不足 20），按规则用周榜前 4 名补位到 20 条，source 分别标注 daily（前 16）与 weekly（后 4）；star 增量日榜取 stars today、周榜取 stars this week，均来自页面原始数字，未做估算。",
+    "提交窗口 since=2026-11-25T22:00:00Z（北京时间 11-26 06:00 起 24 小时）：earendil-works/pi 360 条（GitHub 分页 100 条上限，取满 3 页 + 第 4 页 60 条）、anomalyco/opencode 71 条、deepseek-ai/deepseek-harness 0 条（其最近一次提交为 11-22 08:50Z，已连续 5 天无提交）。",
+    "AI 前沿：13 个抓取源全部 OK。OpenAI Blog、Anthropic News、Google DeepMind、Google AI Blog、CrewAI Blog、GitHub AI/ML Blog 六个源本次新增条目为 0（脚本已去重），故今日无官方大模型博客条目，非抓取失败。",
+    "arXiv 条目时间为论文提交时间（UTC）换算的北京时间，因索引滞后回看至 11-25，已在 time 中保留提交日期。多源同题已合并（OpenAI 用量收紧一条合并 HN 两条讨论）。"
+  ],
+  "commits": {
+    "title": "仓库提交简报",
+    "window": "过去 24 小时（since 2026-11-25T22:00Z，时间已换算为北京时间）",
+    "repos": [
+      {
+        "name": "deepseek-ai/deepseek-harness",
+        "meta": "master · 24h 内 0 条提交（最近提交 11-22）",
+        "items": [
+          {
+            "title": "过去 24 小时无新提交",
+            "desc": "仓库最近一次提交在 11-22 08:50Z：合并 0.2.3-alpha.2 发版 PR",
+            "author": "—",
+            "time": "—"
+          }
+        ]
+      },
+      {
+        "name": "earendil-works/pi",
+        "meta": "main · 24h 内 360 条提交 · p3「things」重构 + 子智能体能力",
+        "items": [
+          {
+            "title": "feat(p3): subagents 成为一种 thing（harness.subagents）",
+            "desc": "spawn / send / list 由 kinds 体系统一管理",
+            "author": "Mario Zechner",
+            "time": "11-26 23:36"
+          },
+          {
+            "title": "feat(p3): subagents 支持 steer 与 followUp",
+            "desc": "重启后沿用同一 request id，结果只上报一次",
+            "author": "Mario Zechner",
+            "time": "11-27 04:07"
+          },
+          {
+            "title": "feat(p3): instructions 与 skills 合并进同一个 prompt 插件",
+            "desc": "decision 120.2：一个 store、一张 settings 表",
+            "author": "Mario Zechner",
+            "time": "11-27 03:44"
+          },
+          {
+            "title": "feat(p3): sessions 的「holding」机制",
+            "desc": "worker 对 workspace 交给 agent 的每样东西各持一个引用",
+            "author": "Mario Zechner",
+            "time": "11-27 03:34"
+          },
+          {
+            "title": "feat(p3): things 层 worker 契约落地",
+            "desc": "ThingHarnessParts / HeldThings / HarnessSession",
+            "author": "Mario Zechner",
+            "time": "11-26 23:31"
+          },
+          {
+            "title": "feat(chord): 相同的 live read 共享同一数据源",
+            "desc": "ERNDL-1176：重复读合并，等待者按首个结果继续",
+            "author": "Mario Zechner",
+            "time": "11-27 02:52"
+          },
+          {
+            "title": "fix(tui): Kitty 图片改为增量追加，不再整屏重绘（#12597）",
+            "desc": "终端图片渲染性能修复",
+            "author": "Petr Houška",
+            "time": "11-27 05:37"
+          }
+        ]
+      },
+      {
+        "name": "anomalyco/opencode",
+        "meta": "dev · 24h 内 71 条提交 · Code Mode 与远程能力扩张",
+        "items": [
+          {
+            "title": "feat(core): Code Mode 新增 agent()、llm() 与结构化 JSON Schema 输出（#66278）",
+            "desc": "让模型在代码模式里直接编排子 agent 与结构化调用",
+            "author": "Adam Hearn",
+            "time": "11-26 08:41"
+          },
+          {
+            "title": "refactor(core): generate_image / generate_video 改为 Code Mode 工具（#66465）",
+            "desc": "多模态生成并入统一工具层",
+            "author": "Aiden Cline",
+            "time": "11-26 07:45"
+          },
+          {
+            "title": "feat(server): 实验性 spaces（#63998）+ 批量写入（#66668）",
+            "desc": "新的协作空间原语与写入吞吐优化",
+            "author": "Sebastian",
+            "time": "11-26 23:45"
+          },
+          {
+            "title": "feat(browser): 远程浏览器流量走多路复用二进制 WebSocket（#66217）",
+            "desc": "远程操作浏览器的传输层重写",
+            "author": "Luke Parker",
+            "time": "11-26 09:41"
+          },
+          {
+            "title": "feat(core): 机器之间直接复制文件并转发端口（#66457）",
+            "desc": "跨机器的文件与端口通道",
+            "author": "Sebastian",
+            "time": "11-26 07:09"
+          },
+          {
+            "title": "feat(core): 从配置读取 voice / embedding / transcription 模型（#66627）",
+            "desc": "语音与向量模型可配置化",
+            "author": "victor",
+            "time": "11-27 00:09"
+          },
+          {
+            "title": "docs(console): 新增 OpenClaw harness 指南（#66548）",
+            "desc": "文档侧接入第三方 harness",
+            "author": "opencode-agent[bot]",
+            "time": "11-26 15:25"
+          }
+        ]
+      }
+    ]
+  },
+  "trending": {
+    "title": "GitHub Trending 分析",
+    "sources": {
+      "daily": 16,
+      "weekly": 4
+    },
+    "items": [
+      {
+        "rank": 1,
+        "repo": "elementalsouls/Claude-BugHunter",
+        "url": "https://github.com/elementalsouls/Claude-BugHunter",
+        "lang": "Python",
+        "stars": "24,417",
+        "delta": "+1,600",
+        "source": "daily",
+        "summary": "给 Claude Code 的漏洞挖掘 / 红队技能包：85 个 skills、16 个斜杠命令。",
+        "highlight": "README 称覆盖 24 类核心漏洞、收录 681 条已披露报告模式（其中 433 条可逐条追溯），并集成 Burp MCP；在 DVWA、OWASP Juice Shop、Hacker101 等公开靶场实测过；MIT 协议。"
+      },
+      {
+        "rank": 2,
+        "repo": "obra/superpowers",
+        "url": "https://github.com/obra/superpowers",
+        "lang": "Shell",
+        "stars": "327,408",
+        "delta": "+853",
+        "source": "daily",
+        "summary": "把一整套软件开发方法论做成可组合 skills，塞进编码 agent。",
+        "highlight": "README 列出 17 个 agent 的安装入口（Claude Code、Codex、Cursor、Gemini CLI、OpenCode、Pi、Devin CLI 等）；2025-10 建仓，约一年 32.7 万星；MIT。"
+      },
+      {
+        "rank": 3,
+        "repo": "HKUDS/CLI-Anything",
+        "url": "https://github.com/HKUDS/CLI-Anything",
+        "lang": "Python",
+        "stars": "66,289",
+        "delta": "+744",
+        "source": "daily",
+        "summary": "一条命令把任意软件包装成 agent 能直接调用的 CLI。",
+        "highlight": "徽章显示 2,461 项测试通过、18 个应用 demo（CAD、3D 场景、图表、字幕等）；附 arXiv 技术报告 2606.03854；CLI-Hub 支持 pip install 后一键装；Apache-2.0。"
+      },
+      {
+        "rank": 4,
+        "repo": "jingyaogong/minimind",
+        "url": "https://github.com/jingyaogong/minimind",
+        "lang": "Python",
+        "stars": "71,584",
+        "delta": "+701",
+        "source": "daily",
+        "summary": "两小时从零训出 64M 参数小模型的教学项目。",
+        "highlight": "2024-07 建仓、至今仍在更新，7.1 万星；Apache-2.0，配套独立项目主页 jingyaogong.github.io/minimind。"
+      },
+      {
+        "rank": 5,
+        "repo": "cursor/plugins",
+        "url": "https://github.com/cursor/plugins",
+        "lang": "TypeScript",
+        "stars": "19,766",
+        "delta": "+268",
+        "source": "daily",
+        "summary": "Cursor 官方插件规范 + 官方插件集合。",
+        "highlight": "每个插件是仓库根目录下的独立目录，带 .cursor-plugin/plugin.json 清单；已有 teaching、continual-learning（把会话增量写进 AGENTS.md）、thermos（并行子 agent 做安全/正确性审计）等。"
+      },
+      {
+        "rank": 6,
+        "repo": "firecrawl/firecrawl",
+        "url": "https://github.com/firecrawl/firecrawl",
+        "lang": "TypeScript",
+        "stars": "210,861",
+        "delta": "+1,042",
+        "source": "daily",
+        "summary": "给 agent 用的抓取 / 搜索基础设施，号称覆盖 550+ 数据提供方。",
+        "highlight": "AGPL-3.0；topics 明确标 ai-agents / ai-scraping / ai-search；提供 Python 与 Node SDK（README 徽章含 PyPI 下载量）。"
+      },
+      {
+        "rank": 7,
+        "repo": "nginx/nginx",
+        "url": "https://github.com/nginx/nginx",
+        "lang": "C",
+        "stars": "33,508",
+        "delta": "+150",
+        "source": "daily",
+        "summary": "NGINX 官方开源仓库。",
+        "highlight": "BSD-2-Clause；topics 覆盖 HTTP/2、HTTP/3、内容缓存与负载均衡；2015 年建仓。"
+      },
+      {
+        "rank": 8,
+        "repo": "openvinotoolkit/openvino",
+        "url": "https://github.com/openvinotoolkit/openvino",
+        "lang": "C++",
+        "stars": "12,804",
+        "delta": "+176",
+        "source": "daily",
+        "summary": "Intel 的 AI 推理优化与跨平台部署工具链。",
+        "highlight": "Apache-2.0；topics 直接列出 generative-ai、diffusion-models、deploy-ai；文档站 docs.openvino.ai。"
+      },
+      {
+        "rank": 9,
+        "repo": "cathrynlavery/diagram-design",
+        "url": "https://github.com/cathrynlavery/diagram-design",
+        "lang": "HTML",
+        "stars": "73,783",
+        "delta": "+951",
+        "source": "daily",
+        "summary": "agent 画图技能：输出单文件 HTML + SVG，52 种图型。",
+        "highlight": "README 直接写「No shadows. No Mermaid slop」，主打编辑级排版；带 CI 与 skills.sh 安装量徽章；兼容 Claude Code、Codex、Copilot、Cursor、Droid、Qoder；MIT。"
+      },
+      {
+        "rank": 10,
+        "repo": "mvanhorn/last30days-skill",
+        "url": "https://github.com/mvanhorn/last30days-skill",
+        "lang": "Python",
+        "stars": "75,683",
+        "delta": "+755",
+        "source": "daily",
+        "summary": "跨 Reddit / X / YouTube / HN / Polymarket 做主题调研的 agent skill。",
+        "highlight": "自我定位是「按点赞、转发和真金白银排序，而不是编辑打分」的 agent 搜索引擎；README 提供 13 种语言版本；MIT。"
+      },
+      {
+        "rank": 11,
+        "repo": "google-labs-code/stitch-skills",
+        "url": "https://github.com/google-labs-code/stitch-skills",
+        "lang": "TypeScript",
+        "stars": "13,260",
+        "delta": "+308",
+        "source": "daily",
+        "summary": "Google Stitch 的官方 Agent Skills 集合。",
+        "highlight": "遵循 agentskills.io 开放标准；支持 Codex、Antigravity、Gemini CLI、Claude Code、Cursor、OpenCode 安装；Apache-2.0，另见 stitch.withgoogle.com 的 MCP 接入文档。"
+      },
+      {
+        "rank": 12,
+        "repo": "mjmirza/app-store-compliance",
+        "url": "https://github.com/mjmirza/app-store-compliance",
+        "lang": "Shell",
+        "stars": "6,982",
+        "delta": "+561",
+        "source": "daily",
+        "summary": "上架前自查 App Store / Google Play 拒审风险的 playbook 与扫描器。",
+        "highlight": "只需 git + bash，不安装、不改你的工程；规则包超过 60 天会提示 STALE；README 明确「扫描通过不等于过审」，把最容易拒审的演示账号与隐私声明放在最前。"
+      },
+      {
+        "rank": 13,
+        "repo": "Tracer-Cloud/opensre",
+        "url": "https://github.com/Tracer-Cloud/opensre",
+        "lang": "Python",
+        "stars": "15,784",
+        "delta": "+325",
+        "source": "daily",
+        "summary": "面向 CI/CD 可靠性的开源 CLI agent：读失败流水线、追根因、提修复。",
+        "highlight": "自托管、可自带模型；README 标注状态为 public alpha；Apache-2.0，有 Discord 社区。"
+      },
+      {
+        "rank": 14,
+        "repo": "toeverything/AFFiNE",
+        "url": "https://github.com/toeverything/AFFiNE",
+        "lang": "TypeScript",
+        "stars": "78,917",
+        "delta": "+521",
+        "source": "daily",
+        "summary": "Notion + Miro 合体的下一代知识库/白板。",
+        "highlight": "2022-07 建仓、7.8 万星；topics 含 CRDT 与 Electron，走本地优先路线；官网 affine.pro。"
+      },
+      {
+        "rank": 15,
+        "repo": "XiaoYouChR/Ghost-Downloader-3",
+        "url": "https://github.com/XiaoYouChR/Ghost-Downloader-3",
+        "lang": "Python",
+        "stars": "19,047",
+        "delta": "+887",
+        "source": "daily",
+        "summary": "跨平台下载器，HTTP / BT / 磁力一把抓。",
+        "highlight": "GPL-3.0；topics 标 asyncio 与 bittorrent；有独立发布站 gd.xychr.com，2023 年建仓。"
+      },
+      {
+        "rank": 16,
+        "repo": "zhouxiaoka/autoclip",
+        "url": "https://github.com/zhouxiaoka/autoclip",
+        "lang": "Python",
+        "stars": "16,878",
+        "delta": "+770",
+        "source": "daily",
+        "summary": "开源版 OpusClip：本地把长视频/直播切成可发布短视频。",
+        "highlight": "主打零订阅、本地优先，带智能重构图、字幕、封面与标题；内置 MCP server（io.github.zhouxiaoka/autoclip-mcp）；MIT。"
+      },
+      {
+        "rank": 17,
+        "repo": "backnotprop/plannotator",
+        "url": "https://github.com/backnotprop/plannotator",
+        "lang": "TypeScript",
+        "stars": "15,239",
+        "delta": "+1,764",
+        "source": "weekly",
+        "summary": "给编码 agent 的本地评审界面：批注计划/文档、审 diff 与 PR，再把意见回给 agent。",
+        "highlight": "周榜增量冠军之一；支持 Claude Code、Codex、Copilot CLI、Gemini CLI、OpenCode、Pi、DeepSeek Harness 等；评审对象覆盖 Git、GitButler、Jujutsu、Perforce、GitHub、GitLab；Apache-2.0。"
+      },
+      {
+        "rank": 18,
+        "repo": "GoogleChrome/modern-web-guidance-src",
+        "url": "https://github.com/GoogleChrome/modern-web-guidance-src",
+        "lang": "TypeScript",
+        "stars": "11,240",
+        "delta": "+2,309",
+        "source": "weekly",
+        "summary": "把现代 Web 最佳实践与浏览器兼容数据注入编码 agent 的 skill 源仓库。",
+        "highlight": "由 Chrome、Edge、Firefox 与 MDN 团队共同维护；仓库含内容编写、校准与评测代码，并公开评测看板；Apache-2.0。"
+      },
+      {
+        "rank": 19,
+        "repo": "n8n-io/nod",
+        "url": "https://github.com/n8n-io/nod",
+        "lang": "TypeScript",
+        "stars": "3,968",
+        "delta": "+1,008",
+        "source": "weekly",
+        "summary": "n8n 出的开源个人 agent，自带一台「电脑」，在真实网站上替你跑腿。",
+        "highlight": "README 举例：追发票、准备通话、退订试用；跑在本地、模型自选，行动前先征求同意；2026-09 建仓，两个月近 4 千星；Apache-2.0。"
+      },
+      {
+        "rank": 20,
+        "repo": "alibaba/open-code-review",
+        "url": "https://github.com/alibaba/open-code-review",
+        "lang": "Go",
+        "stars": "56,627",
+        "delta": "+2,259",
+        "source": "weekly",
+        "summary": "阿里开源的代码评审 agent，按行给出可执行意见。",
+        "highlight": "自建基准含 50 个开源仓库、200 个真实 PR、10 种语言、1,505 条工程师标注问题；称同模型下比通用 agent 精度与 F1 更高、token 约为 1/9（recall 更低是刻意取舍）；Apache-2.0。"
+      }
+    ]
+  },
+  "aiNews": {
+    "title": "AI 前沿动态",
+    "window": "过去 24 小时（arXiv 因索引滞后回看至 11-25）· 已单列「智能体/Agent」分类",
+    "sourcesUsed": [
+      "Hacker News",
+      "arXiv",
+      "Simon Willison",
+      "量子位",
+      "GitHub Blog",
+      "Latent Space",
+      "GitHub Releases(agent 生态)"
+    ],
+    "items": [
+      {
+        "category": "industry",
+        "title": "OpenAI 收紧 GPT-6.2 用量：Astra 触发限额快 40%、Sol 快 25%",
+        "summary": "OpenAI 员工在 X 上说明 GPT-6.2 的用量限制调整，两个新模型触顶速度明显加快；HN 另一篇热帖则判断 OpenAI 已进入成本控制模式。",
+        "why": "头部厂商从「抢算力扩供给」转向限额与成本纪律，会直接影响开发者选型与产品毛利。",
+        "url": "https://twitter.com/thsottiaux/status/2125784147889393806",
+        "source": "Hacker News（同题另见 micjm.com 分析帖）",
+        "time": "11/26 11:36",
+        "heat": "448 分 · 256 评论（另一帖 152 分）"
+      },
+      {
+        "category": "agent",
+        "title": "Google 将让 AI agent 统一走自家 MCP 服务器，但 Gmail 那个不能发邮件",
+        "summary": "报道称 Google Workspace 的 agent 接入将收敛到 Google 自建 MCP servers，而 Gmail 的 server 权限被限制在读取与草稿，不能直接发信。",
+        "why": "平台方用 MCP 接管 agent 的工具入口，同时用「不能发邮件」这类最小权限划边界，是 agent 生态治理的样板。",
+        "url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/",
+        "source": "Hacker News",
+        "time": "11/26 17:44",
+        "heat": "162 分 · 168 评论"
+      },
+      {
+        "category": "research",
+        "title": "Anthropic 的广义黎曼猜想 Lean 验证放出「更短版本」",
+        "summary": "HN 热帖指向 lsernau/grh-lean 仓库：一份更精简的 GRH 形式化验证代码，被社区当作可复核的 AI 数学产出样本讨论。",
+        "why": "形式化验证把「AI 做出的数学」变成机器可检查的对象，是判断模型推理可信度的关键基础设施。",
+        "url": "https://github.com/lsernau/grh-lean",
+        "source": "Hacker News",
+        "time": "11/26 05:48",
+        "heat": "542 分 · 343 评论"
+      },
+      {
+        "category": "research",
+        "title": "381 个 AI 并行冲刺证明 P=NP，Lean4 已验过 2400 多条引理",
+        "summary": "量子位报道一场由大量 AI 会话并行推进的形式化冲刺：累计跑了一万多次会话，在 Lean4 中验证通过 2400 多条引理，仓库流量一度把 GitHub 压垮。",
+        "why": "「多智能体 + 形式化验证」开始被当作攻克开放问题的工程流水线，而不是单次问答。",
+        "url": "https://www.qbitai.com/2026/11/513021.html",
+        "source": "量子位",
+        "time": "11/26 21:56",
+        "heat": "量子位头条"
+      },
+      {
+        "category": "industry",
+        "title": "《纽约时报》警告摄影师不要升级 Photoshop，理由是 AI 条款",
+        "summary": "NYT 向摄影师发出提醒，建议暂缓升级 Photoshop，争议集中在新版 AI 功能相关的授权与使用条款。",
+        "why": "内容行业与 AI 工具的授权摩擦正从诉讼蔓延到日常软件升级决策。",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1041227/the-new-york-times-warns-photographers-not-to-update-photoshop-over-ai-features",
+        "source": "Hacker News / The Verge",
+        "time": "11/26 05:18",
+        "heat": "638 分 · 513 评论"
+      },
+      {
+        "category": "release",
+        "title": "中国开源 AI 视频模型登顶：30 秒一镜到底，成本压到每秒 5 毛",
+        "summary": "量子位报道一款中国开源 AI 视频模型，主打 30 秒一镜到底与自动镜头编排，把商用级生成成本压到每秒约 0.5 元，并称拿下全球第一。",
+        "why": "视频生成的价格战从闭源 API 打到开源权重，直接压低内容生产门槛。",
+        "url": "https://www.qbitai.com/2026/11/512916.html",
+        "source": "量子位",
+        "time": "11/26 14:41",
+        "heat": "量子位头条"
+      }
+    ]
+  },
+  "observation": [
+    "榜单依旧是「agent 技能包」的天下：Claude-BugHunter、superpowers、diagram-design、last30days、stitch-skills 加上周榜的 modern-web-guidance，20 个项目里近半是在给 agent 装一门手艺，而不是造模型。",
+    "第二个集中点是「评审与闭环」：plannotator 周增 1,764 星做人工批注层，阿里 open-code-review 用 200 个真实 PR 的基准证明专用评审 agent 能用 1/9 的 token 换更高精度，Cursor 的 thermos 插件把并行子 agent 用于审计——竞争焦点从「会写」转向「写完谁来把关」。",
+    "agent 正在长出「自己的电脑」：n8n 的 Nod 直接在真实网站上跑腿、行动前先问，opencode 同日提交了跨机器复制文件、端口转发与远程浏览器多路复用——执行环境与远程控制成为新的基础设施层。",
+    "大厂把内部能力直接开源成产品：阿里开源代码评审 agent、Google 联合 Chrome/Edge/Firefox/MDN 开源现代 Web 技能源、Cursor 开源插件规范，开源正在承担「事实标准」的角色。",
+    "中文与本地优先项目韧性很强：minimind（两小时训 64M 模型）、autoclip（开源 OpusClip + 内置 MCP）、Ghost-Downloader 同榜，说明「零订阅、跑在自己机器上」仍是有效的增长叙事。"
+  ]
+}
